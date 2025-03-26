@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "DGoZol9y66s=",
+  "success": true,
+  "projectFilePath": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\TechnoSphere-2025.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Kapetto\\.nuget\\packages\\materialdesigncolors\\5.2.1\\materialdesigncolors.5.2.1.nupkg.sha512",
+    "C:\\Users\\Kapetto\\.nuget\\packages\\materialdesignthemes\\5.2.1\\materialdesignthemes.5.2.1.nupkg.sha512",
+    "C:\\Users\\Kapetto\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
+  ],
+  "logs": []
+}
