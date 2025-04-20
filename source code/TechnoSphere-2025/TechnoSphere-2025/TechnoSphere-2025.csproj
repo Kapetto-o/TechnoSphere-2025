@@ -10,7 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
+    <None Remove="Close_35x35.png" />
+    <None Remove="Green_16x16.png" />
+    <None Remove="Green_256x256.png" />
+    <None Remove="Green_64x64.png" />
+    <None Remove="Show_35x35.png" />
+    <None Remove="White_16x16.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="icon\Green_64x64.png" />
   </ItemGroup>
 
 </Project>

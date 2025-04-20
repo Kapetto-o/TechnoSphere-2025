@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35818.85 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechnoSphere-2025", "TechnoSphere-2025\TechnoSphere-2025.csproj", "{A810FDDE-77B4-4517-AA27-1F1E5DCE6397}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechnoSphere-2025", "TechnoSphere-2025\TechnoSphere-2025.csproj", "{48B2A1C7-66B6-4F75-BD82-21627F40ED54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A810FDDE-77B4-4517-AA27-1F1E5DCE6397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A810FDDE-77B4-4517-AA27-1F1E5DCE6397}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A810FDDE-77B4-4517-AA27-1F1E5DCE6397}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A810FDDE-77B4-4517-AA27-1F1E5DCE6397}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48B2A1C7-66B6-4F75-BD82-21627F40ED54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48B2A1C7-66B6-4F75-BD82-21627F40ED54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48B2A1C7-66B6-4F75-BD82-21627F40ED54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48B2A1C7-66B6-4F75-BD82-21627F40ED54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1D17A1B0-2F7A-4610-8EDA-EDDA268C7F3F}
+		SolutionGuid = {3B136E65-0239-42C8-A48F-8850153C2752}
 	EndGlobalSection
 EndGlobal

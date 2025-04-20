@@ -3,11 +3,9 @@ D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\bin\
 D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\bin\Debug\net8.0-windows\TechnoSphere-2025.runtimeconfig.json
 D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\bin\Debug\net8.0-windows\TechnoSphere-2025.dll
 D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\bin\Debug\net8.0-windows\TechnoSphere-2025.pdb
-D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\MainWindow.g.cs
 D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\App.g.cs
 D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\TechnoSphere-2025_MarkupCompile.cache
 D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\TechnoSphere-2025_MarkupCompile.lref
-D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\MainWindow.baml
 D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\TechnoSphere-2025.g.resources
 D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\TechnoSphere-2025.GeneratedMSBuildEditorConfig.editorconfig
 D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\TechnoSphere-2025.AssemblyInfoInputs.cache
@@ -19,9 +17,10 @@ D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\
 D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\TechnoSphere-2025.pdb
 D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\TechnoSphere-2025.genruntimeconfig.cache
 D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\ref\TechnoSphere-2025.dll
-D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\bin\Debug\net8.0-windows\MaterialDesignColors.dll
-D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\bin\Debug\net8.0-windows\MaterialDesignThemes.Wpf.dll
-D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll
-D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\TechnoSphere-2025.csproj.AssemblyReference.cache
+D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\WindowMain.g.cs
+D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\WindowMain.baml
+D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\AuthorizationPage.g.cs
+D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\AuthorizationPage.baml
+D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\RegistrationPage.g.cs
+D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\RegistrationPage.baml
 D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\App.baml
-D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\TechnoSp.199106FB.Up2Date

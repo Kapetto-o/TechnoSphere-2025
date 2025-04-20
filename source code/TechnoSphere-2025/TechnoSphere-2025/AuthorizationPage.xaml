@@ -1,0 +1,125 @@
+﻿<Page x:Class="TechnoSphere_2025.AuthorizationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TechnoSphere_2025"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1000"
+      Title="AuthorizationPage" Width="1000" Height="701">
+    <Page.Resources>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="#1A5832">
+            <!-- Левая часть -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Margin="15" VerticalAlignment="Bottom">
+                <TextBlock Text="Добро пожаловать!"
+                       FontSize="32"
+                       FontWeight="Medium"
+                       Foreground="White"
+                       Margin="0,0,0,30"
+                       HorizontalAlignment="Center"/>
+                <TextBlock Text="Прежде чем продолжить, войдите в свой аккаунт."
+                       FontSize="24"
+                       Foreground="White"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <!-- Правая часть -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.65*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel MaxWidth="480" Grid.Row="1" VerticalAlignment="Center" Margin="15,0,15,0">
+                <!-- Заголовок -->
+                <TextBlock Text="Авторизация"
+                       FontSize="32"
+                       FontWeight="Medium"
+                       Foreground="#1a5832"
+                       Margin="0,0,0,30"
+                       HorizontalAlignment="Center"/>
+
+                <!-- Поле ввода E-mail -->
+                <TextBlock Text="Ваш E-mail"
+                       FontSize="15"
+                       FontWeight="Medium"
+                       Foreground="#353535"
+                       Margin="0,0,0,5"/>
+
+                <TextBox Margin="0,0,0,15"
+                         Style="{StaticResource RegAut_TextBox}"/>
+
+                <!-- Поле ввода пароля -->
+                <TextBlock Text="Пароль"
+                       FontSize="15"
+                       FontWeight="Medium"
+                       Foreground="#353535"
+                       Margin="0,0,0,5"/>
+
+                <TextBox Margin="0,0,0,30"
+                         Style="{StaticResource RegAut_TextBox}"/>
+
+                <!-- Кнопка "Войти" -->
+                <Button Content="Войти"
+                    Height="40"
+                    FontSize="24"
+                    FontWeight="Medium"
+                    Foreground="White"
+                    Margin="0,0,0,30"
+                    BorderThickness="0"
+                    Cursor="Hand">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#1A5832"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#387A2B"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <StackPanel Orientation="Horizontal">
+                    <!-- Переход в регистрацию -->
+                    <TextBlock Text="Нет аккаунта?"
+                           FontSize="15"
+                           FontWeight="Medium"
+                           Foreground="#353535"
+                           Margin="0,0,5,0"/>
+                    <TextBlock FontSize="15"
+                           FontWeight="Medium">
+                    <Hyperlink Click="GoToRegister_Click" Foreground="#1A5832" TextDecorations="{x:Null}">
+                        Зарегистрироваться
+                    </Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

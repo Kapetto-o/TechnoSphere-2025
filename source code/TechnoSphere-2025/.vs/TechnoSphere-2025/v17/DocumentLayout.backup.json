@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A810FDDE-77B4-4517-AA27-1F1E5DCE6397}|TechnoSphere-2025\\TechnoSphere-2025.csproj|d:\\github\\technosphere-2025\\source code\\technosphere-2025\\technosphere-2025\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A810FDDE-77B4-4517-AA27-1F1E5DCE6397}|TechnoSphere-2025\\TechnoSphere-2025.csproj|solutionrelative:technosphere-2025\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|d:\\github\\technosphere-2025\\source code\\technosphere-2025\\technosphere-2025\\authorizationpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|solutionrelative:technosphere-2025\\authorizationpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A810FDDE-77B4-4517-AA27-1F1E5DCE6397}|TechnoSphere-2025\\TechnoSphere-2025.csproj|d:\\github\\technosphere-2025\\source code\\technosphere-2025\\technosphere-2025\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A810FDDE-77B4-4517-AA27-1F1E5DCE6397}|TechnoSphere-2025\\TechnoSphere-2025.csproj|solutionrelative:technosphere-2025\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|d:\\github\\technosphere-2025\\source code\\technosphere-2025\\technosphere-2025\\windowmain.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|solutionrelative:technosphere-2025\\windowmain.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A810FDDE-77B4-4517-AA27-1F1E5DCE6397}|TechnoSphere-2025\\TechnoSphere-2025.csproj|d:\\github\\technosphere-2025\\source code\\technosphere-2025\\technosphere-2025\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A810FDDE-77B4-4517-AA27-1F1E5DCE6397}|TechnoSphere-2025\\TechnoSphere-2025.csproj|solutionrelative:technosphere-2025\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|d:\\github\\technosphere-2025\\source code\\technosphere-2025\\technosphere-2025\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|solutionrelative:technosphere-2025\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|d:\\github\\technosphere-2025\\source code\\technosphere-2025\\technosphere-2025\\registrationpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|solutionrelative:technosphere-2025\\registrationpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|d:\\github\\technosphere-2025\\source code\\technosphere-2025\\technosphere-2025\\registrationpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|solutionrelative:technosphere-2025\\registrationpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,9 +29,13 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "DockedWidth": 78,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -33,32 +45,56 @@
               "ToolTip": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\App.xaml",
               "RelativeToolTip": "TechnoSphere-2025\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-25T22:19:09.723Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "TechnoSphere-2025\\MainWindow.xaml",
-              "ToolTip": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\MainWindow.xaml",
-              "RelativeToolTip": "TechnoSphere-2025\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-25T21:29:32.195Z",
+              "WhenOpened": "2025-04-20T18:52:44.288Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "TechnoSphere-2025\\MainWindow.xaml.cs",
-              "ToolTip": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\MainWindow.xaml.cs",
-              "RelativeToolTip": "TechnoSphere-2025\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAD4vxsAAAAAAAAAAAAAAA==",
+              "Title": "WindowMain.xaml",
+              "DocumentMoniker": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\WindowMain.xaml",
+              "RelativeDocumentMoniker": "TechnoSphere-2025\\WindowMain.xaml",
+              "ToolTip": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\WindowMain.xaml",
+              "RelativeToolTip": "TechnoSphere-2025\\WindowMain.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-20T18:44:03.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthorizationPage.xaml",
+              "DocumentMoniker": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\AuthorizationPage.xaml",
+              "RelativeDocumentMoniker": "TechnoSphere-2025\\AuthorizationPage.xaml",
+              "ToolTip": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\AuthorizationPage.xaml",
+              "RelativeToolTip": "TechnoSphere-2025\\AuthorizationPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-20T18:28:49.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RegistrationPage.xaml",
+              "DocumentMoniker": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\RegistrationPage.xaml",
+              "RelativeDocumentMoniker": "TechnoSphere-2025\\RegistrationPage.xaml",
+              "ToolTip": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\RegistrationPage.xaml",
+              "RelativeToolTip": "TechnoSphere-2025\\RegistrationPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-20T18:20:17.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RegistrationPage.xaml.cs",
+              "DocumentMoniker": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\RegistrationPage.xaml.cs",
+              "RelativeDocumentMoniker": "TechnoSphere-2025\\RegistrationPage.xaml.cs",
+              "ToolTip": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\RegistrationPage.xaml.cs",
+              "RelativeToolTip": "TechnoSphere-2025\\RegistrationPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T21:29:27.713Z",
+              "WhenOpened": "2025-04-20T18:20:14.316Z",
               "EditorCaption": ""
             }
           ]
