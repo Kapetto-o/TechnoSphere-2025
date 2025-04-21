@@ -4,6 +4,19 @@
     <Color x:Key="ForegroundColor">#1E1E1E</Color>
     <Color x:Key="Heightline">#E0E0E0</Color>
     <Color x:Key="Mainline">#A0A0A0</Color>
-    <Color x:Key="Special_1">#1A5832</Color>
-    <Color x:Key="Special_2">#387A2B</Color>
+    <Color x:Key="SelectColor_1">#1A5832</Color>
+    <Color x:Key="SelectColor_2">#387A2B</Color>
+
+    <SolidColorBrush x:Key="BrushBackground" Color="{StaticResource BackgroundColor}"/>
+    <SolidColorBrush x:Key="BrushForeground" Color="{StaticResource ForegroundColor}"/>
+
+    <!-- Фон -->
+    <Style TargetType="Window">
+        <Setter Property="Background" Value="{DynamicResource BrushBackground}"/>
+    </Style>
+
+    <!-- Второстепенный фон -->
+    <Style TargetType="Grid" x:Name="Foreground">
+        <Setter Property="Background" Value="{DynamicResource BrushForeground}"/>
+    </Style>
 </ResourceDictionary>

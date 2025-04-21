@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TechnoSphere_2025"
         mc:Ignorable="d"
+        WindowStyle="None"
         FontFamily="Roboto"
-        Title="TechnoSphere-2025" Height="700" Width="1000" Icon="icon/Green_64x64.png" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        ResizeMode="NoResize"
+        Title="TechnoSphere-2025"
+        Height="700" Width="1000"
+        Icon="icon/Green_64x64.png"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource BrushBackground}">
     <Window.Resources>
         <Style x:Key="WindowButtonStyle" TargetType="Button">
             <Setter Property="Width"       Value="35"/>
@@ -88,7 +94,7 @@
 
     <Grid>
         <Grid x:Name="WindowControl_Moving" Background="Transparent" Panel.ZIndex="1" MouseLeftButtonDown="WindowControl_Moving_MouseLeftButtonDown" Margin="0,0,70,665" Grid.ColumnSpan="2"/>
-        <Grid x:Name="WindowsControl_Button" Width="70" Height="35" HorizontalAlignment="Right" VerticalAlignment="Top">
+        <Grid x:Name="WindowsControl_Button" Panel.ZIndex="1" Width="70" Height="35" HorizontalAlignment="Right" VerticalAlignment="Top">
             <!-- Кнопка «минимизировать» -->
             <Button Style="{StaticResource ShowButtonStyle}"
                     ContentTemplate="{StaticResource ShowIconTemplate}"

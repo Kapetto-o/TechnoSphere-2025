@@ -1,7 +1,32 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Color x:Key="BackgroundColor">#FFFFFF</Color>
-    <Color x:Key="ForegroundColor">#387A2B</Color>
-    <Color x:Key="Heightline">#1A5832</Color>
-    <Color x:Key="Mainline">#353535</Color>
+    <Color x:Key="WhiteColor">#FFFFFF</Color>
+    <Color x:Key="GreenColor">#1A5832</Color>
+    <Color x:Key="Light-greenColor">#387A2B</Color>
+    <Color x:Key="GrayColor">#353535</Color>
+
+    <SolidColorBrush x:Key="BrushBackground" Color="{StaticResource WhiteColor}"/>
+    <SolidColorBrush x:Key="BrushForeground" Color="{StaticResource GreenColor}"/>
+    <SolidColorBrush x:Key="BrushHeightline_White" Color="{StaticResource WhiteColor}"/>
+    <SolidColorBrush x:Key="BrushHeightline_Green" Color="{StaticResource GreenColor}"/>
+
+    <!-- Фон -->
+    <Style TargetType="Window">
+        <Setter Property="Background" Value="{DynamicResource BrushBackground}"/>
+    </Style>
+
+    <!-- Второстепенный фон --><!--
+    <Style TargetType="Grid">
+        <Setter Property="Background" Value="{DynamicResource BrushForeground}"/>
+    </Style>-->
+    
+    <!-- Заголовки_1 -->
+    <Style TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource BrushHeightline_White}"/>
+    </Style>
+    
+    <!-- Заголовки_2 -->
+    <Style TargetType="TextBlock" x:Key="Hightline_2">
+        <Setter Property="Foreground" Value="{DynamicResource BrushHeightline_Green}"/>
+    </Style>
 </ResourceDictionary>

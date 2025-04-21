@@ -15,7 +15,7 @@
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Background="#1A5832">
+        <Grid x:Name="Foreground" Background="{DynamicResource BrushForeground}">
             <!-- Левая часть -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>
@@ -24,12 +24,12 @@
             <StackPanel Margin="15" VerticalAlignment="Bottom">
                 <TextBlock Text="Добро пожаловать!"
                            Style="{StaticResource Headline_1}"
-                           Foreground="White"
+                           Foreground="{DynamicResource ResourceKey=BrushHeightline_White}"
                            Margin="0,0,0,30"
                            HorizontalAlignment="Center"/>
                 <TextBlock Text="Прежде чем продолжить, войдите в свой аккаунт."
                            Style="{StaticResource Headline_2}"
-                           Foreground="White"
+                           Foreground="{DynamicResource BrushHeightline_White}"
                            TextWrapping="Wrap"
                            TextAlignment="Center"
                            HorizontalAlignment="Center"/>
@@ -107,9 +107,9 @@
                                Foreground="#353535"
                                Margin="0,0,5,0"/>
                     <TextBlock Style="{StaticResource Mainline_2}">
-                    <Hyperlink Click="GoToRegister_Click" Foreground="#1A5832" TextDecorations="{x:Null}">
-                        Зарегистрироваться
-                    </Hyperlink>
+                        <Hyperlink Click="GoToRegister_Click" Foreground="#1A5832" TextDecorations="{x:Null}">
+                            Зарегистрироваться
+                        </Hyperlink>
                     </TextBlock>
                 </StackPanel>
             </StackPanel>
