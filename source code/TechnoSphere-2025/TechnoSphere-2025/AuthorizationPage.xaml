@@ -23,17 +23,16 @@
             </Grid.RowDefinitions>
             <StackPanel Margin="15" VerticalAlignment="Bottom">
                 <TextBlock Text="Добро пожаловать!"
-                       FontSize="32"
-                       FontWeight="Medium"
-                       Foreground="White"
-                       Margin="0,0,0,30"
-                       HorizontalAlignment="Center"/>
+                           Style="{StaticResource Headline_1}"
+                           Foreground="White"
+                           Margin="0,0,0,30"
+                           HorizontalAlignment="Center"/>
                 <TextBlock Text="Прежде чем продолжить, войдите в свой аккаунт."
-                       FontSize="24"
-                       Foreground="White"
-                       TextWrapping="Wrap"
-                       TextAlignment="Center"
-                       HorizontalAlignment="Center"/>
+                           Style="{StaticResource Headline_2}"
+                           Foreground="White"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center"/>
             </StackPanel>
         </Grid>
 
@@ -48,46 +47,43 @@
             <StackPanel MaxWidth="480" Grid.Row="1" VerticalAlignment="Center" Margin="15,0,15,0">
                 <!-- Заголовок -->
                 <TextBlock Text="Авторизация"
-                       FontSize="32"
-                       FontWeight="Medium"
-                       Foreground="#1a5832"
-                       Margin="0,0,0,30"
-                       HorizontalAlignment="Center"/>
+                           Style="{StaticResource Headline_1}"
+                           Foreground="#1a5832"
+                           Margin="0,0,0,30"
+                           HorizontalAlignment="Center"/>
 
                 <!-- Поле ввода E-mail -->
                 <TextBlock Text="Ваш E-mail"
-                       FontSize="15"
-                       FontWeight="Medium"
-                       Foreground="#353535"
-                       Margin="0,0,0,5"/>
+                           Style="{StaticResource Mainline_2}"
+                           Foreground="#353535"
+                           Margin="0,0,0,5"/>
 
                 <TextBox Margin="0,0,0,15"
                          Style="{StaticResource RegAut_TextBox}"/>
 
                 <!-- Поле ввода пароля -->
                 <TextBlock Text="Пароль"
-                       FontSize="15"
-                       FontWeight="Medium"
-                       Foreground="#353535"
-                       Margin="0,0,0,5"/>
+                           Style="{StaticResource Mainline_2}"
+                           Foreground="#353535"
+                           Margin="0,0,0,5"/>
 
                 <TextBox Margin="0,0,0,30"
                          Style="{StaticResource RegAut_TextBox}"/>
 
                 <!-- Кнопка "Войти" -->
                 <Button Content="Войти"
-                    Height="40"
-                    FontSize="24"
-                    FontWeight="Medium"
-                    Foreground="White"
-                    Margin="0,0,0,30"
-                    BorderThickness="0"
-                    Cursor="Hand">
+                        Height="40"
+                        FontSize="24"
+                        FontWeight="Medium"
+                        Foreground="White"
+                        Margin="0,0,0,30"
+                        BorderThickness="0"
+                        Cursor="Hand">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
-                                BorderBrush="{TemplateBinding BorderBrush}" 
-                                BorderThickness="{TemplateBinding BorderThickness}">
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}">
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </Border>
                         </ControlTemplate>
@@ -95,7 +91,6 @@
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="#1A5832"/>
-                            <Setter Property="Foreground" Value="White"/>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background" Value="#387A2B"/>
@@ -108,12 +103,10 @@
                 <StackPanel Orientation="Horizontal">
                     <!-- Переход в регистрацию -->
                     <TextBlock Text="Нет аккаунта?"
-                           FontSize="15"
-                           FontWeight="Medium"
-                           Foreground="#353535"
-                           Margin="0,0,5,0"/>
-                    <TextBlock FontSize="15"
-                           FontWeight="Medium">
+                               Style="{StaticResource Mainline_2}"
+                               Foreground="#353535"
+                               Margin="0,0,5,0"/>
+                    <TextBlock Style="{StaticResource Mainline_2}">
                     <Hyperlink Click="GoToRegister_Click" Foreground="#1A5832" TextDecorations="{x:Null}">
                         Зарегистрироваться
                     </Hyperlink>

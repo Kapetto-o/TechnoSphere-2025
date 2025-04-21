@@ -4,34 +4,64 @@
              xmlns:local="clr-namespace:TechnoSphere_2025"
              StartupUri="WindowMain.xaml">
     <Application.Resources>
-        <!-- TextBox в окнах регистрации и авторизации-->
-        <Style x:Key="RegAut_TextBox" TargetType="TextBox">
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="FontSize" Value="24"/>
-            <Setter Property="BorderBrush" Value="#353535"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <ResourceDictionary>
+            <!-- Смена темы -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/DarkTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
             
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
-                        <Border x:Name="Bd"
+            <!-- TextBox в окнах регистрации и авторизации-->
+            <Style x:Key="RegAut_TextBox" TargetType="TextBox">
+                <Setter Property="Height" Value="40"/>
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="BorderBrush" Value="#353535"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TextBox">
+                            <Border x:Name="Bd"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}">
-                            <ScrollViewer x:Name="PART_ContentHost"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Bd" Property="BorderBrush" Value="#1A5832"/>
-                            </Trigger>
-                            <Trigger Property="IsKeyboardFocused" Value="True">
-                                <Setter TargetName="Bd" Property="BorderBrush" Value="#1A5832"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+                                <ScrollViewer x:Name="PART_ContentHost"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="Bd" Property="BorderBrush" Value="#1A5832"/>
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                    <Setter TargetName="Bd" Property="BorderBrush" Value="#1A5832"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- Текст: Заголовок_1 -->
+            <Style x:Key="Headline_1" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="32"/>
+                <Setter Property="FontWeight" Value="Medium"/>
+            </Style>
+
+            <!-- Текст: Заголовок_2 -->
+            <Style x:Key="Headline_2" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="FontWeight" Value="Medium"/>
+            </Style>
+
+            <!-- Текст: Основной_1 -->
+            <Style x:Key="Mainline_1" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="24"/>
+            </Style>
+
+            <!-- Текст: Основной_2 -->
+            <Style x:Key="Mainline_2" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontWeight" Value="Medium"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

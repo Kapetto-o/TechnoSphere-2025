@@ -90,16 +90,14 @@
         <Grid x:Name="WindowControl_Moving" Background="Transparent" Panel.ZIndex="1" MouseLeftButtonDown="WindowControl_Moving_MouseLeftButtonDown" Margin="0,0,70,665" Grid.ColumnSpan="2"/>
         <Grid x:Name="WindowsControl_Button" Width="70" Height="35" HorizontalAlignment="Right" VerticalAlignment="Top">
             <!-- Кнопка «минимизировать» -->
-            <Button
-                    Style="{StaticResource ShowButtonStyle}"
+            <Button Style="{StaticResource ShowButtonStyle}"
                     ContentTemplate="{StaticResource ShowIconTemplate}"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     Click="Show_Click"/>
 
             <!-- Кнопка «закрыть» -->
-            <Button
-                    Style="{StaticResource CloseButtonStyle}"
+            <Button Style="{StaticResource CloseButtonStyle}"
                     ContentTemplate="{StaticResource CloseIconTemplate}"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
