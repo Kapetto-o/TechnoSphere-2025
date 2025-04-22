@@ -12,7 +12,7 @@
         Height="700" Width="1000"
         Icon="icon/Green_64x64.png"
         WindowStartupLocation="CenterScreen"
-        Background="{DynamicResource BrushBackground}">
+        Style="{DynamicResource BackgroundColor}">
     <Window.Resources>
         <Style x:Key="WindowButtonStyle" TargetType="Button">
             <Setter Property="Width"       Value="35"/>
