@@ -7,15 +7,13 @@
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1000"
       Title="AuthorizationPage" Width="1000" Height="701">
-    <Page.Resources>
-    </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Background="#1A5832">
+        <Grid Style="{DynamicResource ForegraundColor}">
             <!-- Левая часть -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>
@@ -23,16 +21,14 @@
             </Grid.RowDefinitions>
             <StackPanel Margin="15" VerticalAlignment="Bottom">
                 <TextBlock Text="Добро пожаловать!"
-                           Style="{StaticResource Headline_1}"
-                           Foreground="White"
-                           Margin="0,0,0,30"
-                           HorizontalAlignment="Center"/>
+               Style="{DynamicResource HeadlineColor_1_1}"
+               Margin="0,0,0,30"
+               HorizontalAlignment="Center"/>
                 <TextBlock Text="Прежде чем продолжить, войдите в свой аккаунт."
-                           Style="{StaticResource Headline_2}"
-                           Foreground="White"
-                           TextWrapping="Wrap"
-                           TextAlignment="Center"
-                           HorizontalAlignment="Center"/>
+               Style="{DynamicResource MainlineColor_1}"
+               TextWrapping="Wrap"
+               TextAlignment="Center"
+               HorizontalAlignment="Center"/>
             </StackPanel>
         </Grid>
 
@@ -47,90 +43,57 @@
             <StackPanel MaxWidth="480" Grid.Row="1" VerticalAlignment="Center" Margin="15,0,15,0">
                 <!-- Заголовок -->
                 <TextBlock Text="Регистрация"
-                           Style="{StaticResource Headline_1}"
-                           Foreground="#1a5832"
+                           Style="{DynamicResource HeadlineColor_1_2}"
                            Margin="0,0,0,30"
                            HorizontalAlignment="Center"/>
 
                 <!-- Поле ввода имени пользователя -->
                 <TextBlock Text="Ваше имя пользователя"
-                           Style="{StaticResource Mainline_2}"
-                           Foreground="#353535"
+                           Style="{DynamicResource MainlineColor_2}"
                            Margin="0,0,0,5"/>
 
-                <TextBox Height="40"
-                         FontSize="24"
-                         BorderBrush="#353535"
+                <TextBox Style="{DynamicResource TextBoxColor}"
                          Margin="0,0,0,15"/>
 
                 <!-- Поле ввода E-mail -->
                 <TextBlock Text="Ваш E-mail"
-                           Style="{StaticResource Mainline_2}"
-                           Foreground="#353535"
+                           Style="{DynamicResource MainlineColor_2}"
                            Margin="0,0,0,5"/>
 
-                <TextBox Margin="0,0,0,15"
-                         Style="{StaticResource RegAut_TextBox}"/>
+                <TextBox Style="{DynamicResource TextBoxColor}"
+                         Margin="0,0,0,15"/>
 
                 <!-- Поле ввода пароля -->
                 <TextBlock Text="Пароль"
-                           Style="{StaticResource Mainline_2}"
-                           Foreground="#353535"
+                           Style="{DynamicResource MainlineColor_2}"
                            Margin="0,0,0,5"/>
 
-                <TextBox Margin="0,0,0,15"
-                         Style="{StaticResource RegAut_TextBox}"/>
+                <TextBox Style="{DynamicResource TextBoxColor}"
+                         Margin="0,0,0,15"/>
                 
                 <!-- Поле ввода пароля -->
                 <TextBlock Text="Повторите пароль"
-                           Style="{StaticResource Mainline_2}"
-                           Foreground="#353535"
+                           Style="{DynamicResource MainlineColor_2}"
                            Margin="0,0,0,5"/>
 
-                <TextBox Margin="0,0,0,30"
-                         Style="{StaticResource RegAut_TextBox}"/>
+                <TextBox Style="{DynamicResource TextBoxColor}"
+                         Margin="0,0,0,30"/>
 
                 <!-- Кнопка "Зарегистрироваться" -->
                 <Button Content="Зарегистрироваться"
-                        Height="40"
-                        FontSize="24"
-                        FontWeight="Medium"
-                        Foreground="White"
-                        Margin="0,0,0,30"
-                        BorderThickness="0"
-                        Cursor="Hand">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Background="{TemplateBinding Background}" 
-                                    BorderBrush="{TemplateBinding BorderBrush}" 
-                                    BorderThickness="{TemplateBinding BorderThickness}">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#1A5832"/>
-                            <Setter Property="Foreground" Value="White"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#387A2B"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
+                        Style="{DynamicResource ButtonColor}"
+                        Margin="0,0,0,30">
                 </Button>
 
                 <StackPanel Orientation="Horizontal">
                     <!-- Переход в регистрацию -->
                     <TextBlock Text="Уже есть аккаунт?"
-                               Style="{StaticResource Mainline_2}"
-                               Foreground="#353535"
+                               Style="{DynamicResource MainlineColor_2}"
                                Margin="0,0,5,0"/>
                     <TextBlock Style="{StaticResource Mainline_2}">
-                    <Hyperlink Click="GoToLogin_Click" Foreground="#1A5832" TextDecorations="{x:Null}">
-                        Войти
-                    </Hyperlink>
+                        <Hyperlink Click="GoToLogin_Click" Foreground="#1A5832" TextDecorations="{x:Null}">
+                            Войти
+                        </Hyperlink>
                     </TextBlock>
                 </StackPanel>
             </StackPanel>
