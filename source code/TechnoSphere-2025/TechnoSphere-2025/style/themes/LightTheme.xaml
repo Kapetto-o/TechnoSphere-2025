@@ -67,7 +67,12 @@
     <Style x:Key="MainlineColor_2" TargetType="TextBlock" BasedOn="{StaticResource Mainline_2}">
         <Setter Property="Foreground" Value="{DynamicResource BrushGrayColor}"/>
     </Style>
-    
+
+    <!-- Аккаунт -->
+    <Style x:Key="HeaderlineColor" TargetType="TextBlock" BasedOn="{StaticResource Headerline}">
+        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
+    </Style>
+
     <!-- Элементы управления -->
     <!-- TextBox в окнах регистрации и авторизации -->
     <Style x:Key="TextBoxColor" TargetType="TextBox" BasedOn="{StaticResource RegAut_TextBox}">
@@ -80,5 +85,14 @@
     <Style x:Key="ButtonColor" TargetType="Button" BasedOn="{StaticResource RegAut_Button}">
         <Setter Property="Background" Value="{DynamicResource BrushGreenColor}"/>
         <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
+    </Style>
+
+    <Style x:Key="IconColor" TargetType="Button" BasedOn="{StaticResource IconStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BrushLight_greenColor}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>

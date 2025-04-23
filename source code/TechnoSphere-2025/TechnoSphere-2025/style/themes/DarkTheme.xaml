@@ -72,6 +72,11 @@
         <Setter Property="Foreground" Value="{DynamicResource BrushLight_grayColor}"/>
     </Style>
 
+    <!-- Аккаунт -->
+    <Style x:Key="HeaderlineColor" TargetType="TextBlock" BasedOn="{StaticResource Headerline}">
+        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
+    </Style>
+
     <!-- Элементы управления -->
     <!-- TextBox в окнах регистрации и авторизации -->
     <Style x:Key="TextBoxColor" TargetType="TextBox" BasedOn="{StaticResource RegAut_TextBox}">

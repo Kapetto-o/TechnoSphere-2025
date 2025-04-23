@@ -11,20 +11,22 @@
 
   <ItemGroup>
     <None Remove="banners\banner_1.png" />
+    <None Remove="banners\banner_2.png" />
     <None Remove="Close_35x35.png" />
     <None Remove="Green_16x16.png" />
     <None Remove="Green_256x256.png" />
     <None Remove="Green_64x64.png" />
+    <None Remove="icon\LogoFullWhite.png" />
+    <None Remove="icon\LogoMiniGreen_64x64.png" />
     <None Remove="Show_35x35.png" />
     <None Remove="White_16x16.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="banners\banner_1.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="icon\Green_64x64.png" />
+    <Resource Include="banners\banner_2.png" />
+    <Resource Include="icon\LogoFullWhite.png" />
+    <Resource Include="icon\LogoMiniGreen_64x64.png" />
   </ItemGroup>
 
 </Project>

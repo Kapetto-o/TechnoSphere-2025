@@ -10,40 +10,10 @@
         ResizeMode="NoResize"
         Title="TechnoSphere-2025"
         Height="700" Width="1000"
-        Icon="icon/Green_64x64.png"
         WindowStartupLocation="CenterScreen"
-        Style="{DynamicResource BackgroundColor}">
-    <Window.Resources>
-        <DataTemplate x:Key="ShowIconTemplate">
-            <!-- Иконка скрывания окна -->
-            <Grid Width="35" Height="35">
-                <Path Data="M8,17 L28,17"
-                      Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
-                      StrokeThickness="2"
-                      StrokeStartLineCap="Round"
-                      StrokeEndLineCap="Round"/>
-            </Grid>
-        </DataTemplate>
-
-        <DataTemplate x:Key="CloseIconTemplate">
-            <!-- Иконка закрытия окна -->
-            <Grid Width="35" Height="35">
-                <Path Data="M10,10 L25,25"
-                      Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
-                      StrokeThickness="2"
-                      StrokeStartLineCap="Round"
-                      StrokeEndLineCap="Round"/>
-                <Path Data="M25,10 L10,25"
-                      Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
-                      StrokeThickness="2"
-                      StrokeStartLineCap="Round"
-                      StrokeEndLineCap="Round"/>
-            </Grid>
-        </DataTemplate>
-    </Window.Resources>
-
+        Style="{DynamicResource BackgroundColor}" Icon="/icon/LogoMiniGreen_64x64.png">
     <Grid>
-        <Grid x:Name="WindowControl_Moving" Background="Transparent" Panel.ZIndex="1" MouseLeftButtonDown="WindowControl_Moving_MouseLeftButtonDown" Margin="0,0,70,665" Grid.ColumnSpan="2"/>
+        <Grid x:Name="WindowControl_Moving" Background="Transparent" Panel.ZIndex="1" MouseLeftButtonDown="WindowControl_Moving_MouseLeftButtonDown" Width="930" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
         <Grid x:Name="WindowsControl_Button" Panel.ZIndex="1" Width="70" Height="35" HorizontalAlignment="Right" VerticalAlignment="Top">
             <!-- Кнопка «Скрытия окна» -->
             <Button x:Name="HideButton"
@@ -62,6 +32,6 @@
                     Margin="35,0,0,0"
                     Click="Close_Click"/>
         </Grid>
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

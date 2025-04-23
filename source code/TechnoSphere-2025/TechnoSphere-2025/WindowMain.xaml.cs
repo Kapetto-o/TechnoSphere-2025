@@ -20,6 +20,7 @@ public partial class WindowMain : Window
     {
         InitializeComponent();
         MainFrame.Navigated += Page_Navigated;
+        MainFrame.Navigated += MainFrame_Navigated;
         MainFrame.Navigate(new AuthorizationPage());
     }
 
@@ -52,5 +53,13 @@ public partial class WindowMain : Window
             HideButton.Style = (Style)Application.Current.FindResource("HideColor_2");
             CloseButton.Style = (Style)Application.Current.FindResource("CloseColor_2");
         }
+    }
+
+    private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+    {
+        if (e.Content is AuthorizationPage || e.Content is RegistrationPage)
+            WindowControl_Moving.Width = 1000;    // стандартная зона
+        else
+            WindowControl_Moving.Height = 80;    // новая зона для хедера
     }
 }
