@@ -29,6 +29,23 @@
         <Setter Property="Background" Value="{DynamicResource BrushGrayColor}"/>
     </Style>
 
+    <!-- Управление окном -->
+    <!-- Скрыть окно -->
+    <Style x:Key="HideColor_1" TargetType="Button" BasedOn="{StaticResource ShowButtonStyle}">
+        <Setter Property="Foreground"  Value="{DynamicResource BrushLight_grayColor}"/>
+    </Style>
+    <Style x:Key="HideColor_2" TargetType="Button" BasedOn="{StaticResource ShowButtonStyle}">
+        <Setter Property="Foreground"  Value="{DynamicResource BrushLight_grayColor}"/>
+    </Style>
+
+    <!-- Удалить окно -->
+    <Style x:Key="CloseColor_1" TargetType="Button" BasedOn="{StaticResource CloseButtonStyle}">
+        <Setter Property="Foreground"  Value="{DynamicResource BrushLight_grayColor}"/>
+    </Style>
+    <Style x:Key="CloseColor_2" TargetType="Button" BasedOn="{StaticResource CloseButtonStyle}">
+        <Setter Property="Foreground"  Value="{DynamicResource BrushLight_grayColor}"/>
+    </Style>
+    
     <!-- Текст -->
     <!-- Заголовок_1 цвет_1 -->
     <Style x:Key="HeadlineColor_1_1" TargetType="TextBlock" BasedOn="{StaticResource Headline_1}">

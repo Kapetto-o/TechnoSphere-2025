@@ -14,56 +14,6 @@
         WindowStartupLocation="CenterScreen"
         Style="{DynamicResource BackgroundColor}">
     <Window.Resources>
-        <Style x:Key="WindowButtonStyle" TargetType="Button">
-            <Setter Property="Width"       Value="35"/>
-            <Setter Property="Height"      Value="35"/>
-            <Setter Property="Background"  Value="Transparent"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="Foreground"  Value="#1A5832"/>
-            <Setter Property="Cursor"      Value="Hand"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Grid Background="{TemplateBinding Background}">
-                            <ContentPresenter
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!-- Стиль для скрывающей кнопки -->
-        <Style x:Key="ShowButtonStyle"
-               TargetType="Button"
-               BasedOn="{StaticResource WindowButtonStyle}">
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#cccccc"/>
-                    <Setter Property="Foreground" Value="White"/>
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Opacity" Value="0.7"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
-        <!-- Стиль для закрывающей кнопки -->
-        <Style x:Key="CloseButtonStyle"
-               TargetType="Button"
-               BasedOn="{StaticResource WindowButtonStyle}">
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#E71222"/>
-                    <Setter Property="Foreground" Value="White"/>
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Opacity" Value="0.7"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
         <DataTemplate x:Key="ShowIconTemplate">
             <!-- Иконка скрывания окна -->
             <Grid Width="35" Height="35">
@@ -95,15 +45,17 @@
     <Grid>
         <Grid x:Name="WindowControl_Moving" Background="Transparent" Panel.ZIndex="1" MouseLeftButtonDown="WindowControl_Moving_MouseLeftButtonDown" Margin="0,0,70,665" Grid.ColumnSpan="2"/>
         <Grid x:Name="WindowsControl_Button" Panel.ZIndex="1" Width="70" Height="35" HorizontalAlignment="Right" VerticalAlignment="Top">
-            <!-- Кнопка «минимизировать» -->
-            <Button Style="{StaticResource ShowButtonStyle}"
+            <!-- Кнопка «Скрытия окна» -->
+            <Button x:Name="HideButton"
+                    Style="{DynamicResource HideColor_1}"
                     ContentTemplate="{StaticResource ShowIconTemplate}"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     Click="Show_Click"/>
 
-            <!-- Кнопка «закрыть» -->
-            <Button Style="{StaticResource CloseButtonStyle}"
+            <!-- Кнопка «Закрытия окна» -->
+            <Button x:Name="CloseButton"
+                    Style="{DynamicResource CloseColor_1}"
                     ContentTemplate="{StaticResource CloseIconTemplate}"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"

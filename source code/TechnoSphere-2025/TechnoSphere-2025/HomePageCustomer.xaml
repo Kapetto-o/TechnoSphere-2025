@@ -1,0 +1,61 @@
+﻿<Page x:Class="TechnoSphere_2025.HomePageCustomer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TechnoSphere_2025"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1000"
+      Title="HomePageCustomer">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        
+            <!-- Header -->
+            <Grid Grid.Row="0" Style="{DynamicResource ForegraundColor}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="45"/>
+                </Grid.RowDefinitions>
+                <Grid Margin="15,0,0,0">
+                
+                </Grid>
+                <Grid>
+                
+                </Grid>
+            </Grid>
+            
+            <!-- Main -->
+            <Grid Grid.Row="1" Margin="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="395"/>
+                    <RowDefinition Height="180"/>
+                </Grid.RowDefinitions>
+            <Grid Margin="0,0,0,15" ClipToBounds="True">
+                    <Image  Source="/banners/banner_1.png" Stretch="UniformToFill" Panel.ZIndex="1"/>
+            </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        
+                    </Grid>
+                    <Grid Grid.Column="3">
+                        
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+</Page>

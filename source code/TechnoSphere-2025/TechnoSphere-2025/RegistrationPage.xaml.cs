@@ -28,5 +28,10 @@ namespace TechnoSphere_2025
         {
             NavigationService?.Navigate(new AuthorizationPage());
         }
+
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new HomePageCustomer());
+        }
     }
 }

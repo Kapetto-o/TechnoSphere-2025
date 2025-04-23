@@ -25,12 +25,29 @@
         <Setter Property="Background" Value="{DynamicResource BrushGreenColor}"/>
     </Style>
     
+    <!-- Управление окном -->
+    <!-- Скрыть окно -->
+    <Style x:Key="HideColor_1" TargetType="Button" BasedOn="{StaticResource ShowButtonStyle}">
+        <Setter Property="Foreground"  Value="{DynamicResource BrushGreenColor}"/>
+    </Style>
+    <Style x:Key="HideColor_2" TargetType="Button" BasedOn="{StaticResource ShowButtonStyle}">
+        <Setter Property="Foreground"  Value="{DynamicResource BrushWhiteColor}"/>
+    </Style>
+   
+    <!-- Удалить окно -->
+    <Style x:Key="CloseColor_1" TargetType="Button" BasedOn="{StaticResource CloseButtonStyle}">
+        <Setter Property="Foreground"  Value="{DynamicResource BrushGreenColor}"/>
+    </Style>
+    <Style x:Key="CloseColor_2" TargetType="Button" BasedOn="{StaticResource CloseButtonStyle}">
+        <Setter Property="Foreground"  Value="{DynamicResource BrushWhiteColor}"/>
+    </Style>
+
     <!-- Текст -->
     <!-- Заголовок_1 цвет_1 -->
     <Style x:Key="HeadlineColor_1_1" TargetType="TextBlock" BasedOn="{StaticResource Headline_1}">
         <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
     </Style>
-    
+
     <!-- Заголовок_1 цвет_2 -->
     <Style x:Key="HeadlineColor_1_2" TargetType="TextBlock"  BasedOn="{StaticResource Headline_1}">
         <Setter Property="Foreground" Value="{DynamicResource BrushGreenColor}"/>

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:TechnoSphere_2025"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1000"
-      Title="AuthorizationPage" Width="1000" Height="701">
+      Title="AuthorizationPage">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -82,7 +82,8 @@
                 <!-- Кнопка "Зарегистрироваться" -->
                 <Button Content="Зарегистрироваться"
                         Style="{DynamicResource ButtonColor}"
-                        Margin="0,0,0,30">
+                        x:Name="Register"
+                        Margin="0,0,0,30" Click="Register_Click">
                 </Button>
 
                 <StackPanel Orientation="Horizontal">

@@ -28,3 +28,5 @@ D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\
 D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\style\font\FontStyle.baml
 D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\style\themes\DarkTheme.baml
 D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\style\themes\LightTheme.baml
+D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\HomePageCustomer.g.cs
+D:\GitHub\TechnoSphere-2025\source code\TechnoSphere-2025\TechnoSphere-2025\obj\Debug\net8.0-windows\HomePageCustomer.baml

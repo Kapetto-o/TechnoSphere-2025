@@ -19,6 +19,7 @@ public partial class WindowMain : Window
     public WindowMain()
     {
         InitializeComponent();
+        MainFrame.Navigated += Page_Navigated;
         MainFrame.Navigate(new AuthorizationPage());
     }
 
@@ -36,6 +37,20 @@ public partial class WindowMain : Window
         if (e.LeftButton == MouseButtonState.Pressed)
         {
             this.DragMove();
+        }
+    }
+
+    private void Page_Navigated(object sender, NavigationEventArgs e)
+    {
+        if (e.Content is AuthorizationPage || e.Content is RegistrationPage)
+        {
+            HideButton.Style = (Style)Application.Current.FindResource("HideColor_1");
+            CloseButton.Style = (Style)Application.Current.FindResource("CloseColor_1");
+        }
+        else
+        {
+            HideButton.Style = (Style)Application.Current.FindResource("HideColor_2");
+            CloseButton.Style = (Style)Application.Current.FindResource("CloseColor_2");
         }
     }
 }

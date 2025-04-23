@@ -7,7 +7,7 @@
         <ResourceDictionary>
             <!-- Смена темы -->
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/style/themes/DarkTheme.xaml"/>
+                <ResourceDictionary Source="/style/themes/LightTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
