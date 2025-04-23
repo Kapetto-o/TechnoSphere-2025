@@ -58,8 +58,14 @@ public partial class WindowMain : Window
     private void MainFrame_Navigated(object sender, NavigationEventArgs e)
     {
         if (e.Content is AuthorizationPage || e.Content is RegistrationPage)
-            WindowControl_Moving.Width = 1000;    // стандартная зона
+        {
+            Grid.SetColumn(WindowControl_Moving, 0);
+            Grid.SetColumnSpan(WindowControl_Moving, 3);
+        }
         else
-            WindowControl_Moving.Height = 80;    // новая зона для хедера
+        {
+            Grid.SetColumn(WindowControl_Moving, 1);
+            Grid.SetColumnSpan(WindowControl_Moving, 1);
+        }
     }
 }

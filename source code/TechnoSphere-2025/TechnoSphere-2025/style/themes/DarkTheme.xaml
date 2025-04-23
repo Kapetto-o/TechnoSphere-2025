@@ -9,14 +9,16 @@
     <Color x:Key="GreenColor">#1A5832</Color>
     <Color x:Key="Light_greenColor">#387A2B</Color>
     <Color x:Key="Light_grayColor">#A0A0A0</Color>
-    <Color x:Key="GrayColor">#1E1E1E</Color>
+    <Color x:Key="GrayColor_1">#262626</Color>
+    <Color x:Key="GrayColor_2">#1E1E1E</Color>
     <Color x:Key="BlackColor">#121212</Color>
 
     <SolidColorBrush x:Key="BrushWhiteColor" Color="{DynamicResource WhiteColor}"/>
     <SolidColorBrush x:Key="BrushGreenColor" Color="{DynamicResource GreenColor}"/>
     <SolidColorBrush x:Key="BrushLight_greenColor" Color="{DynamicResource Light_greenColor}"/>
     <SolidColorBrush x:Key="BrushLight_grayColor" Color="{DynamicResource Light_grayColor}"/>
-    <SolidColorBrush x:Key="BrushGrayColor" Color="{DynamicResource GrayColor}"/>
+    <SolidColorBrush x:Key="BrushGrayColor_1" Color="{DynamicResource GrayColor_1}"/>
+    <SolidColorBrush x:Key="BrushGrayColor_2" Color="{DynamicResource GrayColor_2}"/>
     <SolidColorBrush x:Key="BrushBlackColor" Color="{DynamicResource BlackColor}"/>
 
     <!-- Фон -->
@@ -26,7 +28,7 @@
 
     <!-- Второстепенный фон -->
     <Style x:Key="ForegraundColor" TargetType="Grid">
-        <Setter Property="Background" Value="{DynamicResource BrushGrayColor}"/>
+        <Setter Property="Background" Value="{DynamicResource BrushGrayColor_2}"/>
     </Style>
 
     <!-- Управление окном -->
@@ -72,16 +74,11 @@
         <Setter Property="Foreground" Value="{DynamicResource BrushLight_grayColor}"/>
     </Style>
 
-    <!-- Аккаунт -->
-    <Style x:Key="HeaderlineColor" TargetType="TextBlock" BasedOn="{StaticResource Headerline}">
-        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
-    </Style>
-
     <!-- Элементы управления -->
     <!-- TextBox в окнах регистрации и авторизации -->
     <Style x:Key="TextBoxColor" TargetType="TextBox" BasedOn="{StaticResource RegAut_TextBox}">
         <Setter Property="BorderBrush" Value="{DynamicResource BrushLight_grayColor}"/>
-        <Setter Property="Background" Value="{DynamicResource BrushGrayColor}"/>
+        <Setter Property="Background" Value="{DynamicResource BrushGrayColor_2}"/>
         <Setter Property="Foreground" Value="{DynamicResource BrushLight_grayColor}"/>
     </Style>
 
@@ -90,4 +87,34 @@
         <Setter Property="Background" Value="{DynamicResource BrushGreenColor}"/>
         <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
     </Style>
+
+    <!-- Иконки -->
+    <Style x:Key="IconColor" TargetType="Button" BasedOn="{StaticResource IconStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource BrushLight_grayColor}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BrushGrayColor_1}"/>
+                <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <!-- Логотип -->
+    <Style x:Key="LogoColor" TargetType="Button" BasedOn="{StaticResource IconStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Image x:Name="ImageElement" Source="{DynamicResource LogoFullDark}" Height="25"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- ПРОВЕРЕНО ВЫШЕ -->
+    <!-- ПРОВЕРЕНО ВЫШЕ -->
+    <!-- ПРОВЕРЕНО ВЫШЕ -->
+    
+    
 </ResourceDictionary>

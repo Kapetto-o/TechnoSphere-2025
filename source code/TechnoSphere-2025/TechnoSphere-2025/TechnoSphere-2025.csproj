@@ -16,8 +16,14 @@
     <None Remove="Green_16x16.png" />
     <None Remove="Green_256x256.png" />
     <None Remove="Green_64x64.png" />
-    <None Remove="icon\LogoFullWhite.png" />
+    <None Remove="icon\BasketWhite.png" />
+    <None Remove="icon\ComprarisonWhite.png" />
+    <None Remove="icon\FavoritWhite.png" />
+    <None Remove="icon\LogoFullDark_64.png" />
+    <None Remove="icon\LogoFullWhite_64.png" />
     <None Remove="icon\LogoMiniGreen_64x64.png" />
+    <None Remove="icon\SearchDark.png" />
+    <None Remove="icon\SearchWhite.png" />
     <None Remove="Show_35x35.png" />
     <None Remove="White_16x16.png" />
   </ItemGroup>
@@ -25,8 +31,17 @@
   <ItemGroup>
     <Resource Include="banners\banner_1.png" />
     <Resource Include="banners\banner_2.png" />
-    <Resource Include="icon\LogoFullWhite.png" />
+    <Resource Include="icon\BasketWhite.png" />
+    <Resource Include="icon\ComprarisonWhite.png" />
+    <Resource Include="icon\FavoritWhite.png" />
+    <Resource Include="icon\LogoFullWhite_64.png" />
     <Resource Include="icon\LogoMiniGreen_64x64.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="icon\LogoFullDark_64.png" />
+    <Resource Include="icon\SearchDark.png" />
+    <Resource Include="icon\SearchWhite.png" />
   </ItemGroup>
 
 </Project>

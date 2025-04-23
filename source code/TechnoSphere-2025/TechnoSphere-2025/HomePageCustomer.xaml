@@ -20,28 +20,26 @@
                 <RowDefinition Height="35"/>
                 <RowDefinition Height="45"/>
             </Grid.RowDefinitions>
+            
+            <!-- Header_1 -->
             <Grid Grid.Row="0" Margin="15,0,70,0">
-                <DockPanel LastChildFill="False">
-                    <Button x:Name="LogoSetting"
-                            Style="{DynamicResource IconColor}"
-                            DockPanel.Dock="Left"
-                            Panel.ZIndex="2"
-                            Height="25">
-                        <Image Source="/icon/LogoFullWhite.png"/>
-                    </Button>
-                    <Button x:Name="UserAccount"
-                            Style="{DynamicResource IconColor}"
-                            DockPanel.Dock="Right"
-                            ClipToBounds="True"
-                            Panel.ZIndex="2"
-                            Width="130">
-                        <TextBlock Text="Kapetto"
-                                    Style="{DynamicResource HeaderlineColor}"
-                                    VerticalAlignment="Center"
-                                    HorizontalAlignment="Center"/>
-                    </Button>
-                </DockPanel>
+                <Button x:Name="LogoSetting"
+                        Style="{DynamicResource LogoColor}"
+                        HorizontalAlignment="Left">
+                </Button>
+                <Button x:Name="UserAccount"
+                        Style="{DynamicResource IconColor}"
+                        HorizontalAlignment="Right"
+                        ClipToBounds="True"
+                        Width="130">
+                    <TextBlock Text="Kapetto"
+                               Style="{StaticResource Headerline}"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"/>
+                </Button>
             </Grid>
+            
+            <!-- Header_2 -->
             <Grid Grid.Row="1" Margin="7,0,15,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="43"/>
@@ -57,13 +55,27 @@
                 <Grid Grid.Column="1" Margin="5,0,0,0">
                     <Button Style="{DynamicResource IconColor}">
                         <TextBlock Text="Акции"
-                                   Style="{DynamicResource HeaderlineColor}"
+                                   Style="{StaticResource Headerline}"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"/>
                     </Button>
                 </Grid>
-                <Grid Grid.Column="2" Margin="15,5,15,5"></Grid>
-                <Grid Grid.Column="3"></Grid>
+                <Grid Grid.Column="2" Margin="15,5,15,5">
+                    <TextBox Style="{DynamicResource SearchTextboxColor}"
+                             x:Name="SearchTextBox"
+                             Padding="35,0,5,0"/>
+                    <Button Style="{DynamicResource SearchButtonColor}"
+                            HorizontalAlignment="Left"/>
+                </Grid>
+                <Grid Grid.Column="3">
+                    <Button Style="{DynamicResource CompramiseButtonColor}"
+                            HorizontalAlignment="Left"
+                            Width="50"/>
+                    <Button Width="50"
+                            HorizontalAlignment="Center"/>
+                    <Button Width="50"
+                            HorizontalAlignment="Right"/>
+                </Grid>
             </Grid>
         </Grid>
 
