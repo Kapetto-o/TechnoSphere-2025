@@ -13,7 +13,10 @@
     <SolidColorBrush x:Key="BrushWhiteColor" Color="{DynamicResource WhiteColor}"/>
     <SolidColorBrush x:Key="BrushGreenColor" Color="{DynamicResource GreenColor}"/>
     <SolidColorBrush x:Key="BrushLight_greenColor" Color="{DynamicResource Light_greenColor}"/>
-    <SolidColorBrush x:Key="BrushGrayColor_2" Color="{DynamicResource GrayColor}"/>
+    <SolidColorBrush x:Key="BrushGrayColor" Color="{DynamicResource GrayColor}"/>
+
+    <SolidColorBrush x:Key="BrushIconColor" Color="{DynamicResource WhiteColor}"/>
+    <SolidColorBrush x:Key="BrushSearchIconColor" Color="{DynamicResource GrayColor}"/>
 
     <!-- Фон -->
     <Style x:Key="BackgroundColor" TargetType="Window">
@@ -65,15 +68,15 @@
 
     <!-- Основной_2 -->
     <Style x:Key="MainlineColor_2" TargetType="TextBlock" BasedOn="{StaticResource Mainline_2}">
-        <Setter Property="Foreground" Value="{DynamicResource BrushGrayColor_2}"/>
+        <Setter Property="Foreground" Value="{DynamicResource BrushGrayColor}"/>
     </Style>
 
     <!-- Элементы управления -->
     <!-- TextBox в окнах регистрации и авторизации -->
     <Style x:Key="TextBoxColor" TargetType="TextBox" BasedOn="{StaticResource RegAut_TextBox}">
-        <Setter Property="BorderBrush" Value="{DynamicResource BrushGrayColor_2}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BrushGrayColor}"/>
         <Setter Property="Background" Value="{DynamicResource BrushWhiteColor}"/>
-        <Setter Property="Foreground" Value="{DynamicResource BrushGrayColor_2}"/>
+        <Setter Property="Foreground" Value="{DynamicResource BrushGrayColor}"/>
     </Style>
 
     <!-- Button в окнах регистрации и авторизации -->
@@ -82,83 +85,32 @@
         <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
     </Style>
 
-    <!-- Иконки -->
-    <Style x:Key="IconColor" TargetType="Button" BasedOn="{StaticResource IconStyle}">
-        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource BrushLight_greenColor}"/>
-                <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-    
-    <!-- Логотип -->
-    <Style x:Key="LogoColor" TargetType="Button" BasedOn="{StaticResource IconStyle}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Grid>
-                        <Image x:Name="ImageElement" Source="{DynamicResource LogoFullWhite}" Height="25"/>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
     <!-- ПРОВЕРЕНО ВЫШЕ -->
     <!-- ПРОВЕРЕНО ВЫШЕ -->
     <!-- ПРОВЕРЕНО ВЫШЕ -->
 
     <!-- Поиск -->
     <!-- Поле ввода поиска -->
-    <Style x:Key="SearchTextboxColor" TargetType="TextBox" BasedOn="{StaticResource RegAut_TextBox}">
+    <Style x:Key="SearchTextboxColor" TargetType="TextBox" BasedOn="{StaticResource SearchTextBoxStyle}">
         <Setter Property="Background" Value="{DynamicResource BrushWhiteColor}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BrushGrayColor_2}"/>
-        <Setter Property="Foreground" Value="{DynamicResource BrushGrayColor_2}"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="FontSize" Value="20"/>
-        <Setter Property="Height" Value="35"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="TextBox">
-                    <Border 
-                            Background="{TemplateBinding Background}" 
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="4">
-                        <ScrollViewer x:Name="PART_ContentHost" />
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource BrushGrayColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource BrushGrayColor}"/>
     </Style>
 
-    <!-- Кнопка поиска -->
-    <Style x:Key="SearchButtonColor" TargetType="Button" BasedOn="{StaticResource SearchIconStyle}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Grid>
-                        <Image x:Name="ImageElement" Source="{DynamicResource SearchWhite}" Height="35"/>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+    <!-- Иконки -->
+    <Style x:Key="ButtonIconColor" TargetType="Button" BasedOn="{StaticResource ButtonIconStyle}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BrushLight_greenColor}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
-    
-    <!-- Иконка сравнения -->
-    <Style x:Key="CompramiseButtonColor" TargetType="Button" BasedOn="{StaticResource IconStyle}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Grid>
-                        <Image x:Name="ImageElement" Source="{DynamicResource ComprarisonWhite}" Height="35"/>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+
+    <Style x:Key="SearhButtonIconColor" TargetType="Button" BasedOn="{StaticResource ButtonIconStyle}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Transparent"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
-    <!-- Иконка избранного -->
-    <!-- Иконка корзины -->
 </ResourceDictionary>

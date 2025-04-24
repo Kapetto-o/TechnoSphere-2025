@@ -8,14 +8,8 @@
             <!-- Смена темы -->
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/style/themes/LightTheme.xaml"/>
+                <ResourceDictionary Source="/icon/icons.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <BitmapImage x:Key="LogoFullWhite" UriSource="/icon/LogoFullWhite_64.png"/>
-            <BitmapImage x:Key="LogoFullDark" UriSource="/icon/LogoFullDark_64.png"/>
-            <BitmapImage x:Key="SearchWhite" UriSource="/icon/SearchWhite.png"/>
-            <BitmapImage x:Key="SearchDark" UriSource="/icon/SearchDark.png"/>
-            <BitmapImage x:Key="ComprarisonWhite" UriSource="/icon/ComprarisonWhite.png"/>
-            <BitmapImage x:Key="FavoritWhite" UriSource="/icon/FavoritWhite.png"/>
-            <BitmapImage x:Key="BasketWhite" UriSource="/icon/BasketWhite.png"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

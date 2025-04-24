@@ -1,47 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <!-- Иконка скрывания окна -->
-    <DataTemplate x:Key="ShowIconTemplate">
-        <Grid Width="35" Height="35">
-            <Path Data="M8,17 L28,17"
-              Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
-              StrokeThickness="2"
-              StrokeStartLineCap="Round"
-              StrokeEndLineCap="Round"/>
-        </Grid>
-    </DataTemplate>
-
-    <!-- Иконка закрытия окна -->
-    <DataTemplate x:Key="CloseIconTemplate">
-        <Grid Width="35" Height="35">
-            <Path Data="M10,10 L25,25"
-              Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
-              StrokeThickness="2"
-              StrokeStartLineCap="Round"
-              StrokeEndLineCap="Round"/>
-            <Path Data="M25,10 L10,25"
-              Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
-              StrokeThickness="2"
-              StrokeStartLineCap="Round"
-              StrokeEndLineCap="Round"/>
-        </Grid>
-    </DataTemplate>
-
-    <!-- Иконка бургер-меню -->
-    <DataTemplate x:Key="BurgerIconTemplate">
-        <Grid Width="25" Height="25">
-            <Viewbox Stretch="Uniform">
-                <Path Data="M0,5   L25,5
-                            M0,12  L25,12
-                            M0,19  L25,19"
-                Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
-                StrokeThickness="2"
-                StrokeStartLineCap="Square"
-                StrokeEndLineCap="Square"/>
-            </Viewbox>
-        </Grid>
-    </DataTemplate>
-
     <!-- Управление окном -->
     <!-- Общий -->
     <Style x:Key="WindowButtonStyle" TargetType="Button">
@@ -77,9 +35,7 @@
     </Style>
 
     <!-- Закрывающая кнопка -->
-    <Style x:Key="CloseButtonStyle"
-           TargetType="Button"
-           BasedOn="{StaticResource WindowButtonStyle}">
+    <Style x:Key="CloseButtonStyle" TargetType="Button" BasedOn="{StaticResource WindowButtonStyle}">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="#E71222"/>
@@ -145,31 +101,39 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <!-- ПРОВЕРЕНО ВЫШЕ -->
+    <!-- ПРОВЕРЕНО ВЫШЕ -->
+    <!-- ПРОВЕРЕНО ВЫШЕ -->
 
-    <!-- Кнопка иконок -->
-    <Style x:Key="IconStyle" TargetType="Button">
+    <Style x:Key="SearchTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource RegAut_TextBox}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border Background="{TemplateBinding Background}" 
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="4">
+                        <ScrollViewer x:Name="PART_ContentHost" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ButtonIconStyle" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Grid Background="{TemplateBinding Background}">
-                        <ContentPresenter
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"/>
-                    </Grid>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
-    
-    <!-- Кнопка поиска -->
-    <Style x:Key="SearchIconStyle" TargetType="Button">
-        <Setter Property="Width" Value="35"/>
-        <Setter Property="Height" Value="35"/>
-        <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
     </Style>
 </ResourceDictionary>

@@ -29,19 +29,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="banners\banner_1.png" />
-    <Resource Include="banners\banner_2.png" />
-    <Resource Include="icon\BasketWhite.png" />
-    <Resource Include="icon\ComprarisonWhite.png" />
-    <Resource Include="icon\FavoritWhite.png" />
-    <Resource Include="icon\LogoFullWhite_64.png" />
-    <Resource Include="icon\LogoMiniGreen_64x64.png" />
+    <Page Remove="icon\icons.xaml" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="icon\LogoFullDark_64.png" />
-    <Resource Include="icon\SearchDark.png" />
-    <Resource Include="icon\SearchWhite.png" />
+    <Resource Include="banners\banner_1.png" />
+    <Resource Include="banners\banner_2.png" />
+    <Resource Include="icon\icons.xaml" />
+    <Resource Include="icon\LogoMiniGreen_64x64.png" />
   </ItemGroup>
 
 </Project>

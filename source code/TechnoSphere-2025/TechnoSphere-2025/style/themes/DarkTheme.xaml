@@ -9,7 +9,7 @@
     <Color x:Key="GreenColor">#1A5832</Color>
     <Color x:Key="Light_greenColor">#387A2B</Color>
     <Color x:Key="Light_grayColor">#A0A0A0</Color>
-    <Color x:Key="GrayColor_1">#262626</Color>
+    <Color x:Key="GrayColor_1">#2c2c2c</Color>
     <Color x:Key="GrayColor_2">#1E1E1E</Color>
     <Color x:Key="BlackColor">#121212</Color>
 
@@ -21,6 +21,9 @@
     <SolidColorBrush x:Key="BrushGrayColor_2" Color="{DynamicResource GrayColor_2}"/>
     <SolidColorBrush x:Key="BrushBlackColor" Color="{DynamicResource BlackColor}"/>
 
+    <SolidColorBrush x:Key="BrushIconColor" Color="{DynamicResource Light_grayColor}"/>
+    <SolidColorBrush x:Key="BrushSearchIconColor" Color="{DynamicResource Light_grayColor}"/>
+    
     <!-- Фон -->
     <Style x:Key="BackgroundColor" TargetType="Window">
         <Setter Property="Background" Value="{DynamicResource BrushBlackColor}"/>
@@ -88,33 +91,32 @@
         <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
     </Style>
 
-    <!-- Иконки -->
-    <Style x:Key="IconColor" TargetType="Button" BasedOn="{StaticResource IconStyle}">
+    <!-- ПРОВЕРЕНО ВЫШЕ -->
+    <!-- ПРОВЕРЕНО ВЫШЕ -->
+    <!-- ПРОВЕРЕНО ВЫШЕ -->
+
+    <!-- Поиск -->
+    <!-- Поле ввода поиска -->
+    <Style x:Key="SearchTextboxColor" TargetType="TextBox" BasedOn="{StaticResource SearchTextBoxStyle}">
+        <Setter Property="Background" Value="{DynamicResource BrushGrayColor_2}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BrushLight_grayColor}"/>
         <Setter Property="Foreground" Value="{DynamicResource BrushLight_grayColor}"/>
+    </Style>
+
+    <!-- Иконки -->
+    <Style x:Key="ButtonIconColor" TargetType="Button" BasedOn="{StaticResource ButtonIconStyle}">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{DynamicResource BrushGrayColor_1}"/>
-                <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
-    
-    <!-- Логотип -->
-    <Style x:Key="LogoColor" TargetType="Button" BasedOn="{StaticResource IconStyle}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Grid>
-                        <Image x:Name="ImageElement" Source="{DynamicResource LogoFullDark}" Height="25"/>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+
+    <Style x:Key="SearhButtonIconColor" TargetType="Button" BasedOn="{StaticResource ButtonIconStyle}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Transparent"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
-    
-    <!-- ПРОВЕРЕНО ВЫШЕ -->
-    <!-- ПРОВЕРЕНО ВЫШЕ -->
-    <!-- ПРОВЕРЕНО ВЫШЕ -->
-    
-    
 </ResourceDictionary>
