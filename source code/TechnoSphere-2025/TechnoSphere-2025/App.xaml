@@ -5,9 +5,10 @@
              StartupUri="WindowMain.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <!-- Смена темы -->
             <ResourceDictionary.MergedDictionaries>
+                <!-- Смена темы -->
                 <ResourceDictionary Source="/style/themes/LightTheme.xaml"/>
+
                 <ResourceDictionary Source="/icon/icons.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

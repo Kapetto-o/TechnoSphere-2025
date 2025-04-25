@@ -10,8 +10,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid Background="{TemplateBinding Background}">
-                        <ContentPresenter HorizontalAlignment="Center"
-                                          VerticalAlignment="Center"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -82,8 +81,7 @@
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                        <ContentPresenter HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -97,9 +95,6 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    <!-- ПРОВЕРЕНО ВЫШЕ -->
-    <!-- ПРОВЕРЕНО ВЫШЕ -->
-    <!-- ПРОВЕРЕНО ВЫШЕ -->
 
     <Style x:Key="SearchTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource RegAut_TextBox}">
         <Setter Property="Template">

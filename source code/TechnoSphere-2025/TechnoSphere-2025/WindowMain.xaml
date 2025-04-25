@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TechnoSphere_2025"
         mc:Ignorable="d"
+        Title="TechnoSphere-2025"
+        Width="1000" Height="700"
+        Style="{DynamicResource BackgroundColor}"
+        WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         FontFamily="Roboto"
         ResizeMode="NoResize"
-        Title="TechnoSphere-2025"
-        Height="700" Width="1000"
-        WindowStartupLocation="CenterScreen"
-        Style="{DynamicResource BackgroundColor}" Icon="/icon/LogoMiniGreen_64x64.png">
+        Icon="/icon/LogoMiniGreen_64x64.png">
 
     <Grid>
         <Grid Panel.ZIndex="100">
@@ -21,38 +22,37 @@
                 <ColumnDefinition Width="130"/>
                 <ColumnDefinition Width="70"/>
             </Grid.ColumnDefinitions>
-            <Grid x:Name="WindowControl_Moving"
-                  Background="Transparent" 
-                  MouseLeftButtonDown="WindowControl_Moving_MouseLeftButtonDown"
+
+            <Grid Grid.ColumnSpan="3"
+                  x:Name="WindowControl_Moving"
                   Width="930" Height="35"
-                  VerticalAlignment="Top"
-                  HorizontalAlignment="Left"
-                  Grid.ColumnSpan="3"/>
-            <Grid x:Name="WindowsControl_Button"
-                  Grid.Column="3"
+                  HorizontalAlignment="Left" VerticalAlignment="Top"
+                  Background="Transparent" 
+                  MouseLeftButtonDown="WindowControl_Moving_MouseLeftButtonDown"/>
+
+            <Grid Grid.Column="3"
+                  x:Name="WindowsControl_Button"
                   Width="70" Height="35"
-                  HorizontalAlignment="Right" 
-                  VerticalAlignment="Top">
+                  HorizontalAlignment="Right" VerticalAlignment="Top">
                 <!-- Кнопка «Скрытия окна» -->
                 <Button x:Name="HideButton"
-                        Style="{DynamicResource HideColor_1}"
                         ContentTemplate="{StaticResource ShowIconTemplate}"
+                        Style="{DynamicResource HideColor_1}"
                         Width="35" Height="35"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left" VerticalAlignment="Center"
                         Click="Show_Click"/>
 
                 <!-- Кнопка «Закрытия окна» -->
                 <Button x:Name="CloseButton"
-                        Style="{DynamicResource CloseColor_1}"
                         ContentTemplate="{StaticResource CloseIconTemplate}"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
+                        Style="{DynamicResource CloseColor_1}"
+                        HorizontalAlignment="Left" VerticalAlignment="Center"
                         Width="35" Height="35"
                         Margin="35,0,0,0"
                         Click="Close_Click"/>
             </Grid>
         </Grid>
+        
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

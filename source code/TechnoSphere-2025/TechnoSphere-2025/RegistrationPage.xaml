@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TechnoSphere_2025"
       mc:Ignorable="d" 
-      d:DesignHeight="700" d:DesignWidth="1000"
-      Title="AuthorizationPage">
+      Title="AuthorizationPage"
+      d:DesignHeight="700" d:DesignWidth="1000">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -19,16 +19,17 @@
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
-            <StackPanel Margin="15" VerticalAlignment="Bottom">
+
+            <StackPanel VerticalAlignment="Bottom" Margin="15" >
                 <TextBlock Text="Добро пожаловать!"
-               Style="{DynamicResource HeadlineColor_1_1}"
-               Margin="0,0,0,30"
-               HorizontalAlignment="Center"/>
+                           Style="{DynamicResource HeadlineColor_1_1}"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,30"/>
                 <TextBlock Text="Прежде чем продолжить, войдите в свой аккаунт."
-               Style="{DynamicResource MainlineColor_1}"
-               TextWrapping="Wrap"
-               TextAlignment="Center"
-               HorizontalAlignment="Center"/>
+                           Style="{DynamicResource MainlineColor_1}"
+                           HorizontalAlignment="Center"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
             </StackPanel>
         </Grid>
 
@@ -40,12 +41,15 @@
                 <RowDefinition Height="3*" />
             </Grid.RowDefinitions>
 
-            <StackPanel MaxWidth="480" Grid.Row="1" VerticalAlignment="Center" Margin="15,0,15,0">
+            <StackPanel Grid.Row="1"
+                        Width="480"
+                        VerticalAlignment="Center"
+                        Margin="15,0,15,0">
                 <!-- Заголовок -->
                 <TextBlock Text="Регистрация"
                            Style="{DynamicResource HeadlineColor_1_2}"
-                           Margin="0,0,0,30"
-                           HorizontalAlignment="Center"/>
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,30"/>
 
                 <!-- Поле ввода имени пользователя -->
                 <TextBlock Text="Ваше имя пользователя"
@@ -89,8 +93,7 @@
                         Style="{DynamicResource ButtonColor}"
                         Height="40"
                         Margin="0,0,0,30"
-                        Click="Register_Click">
-                </Button>
+                        Click="Register_Click"/>
 
                 <StackPanel Orientation="Horizontal">
                     <!-- Переход в регистрацию -->
@@ -98,7 +101,7 @@
                                Style="{DynamicResource MainlineColor_2}"
                                Margin="0,0,5,0"/>
                     <TextBlock Style="{StaticResource Mainline_2}">
-                        <Hyperlink Click="GoToLogin_Click" Foreground="#1A5832" TextDecorations="{x:Null}">
+                        <Hyperlink Foreground="#1A5832" TextDecorations="{x:Null}" Click="GoToLogin_Click">
                             Войти
                         </Hyperlink>
                     </TextBlock>
