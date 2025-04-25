@@ -94,9 +94,13 @@
                 <RowDefinition Height="395"/>
                 <RowDefinition Height="180"/>
             </Grid.RowDefinitions>
+            
             <Grid Margin="0,0,0,15" ClipToBounds="True">
-                <Image  Source="/banners/banner_1.png" Stretch="UniformToFill"/>
+                <Button Style="{DynamicResource BannerButtonStyle}">
+                    <Image Source="/banners/banner_1.png" Stretch="UniformToFill"/>
+                </Button>
             </Grid>
+            
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -105,16 +109,92 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0" Margin="0,0,15,0">
-
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{StaticResource OriginalIcon}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBlock Grid.Column="1"
+                                   Text="Оригинальная техника"
+                                   Style="{DynamicResource HeadlineColor_2}"
+                                   TextWrapping="Wrap"/>
+                    </Grid>
+                    <TextBlock Grid.Row="1"
+                               Text="Наш магазин работает только с официальными поставщиками. Все товары имеют гарантию и сертификаты."
+                               Style="{DynamicResource MainlineColor_2}"
+                               TextWrapping="Wrap"/>
                 </Grid>
+                
                 <Grid Grid.Column="1" Margin="0,0,15,0">
-
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{StaticResource SupportIcon}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBlock Grid.Column="1"
+                                   Text="Покупка без стресса"
+                                   Style="{DynamicResource HeadlineColor_2}"
+                                   TextWrapping="Wrap"/>
+                    </Grid>
+                    <TextBlock Grid.Row="1"
+                               Text="Возник вопрос? Можете позвонить нам для бесплатной консультации! Мы поможем вам решить проблему и выбрать подходящий товар."
+                               Style="{DynamicResource MainlineColor_2}"
+                               TextWrapping="Wrap"/>
+                    
                 </Grid>
+                    
                 <Grid Grid.Column="2" Margin="0,0,15,0">
-
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{StaticResource DeliveryIcon}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="54.43"/>
+                        <TextBlock Grid.Column="1"
+                                   Text="Бесплатная доставка"
+                                   Style="{DynamicResource HeadlineColor_2}"
+                                   TextWrapping="Wrap"/>
+                    </Grid>
+                    <TextBlock Grid.Row="1"
+                               Text="Осуществляем бесплатную доставку в любую точку Беларуси в течении трёх дней при покупке более чем на 200 рублей."
+                               Style="{DynamicResource MainlineColor_2}"
+                               TextWrapping="Wrap"/>
                 </Grid>
+                
                 <Grid Grid.Column="3">
-
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{StaticResource CatalogIcon}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="54"/>
+                        <TextBlock Grid.Column="1"
+                                  Text="Огромный выбор"
+                                  Style="{DynamicResource HeadlineColor_2}"
+                                  TextWrapping="Wrap"/>
+                    </Grid>
+                    <TextBlock Grid.Row="1"
+                              Text="Предоставляем широкий выбор техники для разнообразных повседневных задач."
+                              Style="{DynamicResource MainlineColor_2}"
+                              TextWrapping="Wrap"/>
                 </Grid>
             </Grid>
         </Grid>

@@ -23,7 +23,8 @@
 
     <SolidColorBrush x:Key="BrushIconColor" Color="{DynamicResource Light_grayColor}"/>
     <SolidColorBrush x:Key="BrushSearchIconColor" Color="{DynamicResource Light_grayColor}"/>
-    
+    <SolidColorBrush x:Key="BrushMainIconColor" Color="{DynamicResource Light_grayColor}"/>
+
     <!-- Фон -->
     <Style x:Key="BackgroundColor" TargetType="Window">
         <Setter Property="Background" Value="{DynamicResource BrushBlackColor}"/>
