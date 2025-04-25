@@ -3,8 +3,6 @@
     <!-- Управление окном -->
     <!-- Общий -->
     <Style x:Key="WindowButtonStyle" TargetType="Button">
-        <Setter Property="Width"       Value="35"/>
-        <Setter Property="Height"      Value="35"/>
         <Setter Property="Background"  Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Cursor"      Value="Hand"/>
@@ -12,9 +10,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid Background="{TemplateBinding Background}">
-                        <ContentPresenter
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"/>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -50,8 +47,7 @@
     <!-- Элементы управления -->
     <!-- TextBox в окнах регистрации и авторизации -->
     <Style x:Key="RegAut_TextBox" TargetType="TextBox">
-        <Setter Property="Height" Value="40"/>
-        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontSize" Value="20"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Template">
@@ -63,19 +59,16 @@
                             BorderThickness="{TemplateBinding BorderThickness}">
                         <ScrollViewer x:Name="PART_ContentHost"/>
                     </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Bd" Property="BorderBrush" Value="#1A5832"/>
-                        </Trigger>
-                        <Trigger Property="IsKeyboardFocused" Value="True">
-                            <Setter TargetName="Bd" Property="BorderBrush" Value="#1A5832"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="#1A5832"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
-    
+
     <!-- Button в окнах регистрации и авторизации -->
     <Style x:Key="RegAut_Button" TargetType="Button">
         <Setter Property="Height" Value="40"/>
@@ -99,6 +92,9 @@
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="#387A2B"/>
             </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="0.7"/>
+            </Trigger>
         </Style.Triggers>
     </Style>
     <!-- ПРОВЕРЕНО ВЫШЕ -->
@@ -106,8 +102,6 @@
     <!-- ПРОВЕРЕНО ВЫШЕ -->
 
     <Style x:Key="SearchTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource RegAut_TextBox}">
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="FontSize" Value="20"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
@@ -135,5 +129,10 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="0.7"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>

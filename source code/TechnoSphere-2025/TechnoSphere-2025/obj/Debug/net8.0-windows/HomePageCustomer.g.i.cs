@@ -85,7 +85,7 @@ namespace TechnoSphere_2025 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/TechnoSphere-2025;V1.0.0.0;component/homepagecustomer.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/TechnoSphere-2025;component/homepagecustomer.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\HomePageCustomer.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

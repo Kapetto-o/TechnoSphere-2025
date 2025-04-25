@@ -91,10 +91,6 @@
         <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
     </Style>
 
-    <!-- ПРОВЕРЕНО ВЫШЕ -->
-    <!-- ПРОВЕРЕНО ВЫШЕ -->
-    <!-- ПРОВЕРЕНО ВЫШЕ -->
-
     <!-- Поиск -->
     <!-- Поле ввода поиска -->
     <Style x:Key="SearchTextboxColor" TargetType="TextBox" BasedOn="{StaticResource SearchTextBoxStyle}">
