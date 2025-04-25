@@ -61,7 +61,7 @@ namespace TechnoSphere_2025 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/TechnoSphere-2025;V1.0.0.0;component/authorizationpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/TechnoSphere-2025;component/authorizationpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\AuthorizationPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

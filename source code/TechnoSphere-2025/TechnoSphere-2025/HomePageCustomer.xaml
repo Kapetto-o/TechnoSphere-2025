@@ -21,18 +21,30 @@
             </Grid.RowDefinitions>
             
             <!-- Header_1 -->
-            <Grid Grid.Row="0" Margin="15,0,70,0">
+            <Grid Grid.Row="0" Margin="15,0,75,0">
                 <Button x:Name="LogoSetting"
                         Style="{DynamicResource ButtonIconColor}"
                         HorizontalAlignment="Left"
-                        Margin="-2,0,0,0">
+                        Click="LogoSetting_Click">
                     <Image Source="{StaticResource LogoFullIcon}" Height="25"/>
                 </Button>
                 <Button x:Name="UserAccount"
                         Style="{StaticResource ButtonIconColor}"
-                        Width="130"
+                        Height="25"
                         HorizontalAlignment="Right">
-                    <TextBlock Text="Kapetto" Style="{StaticResource Headerline}"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,5,0">
+                        <Image x:Name="AccountImg"
+                               Source="/icon/TestAvatar_2.jpg"
+                               Margin="0,0,5,0"/>
+                        <TextBlock x:Name="AccuntName"
+                                   Text="Kapetto"
+                                   Style="{StaticResource Headerline}"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,5,0"/>
+                        <TextBlock Text="˅"
+                                   Style="{StaticResource Headerline}"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
                 </Button>
             </Grid>
             
@@ -217,5 +229,38 @@
                 </Grid>
             </Grid>
         </Grid>
+
+        <Popup x:Name="LogoSettingPopup"
+               PlacementTarget="{Binding ElementName=LogoSetting}"
+               Placement="Bottom"
+               StaysOpen="True"
+               AllowsTransparency="True"
+               PopupAnimation="Slide"
+               IsOpen="False">
+            <Border Background="#2B2B2B"
+                    BorderBrush="#444444"
+                    BorderThickness="1"
+                    CornerRadius="2">
+                <StackPanel>
+                    <Button x:Name="SettingsMenuItem"
+                            Click="SettingsMenuItem_Click"
+                            Background="Transparent"
+                            Padding="10,8"
+                            HorizontalContentAlignment="Left"
+                            Foreground="White">
+                        Настройки
+                    </Button>
+                    <Button x:Name="AboutMenuItem"
+                            Click="AboutMenuItem_Click"
+                            Background="Transparent"
+                            Padding="10,8"
+                            Margin="0,2,0,0"
+                            HorizontalContentAlignment="Left"
+                            Foreground="White">
+                        О приложении
+                    </Button>
+                </StackPanel>
+            </Border>
+        </Popup>
     </Grid>
 </Page>
