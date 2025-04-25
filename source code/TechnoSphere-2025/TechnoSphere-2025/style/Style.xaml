@@ -42,7 +42,7 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
     <!-- Элементы управления -->
     <!-- TextBox в окнах регистрации и авторизации -->
     <Style x:Key="RegAut_TextBox" TargetType="TextBox">
@@ -137,5 +137,42 @@
                 <Setter Property="Opacity" Value="1"/>
             </Trigger>
         </Style.Triggers>
+    </Style>
+
+    <Style x:Key="HeaderPopupButtonStyle" TargetType="Button" BasedOn="{StaticResource ButtonIconStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="0.7"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="HeaderPopupStyle" TargetType="ContentControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Grid ClipToBounds="False">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="0">
+                            <ContentPresenter/>
+                        </Border>
+                        <Border Background="{TemplateBinding Background}"
+                                Height="0"
+                                VerticalAlignment="Top"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 </ResourceDictionary>

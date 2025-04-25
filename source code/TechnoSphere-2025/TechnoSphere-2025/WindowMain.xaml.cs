@@ -1,13 +1,8 @@
-﻿using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace TechnoSphere_2025;
 
@@ -33,6 +28,7 @@ public partial class WindowMain : Window
     {
         this.Close();
     }
+
     private void WindowControl_Moving_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
         if (e.LeftButton == MouseButtonState.Pressed)
@@ -57,15 +53,29 @@ public partial class WindowMain : Window
 
     private void MainFrame_Navigated(object sender, NavigationEventArgs e)
     {
-        if (e.Content is AuthorizationPage || e.Content is RegistrationPage)
+        Dispatcher.InvokeAsync(() =>
         {
-            Grid.SetColumn(WindowControl_Moving, 0);
-            Grid.SetColumnSpan(WindowControl_Moving, 3);
-        }
-        else
-        {
-            Grid.SetColumn(WindowControl_Moving, 1);
-            Grid.SetColumnSpan(WindowControl_Moving, 1);
-        }
+            double leftOffset = 0;
+            double rightOffset = 70;
+
+            if (e.Content is not AuthorizationPage and not RegistrationPage)
+            {
+                leftOffset = 155;
+                if (MainFrame.Content is Page page)
+                {
+                    var userBtn = page.FindName("UserAccount") as FrameworkElement;
+                    if (userBtn != null)
+                    {
+                        userBtn.UpdateLayout();
+                        rightOffset = userBtn.ActualWidth + 92;
+                    }
+                    else
+                    {
+                        rightOffset = 70;
+                    }
+                }
+            }
+            WindowControl_Moving.Margin = new Thickness(leftOffset, 0, rightOffset, 0);
+        }, DispatcherPriority.Loaded);
     }
 }

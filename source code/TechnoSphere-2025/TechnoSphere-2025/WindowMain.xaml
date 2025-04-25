@@ -15,44 +15,30 @@
         Icon="/icon/LogoMiniGreen_64x64.png">
 
     <Grid>
-        <Grid Panel.ZIndex="100">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="155"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="130"/>
-                <ColumnDefinition Width="70"/>
-            </Grid.ColumnDefinitions>
+        <Grid x:Name="WindowControl_Moving"
+              Width="930" Height="35"
+              VerticalAlignment="Top"
+              Margin="0,0,70,0"
+              Background="Transparent"
+              MouseLeftButtonDown="WindowControl_Moving_MouseLeftButtonDown"
+              Panel.ZIndex="100"/>
 
-            <Grid Grid.ColumnSpan="3"
-                  x:Name="WindowControl_Moving"
-                  Width="930" Height="35"
-                  HorizontalAlignment="Left" VerticalAlignment="Top"
-                  Background="Transparent" 
-                  MouseLeftButtonDown="WindowControl_Moving_MouseLeftButtonDown"/>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right" VerticalAlignment="Top"
+                    Height="35"
+                    Panel.ZIndex="101">
+            <Button x:Name="HideButton"
+                    ContentTemplate="{StaticResource ShowIconTemplate}"
+                    Style="{DynamicResource HideColor_1}"
+                    Width="35" Height="35"
+                    Click="Show_Click"/>
+            <Button x:Name="CloseButton"
+                    ContentTemplate="{StaticResource CloseIconTemplate}"
+                    Style="{DynamicResource CloseColor_1}"
+                    Width="35" Height="35"
+                    Click="Close_Click"/>
+        </StackPanel>
 
-            <Grid Grid.Column="3"
-                  x:Name="WindowsControl_Button"
-                  Width="70" Height="35"
-                  HorizontalAlignment="Right" VerticalAlignment="Top">
-                <!-- Кнопка «Скрытия окна» -->
-                <Button x:Name="HideButton"
-                        ContentTemplate="{StaticResource ShowIconTemplate}"
-                        Style="{DynamicResource HideColor_1}"
-                        Width="35" Height="35"
-                        HorizontalAlignment="Left" VerticalAlignment="Center"
-                        Click="Show_Click"/>
-
-                <!-- Кнопка «Закрытия окна» -->
-                <Button x:Name="CloseButton"
-                        ContentTemplate="{StaticResource CloseIconTemplate}"
-                        Style="{DynamicResource CloseColor_1}"
-                        HorizontalAlignment="Left" VerticalAlignment="Center"
-                        Width="35" Height="35"
-                        Margin="35,0,0,0"
-                        Click="Close_Click"/>
-            </Grid>
-        </Grid>
-        
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
