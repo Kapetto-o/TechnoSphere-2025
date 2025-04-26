@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|d:\\github\\technosphere-2025\\source code\\technosphere-2025\\technosphere-2025\\style\\themes\\darktheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|solutionrelative:technosphere-2025\\style\\themes\\darktheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|d:\\github\\technosphere-2025\\source code\\technosphere-2025\\technosphere-2025\\style\\themes\\lighttheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|solutionrelative:technosphere-2025\\style\\themes\\lighttheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|d:\\github\\technosphere-2025\\source code\\technosphere-2025\\technosphere-2025\\homepagecustomer.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|solutionrelative:technosphere-2025\\homepagecustomer.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|d:\\github\\technosphere-2025\\source code\\technosphere-2025\\technosphere-2025\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|solutionrelative:technosphere-2025\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|d:\\github\\technosphere-2025\\source code\\technosphere-2025\\technosphere-2025\\homepagecustomer.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|solutionrelative:technosphere-2025\\homepagecustomer.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|d:\\github\\technosphere-2025\\source code\\technosphere-2025\\technosphere-2025\\style\\themes\\darktheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|solutionrelative:technosphere-2025\\style\\themes\\darktheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|d:\\github\\technosphere-2025\\source code\\technosphere-2025\\technosphere-2025\\style\\themes\\lighttheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|solutionrelative:technosphere-2025\\style\\themes\\lighttheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{48B2A1C7-66B6-4F75-BD82-21627F40ED54}|TechnoSphere-2025\\TechnoSphere-2025.csproj|d:\\github\\technosphere-2025\\source code\\technosphere-2025\\technosphere-2025\\style\\style.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 78,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,50 +38,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "App.xaml",
-              "DocumentMoniker": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\App.xaml",
-              "RelativeDocumentMoniker": "TechnoSphere-2025\\App.xaml",
-              "ToolTip": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\App.xaml",
-              "RelativeToolTip": "TechnoSphere-2025\\App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-04-25T17:54:10.539Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DarkTheme.xaml",
-              "DocumentMoniker": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\style\\themes\\DarkTheme.xaml",
-              "RelativeDocumentMoniker": "TechnoSphere-2025\\style\\themes\\DarkTheme.xaml",
-              "ToolTip": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\style\\themes\\DarkTheme.xaml",
-              "RelativeToolTip": "TechnoSphere-2025\\style\\themes\\DarkTheme.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-04-25T17:38:34.616Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LightTheme.xaml",
-              "DocumentMoniker": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\style\\themes\\LightTheme.xaml",
-              "RelativeDocumentMoniker": "TechnoSphere-2025\\style\\themes\\LightTheme.xaml",
-              "ToolTip": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\style\\themes\\LightTheme.xaml",
-              "RelativeToolTip": "TechnoSphere-2025\\style\\themes\\LightTheme.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-04-25T17:17:52.222Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "HomePageCustomer.xaml",
               "DocumentMoniker": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\HomePageCustomer.xaml",
               "RelativeDocumentMoniker": "TechnoSphere-2025\\HomePageCustomer.xaml",
               "ToolTip": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\HomePageCustomer.xaml",
               "RelativeToolTip": "TechnoSphere-2025\\HomePageCustomer.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-04-25T16:01:28.69Z",
+              "WhenOpened": "2025-04-26T13:19:09.952Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\App.xaml",
+              "RelativeDocumentMoniker": "TechnoSphere-2025\\App.xaml",
+              "ToolTip": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\App.xaml",
+              "RelativeToolTip": "TechnoSphere-2025\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-26T13:17:54.732Z",
               "EditorCaption": ""
             },
             {
@@ -93,7 +69,30 @@
               "ToolTip": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\style\\Style.xaml",
               "RelativeToolTip": "TechnoSphere-2025\\style\\Style.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-04-25T16:10:26.501Z",
+              "WhenOpened": "2025-04-26T11:56:18.134Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DarkTheme.xaml",
+              "DocumentMoniker": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\style\\themes\\DarkTheme.xaml",
+              "RelativeDocumentMoniker": "TechnoSphere-2025\\style\\themes\\DarkTheme.xaml",
+              "ToolTip": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\style\\themes\\DarkTheme.xaml",
+              "RelativeToolTip": "TechnoSphere-2025\\style\\themes\\DarkTheme.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-25T23:08:19.039Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LightTheme.xaml",
+              "DocumentMoniker": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\style\\themes\\LightTheme.xaml",
+              "RelativeDocumentMoniker": "TechnoSphere-2025\\style\\themes\\LightTheme.xaml",
+              "ToolTip": "D:\\GitHub\\TechnoSphere-2025\\source code\\TechnoSphere-2025\\TechnoSphere-2025\\style\\themes\\LightTheme.xaml",
+              "RelativeToolTip": "TechnoSphere-2025\\style\\themes\\LightTheme.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-26T12:56:21.563Z",
               "EditorCaption": ""
             }
           ]

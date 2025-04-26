@@ -164,7 +164,9 @@
                     <Grid ClipToBounds="False">
                         <Border Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="0">
+                                BorderThickness="0"
+                                CornerRadius="8"
+                                ClipToBounds="True">
                             <ContentPresenter/>
                         </Border>
                         <Border Background="{TemplateBinding Background}"

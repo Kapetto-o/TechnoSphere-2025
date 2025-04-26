@@ -4,26 +4,34 @@
         <ResourceDictionary Source="/style/font/FontStyle.xaml"/>
         <ResourceDictionary Source="/style/Style.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-
-    <Color x:Key="WhiteColor">#E0E0E0</Color>
+    
+    <Color x:Key="WhiteColor">#FFFFFF</Color>
+    <Color x:Key="GrayColor">#353535</Color>
     <Color x:Key="GreenColor">#1A5832</Color>
     <Color x:Key="Light_greenColor">#387A2B</Color>
-    <Color x:Key="Light_grayColor">#A0A0A0</Color>
-    <Color x:Key="GrayColor_1">#2c2c2c</Color>
-    <Color x:Key="GrayColor_2">#1E1E1E</Color>
+
     <Color x:Key="BlackColor">#121212</Color>
+    <Color x:Key="WhiteColor_1">#cccccc</Color>
+    <Color x:Key="GrayColor_1">#1E1E1E</Color>
+    <Color x:Key="GrayColor_2">#262626</Color>
+    <Color x:Key="GrayColor_3">#303030</Color>
+    <Color x:Key="Light_grayColor">#A0A0A0</Color>
 
     <SolidColorBrush x:Key="BrushWhiteColor" Color="{DynamicResource WhiteColor}"/>
+    <SolidColorBrush x:Key="BrushGrayColor" Color="{DynamicResource GrayColor}"/>
     <SolidColorBrush x:Key="BrushGreenColor" Color="{DynamicResource GreenColor}"/>
     <SolidColorBrush x:Key="BrushLight_greenColor" Color="{DynamicResource Light_greenColor}"/>
-    <SolidColorBrush x:Key="BrushLight_grayColor" Color="{DynamicResource Light_grayColor}"/>
+
+    <SolidColorBrush x:Key="BrushBlackColor" Color="{DynamicResource BlackColor}"/>
+    <SolidColorBrush x:Key="BrushWhiteColor_1" Color="{DynamicResource WhiteColor_1}"/>
     <SolidColorBrush x:Key="BrushGrayColor_1" Color="{DynamicResource GrayColor_1}"/>
     <SolidColorBrush x:Key="BrushGrayColor_2" Color="{DynamicResource GrayColor_2}"/>
-    <SolidColorBrush x:Key="BrushBlackColor" Color="{DynamicResource BlackColor}"/>
+    <SolidColorBrush x:Key="BrushGrayColor_3" Color="{DynamicResource GrayColor_3}"/>
+    <SolidColorBrush x:Key="BrushLight_grayColor" Color="{DynamicResource Light_grayColor}"/>
 
-    <SolidColorBrush x:Key="BrushIconColor" Color="{DynamicResource Light_grayColor}"/>
-    <SolidColorBrush x:Key="BrushSearchIconColor" Color="{DynamicResource Light_grayColor}"/>
-    <SolidColorBrush x:Key="BrushMainIconColor" Color="{DynamicResource Light_grayColor}"/>
+    <SolidColorBrush x:Key="BrushIconColor" Color="{DynamicResource WhiteColor_1}"/>
+    <SolidColorBrush x:Key="BrushSearchIconColor" Color="{DynamicResource WhiteColor_1}"/>
+    <SolidColorBrush x:Key="BrushMainIconColor" Color="{DynamicResource WhiteColor_1}"/>
 
     <!-- Фон -->
     <Style x:Key="BackgroundColor" TargetType="Window">
@@ -32,45 +40,45 @@
 
     <!-- Второстепенный фон -->
     <Style x:Key="ForegraundColor" TargetType="Grid">
-        <Setter Property="Background" Value="{DynamicResource BrushGrayColor_2}"/>
+        <Setter Property="Background" Value="{DynamicResource BrushGrayColor_1}"/>
     </Style>
 
     <!-- Управление окном -->
     <!-- Скрыть окно -->
     <Style x:Key="HideColor_1" TargetType="Button" BasedOn="{StaticResource ShowButtonStyle}">
-        <Setter Property="Foreground"  Value="{DynamicResource BrushLight_grayColor}"/>
+        <Setter Property="Foreground"  Value="{DynamicResource BrushWhiteColor_1}"/>
     </Style>
     <Style x:Key="HideColor_2" TargetType="Button" BasedOn="{StaticResource ShowButtonStyle}">
-        <Setter Property="Foreground"  Value="{DynamicResource BrushLight_grayColor}"/>
+        <Setter Property="Foreground"  Value="{DynamicResource BrushWhiteColor_1}"/>
     </Style>
 
     <!-- Удалить окно -->
     <Style x:Key="CloseColor_1" TargetType="Button" BasedOn="{StaticResource CloseButtonStyle}">
-        <Setter Property="Foreground"  Value="{DynamicResource BrushLight_grayColor}"/>
+        <Setter Property="Foreground"  Value="{DynamicResource BrushWhiteColor_1}"/>
     </Style>
     <Style x:Key="CloseColor_2" TargetType="Button" BasedOn="{StaticResource CloseButtonStyle}">
-        <Setter Property="Foreground"  Value="{DynamicResource BrushLight_grayColor}"/>
+        <Setter Property="Foreground"  Value="{DynamicResource BrushWhiteColor_1}"/>
     </Style>
     
     <!-- Текст -->
     <!-- Заголовок_1 цвет_1 -->
     <Style x:Key="HeadlineColor_1_1" TargetType="TextBlock" BasedOn="{StaticResource Headline_1}">
-        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor_1}"/>
     </Style>
 
     <!-- Заголовок_1 цвет_2 (в темной теме цвета одинаковые) -->
     <Style x:Key="HeadlineColor_1_2" TargetType="TextBlock"  BasedOn="{StaticResource Headline_1}">
-        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor_1}"/>
     </Style>
 
     <!-- Заголовок_2 -->
     <Style x:Key="HeadlineColor_2" TargetType="TextBlock"  BasedOn="{StaticResource Headline_2}">
-        <Setter Property="Foreground" Value="{DynamicResource BrushLight_grayColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor_1}"/>
     </Style>
 
     <!-- Основной_1 -->
     <Style x:Key="MainlineColor_1" TargetType="TextBlock" BasedOn="{StaticResource Mainline_1}">
-        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor_1}"/>
     </Style>
 
     <!-- Основной_2 -->
@@ -81,30 +89,30 @@
     <!-- Элементы управления -->
     <!-- TextBox в окнах регистрации и авторизации -->
     <Style x:Key="TextBoxColor" TargetType="TextBox" BasedOn="{StaticResource RegAut_TextBox}">
-        <Setter Property="BorderBrush" Value="{DynamicResource BrushLight_grayColor}"/>
-        <Setter Property="Background" Value="{DynamicResource BrushGrayColor_2}"/>
-        <Setter Property="Foreground" Value="{DynamicResource BrushLight_grayColor}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BrushWhiteColor_1}"/>
+        <Setter Property="Background" Value="{DynamicResource BrushGrayColor_1}"/>
+        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor_1}"/>
     </Style>
 
     <!-- Button в окнах регистрации и авторизации -->
     <Style x:Key="ButtonColor" TargetType="Button" BasedOn="{StaticResource RegAut_Button}">
         <Setter Property="Background" Value="{DynamicResource BrushGreenColor}"/>
-        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor_1}"/>
     </Style>
 
     <!-- Поиск -->
     <!-- Поле ввода поиска -->
     <Style x:Key="SearchTextboxColor" TargetType="TextBox" BasedOn="{StaticResource SearchTextBoxStyle}">
-        <Setter Property="Background" Value="{DynamicResource BrushGrayColor_2}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BrushLight_grayColor}"/>
-        <Setter Property="Foreground" Value="{DynamicResource BrushLight_grayColor}"/>
+        <Setter Property="Background" Value="{DynamicResource BrushGrayColor_1}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BrushWhiteColor_1}"/>
+        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor_1}"/>
     </Style>
 
     <!-- Иконки -->
     <Style x:Key="ButtonIconColor" TargetType="Button" BasedOn="{StaticResource ButtonIconStyle}">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource BrushGrayColor_1}"/>
+                <Setter Property="Background" Value="{DynamicResource BrushGrayColor_3}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -140,7 +148,7 @@
         <Setter Property="Foreground" Value="{DynamicResource BrushIconColor}"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource BrushGrayColor_1}"/>
+                <Setter Property="Background" Value="{DynamicResource BrushGrayColor_3}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

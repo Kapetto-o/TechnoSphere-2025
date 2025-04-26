@@ -111,7 +111,7 @@
             <Button Grid.Row="0"
                     Style="{DynamicResource BannerButtonColor}"
                     Margin="0,0,0,15">
-                <Image Source="/banners/banner_1.png" Stretch="UniformToFill"/>
+                <Image Source="/banners/banner_3.png" Stretch="UniformToFill"/>
             </Button>
 
             <Grid Grid.Row="1">
@@ -135,8 +135,8 @@
                         </Grid.ColumnDefinitions>
 
                         <Image Source="{StaticResource OriginalIcon}"
-                               Width="59.82"
-                               HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                               Height="60"
+                               HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBlock Grid.Column="1"
                                    Text="Оригинальная техника"
                                    Style="{DynamicResource HeadlineColor_2}"
@@ -162,8 +162,8 @@
                         </Grid.ColumnDefinitions>
 
                         <Image Source="{StaticResource SupportIcon}"
-                               Width="59.67"
-                               HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                               Height="60"
+                               HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBlock Grid.Column="1"
                                    Text="Покупка без стресса"
                                    Style="{DynamicResource HeadlineColor_2}"
@@ -218,7 +218,7 @@
 
                         <Image Source="{StaticResource CatalogIcon}"
                                Width="54.43"
-                               HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                               HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBlock Grid.Column="1"
                                   Text="Огромный выбор"
                                   Style="{DynamicResource HeadlineColor_2}"
@@ -235,7 +235,8 @@
 
         <Popup x:Name="LogoSettingPopup"
                PlacementTarget="{Binding ElementName=LogoSetting}"
-               VerticalOffset="5">
+               VerticalOffset="5"
+               AllowsTransparency="True">
             <ContentControl Style="{DynamicResource HeaderPopupColor}">
                 <StackPanel>
                     <Button x:Name="SettingsMenuItem"
@@ -254,7 +255,8 @@
 
         <Popup x:Name="AccountPopup"
                PlacementTarget="{Binding ElementName=UserAccount}"
-               VerticalOffset="5">
+               VerticalOffset="5"
+               AllowsTransparency="True">
             <ContentControl x:Name="PopupContent" Style="{DynamicResource HeaderPopupColor}">
                 <StackPanel>
                     <Button x:Name="СabinetMenu"

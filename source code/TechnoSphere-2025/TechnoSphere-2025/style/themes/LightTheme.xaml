@@ -4,16 +4,20 @@
         <ResourceDictionary Source="/style/font/FontStyle.xaml"/>
         <ResourceDictionary Source="/style/Style.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    
+
     <Color x:Key="WhiteColor">#FFFFFF</Color>
+    <Color x:Key="GrayColor">#353535</Color>
     <Color x:Key="GreenColor">#1A5832</Color>
     <Color x:Key="Light_greenColor">#387A2B</Color>
-    <Color x:Key="GrayColor">#353535</Color>
 
+    <Color x:Key="GreenColor_1">#2e6041</Color>
+    
     <SolidColorBrush x:Key="BrushWhiteColor" Color="{DynamicResource WhiteColor}"/>
+    <SolidColorBrush x:Key="BrushGrayColor" Color="{DynamicResource GrayColor}"/>
     <SolidColorBrush x:Key="BrushGreenColor" Color="{DynamicResource GreenColor}"/>
     <SolidColorBrush x:Key="BrushLight_greenColor" Color="{DynamicResource Light_greenColor}"/>
-    <SolidColorBrush x:Key="BrushGrayColor" Color="{DynamicResource GrayColor}"/>
+
+    <SolidColorBrush x:Key="BrushGreenColor_1" Color="{DynamicResource GreenColor_1}"/>
 
     <SolidColorBrush x:Key="BrushIconColor" Color="{DynamicResource WhiteColor}"/>
     <SolidColorBrush x:Key="BrushSearchIconColor" Color="{DynamicResource GrayColor}"/>
@@ -24,11 +28,11 @@
         <Setter Property="Background" Value="{DynamicResource BrushWhiteColor}"/>
     </Style>
 
-    <!-- Второстепенный фон --> 
+    <!-- Второстепенный фон -->
     <Style x:Key="ForegraundColor" TargetType="Grid">
         <Setter Property="Background" Value="{DynamicResource BrushGreenColor}"/>
     </Style>
-    
+
     <!-- Управление окном -->
     <!-- Скрыть окно -->
     <Style x:Key="HideColor_1" TargetType="Button" BasedOn="{StaticResource ShowButtonStyle}">
@@ -37,7 +41,7 @@
     <Style x:Key="HideColor_2" TargetType="Button" BasedOn="{StaticResource ShowButtonStyle}">
         <Setter Property="Foreground"  Value="{DynamicResource BrushWhiteColor}"/>
     </Style>
-   
+
     <!-- Удалить окно -->
     <Style x:Key="CloseColor_1" TargetType="Button" BasedOn="{StaticResource CloseButtonStyle}">
         <Setter Property="Foreground"  Value="{DynamicResource BrushGreenColor}"/>
@@ -61,7 +65,7 @@
     <Style x:Key="HeadlineColor_2" TargetType="TextBlock"  BasedOn="{StaticResource Headline_2}">
         <Setter Property="Foreground" Value="{DynamicResource BrushGreenColor}"/>
     </Style>
-    
+
     <!-- Основной_1 -->
     <Style x:Key="MainlineColor_1" TargetType="TextBlock" BasedOn="{StaticResource Mainline_1}">
         <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
@@ -127,7 +131,7 @@
     </Style>
 
     <Style x:Key="HeaderPopupColor" TargetType="ContentControl" BasedOn="{StaticResource HeaderPopupStyle}">
-        <Setter Property="Background" Value="{DynamicResource BrushGreenColor}"/>
+        <Setter Property="Background" Value="{DynamicResource BrushGreenColor_1}"/>
     </Style>
 
     <Style x:Key="HeaderPopupButtonColor" TargetType="Button" BasedOn="{StaticResource HeaderPopupButtonStyle}">

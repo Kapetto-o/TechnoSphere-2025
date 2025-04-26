@@ -12,6 +12,8 @@
   <ItemGroup>
     <None Remove="banners\banner_1.png" />
     <None Remove="banners\banner_2.png" />
+    <None Remove="banners\banner_3.png" />
+    <None Remove="banners\banner_billy.png" />
     <None Remove="Close_35x35.png" />
     <None Remove="Green_16x16.png" />
     <None Remove="Green_256x256.png" />
@@ -37,6 +39,8 @@
   <ItemGroup>
     <Resource Include="banners\banner_1.png" />
     <Resource Include="banners\banner_2.png" />
+    <Resource Include="banners\banner_3.png" />
+    <Resource Include="banners\banner_billy.png" />
     <Resource Include="icon\icons.xaml" />
     <Resource Include="icon\LogoMiniGreen_64x64.png" />
     <Resource Include="icon\TestAvatar_2.jpg" />
