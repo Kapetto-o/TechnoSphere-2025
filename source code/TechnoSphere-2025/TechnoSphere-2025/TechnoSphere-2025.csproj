@@ -37,6 +37,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Uno.Fonts.Roboto" Version="2.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="banners\banner_1.png" />
     <Resource Include="banners\banner_2.png" />
     <Resource Include="banners\banner_3.png" />

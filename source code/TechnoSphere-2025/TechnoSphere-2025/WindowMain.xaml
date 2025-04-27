@@ -10,9 +10,9 @@
         Style="{DynamicResource BackgroundColor}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        FontFamily="Roboto"
         ResizeMode="NoResize"
-        Icon="/icon/LogoMiniGreen_64x64.png">
+        Icon="/icon/LogoMiniGreen_64x64.png"
+        FontFamily="Roboto">
 
     <Grid>
         <Grid x:Name="WindowControl_Moving"

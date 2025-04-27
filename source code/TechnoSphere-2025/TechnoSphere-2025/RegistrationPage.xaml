@@ -53,7 +53,7 @@
 
                 <!-- Поле ввода имени пользователя -->
                 <TextBlock Text="Ваше имя пользователя"
-                           Style="{DynamicResource MainlineColor_2}"
+                           Style="{DynamicResource MainlineColor_2_1}"
                            Margin="0,0,0,5"/>
 
                 <TextBox Style="{DynamicResource TextBoxColor}"
@@ -62,7 +62,7 @@
 
                 <!-- Поле ввода E-mail -->
                 <TextBlock Text="Ваш E-mail"
-                           Style="{DynamicResource MainlineColor_2}"
+                           Style="{DynamicResource MainlineColor_2_1}"
                            Margin="0,0,0,5"/>
 
                 <TextBox Style="{DynamicResource TextBoxColor}"
@@ -71,7 +71,7 @@
 
                 <!-- Поле ввода пароля -->
                 <TextBlock Text="Пароль"
-                           Style="{DynamicResource MainlineColor_2}"
+                           Style="{DynamicResource MainlineColor_2_1}"
                            Margin="0,0,0,5"/>
 
                 <TextBox Style="{DynamicResource TextBoxColor}"
@@ -80,7 +80,7 @@
                 
                 <!-- Поле ввода пароля -->
                 <TextBlock Text="Повторите пароль"
-                           Style="{DynamicResource MainlineColor_2}"
+                           Style="{DynamicResource MainlineColor_2_1}"
                            Margin="0,0,0,5"/>
 
                 <TextBox Style="{DynamicResource TextBoxColor}"
@@ -98,10 +98,12 @@
                 <StackPanel Orientation="Horizontal">
                     <!-- Переход в регистрацию -->
                     <TextBlock Text="Уже есть аккаунт?"
-                               Style="{DynamicResource MainlineColor_2}"
+                               Style="{DynamicResource MainlineColor_2_1}"
                                Margin="0,0,5,0"/>
                     <TextBlock Style="{StaticResource Mainline_2}">
-                        <Hyperlink Foreground="#1A5832" TextDecorations="{x:Null}" Click="GoToLogin_Click">
+                        <Hyperlink Foreground="#1A5832"
+                                   TextDecorations="{x:Null}"
+                                   Click="GoToLogin_Click">
                             Войти
                         </Hyperlink>
                     </TextBlock>

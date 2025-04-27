@@ -71,6 +71,7 @@
     <!-- Button в окнах регистрации и авторизации -->
     <Style x:Key="RegAut_Button" TargetType="Button">
         <Setter Property="Height" Value="40"/>
+        <Setter Property="FontFamily" Value="Roboto"/>
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontWeight" Value="Medium"/>
         <Setter Property="BorderThickness" Value="0"/>

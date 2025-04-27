@@ -4,23 +4,27 @@
     <Style x:Key="Headline_1" TargetType="TextBlock">
         <Setter Property="FontSize" Value="32"/>
         <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="FontFamily" Value="Roboto"/>
     </Style>
 
     <!-- Текст: Заголовок_2 -->
     <Style x:Key="Headline_2" TargetType="TextBlock">
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="FontFamily" Value="Roboto"/>
     </Style>
 
     <!-- Текст: Основной_1 -->
     <Style x:Key="Mainline_1" TargetType="TextBlock">
         <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontFamily" Value="Roboto"/>
     </Style>
 
     <!-- Текст: Основной_2 -->
     <Style x:Key="Mainline_2" TargetType="TextBlock">
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="FontFamily" Value="Roboto"/>
     </Style>
 
     <!-- Текст: Хедер -->
@@ -28,5 +32,6 @@
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontWeight" Value="Regular"/>
         <Setter Property="Foreground" Value="{DynamicResource BrushIconColor}"/>
+        <Setter Property="FontFamily" Value="Roboto"/>
     </Style>
 </ResourceDictionary>

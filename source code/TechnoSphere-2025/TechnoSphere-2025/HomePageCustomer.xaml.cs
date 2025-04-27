@@ -43,5 +43,14 @@ namespace TechnoSphere_2025
             _popupManager?.Toggle(AccountPopup, desiredWidth);
             e.Handled = true;
         }
+
+        private void AboutMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var aboutApp = new AboutApplicationWindow();
+            Window owner = Window.GetWindow(this);
+            if (owner != null)
+                aboutApp.Owner = owner;
+            aboutApp.Show();
+        }
     }
 }
