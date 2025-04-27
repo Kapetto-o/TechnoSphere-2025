@@ -32,6 +32,7 @@
     <SolidColorBrush x:Key="BrushIconColor" Color="{DynamicResource WhiteColor_1}"/>
     <SolidColorBrush x:Key="BrushSearchIconColor" Color="{DynamicResource WhiteColor_1}"/>
     <SolidColorBrush x:Key="BrushMainIconColor" Color="{DynamicResource WhiteColor_1}"/>
+    <SolidColorBrush x:Key="BrushHyperlinkColor" Color="{DynamicResource WhiteColor_1}"/>
 
     <!-- Фон -->
     <Style x:Key="BackgroundColor" TargetType="Window">
@@ -71,18 +72,27 @@
         <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor_1}"/>
     </Style>
 
-    <!-- Заголовок_2 -->
-    <Style x:Key="HeadlineColor_2" TargetType="TextBlock"  BasedOn="{StaticResource Headline_2}">
+    <!-- Заголовок_2 цвет_1 -->
+    <Style x:Key="HeadlineColor_2-1" TargetType="TextBlock"  BasedOn="{StaticResource Headline_2}">
         <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor_1}"/>
     </Style>
 
+    <!-- Заголовок_2 цвет_2 -->
+    <Style x:Key="HeadlineColor_2-2" TargetType="TextBlock"  BasedOn="{StaticResource Headline_2}">
+        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor_1}"/>
+    </Style>
     <!-- Основной_1 -->
     <Style x:Key="MainlineColor_1" TargetType="TextBlock" BasedOn="{StaticResource Mainline_1}">
         <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor_1}"/>
     </Style>
 
-    <!-- Основной_2 -->
-    <Style x:Key="MainlineColor_2" TargetType="TextBlock" BasedOn="{StaticResource Mainline_2}">
+    <!-- Основной_2 цвет_1 -->
+    <Style x:Key="MainlineColor_2_1" TargetType="TextBlock" BasedOn="{StaticResource Mainline_2}">
+        <Setter Property="Foreground" Value="{DynamicResource BrushLight_grayColor}"/>
+    </Style>
+
+    <!-- Основной_2 цвет_2 -->
+    <Style x:Key="MainlineColor_2_2" TargetType="TextBlock" BasedOn="{StaticResource Mainline_2}">
         <Setter Property="Foreground" Value="{DynamicResource BrushLight_grayColor}"/>
     </Style>
 
@@ -151,5 +161,10 @@
                 <Setter Property="Background" Value="{DynamicResource BrushGrayColor_3}"/>
             </Trigger>
         </Style.Triggers>
+    </Style>
+
+    <Style x:Key="HederWindowColor" TargetType="Border">
+        <Setter Property="BorderBrush" Value="{DynamicResource BrushLight_grayColor}"/>
+        <Setter Property="Background" Value="{DynamicResource BrushGrayColor_1}"/>
     </Style>
 </ResourceDictionary>

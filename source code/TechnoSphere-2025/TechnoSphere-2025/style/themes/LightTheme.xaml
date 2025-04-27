@@ -22,6 +22,7 @@
     <SolidColorBrush x:Key="BrushIconColor" Color="{DynamicResource WhiteColor}"/>
     <SolidColorBrush x:Key="BrushSearchIconColor" Color="{DynamicResource GrayColor}"/>
     <SolidColorBrush x:Key="BrushMainIconColor" Color="{DynamicResource GreenColor}"/>
+    <SolidColorBrush x:Key="BrushHyperlinkColor" Color="{DynamicResource WhiteColor}"/>
 
     <!-- Фон -->
     <Style x:Key="BackgroundColor" TargetType="Window">
@@ -61,21 +62,31 @@
         <Setter Property="Foreground" Value="{DynamicResource BrushGreenColor}"/>
     </Style>
 
-    <!-- Заголовок_2 -->
-    <Style x:Key="HeadlineColor_2" TargetType="TextBlock"  BasedOn="{StaticResource Headline_2}">
+    <!-- Заголовок_2 цвет_1 -->
+    <Style x:Key="HeadlineColor_2-1" TargetType="TextBlock"  BasedOn="{StaticResource Headline_2}">
         <Setter Property="Foreground" Value="{DynamicResource BrushGreenColor}"/>
     </Style>
-
+    
+    <!-- Заголовок_2 цвет_2 -->
+    <Style x:Key="HeadlineColor_2-2" TargetType="TextBlock"  BasedOn="{StaticResource Headline_2}">
+        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
+    </Style>
+    
     <!-- Основной_1 -->
     <Style x:Key="MainlineColor_1" TargetType="TextBlock" BasedOn="{StaticResource Mainline_1}">
         <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
     </Style>
 
-    <!-- Основной_2 -->
-    <Style x:Key="MainlineColor_2" TargetType="TextBlock" BasedOn="{StaticResource Mainline_2}">
+    <!-- Основной_2 цвет_1 -->
+    <Style x:Key="MainlineColor_2_1" TargetType="TextBlock" BasedOn="{StaticResource Mainline_2}">
         <Setter Property="Foreground" Value="{DynamicResource BrushGrayColor}"/>
     </Style>
-
+    
+    <!-- Основной_2 цвет_2 -->
+    <Style x:Key="MainlineColor_2_2" TargetType="TextBlock" BasedOn="{StaticResource Mainline_2}">
+        <Setter Property="Foreground" Value="{DynamicResource BrushWhiteColor}"/>
+    </Style>
+    
     <!-- Элементы управления -->
     <!-- TextBox в окнах регистрации и авторизации -->
     <Style x:Key="TextBoxColor" TargetType="TextBox" BasedOn="{StaticResource RegAut_TextBox}">
@@ -141,5 +152,10 @@
                 <Setter Property="Background" Value="{DynamicResource BrushLight_greenColor}"/>
             </Trigger>
         </Style.Triggers>
+    </Style>
+
+    <Style x:Key="HederWindowColor" TargetType="Border">
+        <Setter Property="BorderBrush" Value="{DynamicResource BrushGrayColor}"/>
+        <Setter Property="Background" Value="{DynamicResource BrushGreenColor}"/>
     </Style>
 </ResourceDictionary>

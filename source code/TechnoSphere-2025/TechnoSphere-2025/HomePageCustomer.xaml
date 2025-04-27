@@ -138,13 +138,13 @@
                                HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBlock Grid.Column="1"
                                    Text="Оригинальная техника"
-                                   Style="{DynamicResource HeadlineColor_2}"
+                                   Style="{DynamicResource HeadlineColor_2-1}"
                                    TextWrapping="Wrap"/>
                     </Grid>
 
                     <TextBlock Grid.Row="1"
                                Text="Наш магазин работает только с официальными поставщиками. Все товары имеют гарантию и сертификаты."
-                               Style="{DynamicResource MainlineColor_2}"
+                               Style="{DynamicResource MainlineColor_2_1}"
                                TextWrapping="Wrap"/>
                 </Grid>
 
@@ -165,13 +165,13 @@
                                HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBlock Grid.Column="1"
                                    Text="Покупка без стресса"
-                                   Style="{DynamicResource HeadlineColor_2}"
+                                   Style="{DynamicResource HeadlineColor_2-1}"
                                    TextWrapping="Wrap"/>
                     </Grid>
 
                     <TextBlock Grid.Row="1"
                                Text="Возник вопрос? Можете позвонить нам для бесплатной консультации! Мы поможем вам решить проблему и выбрать подходящий товар."
-                               Style="{DynamicResource MainlineColor_2}"
+                               Style="{DynamicResource MainlineColor_2_1}"
                                TextWrapping="Wrap"/>
 
                 </Grid>
@@ -193,13 +193,13 @@
                                HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBlock Grid.Column="1"
                                    Text="Бесплатная доставка"
-                                   Style="{DynamicResource HeadlineColor_2}"
+                                   Style="{DynamicResource HeadlineColor_2-1}"
                                    TextWrapping="Wrap"/>
                     </Grid>
 
                     <TextBlock Grid.Row="1"
                                Text="Осуществляем бесплатную доставку в любую точку Беларуси в течении трёх дней при покупке более чем на 200 рублей."
-                               Style="{DynamicResource MainlineColor_2}"
+                               Style="{DynamicResource MainlineColor_2_1}"
                                TextWrapping="Wrap"/>
                 </Grid>
 
@@ -220,13 +220,13 @@
                                HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBlock Grid.Column="1"
                                   Text="Огромный выбор"
-                                  Style="{DynamicResource HeadlineColor_2}"
+                                  Style="{DynamicResource HeadlineColor_2-1}"
                                   TextWrapping="Wrap"/>
                     </Grid>
 
                     <TextBlock Grid.Row="1"
                               Text="Предоставляем широкий выбор техники для разнообразных повседневных задач."
-                              Style="{DynamicResource MainlineColor_2}"
+                              Style="{DynamicResource MainlineColor_2_1}"
                               TextWrapping="Wrap"/>
                 </Grid>
             </Grid>
@@ -241,12 +241,13 @@
                     <Button x:Name="SettingsMenuItem"
                             Style="{DynamicResource HeaderPopupButtonColor}"
                             Padding="5,10,65,10">
-                        <TextBlock Text="Настройки" Style="{StaticResource Mainline_2}" FontWeight="Normal"/>
+                        <TextBlock Text="Настройки" Style="{StaticResource Mainline_2}"/>
                     </Button>
                     <Button x:Name="AboutMenuItem"
                             Style="{DynamicResource HeaderPopupButtonColor}"
-                            Padding="5,10,65,10">
-                        <TextBlock Text="О приложении" Style="{StaticResource Mainline_2}" FontWeight="Regular"/>
+                            Padding="5,10,65,10"
+                            Click="AboutMenuItem_Click">
+                        <TextBlock Text="О приложении" Style="{StaticResource Mainline_2}"/>
                     </Button>
                 </StackPanel>
             </ContentControl>
@@ -261,12 +262,12 @@
                     <Button x:Name="СabinetMenu"
                             Style="{DynamicResource HeaderPopupButtonColor}"
                             Padding="5,10,5,10">
-                        <TextBlock Text="Личный кабинет" Style="{StaticResource Mainline_2}" FontWeight="Normal"/>
+                        <TextBlock Text="Личный кабинет" Style="{StaticResource Mainline_2}"/>
                     </Button>
                     <Button x:Name="ExitMenu"
                             Style="{DynamicResource HeaderPopupButtonColor}"
                             Padding="5,10,5,10">
-                        <TextBlock Text="Выйти из аккаунта" Style="{StaticResource Mainline_2}" FontWeight="Regular"/>
+                        <TextBlock Text="Выйти из аккаунта" Style="{StaticResource Mainline_2}"/>
                     </Button>
                 </StackPanel>
             </ContentControl>
