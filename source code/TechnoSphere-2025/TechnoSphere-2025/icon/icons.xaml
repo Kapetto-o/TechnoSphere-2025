@@ -217,4 +217,57 @@
             </DrawingGroup>
         </DrawingImage.Drawing>
     </DrawingImage>
+
+    <DrawingImage x:Key="SystemThemeIcon">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V25 H25 V0 H0 Z">
+                <DrawingGroup.Transform>
+                    <TranslateTransform X="1.4468239896814339E-05" Y="0" />
+                </DrawingGroup.Transform>
+                <DrawingGroup Opacity="1">
+                    <DrawingGroup.ClipGeometry>
+                        <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,25,25" />
+                    </DrawingGroup.ClipGeometry>
+                    <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M25,25z M0,0z M21.4048,3.72769C26.2497,8.6457 26.1904,16.56 21.2724,21.4049 12.5,12.5 17.3448,17.418 12.5,12.5 7.65517,7.58204 12.5,12.5 3.72767,3.59521 8.64567,-1.24962 16.56,-1.19031 21.4048,3.72769z" />
+                    <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M25,25z M0,0z M21.4048,3.72769C26.2497,8.6457 26.1904,16.56 21.2724,21.4049 12.5,12.5 17.3448,17.418 12.5,12.5 7.65517,7.58204 12.5,12.5 3.72767,3.59521 8.64567,-1.24962 16.56,-1.19031 21.4048,3.72769z" />
+                    <GeometryDrawing Brush="#FF000000" Geometry="F1 M25,25z M0,0z M3.59516,21.2723C-1.24967,16.3543 -1.19036,8.43997 3.72764,3.59513 12.5,12.5 7.65516,7.58196 12.5,12.5 17.3448,17.418 12.5,12.5 21.2723,21.4048 16.3543,26.2496 8.43999,26.1903 3.59516,21.2723z" />
+                    <GeometryDrawing Brush="#FF000000" Geometry="F1 M25,25z M0,0z M3.59516,21.2723C-1.24967,16.3543 -1.19036,8.43997 3.72764,3.59513 12.5,12.5 7.65516,7.58196 12.5,12.5 17.3448,17.418 12.5,12.5 21.2723,21.4048 16.3543,26.2496 8.43999,26.1903 3.59516,21.2723z" />
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+    
+    <DrawingImage x:Key="WhiteThemeIcon">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V25 H25 V0 H0 Z">
+                <DrawingGroup Opacity="1">
+                    <DrawingGroup.ClipGeometry>
+                        <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,25,25" />
+                    </DrawingGroup.ClipGeometry>
+                    <GeometryDrawing Brush="#FFFFFFFF">
+                        <GeometryDrawing.Geometry>
+                            <EllipseGeometry RadiusX="12.5" RadiusY="12.5" Center="12.5,12.5" />
+                        </GeometryDrawing.Geometry>
+                    </GeometryDrawing>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="BlackThemeIcon">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V25 H25 V0 H0 Z">
+                <DrawingGroup Opacity="1">
+                    <DrawingGroup.ClipGeometry>
+                        <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,25,25" />
+                    </DrawingGroup.ClipGeometry>
+                    <GeometryDrawing Brush="#FF000000">
+                        <GeometryDrawing.Geometry>
+                            <EllipseGeometry RadiusX="12.5" RadiusY="12.5" Center="12.5,12.5" />
+                        </GeometryDrawing.Geometry>
+                    </GeometryDrawing>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
 </ResourceDictionary>
