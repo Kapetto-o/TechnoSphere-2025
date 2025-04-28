@@ -16,7 +16,7 @@ public partial class WindowMain : Window
         InitializeComponent();
         MainFrame.Navigated += Page_Navigated;
         MainFrame.Navigated += MainFrame_Navigated;
-        MainFrame.Navigate(new AuthorizationPage());
+        MainFrame.Navigate(new PageCommon_Authorization());
     }
 
     private void Show_Click(object sender, RoutedEventArgs e)
@@ -39,7 +39,7 @@ public partial class WindowMain : Window
 
     private void Page_Navigated(object sender, NavigationEventArgs e)
     {
-        if (e.Content is AuthorizationPage || e.Content is RegistrationPage)
+        if (e.Content is PageCommon_Authorization || e.Content is PageCommon_Registration)
         {
             HideButton.Style = (Style)Application.Current.FindResource("HideColor_1");
             CloseButton.Style = (Style)Application.Current.FindResource("CloseColor_1");
@@ -58,7 +58,7 @@ public partial class WindowMain : Window
             double leftOffset = 0;
             double rightOffset = 70;
 
-            if (e.Content is not AuthorizationPage and not RegistrationPage)
+            if (e.Content is not PageCommon_Authorization and not PageCommon_Registration)
             {
                 leftOffset = 155;
                 if (MainFrame.Content is Page page)

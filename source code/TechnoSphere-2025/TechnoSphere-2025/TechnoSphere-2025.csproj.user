@@ -14,5 +14,8 @@
     <Compile Update="PageCommon_Registration.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Window_Settings.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

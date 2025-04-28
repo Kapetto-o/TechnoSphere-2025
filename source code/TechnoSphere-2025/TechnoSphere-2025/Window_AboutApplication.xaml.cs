@@ -6,11 +6,11 @@ using System.Windows.Input;
 namespace TechnoSphere_2025
 {
     /// <summary>
-    /// Логика взаимодействия для AboutApplicationWindow.xaml
+    /// Логика взаимодействия для Window_AboutApplication.xaml
     /// </summary>
-    public partial class AboutApplicationWindow : Window
+    public partial class Window_AboutApplication : Window
     {
-        public AboutApplicationWindow()
+        public Window_AboutApplication()
         {
             InitializeComponent();
         }

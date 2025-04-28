@@ -1,17 +1,17 @@
-﻿<Window x:Class="TechnoSphere_2025.AboutApplicationWindow"
+﻿<Window x:Class="TechnoSphere_2025.Window_AboutApplication"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TechnoSphere_2025"
         mc:Ignorable="d"
-        Title="AboutApplication"
+        Title="О приложении"
         Width="471" Height="210"
         WindowStyle="None"
         ResizeMode="NoResize"
         FontFamily="Roboto"
         WindowStartupLocation="CenterOwner"
-        Icon="/icon/LogoMiniGreen_64x64.png"
+        Icon="/icons/LogoMiniGreen_64x64.png"
         AllowsTransparency="True"
         Background="Transparent">
     <Grid>
@@ -21,15 +21,15 @@
               MouseLeftButtonDown="WindowControl_Moving_MouseLeftButtonDown"
               Background="Transparent"
               Panel.ZIndex="1"/>
-        
+
         <Button x:Name="CloseButton"
-                ContentTemplate="{StaticResource CloseIconTemplate}"
+                ContentTemplate="{DynamicResource CloseIconTemplate}"
                 Style="{DynamicResource CloseColor_2}"
                 Width="35" Height="35"
                 HorizontalAlignment="Right" VerticalAlignment="Top"
                 Click="Close_Click"
                 Panel.ZIndex="1"/>
-        
+
         <Border Style="{DynamicResource HederWindowColor}" CornerRadius="4" BorderThickness="2">
             <Grid Margin="30">
                 <Grid.RowDefinitions>

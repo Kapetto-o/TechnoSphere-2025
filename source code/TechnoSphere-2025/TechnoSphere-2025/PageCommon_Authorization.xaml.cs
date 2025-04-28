@@ -4,22 +4,22 @@ using System.Windows.Controls;
 namespace TechnoSphere_2025
 {
     /// <summary>
-    /// Логика взаимодействия для AuthorizationPage.xaml
+    /// Логика взаимодействия для PageCommon_Authorization.xaml
     /// </summary>
-    public partial class AuthorizationPage : Page
+    public partial class PageCommon_Authorization : Page
     {
-        public AuthorizationPage()
+        public PageCommon_Authorization()
         {
             InitializeComponent();
         }
         private void GoToRegister_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new RegistrationPage());
+            NavigationService?.Navigate(new PageCommon_Registration());
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new HomePageCustomer());
+            NavigationService?.Navigate(new PageCustomer_Home());
         }
     }
 }

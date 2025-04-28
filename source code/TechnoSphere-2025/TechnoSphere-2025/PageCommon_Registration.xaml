@@ -1,11 +1,11 @@
-﻿<Page x:Class="TechnoSphere_2025.RegistrationPage"
+﻿<Page x:Class="TechnoSphere_2025.PageCommon_Registration"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TechnoSphere_2025"
       mc:Ignorable="d" 
-      Title="AuthorizationPage"
+      Title="PageCommon_Authorization"
       d:DesignHeight="700" d:DesignWidth="1000">
     <Grid>
         <Grid.ColumnDefinitions>
