@@ -3,11 +3,11 @@ using System.Windows.Controls;
 
 namespace TechnoSphere_2025
 {
-    public partial class HomePageCustomer : Page
+    public partial class PageCustomer_Home : Page
     {
         private PopupManager? _popupManager;
 
-        public HomePageCustomer()
+        public PageCustomer_Home()
         {
             InitializeComponent();
             Loaded += OnLoaded;
@@ -46,7 +46,16 @@ namespace TechnoSphere_2025
 
         private void AboutMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            var aboutApp = new AboutApplicationWindow();
+            var aboutApp = new Window_AboutApplication();
+            Window owner = Window.GetWindow(this);
+            if (owner != null)
+                aboutApp.Owner = owner;
+            aboutApp.Show();
+        }
+
+        private void SettingsMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var aboutApp = new Window_Settings();
             Window owner = Window.GetWindow(this);
             if (owner != null)
                 aboutApp.Owner = owner;

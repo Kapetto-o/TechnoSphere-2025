@@ -1,11 +1,11 @@
-﻿<Page x:Class="TechnoSphere_2025.HomePageCustomer"
+﻿<Page x:Class="TechnoSphere_2025.PageCustomer_Home"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TechnoSphere_2025"
       mc:Ignorable="d"
-      Title="HomePageCustomer"
+      Title="PageCustomer_Home"
       d:DesignWidth="1000" d:DesignHeight="700">
     <Grid>
         <Grid.RowDefinitions>
@@ -27,16 +27,16 @@
                         HorizontalAlignment="Left"
                         Height="25"
                         Click="LogoSetting_Click">
-                    <Image Source="{StaticResource LogoFullIcon}"/>
+                    <Image Source="{DynamicResource LogoFullIcon}"/>
                 </Button>
                 <Button x:Name="UserAccount"
-                        Style="{StaticResource ButtonIconColor}"
+                        Style="{DynamicResource ButtonIconColor}"
                         Height="25"
                         HorizontalAlignment="Right"
                         Click="UserAccount_Click">
                     <StackPanel Orientation="Horizontal" Margin="0,0,5,0">
                         <Image x:Name="AccountImg"
-                               Source="/icon/TestAvatar_2.jpg"
+                               Source="/icons/TestAvatar_2.jpg"
                                Margin="0,0,5,0"/>
                         <TextBlock x:Name="AccountName"
                                    Text="Kapetto"
@@ -59,11 +59,11 @@
                     <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" Style="{StaticResource ButtonIconColor}">
-                    <Image Source="{StaticResource BurgerIcon}" Width="25"/>
+                <Button Grid.Column="0" Style="{DynamicResource ButtonIconColor}">
+                    <Image Source="{DynamicResource BurgerIcon}" Width="25"/>
                 </Button>
                 <Button Grid.Column="1"
-                        Style="{StaticResource ButtonIconColor}"
+                        Style="{DynamicResource ButtonIconColor}"
                         Margin="5,0,0,0">
                     <TextBlock Text="Акции" Style="{StaticResource Headerline}"/>
                 </Button>
@@ -73,28 +73,28 @@
                              Style="{DynamicResource SearchTextboxColor}"
                              Height="35"
                              Padding="35,0,5,0"/>
-                    <Button Style="{StaticResource SearhButtonIconColor}"
+                    <Button Style="{DynamicResource SearhButtonIconColor}"
                             Width="35"
                             HorizontalAlignment="Left">
-                        <Image Source="{StaticResource SearchIcon}" Height="25"/>
+                        <Image Source="{DynamicResource SearchIcon}" Height="25"/>
                     </Button>
                 </Grid>
 
                 <Grid Grid.Column="4">
-                    <Button Style="{StaticResource ButtonIconColor}"
+                    <Button Style="{DynamicResource ButtonIconColor}"
                             Width="50"
                             HorizontalAlignment="Left">
-                        <Image Source="{StaticResource ComparisonIcon}" Height="25"/>
+                        <Image Source="{DynamicResource ComparisonIcon}" Height="25"/>
                     </Button>
-                    <Button Style="{StaticResource ButtonIconColor}"
+                    <Button Style="{DynamicResource ButtonIconColor}"
                             Width="50"
                             HorizontalAlignment="Center">
-                        <Image Source="{StaticResource FavoriteIcon}"/>
+                        <Image Source="{DynamicResource FavoriteIcon}"/>
                     </Button>
-                    <Button Style="{StaticResource ButtonIconColor}"
+                    <Button Style="{DynamicResource ButtonIconColor}"
                             Width="50"
                             HorizontalAlignment="Right">
-                        <Image Source="{StaticResource BasketIcon}"/>
+                        <Image Source="{DynamicResource BasketIcon}"/>
                     </Button>
                 </Grid>
             </Grid>
@@ -133,7 +133,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <Image Source="{StaticResource OriginalIcon}"
+                        <Image Source="{DynamicResource OriginalIcon}"
                                Height="60"
                                HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBlock Grid.Column="1"
@@ -160,7 +160,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <Image Source="{StaticResource SupportIcon}"
+                        <Image Source="{DynamicResource SupportIcon}"
                                Height="60"
                                HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBlock Grid.Column="1"
@@ -188,7 +188,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <Image Source="{StaticResource DeliveryIcon}"
+                        <Image Source="{DynamicResource DeliveryIcon}"
                                Width="54.43"
                                HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBlock Grid.Column="1"
@@ -215,7 +215,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <Image Source="{StaticResource CatalogIcon}"
+                        <Image Source="{DynamicResource CatalogIcon}"
                                Width="54.43"
                                HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBlock Grid.Column="1"
@@ -240,7 +240,8 @@
                 <StackPanel>
                     <Button x:Name="SettingsMenuItem"
                             Style="{DynamicResource HeaderPopupButtonColor}"
-                            Padding="5,10,65,10">
+                            Padding="5,10,65,10"
+                            Click="SettingsMenuItem_Click">
                         <TextBlock Text="Настройки" Style="{StaticResource Mainline_2}"/>
                     </Button>
                     <Button x:Name="AboutMenuItem"
