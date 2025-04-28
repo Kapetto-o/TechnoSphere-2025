@@ -158,4 +158,26 @@
         <Setter Property="BorderBrush" Value="{DynamicResource BrushGrayColor}"/>
         <Setter Property="Background" Value="{DynamicResource BrushGreenColor}"/>
     </Style>
+
+    <Style x:Key="IconRadioButtonColor" TargetType="RadioButton" BasedOn="{StaticResource RadioButtonStyle}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource BrushLight_greenColor}"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource BrushWhiteColor}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="TextRadioButtonColor" TargetType="RadioButton" BasedOn="{StaticResource RadioButtonStyle}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BrushGreenColor_1}"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BrushLight_greenColor}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>
