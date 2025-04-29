@@ -10,47 +10,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="banners\banner_1.png" />
-    <None Remove="banners\banner_2.png" />
-    <None Remove="banners\banner_3.png" />
-    <None Remove="banners\banner_billy.png" />
-    <None Remove="Close_35x35.png" />
-    <None Remove="Green_16x16.png" />
-    <None Remove="Green_256x256.png" />
-    <None Remove="Green_64x64.png" />
-    <None Remove="icons\BasketWhite.png" />
-    <None Remove="icons\ComprarisonWhite.png" />
-    <None Remove="icons\FavoritWhite.png" />
-    <None Remove="icons\LogoFullDark_64.png" />
-    <None Remove="icons\LogoFullWhite_64.png" />
-    <None Remove="icons\LogoMiniGreen_64x64.png" />
-    <None Remove="icons\SearchDark.png" />
-    <None Remove="icons\SearchWhite.png" />
-    <None Remove="icons\TestAvatar.jpg" />
-    <None Remove="icons\TestAvatar_2.jpg" />
-    <None Remove="Show_35x35.png" />
-    <None Remove="White_16x16.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Remove="icons\icons.xaml" />
-    <Page Remove="style\themes\DarkTheme.xaml" />
-    <Page Remove="style\themes\LightTheme.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Uno.Fonts.Roboto" Version="2.7.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="banners\banner_1.png" />
-    <Resource Include="banners\banner_2.png" />
-    <Resource Include="banners\banner_3.png" />
     <Resource Include="banners\banner_billy.png" />
+    <Resource Include="banners\banner_eng.png" />
+    <Resource Include="banners\banner_ru.png" />
     <Resource Include="icons\icons.xaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="icons\LogoMiniGreen_64x64.png" />
+	  <Resource Include="icons\LogoMiniGreen_64x64.png" />
     <Resource Include="icons\TestAvatar_2.jpg" />
     <Resource Include="style\themes\DarkTheme.xaml" />
     <Resource Include="style\themes\LightTheme.xaml" />

@@ -110,7 +110,7 @@
             <Button Grid.Row="0"
                     Style="{DynamicResource BannerButtonColor}"
                     Margin="0,0,0,15">
-                <Image Source="/banners/banner_3.png" Stretch="UniformToFill"/>
+                <Image Source="/banners/banner_ru.png" Stretch="UniformToFill"/>
             </Button>
 
             <Grid Grid.Row="1">
