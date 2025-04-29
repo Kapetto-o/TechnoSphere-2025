@@ -1,0 +1,138 @@
+﻿<UserControl x:Class="TechnoSphere_2025.helper.HeaderControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TechnoSphere_2025.helper"
+             Width="1000" Height="80">
+    <Grid Style="{DynamicResource ForegraundColor}">
+        <Grid Grid.Row="0" Style="{DynamicResource ForegraundColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="45"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header_1 -->
+            <Grid Grid.Row="0" Margin="15,0,92,0">
+                <Button x:Name="LogoSetting"
+                        Style="{DynamicResource ButtonIconColor}"
+                        HorizontalAlignment="Left"
+                        Height="25"
+                        Click="LogoSetting_Click">
+                    <Image Source="{DynamicResource LogoFullIcon}"/>
+                </Button>
+                <Button x:Name="UserAccount"
+                        Style="{DynamicResource ButtonIconColor}"
+                        Height="25"
+                        HorizontalAlignment="Right"
+                        Click="UserAccount_Click">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,5,0">
+                        <Image x:Name="AccountImg"
+                       Source="/icons/TestAvatar_2.jpg"
+                       Margin="0,0,5,0"/>
+                        <TextBlock x:Name="AccountName"
+                           Text="Kapetto"
+                           Style="{StaticResource Headerline}"
+                           VerticalAlignment="Center"
+                           Margin="0,0,5,0"/>
+                        <TextBlock Text="˅"
+                           Style="{StaticResource Headerline}"
+                           VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+
+            <!-- Header_2 -->
+            <Grid Grid.Row="1" Margin="5,0,15,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="45"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Style="{DynamicResource ButtonIconColor}">
+                    <Image Source="{DynamicResource BurgerIcon}" Width="25"/>
+                </Button>
+                <Button Grid.Column="1"
+                        Style="{DynamicResource ButtonIconColor}"
+                        Margin="5,0,0,0">
+                    <TextBlock Text="{DynamicResource Loc_Stock}"
+                               Style="{StaticResource Headerline}"
+                               Margin="10,0,10,0"/>
+                </Button>
+
+                <Grid Grid.Column="2" Margin="15,5,15,5">
+                    <TextBox x:Name="SearchTextBox"
+                             Style="{DynamicResource SearchTextboxColor}"
+                             Height="35"
+                             Padding="35,0,5,0"/>
+                    <Button Style="{DynamicResource SearhButtonIconColor}"
+                            Width="35"
+                            HorizontalAlignment="Left">
+                        <Image Source="{DynamicResource SearchIcon}" Height="25"/>
+                    </Button>
+                </Grid>
+
+                <Grid Grid.Column="4">
+                    <Button Style="{DynamicResource ButtonIconColor}"
+                            Width="50"
+                            HorizontalAlignment="Left">
+                        <Image Source="{DynamicResource ComparisonIcon}" Height="25"/>
+                    </Button>
+                    <Button Style="{DynamicResource ButtonIconColor}"
+                            Width="50"
+                            HorizontalAlignment="Center">
+                        <Image Source="{DynamicResource FavoriteIcon}"/>
+                    </Button>
+                    <Button Style="{DynamicResource ButtonIconColor}"
+                            Width="50"
+                            HorizontalAlignment="Right">
+                        <Image Source="{DynamicResource BasketIcon}"/>
+                    </Button>
+                </Grid>
+            </Grid>
+        </Grid>
+
+
+        <Popup x:Name="LogoSettingPopup"
+               PlacementTarget="{Binding ElementName=LogoSetting}"
+               VerticalOffset="5"
+               AllowsTransparency="True">
+            <ContentControl Style="{DynamicResource HeaderPopupColor}">
+                <StackPanel>
+                    <Button x:Name="SettingsMenuItem"
+                            Style="{DynamicResource HeaderPopupButtonColor}"
+                            Padding="5,10,65,10"
+                            Click="SettingsMenuItem_Click">
+                        <TextBlock Text="{DynamicResource Loc_MenuSettings}" Style="{StaticResource Mainline_2}"/>
+                    </Button>
+                    <Button x:Name="AboutMenuItem"
+                            Style="{DynamicResource HeaderPopupButtonColor}"
+                            Padding="5,10,65,10"
+                            Click="AboutMenuItem_Click">
+                        <TextBlock Text="{DynamicResource Loc_MenuAboutApp}" Style="{StaticResource Mainline_2}"/>
+                    </Button>
+                </StackPanel>
+            </ContentControl>
+        </Popup>
+
+        <Popup x:Name="AccountPopup"
+               PlacementTarget="{Binding ElementName=UserAccount}"
+               VerticalOffset="5"
+               AllowsTransparency="True">
+            <ContentControl x:Name="PopupContent" Style="{DynamicResource HeaderPopupColor}">
+                <StackPanel>
+                    <Button x:Name="СabinetMenu"
+                            Style="{DynamicResource HeaderPopupButtonColor}"
+                            Padding="5,10,5,10">
+                        <TextBlock Text="{DynamicResource Loc_MenuPersonalAccount}" Style="{StaticResource Mainline_2}"/>
+                    </Button>
+                    <Button x:Name="ExitMenu"
+                            Style="{DynamicResource HeaderPopupButtonColor}"
+                            Padding="5,10,5,10">
+                        <TextBlock Text="{DynamicResource Loc_MenuLogout}" Style="{StaticResource Mainline_2}"/>
+                    </Button>
+                </StackPanel>
+            </ContentControl>
+        </Popup>
+    </Grid>
+</UserControl>

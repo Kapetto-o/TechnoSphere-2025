@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using System.Windows.Threading;
+using TechnoSphere_2025.helper;
 
 namespace TechnoSphere_2025;
 
@@ -51,42 +52,57 @@ public partial class WindowMain : Window
         }
     }
 
+    private void UpdateDragArea(FrameworkElement logoBtn, FrameworkElement userBtn)
+    {
+        logoBtn.UpdateLayout();
+        userBtn.UpdateLayout();
+
+        double leftOffset = logoBtn.ActualWidth + 15;
+        double rightOffset = userBtn.ActualWidth + 92;
+
+        WindowControl_Moving.Margin =
+            new Thickness(leftOffset, 0, rightOffset, 0);
+    }
+
     private void MainFrame_Navigated(object sender, NavigationEventArgs e)
     {
         Dispatcher.InvokeAsync(() =>
         {
-            double leftOffset = 0;
-            double rightOffset = 70;
-
-            if (e.Content is not PageCommon_Authorization and not PageCommon_Registration)
+            if (e.Content is PageCommon_Authorization ||
+                e.Content is PageCommon_Registration ||
+                MainFrame.Content is not Page page)
             {
-                if (MainFrame.Content is Page page)
-                {
-                    var logoButton = page.FindName("LogoSetting") as FrameworkElement;
-                    if (logoButton != null)
-                    {
-                        logoButton.UpdateLayout();
-                        leftOffset = logoButton.ActualWidth + 15;
-                    }
-                    else
-                    {
-                        leftOffset = 155;
-                    }
-
-                    var userBtn = page.FindName("UserAccount") as FrameworkElement;
-                    if (userBtn != null)
-                    {
-                        userBtn.UpdateLayout();
-                        rightOffset = userBtn.ActualWidth + 92;
-                    }
-                    else
-                    {
-                        rightOffset = 70;
-                    }
-                }
+                WindowControl_Moving.Margin = new Thickness(0, 0, 70, 0);
+                return;
             }
 
-            WindowControl_Moving.Margin = new Thickness(leftOffset, 0, rightOffset, 0);
+            var header = page.FindName("PageHeader") as helper.HeaderControl;
+            if (header == null)
+            {
+                WindowControl_Moving.Margin = new Thickness(155, 0, 70, 0);
+                return;
+            }
+
+            var logoBtn = header.LogoButton;
+            var userBtn = header.UserButton;
+
+            UpdateDragArea(logoBtn, userBtn);
+
+            logoBtn.SizeChanged -= HeaderButton_SizeChanged;
+            userBtn.SizeChanged -= HeaderButton_SizeChanged;
+
+            logoBtn.SizeChanged += HeaderButton_SizeChanged;
+            userBtn.SizeChanged += HeaderButton_SizeChanged;
+
         }, DispatcherPriority.Loaded);
+    }
+
+    private void HeaderButton_SizeChanged(object sender, SizeChangedEventArgs e)
+    {
+        if (MainFrame.Content is not Page page) return;
+        var header = page.FindName("PageHeader") as helper.HeaderControl;
+        if (header == null) return;
+
+        UpdateDragArea(header.LogoButton, header.UserButton);
     }
 }
