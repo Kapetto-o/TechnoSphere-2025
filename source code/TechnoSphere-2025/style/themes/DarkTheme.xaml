@@ -32,7 +32,7 @@
     <SolidColorBrush x:Key="BrushIconColor" Color="{DynamicResource WhiteColor_1}"/>
     <SolidColorBrush x:Key="BrushSearchIconColor" Color="{DynamicResource WhiteColor_1}"/>
     <SolidColorBrush x:Key="BrushMainIconColor" Color="{DynamicResource WhiteColor_1}"/>
-    <SolidColorBrush x:Key="BrushHyperlinkColor" Color="{DynamicResource WhiteColor_1}"/>
+    <SolidColorBrush x:Key="BrushHyperlinkColor" Color="{DynamicResource Light_greenColor}"/>
 
     <!-- Фон -->
     <Style x:Key="BackgroundColor" TargetType="Window">
@@ -47,10 +47,10 @@
     <!-- Управление окном -->
     <!-- Скрыть окно -->
     <Style x:Key="HideColor_1" TargetType="Button" BasedOn="{StaticResource ShowButtonStyle}">
-        <Setter Property="Foreground"  Value="{DynamicResource BrushWhiteColor_1}"/>
+        <Setter Property="Foreground"  Value="{DynamicResource BrushIconColor}"/>
     </Style>
     <Style x:Key="HideColor_2" TargetType="Button" BasedOn="{StaticResource ShowButtonStyle}">
-        <Setter Property="Foreground"  Value="{DynamicResource BrushWhiteColor_1}"/>
+        <Setter Property="Foreground"  Value="{DynamicResource BrushIconColor}"/>
     </Style>
 
     <!-- Удалить окно -->
@@ -166,5 +166,27 @@
     <Style x:Key="HederWindowColor" TargetType="Border">
         <Setter Property="BorderBrush" Value="{DynamicResource BrushLight_grayColor}"/>
         <Setter Property="Background" Value="{DynamicResource BrushGrayColor_1}"/>
+    </Style>
+
+    <Style x:Key="IconRadioButtonColor" TargetType="RadioButton" BasedOn="{StaticResource RadioButtonStyle}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource BrushGrayColor_3}"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource BrushLight_greenColor}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="TextRadioButtonColor" TargetType="RadioButton" BasedOn="{StaticResource RadioButtonStyle}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BrushGrayColor_3}"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BrushLight_greenColor}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>

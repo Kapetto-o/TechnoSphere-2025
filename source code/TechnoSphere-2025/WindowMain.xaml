@@ -11,7 +11,7 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Icon="/icon/LogoMiniGreen_64x64.png"
+        Icon="/icons/LogoMiniGreen_64x64.png"
         FontFamily="Roboto">
 
     <Grid>
@@ -28,12 +28,12 @@
                     Height="35"
                     Panel.ZIndex="101">
             <Button x:Name="HideButton"
-                    ContentTemplate="{StaticResource ShowIconTemplate}"
+                    ContentTemplate="{DynamicResource ShowIconTemplate}"
                     Style="{DynamicResource HideColor_1}"
                     Width="35" Height="35"
                     Click="Show_Click"/>
             <Button x:Name="CloseButton"
-                    ContentTemplate="{StaticResource CloseIconTemplate}"
+                    ContentTemplate="{DynamicResource CloseIconTemplate}"
                     Style="{DynamicResource CloseColor_1}"
                     Width="35" Height="35"
                     Click="Close_Click"/>

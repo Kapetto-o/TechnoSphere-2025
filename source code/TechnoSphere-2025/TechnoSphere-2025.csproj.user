@@ -2,16 +2,19 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="AboutApplicationWindow.xaml.cs">
+    <Compile Update="Window_AboutApplication.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="AuthorizationPage.xaml.cs">
+    <Compile Update="PageCommon_Authorization.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="HomePageCustomer.xaml.cs">
+    <Compile Update="PageCustomer_Home.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="RegistrationPage.xaml.cs">
+    <Compile Update="PageCommon_Registration.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window_Settings.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
