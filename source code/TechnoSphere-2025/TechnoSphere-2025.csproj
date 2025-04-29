@@ -10,6 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="style\font\Roboto\Roboto-Italic-VariableFont_wdth,wght.ttf" />
+    <None Remove="style\font\Roboto\Roboto-VariableFont_wdth,wght.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Uno.Fonts.Roboto" Version="2.7.1" />
   </ItemGroup>
 
@@ -22,6 +27,12 @@
     </Resource>
 	  <Resource Include="icons\LogoMiniGreen_64x64.png" />
     <Resource Include="icons\TestAvatar_2.jpg" />
+    <Resource Include="style\font\Roboto\Roboto-Italic-VariableFont_wdth,wght.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="style\font\Roboto\Roboto-VariableFont_wdth,wght.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="style\themes\DarkTheme.xaml" />
     <Resource Include="style\themes\LightTheme.xaml" />
   </ItemGroup>
