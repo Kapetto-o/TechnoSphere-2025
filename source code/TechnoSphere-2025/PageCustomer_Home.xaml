@@ -54,8 +54,8 @@
             <Grid Grid.Row="1" Margin="5,0,15,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="45"/>
-                    <ColumnDefinition Width="92"/>
-                    <ColumnDefinition Width="86*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
 
@@ -65,7 +65,9 @@
                 <Button Grid.Column="1"
                         Style="{DynamicResource ButtonIconColor}"
                         Margin="5,0,0,0">
-                    <TextBlock Text="{DynamicResource Loc_Stock}" Style="{StaticResource Headerline}"/>
+                    <TextBlock Text="{DynamicResource Loc_Stock}"
+                               Style="{StaticResource Headerline}"
+                               Margin="10,0,10,0"/>
                 </Button>
 
                 <Grid Grid.Column="2" Margin="15,5,15,5">
