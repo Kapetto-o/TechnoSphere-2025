@@ -16,7 +16,7 @@
 
     <Grid>
         <Grid x:Name="WindowControl_Moving"
-              Width="930" Height="35"
+              Width="auto" Height="35"
               VerticalAlignment="Top"
               Margin="0,0,70,0"
               Background="Transparent"

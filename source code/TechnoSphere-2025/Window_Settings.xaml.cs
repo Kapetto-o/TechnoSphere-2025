@@ -23,6 +23,16 @@ namespace TechnoSphere_2025
                     break;
             }
 
+            switch (LocalizationManager.CurrentLanguage)
+            {
+                case LanguageType.Russian:
+                    RussianRadioButton.IsChecked = true;
+                    break;
+                case LanguageType.English:
+                    EnglishRadioButton.IsChecked = true;
+                    break;
+            }
+
             SystemThemeRadioButton.Checked += ThemeRadioButton_Checked;
             LightThemeRadioButton.Checked += ThemeRadioButton_Checked;
             DarkThemeRadioButton.Checked += ThemeRadioButton_Checked;
@@ -36,6 +46,14 @@ namespace TechnoSphere_2025
                 ThemeManager.ApplyTheme(ThemeType.Light, saveIfNeeded: true);
             else if (DarkThemeRadioButton.IsChecked == true)
                 ThemeManager.ApplyTheme(ThemeType.Dark, saveIfNeeded: true);
+        }
+
+        private void LanguageRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            if (RussianRadioButton.IsChecked == true)
+                LocalizationManager.ApplyLanguage(LanguageType.Russian, saveIfNeeded: true);
+            else if (EnglishRadioButton.IsChecked == true)
+                LocalizationManager.ApplyLanguage(LanguageType.English, saveIfNeeded: true);
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)

@@ -60,9 +60,19 @@ public partial class WindowMain : Window
 
             if (e.Content is not PageCommon_Authorization and not PageCommon_Registration)
             {
-                leftOffset = 155;
                 if (MainFrame.Content is Page page)
                 {
+                    var logoButton = page.FindName("LogoSetting") as FrameworkElement;
+                    if (logoButton != null)
+                    {
+                        logoButton.UpdateLayout();
+                        leftOffset = logoButton.ActualWidth + 15;
+                    }
+                    else
+                    {
+                        leftOffset = 155;
+                    }
+
                     var userBtn = page.FindName("UserAccount") as FrameworkElement;
                     if (userBtn != null)
                     {
@@ -75,6 +85,7 @@ public partial class WindowMain : Window
                     }
                 }
             }
+
             WindowControl_Moving.Margin = new Thickness(leftOffset, 0, rightOffset, 0);
         }, DispatcherPriority.Loaded);
     }

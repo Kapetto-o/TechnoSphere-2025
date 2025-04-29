@@ -21,11 +21,11 @@
             </Grid.RowDefinitions>
 
             <StackPanel VerticalAlignment="Bottom" Margin="15">
-                <TextBlock Text="Добро пожаловать!"
+                <TextBlock Text="{DynamicResource Loc_Welcome}"
                            Style="{DynamicResource HeadlineColor_1_1}"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,30"/>
-                <TextBlock Text="Прежде чем продолжить, войдите в свой аккаунт."
+                <TextBlock Text="{DynamicResource Loc_BeforeСontinue}"
                            Style="{DynamicResource MainlineColor_1}"
                            HorizontalAlignment="Center"
                            TextWrapping="Wrap"
@@ -46,13 +46,13 @@
                         VerticalAlignment="Center"
                         Margin="15,0,15,0">
                 <!-- Заголовок -->
-                <TextBlock Text="Авторизация"
+                <TextBlock Text="{DynamicResource Loc_Authorization}"
                            Style="{DynamicResource HeadlineColor_1_2}"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,30"/>
 
                 <!-- Поле ввода E-mail -->
-                <TextBlock Text="Ваш E-mail"
+                <TextBlock Text="{DynamicResource Loc_Email}"
                            Style="{DynamicResource MainlineColor_2_1}"
                            Margin="0,0,0,5"/>
 
@@ -61,7 +61,7 @@
                          Margin="0,0,0,15"/>
 
                 <!-- Поле ввода пароля -->
-                <TextBlock Text="Пароль"
+                <TextBlock Text="{DynamicResource Loc_Password}"
                            Style="{DynamicResource MainlineColor_2_1}"
                            Margin="0,0,0,5"/>
 
@@ -70,7 +70,7 @@
                          Margin="0,0,0,30"/>
 
                 <!-- Кнопка "Войти" -->
-                <Button Content="Войти"
+                <Button Content="{DynamicResource Loc_Login}"
                         x:Name="Login"
                         Style="{DynamicResource ButtonColor}"
                         Height="40"
@@ -79,12 +79,12 @@
 
                 <StackPanel Orientation="Horizontal">
                     <!-- Переход в регистрацию -->
-                    <TextBlock Text="Нет аккаунта?"
+                    <TextBlock Text="{DynamicResource Loc_NoAccount}"
                                Style="{DynamicResource MainlineColor_2_1}"
                                Margin="0,0,5,0"/>
                     <TextBlock Style="{StaticResource Mainline_2}">
                         <Hyperlink Foreground="#1A5832" TextDecorations="{x:Null}" Click="GoToRegister_Click">
-                            Зарегистрироваться
+                            <TextBlock Text="{DynamicResource Loc_Register}"/>
                         </Hyperlink>
                     </TextBlock>
                 </StackPanel>

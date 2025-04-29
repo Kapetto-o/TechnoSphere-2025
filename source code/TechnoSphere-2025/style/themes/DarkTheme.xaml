@@ -55,10 +55,10 @@
 
     <!-- Удалить окно -->
     <Style x:Key="CloseColor_1" TargetType="Button" BasedOn="{StaticResource CloseButtonStyle}">
-        <Setter Property="Foreground"  Value="{DynamicResource BrushWhiteColor_1}"/>
+        <Setter Property="Foreground"  Value="{DynamicResource BrushIconColor}"/>
     </Style>
     <Style x:Key="CloseColor_2" TargetType="Button" BasedOn="{StaticResource CloseButtonStyle}">
-        <Setter Property="Foreground"  Value="{DynamicResource BrushWhiteColor_1}"/>
+        <Setter Property="Foreground"  Value="{DynamicResource BrushIconColor}"/>
     </Style>
     
     <!-- Текст -->

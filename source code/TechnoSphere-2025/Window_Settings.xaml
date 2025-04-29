@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TechnoSphere_2025"
         mc:Ignorable="d"
-        Title="Настройки"
+        Title="Settings"
         Width="277" Height="288"
         WindowStyle="None"
         ResizeMode="NoResize"
@@ -39,14 +39,14 @@
 
                 <StackPanel Grid.Row="0" Orientation="Horizontal">
                     <Image Source="{DynamicResource LogoMiniIcon}"/>
-                    <TextBlock Text="Настройки"
+                    <TextBlock Text="{DynamicResource Loc_Settings}"
                                Style="{DynamicResource HeadlineColor_2-2}"
                                Margin="15,0,0,0"/>
                 </StackPanel>
 
                 <StackPanel Grid.Row="1" Margin="0,30,0,0">
                     <StackPanel Margin="0,0,0,15">
-                        <TextBlock Text="Общий вид" Style="{DynamicResource MainlineColor_2_2}"/>
+                        <TextBlock Text="{DynamicResource Loc_GeneralAppearance}" Style="{DynamicResource MainlineColor_2_2}"/>
                         <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                             <RadioButton x:Name="SystemThemeRadioButton" 
                                          Style="{DynamicResource IconRadioButtonColor}" 
@@ -67,18 +67,20 @@
                     </StackPanel>
 
                     <StackPanel Margin="0,0,0,15">
-                        <TextBlock Text="Язык" Style="{DynamicResource MainlineColor_2_2}" Margin="0,0,0,10"/>
-                        <RadioButton Style="{DynamicResource TextRadioButtonColor}"
+                        <TextBlock Text="{DynamicResource Loc_Lenguge}" Style="{DynamicResource MainlineColor_2_2}" Margin="0,0,0,10"/>
+                        <RadioButton x:Name="RussianRadioButton" Style="{DynamicResource TextRadioButtonColor}"
                                      HorizontalContentAlignment="Left"
                                      Padding="4"
-                                     IsChecked="True">
+                                     Checked="LanguageRadioButton_Checked">
                             <TextBlock Text="Русский"
                                        Style="{DynamicResource MainlineColor_2_2}"
                                        Margin="5,0,0,0"/>
                         </RadioButton>
-                        <RadioButton Style="{DynamicResource TextRadioButtonColor}"
+                        <RadioButton x:Name="EnglishRadioButton"
+                                     Style="{DynamicResource TextRadioButtonColor}"
                                      HorizontalContentAlignment="Left"
-                                     Padding="4" IsChecked="False">
+                                     Padding="4"
+                                     Checked="LanguageRadioButton_Checked">
                             <TextBlock Text="English" Style="{DynamicResource MainlineColor_2_2}" Margin="5,0,0,0"/>
                         </RadioButton>
                     </StackPanel>

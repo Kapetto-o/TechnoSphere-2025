@@ -46,7 +46,7 @@ namespace TechnoSphere_2025.helper
             md.Insert(0, new ResourceDictionary { Source = dictUri });
 
             ReloadIconDictionary();
-
+            LocalizationManager.ReloadLogoDictionary();
             CurrentTheme = theme;
 
             if (saveIfNeeded)
@@ -68,7 +68,7 @@ namespace TechnoSphere_2025.helper
             return true;
         }
 
-        private static void ReloadIconDictionary()
+        public static void ReloadIconDictionary()
         {
             var md = Application.Current.Resources.MergedDictionaries;
 

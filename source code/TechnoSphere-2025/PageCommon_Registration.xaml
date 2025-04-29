@@ -21,11 +21,11 @@
             </Grid.RowDefinitions>
 
             <StackPanel VerticalAlignment="Bottom" Margin="15" >
-                <TextBlock Text="Добро пожаловать!"
+                <TextBlock Text="{DynamicResource Loc_Welcome}"
                            Style="{DynamicResource HeadlineColor_1_1}"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,30"/>
-                <TextBlock Text="Прежде чем продолжить, войдите в свой аккаунт."
+                <TextBlock Text="{DynamicResource Loc_BeforeСontinue}"
                            Style="{DynamicResource MainlineColor_1}"
                            HorizontalAlignment="Center"
                            TextWrapping="Wrap"
@@ -46,13 +46,13 @@
                         VerticalAlignment="Center"
                         Margin="15,0,15,0">
                 <!-- Заголовок -->
-                <TextBlock Text="Регистрация"
+                <TextBlock Text="{DynamicResource Loc_Registration}"
                            Style="{DynamicResource HeadlineColor_1_2}"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,30"/>
 
                 <!-- Поле ввода имени пользователя -->
-                <TextBlock Text="Ваше имя пользователя"
+                <TextBlock Text="{DynamicResource Loc_RegUserName}"
                            Style="{DynamicResource MainlineColor_2_1}"
                            Margin="0,0,0,5"/>
 
@@ -61,7 +61,7 @@
                          Margin="0,0,0,15"/>
 
                 <!-- Поле ввода E-mail -->
-                <TextBlock Text="Ваш E-mail"
+                <TextBlock Text="{DynamicResource Loc_Email}"
                            Style="{DynamicResource MainlineColor_2_1}"
                            Margin="0,0,0,5"/>
 
@@ -70,7 +70,7 @@
                          Margin="0,0,0,15"/>
 
                 <!-- Поле ввода пароля -->
-                <TextBlock Text="Пароль"
+                <TextBlock Text="{DynamicResource Loc_Password}"
                            Style="{DynamicResource MainlineColor_2_1}"
                            Margin="0,0,0,5"/>
 
@@ -79,7 +79,7 @@
                          Margin="0,0,0,15"/>
                 
                 <!-- Поле ввода пароля -->
-                <TextBlock Text="Повторите пароль"
+                <TextBlock Text="{DynamicResource Loc_RepeatPassword}"
                            Style="{DynamicResource MainlineColor_2_1}"
                            Margin="0,0,0,5"/>
 
@@ -89,7 +89,7 @@
 
                 <!-- Кнопка "Зарегистрироваться" -->
                 <Button x:Name="Register"
-                        Content="Зарегистрироваться"
+                        Content="{DynamicResource Loc_Register}"
                         Style="{DynamicResource ButtonColor}"
                         Height="40"
                         Margin="0,0,0,30"
@@ -97,14 +97,14 @@
 
                 <StackPanel Orientation="Horizontal">
                     <!-- Переход в регистрацию -->
-                    <TextBlock Text="Уже есть аккаунт?"
+                    <TextBlock Text="{DynamicResource Loc_ThereIsAnAccount}"
                                Style="{DynamicResource MainlineColor_2_1}"
                                Margin="0,0,5,0"/>
                     <TextBlock Style="{StaticResource Mainline_2}">
                         <Hyperlink Foreground="#1A5832"
                                    TextDecorations="{x:Null}"
                                    Click="GoToLogin_Click">
-                            Войти
+                            <TextBlock Text="{DynamicResource Loc_Login}"/>
                         </Hyperlink>
                     </TextBlock>
                 </StackPanel>

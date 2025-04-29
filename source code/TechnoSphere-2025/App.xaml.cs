@@ -9,6 +9,7 @@ namespace TechnoSphere_2025
         {
             base.OnStartup(e);
             ThemeManager.Initialize();
+            LocalizationManager.Initialize();
         }
     }
 }

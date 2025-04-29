@@ -7,7 +7,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/style/themes/LightTheme.xaml"/>
-                
+                <ResourceDictionary Source="/languages/Russian.xaml"/>
                 <ResourceDictionary Source="/icons/icons.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
