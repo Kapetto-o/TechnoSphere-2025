@@ -5,7 +5,7 @@
     <Compile Update="helper\HeaderControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PageHome_Admin.xaml.cs">
+    <Compile Update="PageHome_User.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Window_AboutApplication.xaml.cs">
@@ -14,7 +14,7 @@
     <Compile Update="PageAuthorization.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PageHome_User.xaml.cs">
+    <Compile Update="PageHome_Admin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PageRegistration.xaml.cs">

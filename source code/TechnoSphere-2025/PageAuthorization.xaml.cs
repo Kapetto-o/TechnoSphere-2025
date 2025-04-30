@@ -19,7 +19,7 @@ namespace TechnoSphere_2025
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new PageUser_Home());
+            NavigationService?.Navigate(new PageHome_User());
         }
     }
 }

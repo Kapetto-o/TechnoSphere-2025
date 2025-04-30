@@ -3,7 +3,7 @@
 namespace TechnoSphere_2025
 {
     /// <summary>
-    /// Логика взаимодействия для PageHome_Admin.xaml
+    /// Логика взаимодействия для PageHome_User.xaml
     /// </summary>
     public partial class PageHome_Admin : Page
     {
