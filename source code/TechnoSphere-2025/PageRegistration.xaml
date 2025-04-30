@@ -1,11 +1,11 @@
-﻿<Page x:Class="TechnoSphere_2025.PageCommon_Authorization"
+﻿<Page x:Class="TechnoSphere_2025.PageRegistration"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TechnoSphere_2025"
       mc:Ignorable="d" 
-      Title="PageCommon_Authorization"
+      Title="Registration"
       d:DesignHeight="700" d:DesignWidth="1000">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -20,7 +20,7 @@
                 <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
 
-            <StackPanel VerticalAlignment="Bottom" Margin="15">
+            <StackPanel VerticalAlignment="Bottom" Margin="15" >
                 <TextBlock Text="{DynamicResource Loc_Welcome}"
                            Style="{DynamicResource HeadlineColor_1_1}"
                            HorizontalAlignment="Center"
@@ -36,55 +36,94 @@
         <Grid Grid.Column="1">
             <!-- Правая часть -->
             <Grid.RowDefinitions>
-                <RowDefinition Height="1.65*" />
+                <RowDefinition Height="5.25*" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="3*" />
             </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="1" 
+            <StackPanel Grid.Row="1"
                         Width="480"
                         VerticalAlignment="Center"
                         Margin="15,0,15,0">
                 <!-- Заголовок -->
-                <TextBlock Text="{DynamicResource Loc_Authorization}"
+                <TextBlock Text="{DynamicResource Loc_Registration}"
                            Style="{DynamicResource HeadlineColor_1_2}"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,30"/>
 
+                <!-- Поле ввода имени пользователя -->
+                <TextBlock Text="{DynamicResource Loc_RegUserName}"
+                           Style="{DynamicResource MainlineColor_2_1}"
+                           Margin="0,0,0,5"/>
+
+                <TextBox Style="{DynamicResource TextBoxColor}"
+                         Height="40"/>
+                
+                <TextBlock Text=""
+                           Style="{DynamicResource MainlineColor_2_1}"
+                           FontSize="12"
+                           Foreground="Red"
+                           Margin="0,0,0,0.6"/>
+                
                 <!-- Поле ввода E-mail -->
                 <TextBlock Text="{DynamicResource Loc_Email}"
                            Style="{DynamicResource MainlineColor_2_1}"
                            Margin="0,0,0,5"/>
 
                 <TextBox Style="{DynamicResource TextBoxColor}"
-                         Height="40"
-                         Margin="0,0,0,15"/>
-
+                         Height="40"/>
+                
+                <TextBlock Text=""
+                           Style="{DynamicResource MainlineColor_2_1}"
+                           FontSize="12"
+                           Foreground="Red"
+                           Margin="0,0,0,0.6"/>
                 <!-- Поле ввода пароля -->
                 <TextBlock Text="{DynamicResource Loc_Password}"
                            Style="{DynamicResource MainlineColor_2_1}"
                            Margin="0,0,0,5"/>
 
                 <TextBox Style="{DynamicResource TextBoxColor}"
-                         Height="40"
-                         Margin="0,0,0,30"/>
+                         Height="40"/>
 
-                <!-- Кнопка "Войти" -->
-                <Button Content="{DynamicResource Loc_Login}"
-                        x:Name="Login"
+                <TextBlock Text=""
+                           Style="{DynamicResource MainlineColor_2_1}"
+                           FontSize="12"
+                           Foreground="Red"
+                           Margin="0,0,0,0.6"/>
+                
+                <!-- Поле ввода пароля -->
+                <TextBlock Text="{DynamicResource Loc_RepeatPassword}"
+                           Style="{DynamicResource MainlineColor_2_1}"
+                           Margin="0,0,0,5"/>
+
+                <TextBox Style="{DynamicResource TextBoxColor}"
+                         Height="40"/>
+
+                <TextBlock Text=""
+                           Style="{DynamicResource MainlineColor_2_1}"
+                           FontSize="12"
+                           Foreground="Red"
+                           Margin="0,0,0,15.6"/>
+                
+                <!-- Кнопка "Зарегистрироваться" -->
+                <Button x:Name="Register"
+                        Content="{DynamicResource Loc_Register}"
                         Style="{DynamicResource ButtonColor}"
                         Height="40"
                         Margin="0,0,0,30"
-                        Click="Login_Click"/>
+                        Click="Register_Click"/>
 
                 <StackPanel Orientation="Horizontal">
                     <!-- Переход в регистрацию -->
-                    <TextBlock Text="{DynamicResource Loc_NoAccount}"
+                    <TextBlock Text="{DynamicResource Loc_ThereIsAnAccount}"
                                Style="{DynamicResource MainlineColor_2_1}"
                                Margin="0,0,5,0"/>
                     <TextBlock Style="{StaticResource Mainline_2}">
-                        <Hyperlink Foreground="#1A5832" TextDecorations="{x:Null}" Click="GoToRegister_Click">
-                            <TextBlock Text="{DynamicResource Loc_Register}"/>
+                        <Hyperlink Foreground="#1A5832"
+                                   TextDecorations="{x:Null}"
+                                   Click="GoToLogin_Click">
+                            <TextBlock Text="{DynamicResource Loc_Login}"/>
                         </Hyperlink>
                     </TextBlock>
                 </StackPanel>

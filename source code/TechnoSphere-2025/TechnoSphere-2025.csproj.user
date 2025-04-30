@@ -5,16 +5,19 @@
     <Compile Update="helper\HeaderControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="PageHome_Admin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Window_AboutApplication.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PageCommon_Authorization.xaml.cs">
+    <Compile Update="PageAuthorization.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PageCustomer_Home.xaml.cs">
+    <Compile Update="PageHome_User.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PageCommon_Registration.xaml.cs">
+    <Compile Update="PageRegistration.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Window_Settings.xaml.cs">
