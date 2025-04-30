@@ -56,7 +56,8 @@
                            Style="{DynamicResource MainlineColor_2_1}"
                            Margin="0,0,0,5"/>
 
-                <TextBox Style="{DynamicResource TextBoxColor}"
+                <TextBox x:Name="LogEmailTextBox"
+                         Style="{DynamicResource TextBoxColor}"
                          Height="40"/>
 
                 <TextBlock Text=""
@@ -70,8 +71,9 @@
                            Style="{DynamicResource MainlineColor_2_1}"
                            Margin="0,0,0,5"/>
 
-                <TextBox Style="{DynamicResource TextBoxColor}"
-                         Height="40"/>
+                <PasswordBox x:Name="LogPasswordBox"
+                             Style="{DynamicResource RegAut_PasswordBoxColor}"
+                             Height="40"/>
 
                 <TextBlock Text=""
                            Style="{DynamicResource MainlineColor_2_1}"

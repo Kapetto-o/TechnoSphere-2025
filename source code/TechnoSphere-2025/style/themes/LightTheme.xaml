@@ -95,6 +95,13 @@
         <Setter Property="Foreground" Value="{DynamicResource BrushGrayColor}"/>
     </Style>
 
+    <!-- PasswordBox в окнах регистрации и авторизации -->
+    <Style x:Key="RegAut_PasswordBoxColor" TargetType="PasswordBox" BasedOn="{StaticResource RegAut_PasswordBox}">
+        <Setter Property="BorderBrush" Value="{DynamicResource BrushGrayColor}"/>
+        <Setter Property="Background" Value="{DynamicResource BrushWhiteColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource BrushGrayColor}"/>
+    </Style>
+    
     <!-- Button в окнах регистрации и авторизации -->
     <Style x:Key="ButtonColor" TargetType="Button" BasedOn="{StaticResource RegAut_Button}">
         <Setter Property="Background" Value="{DynamicResource BrushGreenColor}"/>

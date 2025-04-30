@@ -56,10 +56,11 @@
                            Style="{DynamicResource MainlineColor_2_1}"
                            Margin="0,0,0,5"/>
 
-                <TextBox Style="{DynamicResource TextBoxColor}"
+                <TextBox x:Name="RegUsernameTextBox"
+                         Style="{DynamicResource TextBoxColor}"
                          Height="40"/>
-                
-                <TextBlock Text=""
+
+                <TextBlock x:Name="UsernameError"
                            Style="{DynamicResource MainlineColor_2_1}"
                            FontSize="12"
                            Foreground="Red"
@@ -70,10 +71,11 @@
                            Style="{DynamicResource MainlineColor_2_1}"
                            Margin="0,0,0,5"/>
 
-                <TextBox Style="{DynamicResource TextBoxColor}"
+                <TextBox x:Name="RegEmailTextBox"
+                         Style="{DynamicResource TextBoxColor}"
                          Height="40"/>
-                
-                <TextBlock Text=""
+
+                <TextBlock x:Name="EmailError"
                            Style="{DynamicResource MainlineColor_2_1}"
                            FontSize="12"
                            Foreground="Red"
@@ -83,10 +85,11 @@
                            Style="{DynamicResource MainlineColor_2_1}"
                            Margin="0,0,0,5"/>
 
-                <TextBox Style="{DynamicResource TextBoxColor}"
-                         Height="40"/>
+                <PasswordBox x:Name="RegPasswordBox"
+                             Style="{DynamicResource RegAut_PasswordBoxColor}"
+                             Height="40"/>
 
-                <TextBlock Text=""
+                <TextBlock x:Name="PasswordError"
                            Style="{DynamicResource MainlineColor_2_1}"
                            FontSize="12"
                            Foreground="Red"
@@ -97,10 +100,11 @@
                            Style="{DynamicResource MainlineColor_2_1}"
                            Margin="0,0,0,5"/>
 
-                <TextBox Style="{DynamicResource TextBoxColor}"
-                         Height="40"/>
+                <PasswordBox x:Name="RegRepeatPasswordBox"
+                             Style="{DynamicResource RegAut_PasswordBoxColor}"
+                             Height="40"/>
 
-                <TextBlock Text=""
+                <TextBlock x:Name="RepeatPasswordError"
                            Style="{DynamicResource MainlineColor_2_1}"
                            FontSize="12"
                            Foreground="Red"

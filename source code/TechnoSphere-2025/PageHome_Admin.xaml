@@ -6,7 +6,6 @@
       xmlns:local="clr-namespace:TechnoSphere_2025"
       mc:Ignorable="d" 
       xmlns:controls="clr-namespace:TechnoSphere_2025.helper"
-      mc:Ignorable="d"
       Title="Home"
       d:DesignWidth="1000" d:DesignHeight="700">
 
