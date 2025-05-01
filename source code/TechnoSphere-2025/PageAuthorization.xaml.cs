@@ -1,5 +1,11 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using Microsoft.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
+using System.Configuration;
+using TechnoSphere_2025.helper;
+using TechnoSphere_2025.helper.validation;
 
 namespace TechnoSphere_2025
 {
@@ -11,15 +17,102 @@ namespace TechnoSphere_2025
         public PageAuthorization()
         {
             InitializeComponent();
+            Loaded += PageAuthorization_Loaded;
         }
-        private void GoToRegister_Click(object sender, RoutedEventArgs e)
+
+        private void PageAuthorization_Loaded(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new PageRegistration());
+            var nav = NavigationService;
+            while (nav != null && nav.CanGoBack)
+                nav.RemoveBackEntry();
+        }
+
+        private void ClearErrors()
+        {
+            LogEmailError.Text = "";
+            LogPasswordError.Text = "";
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new PageHome_User());
+            ClearErrors();
+
+            var model = new UserLoginModel
+            {
+                Email = LogEmailTextBox.Text.Trim(),
+                Password = LogPasswordBox.Password
+            };
+
+            var errors = ValidationManager.Validate(model);
+            if (errors.Any())
+            {
+                foreach (var err in errors)
+                {
+                    var member = err.MemberNames.First();
+                    switch (member)
+                    {
+                        case nameof(model.Email):
+                            LogEmailError.Text = err.ErrorMessage;
+                            break;
+                        case nameof(model.Password):
+                            LogPasswordError.Text = err.ErrorMessage;
+                            break;
+                    }
+                }
+                return;
+            }
+
+            string connString = ConfigurationManager
+                .ConnectionStrings["TechnoSphereBD"]
+                .ConnectionString;
+
+            using (var conn = new SqlConnection(connString))
+            {
+                conn.Open();
+                var cmd = new SqlCommand(@"
+                    SELECT PasswordHash, PasswordSalt, Role
+                      FROM Users
+                     WHERE Email = @e AND IsActive = 1", conn);
+                cmd.Parameters.AddWithValue("@e", model.Email);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (!reader.Read())
+                    {
+                        LogEmailError.Text = "Пользователь не найден или заблокирован";
+                        return;
+                    }
+
+                    var storedHash = (byte[])reader["PasswordHash"];
+                    var storedSalt = (byte[])reader["PasswordSalt"];
+                    var role = (byte)reader["Role"];
+
+                    byte[] inputHash;
+                    using (var sha = SHA256.Create())
+                    {
+                        var combined = Encoding.UTF8.GetBytes(model.Password)
+                                     .Concat(storedSalt)
+                                     .ToArray();
+                        inputHash = sha.ComputeHash(combined);
+                    }
+
+                    if (!inputHash.SequenceEqual(storedHash))
+                    {
+                        LogPasswordError.Text = "Неверный пароль";
+                        return;
+                    }
+
+                    if (role == 1)
+                        NavigationService?.Navigate(new PageHome_Admin());
+                    else
+                        NavigationService?.Navigate(new PageHome_User());
+                }
+            }
+        }
+
+        private void GoToRegister_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new PageRegistration());
         }
     }
 }

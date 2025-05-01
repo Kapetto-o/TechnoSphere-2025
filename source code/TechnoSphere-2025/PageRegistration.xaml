@@ -60,7 +60,7 @@
                          Style="{DynamicResource TextBoxColor}"
                          Height="40"/>
 
-                <TextBlock x:Name="UsernameError"
+                <TextBlock x:Name="RegUsernameError"
                            Style="{DynamicResource MainlineColor_2_1}"
                            FontSize="12"
                            Foreground="Red"
@@ -75,7 +75,7 @@
                          Style="{DynamicResource TextBoxColor}"
                          Height="40"/>
 
-                <TextBlock x:Name="EmailError"
+                <TextBlock x:Name="RegEmailError"
                            Style="{DynamicResource MainlineColor_2_1}"
                            FontSize="12"
                            Foreground="Red"
@@ -89,7 +89,7 @@
                              Style="{DynamicResource RegAut_PasswordBoxColor}"
                              Height="40"/>
 
-                <TextBlock x:Name="PasswordError"
+                <TextBlock x:Name="RegPasswordError"
                            Style="{DynamicResource MainlineColor_2_1}"
                            FontSize="12"
                            Foreground="Red"
@@ -104,7 +104,7 @@
                              Style="{DynamicResource RegAut_PasswordBoxColor}"
                              Height="40"/>
 
-                <TextBlock x:Name="RepeatPasswordError"
+                <TextBlock x:Name="RegRepeatPasswordError"
                            Style="{DynamicResource MainlineColor_2_1}"
                            FontSize="12"
                            Foreground="Red"

@@ -60,7 +60,7 @@
                          Style="{DynamicResource TextBoxColor}"
                          Height="40"/>
 
-                <TextBlock Text=""
+                <TextBlock x:Name="LogEmailError"
                            Style="{DynamicResource MainlineColor_2_1}"
                            FontSize="12"
                            Foreground="Red"
@@ -75,7 +75,7 @@
                              Style="{DynamicResource RegAut_PasswordBoxColor}"
                              Height="40"/>
 
-                <TextBlock Text=""
+                <TextBlock x:Name="LogPasswordError"
                            Style="{DynamicResource MainlineColor_2_1}"
                            FontSize="12"
                            Foreground="Red"
