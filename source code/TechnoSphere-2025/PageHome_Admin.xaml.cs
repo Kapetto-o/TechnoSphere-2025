@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using System.Windows;
 
 namespace TechnoSphere_2025
 {
@@ -10,6 +11,16 @@ namespace TechnoSphere_2025
         public PageHome_Admin()
         {
             InitializeComponent();
+            Loaded += PageHome_User_Loaded;
+        }
+
+        private void PageHome_User_Loaded(object sender, RoutedEventArgs e)
+        {
+            var nav = NavigationService;
+            while (nav != null && nav.CanGoBack)
+            {
+                nav.RemoveBackEntry();
+            }
         }
     }
 }
