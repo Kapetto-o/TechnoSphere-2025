@@ -144,4 +144,13 @@
   <data name="ErrorInvalidEmail" xml:space="preserve">
     <value>Invalid e-mail format</value>
   </data>
+  <data name="ErrorUsernameExists" xml:space="preserve">
+    <value>Username exists</value>
+  </data>
+  <data name="ErrorEmailExists" xml:space="preserve">
+    <value>Email exists</value>
+  </data>
+  <data name="ErrorRegistrationFailed" xml:space="preserve">
+    <value>Registration failed</value>
+  </data>
 </root>

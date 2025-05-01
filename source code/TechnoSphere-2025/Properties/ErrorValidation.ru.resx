@@ -144,4 +144,13 @@
   <data name="ErrorInvalidEmail" xml:space="preserve">
     <value>Некорректный формат e-mail</value>
   </data>
+  <data name="ErrorUsernameExists" xml:space="preserve">
+    <value>Имя пользователя существует</value>
+  </data>
+  <data name="ErrorEmailExists" xml:space="preserve">
+    <value>Электронная почта существует</value>
+  </data>
+  <data name="ErrorRegistrationFailed" xml:space="preserve">
+    <value>Ошибка регистрации</value>
+  </data>
 </root>

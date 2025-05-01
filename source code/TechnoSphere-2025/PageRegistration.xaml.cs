@@ -6,6 +6,7 @@ using System.Text;
 using TechnoSphere_2025.helper;
 using TechnoSphere_2025.helper.validation;
 using System.Configuration;
+using TechnoSphere_2025.Properties;
 
 namespace TechnoSphere_2025
 {
@@ -17,10 +18,10 @@ namespace TechnoSphere_2025
         public PageRegistration()
         {
             InitializeComponent();
-            Loaded += PageAuthorization_Loaded;
+            Loaded += PageHome_Loaded;
         }
 
-        private void PageAuthorization_Loaded(object sender, RoutedEventArgs e)
+        private void PageHome_Loaded(object sender, RoutedEventArgs e)
         {
             var nav = NavigationService;
             while (nav != null && nav.CanGoBack)
@@ -79,27 +80,62 @@ namespace TechnoSphere_2025
             byte[] hash;
             using (var sha = SHA256.Create())
             {
-                var combined = Encoding.UTF8.GetBytes(model.Password).Concat(salt).ToArray();
+                var combined = Encoding.UTF8.GetBytes(model.Password)
+                                 .Concat(salt)
+                                 .ToArray();
                 hash = sha.ComputeHash(combined);
             }
 
-            string connString = ConfigurationManager.ConnectionStrings["TechnoSphereBD"].ConnectionString;
+            var rememberToken = Guid.NewGuid();
+
+            string connString = ConfigurationManager
+                .ConnectionStrings["TechnoSphereBD"]
+                .ConnectionString;
+
             using (var conn = new SqlConnection(connString))
             {
                 conn.Open();
-                var cmd = new SqlCommand(@"
+
+                using (var checkUser = new SqlCommand(
+                    "SELECT COUNT(1) FROM Users WHERE Username = @u", conn))
+                {
+                    checkUser.Parameters.AddWithValue("@u", model.Username);
+                    if ((int)checkUser.ExecuteScalar() > 0)
+                    {
+                        RegUsernameError.Text = ErrorValidation.ErrorUsernameExists;
+                        return;
+                    }
+                }
+
+                using (var checkEmail = new SqlCommand(
+                    "SELECT COUNT(1) FROM Users WHERE Email = @e", conn))
+                {
+                    checkEmail.Parameters.AddWithValue("@e", model.Email);
+                    if ((int)checkEmail.ExecuteScalar() > 0)
+                    {
+                        RegEmailError.Text = ErrorValidation.ErrorEmailExists;
+                        return;
+                    }
+                }
+
+                using (var insert = new SqlCommand(@"
                     INSERT INTO Users
-                      (Username, Email, PasswordHash, PasswordSalt, Role, IsActive)
+                        (Username, Email, PasswordHash, PasswordSalt, Role, IsActive, RememberToken)
                     VALUES
-                      (@u, @e, @ph, @ps, 0, 1)", conn);
+                        (@u, @e, @ph, @ps, 0, 1, @t)", conn))
+                {
+                    insert.Parameters.AddWithValue("@u", model.Username);
+                    insert.Parameters.AddWithValue("@e", model.Email);
+                    insert.Parameters.AddWithValue("@ph", hash);
+                    insert.Parameters.AddWithValue("@ps", salt);
+                    insert.Parameters.AddWithValue("@t", rememberToken);
 
-                cmd.Parameters.AddWithValue("@u", model.Username);
-                cmd.Parameters.AddWithValue("@e", model.Email);
-                cmd.Parameters.AddWithValue("@ph", hash);
-                cmd.Parameters.AddWithValue("@ps", salt);
-
-                cmd.ExecuteNonQuery();
+                    insert.ExecuteNonQuery();
+                }
             }
+
+            Properties.Settings.Default.RememberToken = rememberToken.ToString();
+            Properties.Settings.Default.Save();
 
             NavigationService?.Navigate(new PageHome_User());
         }

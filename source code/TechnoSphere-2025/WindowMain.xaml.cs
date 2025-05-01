@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using Microsoft.Data.SqlClient;
+using System.Configuration;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
@@ -17,7 +19,7 @@ public partial class WindowMain : Window
         InitializeComponent();
         MainFrame.Navigated += Page_Navigated;
         MainFrame.Navigated += MainFrame_Navigated;
-        MainFrame.Navigate(new PageAuthorization());
+        Loaded += WindowMain_Loaded;
     }
 
     private void Show_Click(object sender, RoutedEventArgs e)
@@ -104,5 +106,43 @@ public partial class WindowMain : Window
         if (header == null) return;
 
         UpdateDragArea(header.LogoButton, header.UserButton);
+    }
+
+    private void WindowMain_Loaded(object sender, RoutedEventArgs e)
+    {
+        var tok = Properties.Settings.Default.RememberToken;
+        if (Guid.TryParse(tok, out var token))
+        {
+            var connString = ConfigurationManager
+                .ConnectionStrings["TechnoSphereBD"].ConnectionString;
+
+            using var conn = new SqlConnection(connString);
+            conn.Open();
+            using var cmd = new SqlCommand(@"
+                    SELECT Role FROM Users 
+                     WHERE RememberToken = @t AND IsActive = 1", conn);
+            cmd.Parameters.AddWithValue("@t", token);
+            var roleObj = cmd.ExecuteScalar();
+
+            if (roleObj != null)
+            {
+                byte r = (byte)roleObj;
+                MainFrame.Navigate(r == 1
+                    ? (object)new PageHome_Admin()
+                    : new PageHome_User());
+                ClearBackStack();
+                return;
+            }
+        }
+
+        MainFrame.Navigate(new PageAuthorization());
+        ClearBackStack();
+    }
+
+    private void ClearBackStack()
+    {
+        var nav = MainFrame.NavigationService;
+        while (nav.CanGoBack)
+            nav.RemoveBackEntry();
     }
 }

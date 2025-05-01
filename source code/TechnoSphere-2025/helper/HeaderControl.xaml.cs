@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using Microsoft.Data.SqlClient;
+using System.Configuration;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 
@@ -69,6 +71,26 @@ namespace TechnoSphere_2025.helper
 
         private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            var tokenString = Properties.Settings.Default.RememberToken;
+            if (Guid.TryParse(tokenString, out var token))
+            {
+                var connString = ConfigurationManager
+                    .ConnectionStrings["TechnoSphereBD"].ConnectionString;
+                using (var conn = new SqlConnection(connString))
+                {
+                    conn.Open();
+                    using (var cmd = new SqlCommand(
+                        "UPDATE Users SET RememberToken = NULL WHERE RememberToken = @t", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@t", token);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+
+            Properties.Settings.Default.RememberToken = string.Empty;
+            Properties.Settings.Default.Save();
+
             var nav = NavigationService.GetNavigationService(this);
             nav?.Navigate(new PageAuthorization());
 

@@ -63,6 +63,15 @@ namespace TechnoSphere_2025.Properties {
         /// <summary>
         ///   Ищет локализованную строку, похожую на .
         /// </summary>
+        public static string ErrorEmailExists {
+            get {
+                return ResourceManager.GetString("ErrorEmailExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на .
+        /// </summary>
         public static string ErrorEnterEmail {
             get {
                 return ResourceManager.GetString("ErrorEnterEmail", resourceCulture);
@@ -117,9 +126,27 @@ namespace TechnoSphere_2025.Properties {
         /// <summary>
         ///   Ищет локализованную строку, похожую на .
         /// </summary>
+        public static string ErrorRegistrationFailed {
+            get {
+                return ResourceManager.GetString("ErrorRegistrationFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на .
+        /// </summary>
         public static string ErrorRepeatPassword {
             get {
                 return ResourceManager.GetString("ErrorRepeatPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на .
+        /// </summary>
+        public static string ErrorUsernameExists {
+            get {
+                return ResourceManager.GetString("ErrorUsernameExists", resourceCulture);
             }
         }
         
