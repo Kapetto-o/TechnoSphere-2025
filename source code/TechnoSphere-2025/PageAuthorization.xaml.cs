@@ -62,20 +62,19 @@ namespace TechnoSphere_2025
                 return;
             }
 
-            string connString = ConfigurationManager
-                .ConnectionStrings["TechnoSphereBD"]
-                .ConnectionString;
+            string connString = ConfigurationManager.ConnectionStrings["TechnoSphereBD"].ConnectionString;
 
             byte[] storedHash;
             byte[] storedSalt;
             byte role;
+            string dbUsername;
 
             using (var conn = new SqlConnection(connString))
             {
                 conn.Open();
 
                 using (var cmd = new SqlCommand(@"
-                    SELECT PasswordHash, PasswordSalt, Role
+                    SELECT Username, PasswordHash, PasswordSalt, Role
                       FROM Users
                      WHERE Email = @e AND IsActive = 1", conn))
                 {
@@ -89,7 +88,10 @@ namespace TechnoSphere_2025
                             return;
                         }
 
-                        // Считываем все поля до закрытия reader
+                        int usernameIndex = reader.GetOrdinal("Username");
+                        dbUsername = reader.IsDBNull(usernameIndex)
+                            ? string.Empty
+                            : reader.GetString(usernameIndex);
                         storedHash = (byte[])reader["PasswordHash"];
                         storedSalt = (byte[])reader["PasswordSalt"];
                         role = (byte)reader["Role"];
@@ -122,6 +124,8 @@ namespace TechnoSphere_2025
 
                 Properties.Settings.Default.RememberToken = rememberToken.ToString();
                 Properties.Settings.Default.Save();
+
+                SessionManager.CurrentUsername = dbUsername;
 
                 if (role == 1)
                     NavigationService?.Navigate(new PageHome_Admin());

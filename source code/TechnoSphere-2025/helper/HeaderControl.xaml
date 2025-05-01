@@ -24,15 +24,16 @@
                         Height="25"
                         HorizontalAlignment="Right"
                         Click="UserAccount_Click">
-                    <StackPanel Orientation="Horizontal" Margin="0,0,5,0">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,5,0" MinWidth="120">
                         <Image x:Name="AccountImg"
-                       Source="/icons/TestAvatar_2.jpg"
-                       Margin="0,0,5,0"/>
+                               Source="/icons/TestAvatar_2.jpg"
+                               Margin="0,0,5,0"
+                               Width="25" Height="25"/>
                         <TextBlock x:Name="AccountName"
                            Text="Kapetto"
                            Style="{StaticResource Headerline}"
                            VerticalAlignment="Center"
-                           Margin="0,0,5,0"/>
+                           Margin="0,0,10,0"/>
                         <TextBlock Text="˅"
                            Style="{StaticResource Headerline}"
                            VerticalAlignment="Center"/>

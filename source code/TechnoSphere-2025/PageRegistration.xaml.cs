@@ -137,6 +137,9 @@ namespace TechnoSphere_2025
             Properties.Settings.Default.RememberToken = rememberToken.ToString();
             Properties.Settings.Default.Save();
 
+            SessionManager.CurrentUsername = model.Username;
+            SessionManager.RememberToken = rememberToken;
+
             NavigationService?.Navigate(new PageHome_User());
         }
 

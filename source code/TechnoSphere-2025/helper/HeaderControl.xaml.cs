@@ -17,6 +17,7 @@ namespace TechnoSphere_2025.helper
             InitializeComponent();
             Loaded += OnLoaded;
             Unloaded += OnUnloaded;
+            Loaded += HeaderControl_Loaded;
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
@@ -28,6 +29,11 @@ namespace TechnoSphere_2025.helper
                 _popupManager.Register(LogoSettingPopup, LogoSetting);
                 _popupManager.Register(AccountPopup, UserAccount);
             }
+        }
+
+        private void HeaderControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            AccountName.Text = SessionManager.CurrentUsername;
         }
 
         private void OnUnloaded(object sender, RoutedEventArgs e)
