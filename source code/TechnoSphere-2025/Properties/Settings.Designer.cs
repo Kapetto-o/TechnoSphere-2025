@@ -46,5 +46,17 @@ namespace TechnoSphere_2025.Properties {
                 this["Language"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RememberToken {
+            get {
+                return ((string)(this["RememberToken"]));
+            }
+            set {
+                this["RememberToken"] = value;
+            }
+        }
     }
 }

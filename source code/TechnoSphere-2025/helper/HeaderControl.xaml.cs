@@ -1,5 +1,8 @@
-﻿using System.Windows;
+﻿using Microsoft.Data.SqlClient;
+using System.Configuration;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 
 namespace TechnoSphere_2025.helper
 {
@@ -14,6 +17,7 @@ namespace TechnoSphere_2025.helper
             InitializeComponent();
             Loaded += OnLoaded;
             Unloaded += OnUnloaded;
+            Loaded += HeaderControl_Loaded;
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
@@ -25,6 +29,11 @@ namespace TechnoSphere_2025.helper
                 _popupManager.Register(LogoSettingPopup, LogoSetting);
                 _popupManager.Register(AccountPopup, UserAccount);
             }
+        }
+
+        private void HeaderControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            AccountName.Text = SessionManager.CurrentUsername;
         }
 
         private void OnUnloaded(object sender, RoutedEventArgs e)
@@ -68,6 +77,34 @@ namespace TechnoSphere_2025.helper
 
         private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            var tokenString = Properties.Settings.Default.RememberToken;
+            if (Guid.TryParse(tokenString, out var token))
+            {
+                var connString = ConfigurationManager
+                    .ConnectionStrings["TechnoSphereBD"].ConnectionString;
+                using (var conn = new SqlConnection(connString))
+                {
+                    conn.Open();
+                    using (var cmd = new SqlCommand(
+                        "UPDATE Users SET RememberToken = NULL WHERE RememberToken = @t", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@t", token);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+
+            Properties.Settings.Default.RememberToken = string.Empty;
+            Properties.Settings.Default.Save();
+
+            var nav = NavigationService.GetNavigationService(this);
+            nav?.Navigate(new PageAuthorization());
+
+            if (nav != null)
+            {
+                while (nav.CanGoBack)
+                    nav.RemoveBackEntry();
+            }
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
+﻿using System.Globalization;
 using System.Windows;
 
 namespace TechnoSphere_2025.helper
@@ -40,21 +38,27 @@ namespace TechnoSphere_2025.helper
 
         public static void ApplyLanguage(LanguageType lang, bool saveIfNeeded = false)
         {
-            var md = Application.Current.Resources.MergedDictionaries;
+            var culture = lang == LanguageType.Russian
+                ? new CultureInfo("ru")
+                : new CultureInfo("en");
 
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
+
+            var md = Application.Current.Resources.MergedDictionaries;
             for (int i = md.Count - 1; i >= 0; i--)
             {
-                var s = md[i].Source?.OriginalString;
-                if (s != null &&
-                    s.StartsWith(LangFolder, StringComparison.OrdinalIgnoreCase))
+                var src = md[i].Source?.OriginalString;
+                if (src != null &&
+                    src.StartsWith(LangFolder, StringComparison.OrdinalIgnoreCase))
                 {
                     md.RemoveAt(i);
                 }
             }
 
             var uri = new Uri($"{LangFolder}{string.Format(FilePattern, lang)}", UriKind.Relative);
-
             md.Add(new ResourceDictionary { Source = uri });
+
             md.RemoveAt(md.Count - 1);
             md.Add(new ResourceDictionary { Source = uri });
 
