@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 
 namespace TechnoSphere_2025.helper
 {
@@ -68,6 +69,14 @@ namespace TechnoSphere_2025.helper
 
         private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            var nav = NavigationService.GetNavigationService(this);
+            nav?.Navigate(new PageAuthorization());
+
+            if (nav != null)
+            {
+                while (nav.CanGoBack)
+                    nav.RemoveBackEntry();
+            }
         }
     }
 }

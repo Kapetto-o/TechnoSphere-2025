@@ -128,7 +128,8 @@
                     </Button>
                     <Button x:Name="ExitMenu"
                             Style="{DynamicResource HeaderPopupButtonColor}"
-                            Padding="5,10,5,10">
+                            Padding="5,10,5,10"
+                            Click="ExitMenuItem_Click">
                         <TextBlock Text="{DynamicResource Loc_MenuLogout}" Style="{StaticResource Mainline_2}"/>
                     </Button>
                 </StackPanel>
