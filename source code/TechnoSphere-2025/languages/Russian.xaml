@@ -24,6 +24,8 @@
     <sys:String x:Key="Loc_FreeShippingText">Осуществляем бесплатную доставку в любую точку Беларуси в течении трёх дней при покупке более чем на 200 рублей.</sys:String>
     <sys:String x:Key="Loc_HugeSelection">Огромный выбор</sys:String>
     <sys:String x:Key="Loc_HugeSelectionText">Предоставляем широкий выбор техники для разнообразных повседневных задач.</sys:String>
+    <sys:String x:Key="Loc_AddProduct">Добавить товар</sys:String>
+    <sys:String x:Key="Loc_Users">Пользователи</sys:String>
 
     <!-- Выпадающее меню главной страницы -->
     <sys:String x:Key="Loc_MenuSettings">Настройки</sys:String>

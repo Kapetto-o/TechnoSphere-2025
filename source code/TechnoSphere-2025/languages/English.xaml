@@ -40,7 +40,9 @@
     <sys:String x:Key="Loc_FreeShippingText">We provide free shipping to any point in Belarus within three days for purchases over 200 rubles.</sys:String>
     <sys:String x:Key="Loc_HugeSelection">Huge selection</sys:String>
     <sys:String x:Key="Loc_HugeSelectionText">We provide a wide selection of equipment for a variety of everyday tasks.</sys:String>
-
+    <sys:String x:Key="Loc_AddProduct">Add product</sys:String>
+    <sys:String x:Key="Loc_Users">Users</sys:String>
+    
     <!-- Home page drop-down menu -->
     <sys:String x:Key="Loc_MenuSettings">Settings</sys:String>
     <sys:String x:Key="Loc_MenuAboutApp">About the application</sys:String>

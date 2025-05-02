@@ -30,27 +30,24 @@
             </Button>
 
             <Grid Grid.Row="1" Margin="0,10,0,15" HorizontalAlignment="Right">
-                <StackPanel Orientation="Horizontal">
-                    <Button Width="50" Height="50"
-                            Margin="0,0,10,0">
-                        <Image/>
-                    </Button>
-
-                    <Button Width="50" Height="50">
-                        <Image/>
-                    </Button>
-                </StackPanel>
+                <Button Style="{DynamicResource ButtonColor}" Width="50" Height="50">
+                    <Image Source="{DynamicResource PencilIcon}" Height="35"/>
+                </Button>
             </Grid>
 
             <Grid Grid.Row="2" HorizontalAlignment="Center">
                 <StackPanel>
-                    <Button Width="500" Height="55"
-                        Margin="0,0,0,10">
-                        <TextBlock Text=""/>
-                    </Button>
-                    <Button Width="500" Height="55"
+                    <Button Style="{DynamicResource ButtonColor}"
+                            Width="500" Height="55"
                             Margin="0,0,0,10">
-                        <TextBlock Text=""/>
+                        <TextBlock Text="{DynamicResource Loc_AddProduct}"
+                                   Style="{DynamicResource HeadlineColor_2-2}"/>
+                    </Button>
+                    <Button Style="{DynamicResource ButtonColor}"
+                            Width="500" Height="55"
+                            Margin="0,0,0,10">
+                        <TextBlock Text="{DynamicResource Loc_Users}"
+                                   Style="{DynamicResource HeadlineColor_2-2}"/>
                     </Button>
                 </StackPanel>
             </Grid>

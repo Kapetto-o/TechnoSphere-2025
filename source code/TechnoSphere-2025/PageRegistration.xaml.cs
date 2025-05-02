@@ -88,9 +88,7 @@ namespace TechnoSphere_2025
 
             var rememberToken = Guid.NewGuid();
 
-            string connString = ConfigurationManager
-                .ConnectionStrings["TechnoSphereBD"]
-                .ConnectionString;
+            string connString = ConfigurationManager.ConnectionStrings["TechnoSphereBD"].ConnectionString;
 
             using (var conn = new SqlConnection(connString))
             {

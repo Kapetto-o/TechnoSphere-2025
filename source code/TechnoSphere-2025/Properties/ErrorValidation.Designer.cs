@@ -99,6 +99,15 @@ namespace TechnoSphere_2025.Properties {
         /// <summary>
         ///   Ищет локализованную строку, похожую на .
         /// </summary>
+        public static string ErrorIncorrectPassword {
+            get {
+                return ResourceManager.GetString("ErrorIncorrectPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на .
+        /// </summary>
         public static string ErrorInvalidEmail {
             get {
                 return ResourceManager.GetString("ErrorInvalidEmail", resourceCulture);
@@ -165,6 +174,15 @@ namespace TechnoSphere_2025.Properties {
         public static string ErrorUsernamePattern {
             get {
                 return ResourceManager.GetString("ErrorUsernamePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на .
+        /// </summary>
+        public static string ErrorUserNotFound {
+            get {
+                return ResourceManager.GetString("ErrorUserNotFound", resourceCulture);
             }
         }
     }
