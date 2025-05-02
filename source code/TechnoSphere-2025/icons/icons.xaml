@@ -259,4 +259,39 @@
             </DrawingGroup>
         </DrawingImage.Drawing>
     </DrawingImage>
+
+    <DrawingImage x:Key="BurgerCloseIcon">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V25 H25 V0 H0 Z">
+                <GeometryDrawing Geometry="F1 M25,25z M0,0z M3.70822,3.29401L21.3581,20.9995">
+                    <GeometryDrawing.Pen>
+                        <Pen Brush="{DynamicResource BrushIconColor}" Thickness="2" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" MiterLimit="1" />
+                    </GeometryDrawing.Pen>
+                </GeometryDrawing>
+                <GeometryDrawing Geometry="F1 M25,25z M0,0z M3.29291,20.9706L20.9706,3.29291">
+                    <GeometryDrawing.Pen>
+                        <Pen Brush="{DynamicResource BrushIconColor}" Thickness="2" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" MiterLimit="1" />
+                    </GeometryDrawing.Pen>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="PencilIcon">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V32 H32 V0 H0 Z">
+                <DrawingGroup Opacity="1">
+                    <GeometryDrawing Brush="{DynamicResource BrushIconColor}" Geometry="F1 M32,32z M0,0z M2,31A1,1,0,0,1,1,29.89L1.9,21.72A1,1,0,0,1,2.19,21.12L21.27,2.05A3.56,3.56,0,0,1,26.32,2.05L30,5.68A3.56,3.56,0,0,1,30,10.73L10.88,29.8A1,1,0,0,1,10.28,30.09L2.11,31z M10.17,29.09L10.17,29.09z M3.86,22.28L3.13,28.87 9.72,28.14 28.54,9.31A1.58,1.58,0,0,0,28.54,7.09L24.91,3.46A1.58,1.58,0,0,0,22.69,3.46z" />
+                    <GeometryDrawing Brush="{DynamicResource BrushIconColor}" Geometry="F1 M32,32z M0,0z M26.52,13.74A1,1,0,0,1,25.82,13.45L18.55,6.18A1,1,0,0,1,20,4.77L27.23,12A1,1,0,0,1,27.23,13.41A1,1,0,0,1,26.52,13.74z" />
+                    <DrawingGroup Transform="0.707106781186548,-0.707106781186547,0.707106781186547,0.707106781186548,-7.91,15.47">
+                        <GeometryDrawing Brush="{DynamicResource BrushIconColor}">
+                            <GeometryDrawing.Geometry>
+                                <RectangleGeometry RadiusX="0" RadiusY="0" Rect="8.29,16.28,12.84,2" />
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingGroup>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
 </ResourceDictionary>
