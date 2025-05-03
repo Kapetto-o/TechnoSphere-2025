@@ -32,6 +32,7 @@
     
     <!-- Home page -->
     <sys:String x:Key="Loc_Stock">Promotions</sys:String>
+    <sys:String x:Key="Loc_Orders">Orders</sys:String>
     <sys:String x:Key="Loc_OriginalTechnique">Original equipment</sys:String>
     <sys:String x:Key="Loc_OriginalTechniqueText">Our store works only with official suppliers. All products have a guarantee and certificates. equipment</sys:String>
     <sys:String x:Key="Loc_Stress-freeShopping">Stress-free shopping</sys:String>

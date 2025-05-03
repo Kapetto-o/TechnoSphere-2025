@@ -79,21 +79,31 @@ public partial class WindowMain : Window
                 return;
             }
 
-            var header = page.FindName("PageHeader") as helper.HeaderControl;
-            if (header == null)
+            var headerObj = page.FindName("PageHeader");
+
+            FrameworkElement? logoBtn = null, userBtn = null;
+
+            if (headerObj is helper.HeaderControl_User userHeader)
+            {
+                logoBtn = userHeader.LogoButton;
+                userBtn = userHeader.UserButton;
+            }
+            else if (headerObj is helper.HeaderControl_Admin adminHeader)
+            {
+                logoBtn = adminHeader.LogoButton;
+                userBtn = adminHeader.UserButton;
+            }
+
+            if (logoBtn == null || userBtn == null)
             {
                 WindowControl_Moving.Margin = new Thickness(155, 0, 70, 0);
                 return;
             }
 
-            var logoBtn = header.LogoButton;
-            var userBtn = header.UserButton;
-
             UpdateDragArea(logoBtn, userBtn);
 
             logoBtn.SizeChanged -= HeaderButton_SizeChanged;
             userBtn.SizeChanged -= HeaderButton_SizeChanged;
-
             logoBtn.SizeChanged += HeaderButton_SizeChanged;
             userBtn.SizeChanged += HeaderButton_SizeChanged;
 
@@ -102,12 +112,30 @@ public partial class WindowMain : Window
 
     private void HeaderButton_SizeChanged(object sender, SizeChangedEventArgs e)
     {
-        if (MainFrame.Content is not Page page) return;
-        var header = page.FindName("PageHeader") as helper.HeaderControl;
-        if (header == null) return;
+        if (MainFrame.Content is not Page page)
+            return;
 
-        UpdateDragArea(header.LogoButton, header.UserButton);
+        var headerObj = page.FindName("PageHeader");
+        FrameworkElement? logoBtn = null, userBtn = null;
+
+        if (headerObj is helper.HeaderControl_User userHeader)
+        {
+            logoBtn = userHeader.LogoButton;
+            userBtn = userHeader.UserButton;
+        }
+        else if (headerObj is helper.HeaderControl_Admin adminHeader)
+        {
+            logoBtn = adminHeader.LogoButton;
+            userBtn = adminHeader.UserButton;
+        }
+        else
+        {
+            return;
+        }
+
+        UpdateDragArea(logoBtn, userBtn);
     }
+
 
     private void WindowMain_Loaded(object sender, RoutedEventArgs e)
     {

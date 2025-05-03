@@ -16,6 +16,7 @@
 
     <!-- Главная страница -->
     <sys:String x:Key="Loc_Stock">Акции</sys:String>
+    <sys:String x:Key="Loc_Orders">Заказы</sys:String>
     <sys:String x:Key="Loc_OriginalTechnique">Оригинальная техника</sys:String>
     <sys:String x:Key="Loc_OriginalTechniqueText">Наш магазин работает только с официальными поставщиками. Все товары имеют гарантию и сертификаты. техника</sys:String>
     <sys:String x:Key="Loc_Stress-freeShopping">Покупка без стресса</sys:String>

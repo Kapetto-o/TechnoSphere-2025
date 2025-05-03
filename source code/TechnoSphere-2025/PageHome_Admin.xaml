@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
         <!-- Header -->
-        <controls:HeaderControl x:Name="PageHeader"/>
+        <controls:HeaderControl_Admin x:Name="PageHeader"/>
 
         <!-- Main -->
         <Grid Grid.Row="1" Margin="15">

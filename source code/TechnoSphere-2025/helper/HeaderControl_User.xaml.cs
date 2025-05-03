@@ -6,18 +6,18 @@ using System.Windows.Navigation;
 
 namespace TechnoSphere_2025.helper
 {
-    public partial class HeaderControl : UserControl
+    public partial class HeaderControl_User : UserControl
     {
         private PopupManager? _popupManager;
         public FrameworkElement LogoButton => LogoSetting;
         public FrameworkElement UserButton => UserAccount;
 
-        public HeaderControl()
+        public HeaderControl_User()
         {
             InitializeComponent();
             Loaded += OnLoaded;
             Unloaded += OnUnloaded;
-            Loaded += HeaderControl_Loaded;
+            Loaded += HeaderControl_User_Loaded;
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
@@ -31,7 +31,7 @@ namespace TechnoSphere_2025.helper
             }
         }
 
-        private void HeaderControl_Loaded(object sender, RoutedEventArgs e)
+        private void HeaderControl_User_Loaded(object sender, RoutedEventArgs e)
         {
             AccountName.Text = SessionManager.CurrentUsername;
         }
