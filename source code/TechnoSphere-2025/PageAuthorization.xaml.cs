@@ -6,6 +6,7 @@ using System.Text;
 using System.Configuration;
 using TechnoSphere_2025.helper;
 using TechnoSphere_2025.helper.validation;
+using TechnoSphere_2025.Properties;
 
 namespace TechnoSphere_2025
 {
@@ -67,16 +68,16 @@ namespace TechnoSphere_2025
             byte[] storedHash;
             byte[] storedSalt;
             byte role;
-            string dbUsername;
+            string dbUsername = string.Empty;
 
             using (var conn = new SqlConnection(connString))
             {
                 conn.Open();
 
                 using (var cmd = new SqlCommand(@"
-                    SELECT Username, PasswordHash, PasswordSalt, Role
-                      FROM Users
-                     WHERE Email = @e AND IsActive = 1", conn))
+                SELECT Username, PasswordHash, PasswordSalt, Role
+                  FROM Users
+                 WHERE Email = @e AND IsActive = 1", conn))
                 {
                     cmd.Parameters.AddWithValue("@e", model.Email);
 
@@ -84,14 +85,14 @@ namespace TechnoSphere_2025
                     {
                         if (!reader.Read())
                         {
-                            LogEmailError.Text = "Пользователь не найден или заблокирован";
+                            LogEmailError.Text = ErrorValidation.ErrorUserNotFound;
                             return;
                         }
 
-                        int usernameIndex = reader.GetOrdinal("Username");
-                        dbUsername = reader.IsDBNull(usernameIndex)
+                        int idx = reader.GetOrdinal("Username");
+                        dbUsername = reader.IsDBNull(idx)
                             ? string.Empty
-                            : reader.GetString(usernameIndex);
+                            : reader.GetString(idx);
                         storedHash = (byte[])reader["PasswordHash"];
                         storedSalt = (byte[])reader["PasswordSalt"];
                         role = (byte)reader["Role"];
@@ -102,14 +103,14 @@ namespace TechnoSphere_2025
                 using (var sha = SHA256.Create())
                 {
                     var combined = Encoding.UTF8.GetBytes(model.Password)
-                                 .Concat(storedSalt)
-                                 .ToArray();
+                                     .Concat(storedSalt)
+                                     .ToArray();
                     inputHash = sha.ComputeHash(combined);
                 }
 
                 if (!inputHash.SequenceEqual(storedHash))
                 {
-                    LogPasswordError.Text = "Неверный пароль";
+                    LogPasswordError.Text = ErrorValidation.ErrorIncorrectPassword;
                     return;
                 }
 
@@ -124,14 +125,14 @@ namespace TechnoSphere_2025
 
                 Properties.Settings.Default.RememberToken = rememberToken.ToString();
                 Properties.Settings.Default.Save();
-
-                SessionManager.CurrentUsername = dbUsername;
-
-                if (role == 1)
-                    NavigationService?.Navigate(new PageHome_Admin());
-                else
-                    NavigationService?.Navigate(new PageHome_User());
             }
+
+            SessionManager.CurrentUsername = dbUsername;
+
+            if (role == 1)
+                NavigationService?.Navigate(new PageHome_Admin());
+            else
+                NavigationService?.Navigate(new PageHome_User());
         }
 
         private void GoToRegister_Click(object sender, RoutedEventArgs e)
