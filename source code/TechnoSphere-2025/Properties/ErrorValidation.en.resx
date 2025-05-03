@@ -153,4 +153,10 @@
   <data name="ErrorRegistrationFailed" xml:space="preserve">
     <value>Registration failed</value>
   </data>
+  <data name="ErrorUserNotFound" xml:space="preserve">
+    <value>User not found or blocked</value>
+  </data>
+  <data name="ErrorIncorrectPassword" xml:space="preserve">
+    <value>Incorrect password</value>
+  </data>
 </root>
