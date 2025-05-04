@@ -4,9 +4,10 @@ using System.Reflection.PortableExecutable;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Navigation;
 using System.Windows.Threading;
-using TechnoSphere_2025.helper;
+using TechnoSphere_2025.managers;
 
 namespace TechnoSphere_2025;
 
@@ -67,44 +68,46 @@ public partial class WindowMain : Window
             new Thickness(leftOffset, 0, rightOffset, 0);
     }
 
+    private T? FindVisualChild<T>(DependencyObject parent) where T : DependencyObject
+    {
+        if (parent == null) return null;
+        for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+        {
+            var child = VisualTreeHelper.GetChild(parent, i);
+            if (child is T correctlyTyped)
+                return correctlyTyped;
+            var descendent = FindVisualChild<T>(child);
+            if (descendent != null)
+                return descendent;
+        }
+        return null;
+    }
+
     private void MainFrame_Navigated(object sender, NavigationEventArgs e)
     {
         Dispatcher.InvokeAsync(() =>
         {
-            if (e.Content is PageAuthorization ||
-                e.Content is PageRegistration ||
-                MainFrame.Content is not Page page)
+            if (MainFrame.Content is not Page page)
             {
                 WindowControl_Moving.Margin = new Thickness(0, 0, 70, 0);
                 return;
             }
 
-            var headerObj = page.FindName("PageHeader");
-
-            FrameworkElement? logoBtn = null, userBtn = null;
-
-            if (headerObj is helper.HeaderControl_User userHeader)
-            {
-                logoBtn = userHeader.LogoButton;
-                userBtn = userHeader.UserButton;
-            }
-            else if (headerObj is helper.HeaderControl_Admin adminHeader)
-            {
-                logoBtn = adminHeader.LogoButton;
-                userBtn = adminHeader.UserButton;
-            }
-
-            if (logoBtn == null || userBtn == null)
+            var header = FindVisualChild<controls.header.HeaderControlBase>(page);
+            if (header == null)
             {
                 WindowControl_Moving.Margin = new Thickness(155, 0, 70, 0);
                 return;
             }
 
+            var logoBtn = header.LogoButton;
+            var userBtn = header.UserButton;
+
             UpdateDragArea(logoBtn, userBtn);
 
             logoBtn.SizeChanged -= HeaderButton_SizeChanged;
-            userBtn.SizeChanged -= HeaderButton_SizeChanged;
             logoBtn.SizeChanged += HeaderButton_SizeChanged;
+            userBtn.SizeChanged -= HeaderButton_SizeChanged;
             userBtn.SizeChanged += HeaderButton_SizeChanged;
 
         }, DispatcherPriority.Loaded);
@@ -115,25 +118,11 @@ public partial class WindowMain : Window
         if (MainFrame.Content is not Page page)
             return;
 
-        var headerObj = page.FindName("PageHeader");
-        FrameworkElement? logoBtn = null, userBtn = null;
-
-        if (headerObj is helper.HeaderControl_User userHeader)
-        {
-            logoBtn = userHeader.LogoButton;
-            userBtn = userHeader.UserButton;
-        }
-        else if (headerObj is helper.HeaderControl_Admin adminHeader)
-        {
-            logoBtn = adminHeader.LogoButton;
-            userBtn = adminHeader.UserButton;
-        }
-        else
-        {
+        var header = FindVisualChild<controls.header.HeaderControlBase>(page);
+        if (header == null)
             return;
-        }
 
-        UpdateDragArea(logoBtn, userBtn);
+        UpdateDragArea(header.LogoButton, header.UserButton);
     }
 
 
