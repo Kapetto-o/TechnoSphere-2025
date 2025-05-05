@@ -2,33 +2,42 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="helper\HeaderControl_Admin.xaml.cs">
+    <Compile Update="controls\header\HeaderControlBase.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="helper\HeaderControl_User.xaml.cs">
+    <Compile Update="controls\header\HeaderControl_Admin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PageHome_User.xaml.cs">
+    <Compile Update="controls\header\HeaderControl_User.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Window_AboutApplication.xaml.cs">
+    <Compile Update="modules\customer\PageHome_User.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PageAuthorization.xaml.cs">
+    <Compile Update="modules\shared\Window_AboutApplication.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PageHome_Admin.xaml.cs">
+    <Compile Update="modules\shared\PageAuthorization.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PageRegistration.xaml.cs">
+    <Compile Update="modules\admin\PageHome_Admin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Window_Settings.xaml.cs">
+    <Compile Update="modules\shared\PageRegistration.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="modules\shared\Window_Settings.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="Properties\ErrorValidation.en.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Update="Properties\ErrorValidation.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\ErrorValidation.ru.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

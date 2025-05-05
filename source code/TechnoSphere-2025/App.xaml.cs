@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using TechnoSphere_2025.helper;
+using TechnoSphere_2025.managers;
 
 namespace TechnoSphere_2025
 {

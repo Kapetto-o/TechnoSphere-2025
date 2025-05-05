@@ -10,13 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="style\font\Roboto\Roboto-Italic-VariableFont_wdth,wght.ttf" />
-    <None Remove="style\font\Roboto\Roboto-VariableFont_wdth,wght.ttf" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Remove="languages\English.xaml" />
-    <Page Remove="languages\Russian.xaml" />
+    <Page Remove="resources\styles\Styles.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,24 +19,25 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="banners\banner_billy.png" />
-    <Resource Include="banners\banner_eng.png" />
-    <Resource Include="banners\banner_ru.png" />
-    <Resource Include="icons\icons.xaml">
+    <Resource Include="assets\banners\banner_billy.png" />
+    <Resource Include="assets\banners\banner_eng.png" />
+    <Resource Include="assets\banners\banner_ru.png" />
+    <Resource Include="assets\icons\icons.xaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-	  <Resource Include="icons\LogoMiniGreen_64x64.png" />
-    <Resource Include="icons\TestAvatar_2.jpg" />
-    <Resource Include="languages\English.xaml" />
-    <Resource Include="languages\Russian.xaml" />
-    <Resource Include="style\font\Roboto\Roboto-Italic-VariableFont_wdth,wght.ttf">
+	  <Resource Include="assets\icons\LogoMiniGreen_64x64.png" />
+    <Resource Include="assets\avatars\TestAvatar_2.jpg" />
+    <Resource Include="resources\localization\English.xaml" />
+    <Resource Include="resources\localization\Russian.xaml" />
+    <Resource Include="resources\styles\font\Roboto\Roboto-Italic-VariableFont_wdth,wght.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="style\font\Roboto\Roboto-VariableFont_wdth,wght.ttf">
+    <Resource Include="resources\styles\font\Roboto\Roboto-VariableFont_wdth,wght.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="style\themes\DarkTheme.xaml" />
-    <Resource Include="style\themes\LightTheme.xaml" />
+    <Resource Include="resources\styles\Styles.xaml" />
+    <Resource Include="resources\styles\themes\DarkTheme.xaml" />
+    <Resource Include="resources\styles\themes\LightTheme.xaml" />
   </ItemGroup>
 
   <ItemGroup>
