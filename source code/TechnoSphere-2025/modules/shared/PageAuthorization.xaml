@@ -13,7 +13,7 @@
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Style="{DynamicResource ForegraundColor}">
+        <Grid Style="{DynamicResource ForegroundColor}">
             <!-- Левая часть -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>
@@ -25,7 +25,7 @@
                            Style="{DynamicResource HeadlineColor_1_1}"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,30"/>
-                <TextBlock Text="{DynamicResource Loc_BeforeСontinue}"
+                <TextBlock Text="{DynamicResource Loc_BeforeContinue}"
                            Style="{DynamicResource MainlineColor_1}"
                            HorizontalAlignment="Center"
                            TextWrapping="Wrap"

@@ -4,8 +4,8 @@
              xmlns:local="clr-namespace:TechnoSphere_2025.controls.header"
              xmlns:controlsHeaderBase="clr-namespace:TechnoSphere_2025.controls.header"
              Width="1000" Height="80">
-    <Grid Style="{DynamicResource ForegraundColor}">
-        <Grid Grid.Row="0" Style="{DynamicResource ForegraundColor}">
+    <Grid Style="{DynamicResource ForegroundColor}">
+        <Grid Grid.Row="0" Style="{DynamicResource ForegroundColor}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="35"/>
                 <RowDefinition Height="45"/>
@@ -22,8 +22,13 @@
                     <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" Style="{DynamicResource ButtonIconColor}">
-                    <Image Source="{DynamicResource BurgerIcon}" Width="25"/>
+                <Button Grid.Column="0"
+                        x:Name="BurgerCatalogButton"
+                        Style="{DynamicResource ButtonIconColor}"
+                        Click="BurgerCatalogButton_Click">
+                    <Image x:Name="BurgerCatalogImage"
+                           Source="{DynamicResource BurgerIcon}"
+                           Width="25"/>
                 </Button>
                 <Button Grid.Column="1"
                     Style="{DynamicResource ButtonIconColor}"
@@ -38,14 +43,14 @@
                          Style="{DynamicResource SearchTextboxColor}"
                          Height="35"
                          Padding="35,0,5,0"/>
-                    <Button Style="{DynamicResource SearhButtonIconColor}"
+                    <Button Style="{DynamicResource SearchButtonIconColor}"
                         Width="35"
                         HorizontalAlignment="Left">
                         <Image Source="{DynamicResource SearchIcon}" Height="25"/>
                     </Button>
                 </Grid>
 
-                <Button Grid.Column="4"
+                <Button Grid.Column="3"
                         Style="{DynamicResource ButtonIconColor}">
                     <TextBlock Text="{DynamicResource Loc_Orders}"
                         Style="{StaticResource Headerline}"

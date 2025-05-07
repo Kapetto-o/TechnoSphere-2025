@@ -62,7 +62,7 @@
 
     <!-- Registration and Authorization page -->
     <sys:String x:Key="Loc_Welcome">Welcome!</sys:String>
-    <sys:String x:Key="Loc_BeforeСontinue">Please log in to your account before continuing.</sys:String>
+    <sys:String x:Key="Loc_BeforeContinue">Please log in to your account before continuing.</sys:String>
     <sys:String x:Key="Loc_Registration">Registration</sys:String>
     <sys:String x:Key="Loc_RegUserName">Your username</sys:String>
     <sys:String x:Key="Loc_Email">Your E-mail</sys:String>

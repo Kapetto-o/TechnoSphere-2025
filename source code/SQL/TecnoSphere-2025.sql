@@ -6,6 +6,7 @@ go
 use TechnoSphere_2025
 go
 
+-- Пользователи
 create table Users (
     UserID			int					identity(1,1)	primary key,
     Username		nvarchar(32)		not null unique,
@@ -21,4 +22,20 @@ create table Users (
     IsActive		bit				not null default(1),  -- 1 = активен, 0 = заблокирован
 	RememberToken	uniqueidentifier	null
 );
+go
+
+-- Категории
+create table Categories  (
+	CategoryID			int					identity(1,1) constraint PK_Category primary key,
+	Name				nvarchar(100)	not null,
+	ParentCategoryID	int					null constraint FK_Category_Parent references Categories(CategoryID) on delete set null on update cascade,
+    SortOrder			int				not null constraint DF_Category_SortOrder default(0),
+    IsActive			bit				not null constraint DF_Category_IsActive default(1), -- 1 = показывать, 0 = скрыть
+);
+go
+
+create nonclustered index IX_Category_Name on Categories(Name);
+go
+
+create nonclustered index IX_Category_Parent on Categories(ParentCategoryID);
 go

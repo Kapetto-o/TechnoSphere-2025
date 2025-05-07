@@ -30,7 +30,7 @@
     </Style>
 
     <!-- Второстепенный фон -->
-    <Style x:Key="ForegraundColor" TargetType="Grid">
+    <Style x:Key="ForegroundColor" TargetType="Grid">
         <Setter Property="Background" Value="{DynamicResource BrushGreenColor}"/>
     </Style>
 
@@ -125,7 +125,7 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="SearhButtonIconColor" TargetType="Button" BasedOn="{StaticResource ButtonIconStyle}">
+    <Style x:Key="SearchButtonIconColor" TargetType="Button" BasedOn="{StaticResource ButtonIconStyle}">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="Transparent"/>
@@ -186,5 +186,17 @@
                 <Setter Property="Background" Value="{DynamicResource BrushLight_greenColor}"/>
             </Trigger>
         </Style.Triggers>
+    </Style>
+
+    <Style x:Key="CatalogCategoryPopup" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource BrushWhiteColor}"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="Black"
+                                  BlurRadius="10"
+                                  ShadowDepth="0" 
+                                  Opacity="0.7"/>
+            </Setter.Value>
+        </Setter>
     </Style>
 </ResourceDictionary>
