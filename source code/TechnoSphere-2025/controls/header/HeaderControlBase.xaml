@@ -24,11 +24,11 @@
                            Width="25" Height="25"/>
                     <TextBlock x:Name="AccountName"
                                Text="Kapetto"
-                               Style="{StaticResource Headerline}"
+                               Style="{StaticResource Headline_3}"
                                VerticalAlignment="Center"
                                Margin="0,0,10,0"/>
                     <TextBlock Text="˅"
-                               Style="{StaticResource Headerline}"
+                               Style="{StaticResource Headline_3}"
                                VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>

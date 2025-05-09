@@ -14,6 +14,9 @@
     <Compile Update="modules\customer\PageHome_User.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="modules\shared\PageCatalog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="modules\shared\Window_AboutApplication.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

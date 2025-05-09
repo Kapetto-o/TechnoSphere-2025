@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
+using System.Windows.Input;
 using System.Windows.Navigation;
 using TechnoSphere_2025.managers;
 
@@ -110,6 +110,15 @@ namespace TechnoSphere_2025.controls.header
                 while (nav.CanGoBack)
                     nav.RemoveBackEntry();
             }
+        }
+
+        public class DelegateCommand<T> : ICommand
+        {
+            private readonly Action<T> _execute;
+            public DelegateCommand(Action<T> execute) => _execute = execute;
+            public bool CanExecute(object? parameter) => true;
+            public void Execute(object? parameter) => _execute((T)parameter!);
+            public event EventHandler? CanExecuteChanged;
         }
     }
 }

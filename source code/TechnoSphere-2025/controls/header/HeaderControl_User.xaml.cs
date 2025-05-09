@@ -1,8 +1,11 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Media;
+using System.Windows.Input;
+using System.Windows.Navigation;
 using TechnoSphere_2025.managers;
+using TechnoSphere_2025.models;
+using TechnoSphere_2025.modules.shared;
+using static TechnoSphere_2025.controls.header.HeaderControlBase;
 
 namespace TechnoSphere_2025.controls.header
 {
@@ -11,12 +14,23 @@ namespace TechnoSphere_2025.controls.header
         private const double BurgerIconSize = 25;
         private const double CrossIconSize = 20;
         private PopupManager? _popupManager;
+        public CatalogViewModel CatalogVm { get; } = new CatalogViewModel();
+        public ICommand NavigateCategoryCommand { get; }
 
         public HeaderControl_User()
         {
             InitializeComponent();
+            DataContext = this;
             Loaded += OnLoaded;
             Unloaded += OnUnloaded;
+            NavigateCategoryCommand = new DelegateCommand<int>(categoryId =>
+            {
+                CatalogPopup.IsOpen = false;
+
+                var targetPage = new PageCatalog(categoryId);
+                var nav = NavigationService.GetNavigationService(this);
+                nav?.Navigate(targetPage);
+            });
         }
 
         private void BurgerCatalogButton_Click(object sender, RoutedEventArgs e)
@@ -80,6 +94,5 @@ namespace TechnoSphere_2025.controls.header
             BurgerCatalogImage.Width = isCross ? CrossIconSize : BurgerIconSize;
             BurgerCatalogImage.Height = isCross ? CrossIconSize : BurgerIconSize;
         }
-
     }
 }

@@ -16,6 +16,8 @@ namespace TechnoSphere_2025.managers
 
         public static LanguageType CurrentLanguage { get; private set; }
 
+        public static event EventHandler? LanguageChanged;
+
         public static void Initialize()
         {
             var saved = Properties.Settings.Default.Language;
@@ -71,6 +73,8 @@ namespace TechnoSphere_2025.managers
 
             ReloadLogoDictionary();
             ThemeManager.ReloadIconDictionary();
+
+            LanguageChanged?.Invoke(null, EventArgs.Empty);
         }
 
         public static void ReloadLogoDictionary()

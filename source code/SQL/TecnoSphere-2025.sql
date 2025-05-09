@@ -25,17 +25,20 @@ create table Users (
 go
 
 -- Категории
-create table Categories  (
-	CategoryID			int					identity(1,1) constraint PK_Category primary key,
-	Name				nvarchar(100)	not null,
-	ParentCategoryID	int					null constraint FK_Category_Parent references Categories(CategoryID) on delete set null on update cascade,
-    SortOrder			int				not null constraint DF_Category_SortOrder default(0),
-    IsActive			bit				not null constraint DF_Category_IsActive default(1), -- 1 = показывать, 0 = скрыть
+create table Categories (
+    CategoryID         int identity(1,1) constraint PK_Category primary key,
+    Name_Ru            nvarchar(100) not null,
+    Name_Eng           nvarchar(100) not null,
+    ParentCategoryID   int null,
+    SortOrder          int not null constraint DF_Category_SortOrder default(0),
+    IsActive           bit not null constraint DF_Category_IsActive default(1),
+    constraint FK_Category_Parent
+        foreign key (ParentCategoryID)
+        references Categories(CategoryID)
+        on delete no action
+        on update no action
 );
-go
 
-create nonclustered index IX_Category_Name on Categories(Name);
-go
-
-create nonclustered index IX_Category_Parent on Categories(ParentCategoryID);
-go
+create nonclustered index IX_Category_Name_Ru  on Categories(Name_Ru);
+create nonclustered index IX_Category_Name_Eng on Categories(Name_Eng);
+create nonclustered index IX_Category_Parent   on Categories(ParentCategoryID);
