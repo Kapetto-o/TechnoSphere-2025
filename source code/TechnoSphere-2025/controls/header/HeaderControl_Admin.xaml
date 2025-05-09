@@ -58,5 +58,53 @@
                 </Button>
             </Grid>
         </Grid>
+
+        <Popup x:Name="CatalogPopup"
+               PlacementTarget="{Binding ElementName=BurgerCatalogButton}"
+               Placement="Bottom"
+               AllowsTransparency="True"
+               Opened="CatalogPopup_Opened"
+               Closed="CatalogPopup_Closed">
+            <Border Style="{DynamicResource CatalogCategoryPopupColor}"
+                    MinHeight="90"
+                    Width="980"
+                    Margin="0, 0, 0, 10"
+                    Padding="10, 30, 0, 30">
+                <ContentControl>
+                    <ItemsControl ItemsSource="{Binding CatalogVm.Categories}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="4" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <!-- Категории -->
+                                    <TextBlock Text="{Binding DisplayName}"
+                                       Style="{DynamicResource HeadlineColor_2-1}"/>
+                                    <!-- Подкатегории -->
+                                    <ItemsControl ItemsSource="{Binding Children}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Margin="0,10,0,0" Style="{StaticResource Mainline_2}">
+                                            <Hyperlink Style="{DynamicResource HyperLinkColor}"
+                                                       Command="{Binding DataContext.NavigateCategoryCommand, 
+                                                       RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                       CommandParameter="{Binding CategoryID}"
+                                                       TextDecorations="{x:Null}">
+                                                <Run Text="{Binding DisplayName,  Mode=OneWay}"/>
+                                            </Hyperlink>
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ContentControl>
+            </Border>
+        </Popup>
     </Grid>
 </UserControl>

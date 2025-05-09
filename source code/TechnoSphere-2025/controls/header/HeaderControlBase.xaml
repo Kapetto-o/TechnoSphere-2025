@@ -5,11 +5,11 @@
              Width="1000" Height="35">
     <Grid>
         <Grid Grid.Row="0" Margin="15,0,92,0">
-            <Button x:Name="LogoSetting"
+            <Button x:Name="Logotype"
                     Style="{DynamicResource ButtonIconColor}"
                     HorizontalAlignment="Left"
                     Height="25"
-                    Click="LogoSetting_Click">
+                    Click="Logotype_Click">
                 <Image Source="{DynamicResource LogoFullIcon}"/>
             </Button>
             <Button x:Name="UserAccount"
@@ -33,28 +33,6 @@
                 </StackPanel>
             </Button>
         </Grid>
-        
-        <Popup x:Name="LogoSettingPopup"
-               PlacementTarget="{Binding ElementName=LogoSetting}"
-               VerticalOffset="5"
-               AllowsTransparency="True">
-            <ContentControl Style="{DynamicResource HeaderPopupColor}">
-                <StackPanel>
-                    <Button x:Name="SettingsMenuItem"
-                            Style="{DynamicResource HeaderPopupButtonColor}"
-                            Padding="5,10,65,10"
-                            Click="SettingsMenuItem_Click">
-                        <TextBlock Text="{DynamicResource Loc_MenuSettings}" Style="{StaticResource Mainline_2}"/>
-                    </Button>
-                    <Button x:Name="AboutMenuItem"
-                            Style="{DynamicResource HeaderPopupButtonColor}"
-                            Padding="5,10,65,10"
-                            Click="AboutMenuItem_Click">
-                        <TextBlock Text="{DynamicResource Loc_MenuAboutApp}" Style="{StaticResource Mainline_2}"/>
-                    </Button>
-                </StackPanel>
-            </ContentControl>
-        </Popup>
 
         <Popup x:Name="AccountPopup"
                PlacementTarget="{Binding ElementName=UserAccount}"
@@ -67,10 +45,22 @@
                             Padding="5,10,5,10">
                         <TextBlock Text="{DynamicResource Loc_MenuPersonalAccount}" Style="{StaticResource Mainline_2}"/>
                     </Button>
+                    <Button x:Name="SettingsMenuItem"
+                            Style="{DynamicResource HeaderPopupButtonColor}"
+                            Padding="5,10,5,10"
+                            Click="SettingsMenuItem_Click">
+                        <TextBlock Text="{DynamicResource Loc_MenuSettings}" Style="{StaticResource Mainline_2}"/>
+                    </Button>
+                    <Button x:Name="AboutMenuItem"
+                            Style="{DynamicResource HeaderPopupButtonColor}"
+                            Padding="5,10,5,10"
+                            Click="AboutMenuItem_Click">
+                        <TextBlock Text="{DynamicResource Loc_MenuAboutApp}" Style="{StaticResource Mainline_2}"/>
+                    </Button>
                     <Button x:Name="ExitMenu"
-                        Style="{DynamicResource HeaderPopupButtonColor}"
-                        Padding="5,10,5,10"
-                        Click="ExitMenuItem_Click">
+                            Style="{DynamicResource HeaderPopupButtonColor}"
+                            Padding="5,10,5,10"
+                            Click="ExitMenuItem_Click">
                         <TextBlock Text="{DynamicResource Loc_MenuLogout}" Style="{StaticResource Mainline_2}"/>
                     </Button>
                 </StackPanel>

@@ -4,16 +4,33 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TechnoSphere_2025.modules.shared"
+      xmlns:header="clr-namespace:TechnoSphere_2025.controls.header"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="1000"
       Title="PageCatalog">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <!-- Хедер -->
+            <RowDefinition Height="Auto"/>
+            <!-- Контент каталога -->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-    <Grid>
-        <TextBlock x:Name="CategoryText"
-                   FontSize="24"
-                   FontWeight="Bold"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Text="Категория не загружена"/>
+        <!-- сюда подставим HeaderControl_User или HeaderControl_Admin -->
+        <ContentControl x:Name="HeaderHost"
+                        Grid.Row="0"/>
+
+        <!-- Основное содержимое страницы -->
+        <Grid Grid.Row="1" Background="White">
+            <TextBlock x:Name="CategoryHeader"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       Margin="0,20,0,0"
+                       Text="Категория"/>
+            <ListBox x:Name="ProductsList"
+                     Margin="20,80,20,20"/>
+        </Grid>
     </Grid>
 </Page>

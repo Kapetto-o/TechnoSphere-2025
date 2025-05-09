@@ -128,6 +128,7 @@ namespace TechnoSphere_2025
             }
 
             SessionManager.CurrentUsername = dbUsername;
+            SessionManager.CurrentUserRole = role;
 
             if (role == 1)
                 NavigationService?.Navigate(new PageHome_Admin());

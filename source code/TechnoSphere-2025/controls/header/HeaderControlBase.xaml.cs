@@ -14,7 +14,7 @@ namespace TechnoSphere_2025.controls.header
     public partial class HeaderControlBase : UserControl
     {
         private PopupManager? _popupManager;
-        public FrameworkElement LogoButton => LogoSetting;
+        public FrameworkElement LogoButton => Logotype;
         public FrameworkElement UserButton => UserAccount;
 
         public HeaderControlBase()
@@ -31,7 +31,6 @@ namespace TechnoSphere_2025.controls.header
             if (ownerWindow != null)
             {
                 _popupManager = new PopupManager(ownerWindow);
-                _popupManager.Register(LogoSettingPopup, LogoSetting);
                 _popupManager.Register(AccountPopup, UserAccount);
             }
         }
@@ -47,9 +46,14 @@ namespace TechnoSphere_2025.controls.header
             _popupManager = null;
         }
 
-        private void LogoSetting_Click(object sender, RoutedEventArgs e)
+        private void Logotype_Click(object sender, RoutedEventArgs e)
         {
-            _popupManager?.Toggle(LogoSettingPopup);
+            var nav = NavigationService.GetNavigationService(this);
+            if (SessionManager.CurrentUserRole == 1)
+                nav?.Navigate(new PageHome_Admin());
+            else
+                nav?.Navigate(new PageHome_User());
+
             e.Handled = true;
         }
 
