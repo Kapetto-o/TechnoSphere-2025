@@ -138,7 +138,17 @@ namespace TechnoSphere_2025
             SessionManager.CurrentUsername = model.Username;
             SessionManager.RememberToken = rememberToken;
 
-            NavigationService?.Navigate(new PageHome_User());
+            var nav = NavigationService;
+            nav?.Navigate(new PageHome_User());
+
+            if (nav != null)
+            {
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    while (nav.CanGoBack)
+                        nav.RemoveBackEntry();
+                }), System.Windows.Threading.DispatcherPriority.Background);
+            }
         }
 
         private void GoToLogin_Click(object sender, RoutedEventArgs e)

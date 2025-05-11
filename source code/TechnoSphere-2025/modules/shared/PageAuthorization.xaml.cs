@@ -130,10 +130,20 @@ namespace TechnoSphere_2025
             SessionManager.CurrentUsername = dbUsername;
             SessionManager.CurrentUserRole = role;
 
+            var nav = NavigationService;
             if (role == 1)
-                NavigationService?.Navigate(new PageHome_Admin());
+                nav?.Navigate(new PageHome_Admin());
             else
-                NavigationService?.Navigate(new PageHome_User());
+                nav?.Navigate(new PageHome_User());
+
+            if (nav != null)
+            {
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    while (nav.CanGoBack)
+                        nav.RemoveBackEntry();
+                }), System.Windows.Threading.DispatcherPriority.Background);
+            }
         }
 
         private void GoToRegister_Click(object sender, RoutedEventArgs e)
