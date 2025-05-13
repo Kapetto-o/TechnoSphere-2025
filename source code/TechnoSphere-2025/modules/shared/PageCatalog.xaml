@@ -26,26 +26,14 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            
-            <Grid Margin="15,5,0,0" Grid.Row="0">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Каталог"
-                               Style="{DynamicResource MainlineColor_2_1}"/>
-                    <TextBlock Text=">"
-                               Style="{DynamicResource MainlineColor_2_1}"
-                               Margin="5,0,5,0"/>
-                    <TextBlock Text="Пылесосы"
-                               Style="{DynamicResource MainlineColor_2_1}"/>
-                    <TextBlock Text=">"
-                               Style="{DynamicResource MainlineColor_2_1}"
-                               Margin="5,0,5,0"/>
-                    <TextBlock Text="Ручные пылесосы"
-                               Style="{DynamicResource MainlineColor_2_3}"/>
-                </StackPanel>
+
+            <Grid Grid.Row="0" Margin="15,5,0,0">
+                <StackPanel x:Name="BreadcrumbStackPanel" Orientation="Horizontal"/>
             </Grid>
 
             <Grid Grid.Row="1" Margin="15,5,0,0">
                 <TextBlock Text="Ручные пылесосы"
+                           x:Name="CategoryHeader"
                            Style="{DynamicResource HeadlineColor_2-1}"/>
             </Grid>
             <Grid Grid.Row="2" Margin="15,5,15,15">
@@ -67,25 +55,26 @@
                                        Grid.Row="0"
                                        Style="{DynamicResource MainlineColor_2_3}"
                                        Margin="10,5,10,0"/>
-
-                            <StackPanel Grid.Row="1" Margin="10,0,10,0">
-                                <StackPanel Margin="0,10,0,0">
-                                    <TextBlock Text="Стоимость"
+                            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden">
+                                <StackPanel Margin="10,0,10,0">
+                                    <StackPanel Margin="0,10,0,0">
+                                        <TextBlock Text="Стоимость"
                                                Style="{DynamicResource MainlineColor_2_3}"/>
-                                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                                        <TextBox Style="{DynamicResource TextBoxColor}"
+                                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                            <TextBox Style="{DynamicResource TextBoxColor}"
                                                   Width="94" Height="30"/>
-                                        <TextBox Style="{DynamicResource TextBoxColor}"
+                                            <TextBox Style="{DynamicResource TextBoxColor}"
                                                  Width="94" Height="30"/>
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                    <StackPanel Margin="0,10,0,0">
+                                        <TextBlock Text="Производитель"
+                                               Style="{DynamicResource MainlineColor_2_3}"/>
+                                        <ComboBox Margin="0,5,0,0"/>
                                     </StackPanel>
                                 </StackPanel>
-
-                                <StackPanel Margin="0,10,0,0">
-                                    <TextBlock Text="Производитель"
-                                               Style="{DynamicResource MainlineColor_2_3}"/>
-                                    <ComboBox Margin="0,5,0,0"/>
-                                </StackPanel>
-                            </StackPanel>
+                            </ScrollViewer>
 
                             <Button Content="Показать"
                                     Grid.Row="2"
@@ -95,7 +84,8 @@
                     </Border>
                 </Grid>
                 <Grid Grid.Column="1" Margin="10,0,0,0">
-                    <ListBox x:Name="ProductsList"/>
+                    <ListBox x:Name="ProductsList"
+                             ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
                 </Grid>
             </Grid>
         </Grid>

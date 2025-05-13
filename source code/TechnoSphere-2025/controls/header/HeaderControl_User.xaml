@@ -72,11 +72,11 @@
                        Opened="CatalogPopup_Opened"
                        Closed="CatalogPopup_Closed">
                     <Border Style="{DynamicResource CatalogCategoryPopupColor}"
-                            MinHeight="90"
+                            MinHeight="90" MaxHeight="605"
                             Width="980"
                             Margin="0, 0, 0, 10"
                             Padding="10, 30, 0, 30">
-                        <ContentControl>
+                        <ScrollViewer VerticalScrollBarVisibility="Hidden">
                             <ItemsControl ItemsSource="{Binding CatalogVm.Categories}">
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
@@ -109,7 +109,7 @@
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
-                        </ContentControl>
+                        </ScrollViewer>
                     </Border>
                 </Popup>
             </Grid>
