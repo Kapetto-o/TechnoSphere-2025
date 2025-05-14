@@ -12,6 +12,7 @@
 	<ItemGroup>
 	  <None Remove="assets\icons\cursors\hand.cur" />
 	  <None Remove="assets\icons\cursors\text.cur" />
+	  <None Remove="assets\TestImageProductCard.png" />
 	</ItemGroup>
 
 
@@ -42,6 +43,7 @@
 		</Resource>
 		<Resource Include="assets\icons\LogoMiniGreen_64x64.png" />
 		<Resource Include="assets\avatars\TestAvatar_2.jpg" />
+		<Resource Include="assets\TestImageProductCard.png" />
 		<Resource Include="resources\localization\English.xaml" />
 		<Resource Include="resources\localization\Russian.xaml" />
 		<Resource Include="resources\styles\font\Roboto\Roboto-Italic-VariableFont_wdth,wght.ttf">

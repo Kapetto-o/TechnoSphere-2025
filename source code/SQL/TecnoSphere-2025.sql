@@ -42,3 +42,26 @@ create table Categories (
 create nonclustered index IX_Category_Name_Ru  on Categories(Name_Ru);
 create nonclustered index IX_Category_Name_Eng on Categories(Name_Eng);
 create nonclustered index IX_Category_Parent   on Categories(ParentCategoryID);
+go
+
+-- Товары
+create table Products (
+    ProductID           int identity(1,1) primary key,
+    SKU                 nvarchar(50)    not null unique,
+    Name_Ru             nvarchar(200)   not null,
+    Name_Eng            nvarchar(200)   not null,
+    Description_Ru      nvarchar(max)   null,
+    Description_Eng     nvarchar(max)   null,
+    Price               decimal(12,2)   not null,
+    InstallmentPrice    decimal(12,2)   null,
+    PromoPrice          decimal(12,2)   null,
+    StockQuantity       int             not null default 0,
+    IsActive            bit             not null default 1,
+    CreatedAt           datetime2       not null default sysutcdatetime(),
+    UpdatedAt           datetime2       not null default sysutcdatetime(),
+    MainImagePath       nvarchar(500)   null,
+    MainImageAlt_Ru     nvarchar(200)   null,
+    MainImageAlt_Eng    nvarchar(200)   null,
+    CategoryID          int             not null,
+    constraint FK_Products_Categories foreign key (CategoryID) references Categories(CategoryID)
+);

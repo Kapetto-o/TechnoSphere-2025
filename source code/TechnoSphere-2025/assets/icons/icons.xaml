@@ -60,6 +60,34 @@
 		</DrawingImage.Drawing>
 	</DrawingImage>
 
+    <!-- мнбне -->
+    <DrawingImage x:Key="FavoriteIconProductOn">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V35 H50 V0 H0 Z">
+                <GeometryDrawing Brush="{DynamicResource BrushRedColor}" 
+                             Geometry="F1 M50,35z M0,0z M30.4625,5.33594C28.0859,5.33594 25.9062,6.44688 24.5,8.275 23.0938,6.44688 20.9141,5.33594 18.5375,5.33594 14.382,5.33594 11,8.73203 11,12.9086 11,14.8703 11.7453,16.7336 13.1023,18.1539L23.7336,28.8906 24.5,29.6641 25.2664,28.8906 35.6938,18.3578C37.1703,16.9305 38,14.9898 38,12.9086 38,8.73203 34.618,5.33594 30.4625,5.33594z">
+                    <GeometryDrawing.Pen>
+                        <Pen Brush="{DynamicResource BrushGrayColor}" Thickness="1"/>
+                    </GeometryDrawing.Pen>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="FavoriteIconProductOff">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V35 H50 V0 H0 Z">
+                <GeometryDrawing Brush="{DynamicResource BrushIconColor}" 
+                             Geometry="F1 M50,35z M0,0z M30.4625,5.33594C28.0859,5.33594 25.9062,6.44688 24.5,8.275 23.0938,6.44688 20.9141,5.33594 18.5375,5.33594 14.382,5.33594 11,8.73203 11,12.9086 11,14.8703 11.7453,16.7336 13.1023,18.1539L23.7336,28.8906 24.5,29.6641 25.2664,28.8906 35.6938,18.3578C37.1703,16.9305 38,14.9898 38,12.9086 38,8.73203 34.618,5.33594 30.4625,5.33594z">
+                    <GeometryDrawing.Pen>
+                        <Pen Brush="{DynamicResource BrushGrayColor}" Thickness="1"/>
+                    </GeometryDrawing.Pen>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+    <!-- мнбне -->
+    
     <DrawingImage x:Key="ComparisonIcon">
         <DrawingImage.Drawing>
             <DrawingGroup ClipGeometry="M0,0 V35 H50 V0 H0 Z">
@@ -82,6 +110,30 @@
         </DrawingImage.Drawing>
     </DrawingImage>
 
+    <!-- мнбне -->
+    <DrawingImage x:Key="ComparisonIconCardProduct">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V35 H50 V0 H0 Z">
+                <GeometryDrawing Brush="{DynamicResource BrushComparisonIconCardProductColor}">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry RadiusX="0" RadiusY="0" Rect="13,19,4,11" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="{DynamicResource BrushComparisonIconCardProductColor}">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry RadiusX="0" RadiusY="0" Rect="23,5,4,25" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="{DynamicResource BrushComparisonIconCardProductColor}">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry RadiusX="0" RadiusY="0" Rect="33,13,4,17" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+    <!-- мнбне -->
+    
     <DrawingImage x:Key="BurgerIcon">
 		<DrawingImage.Drawing>
 			<DrawingGroup ClipGeometry="M0,0 V25 H25 V0 H0 Z">
@@ -294,4 +346,28 @@
             </DrawingGroup>
         </DrawingImage.Drawing>
     </DrawingImage>
+
+    <!-- мнбне -->
+    <DrawingImage x:Key="StarIconOn">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V15 H16 V0 H0 Z">
+                <DrawingGroup.Transform>
+                    <TranslateTransform X="3.0561491115577155E-08" Y="0" />
+                </DrawingGroup.Transform>
+                <GeometryDrawing Brush="{DynamicResource BrushYellowColor}" Geometry="F1 M16,15z M0,0z M5.37954,4.82454C5.37954,4.82454 2.40422,5.15408 0.419419,5.37441 0.240523,5.39606 0.0823416,5.51564 0.0230235,5.69736 -0.0362946,5.87908 0.0230234,6.06834 0.154841,6.18791 1.62932,7.5334 3.8448,9.54833 3.8448,9.54833 3.84292,9.54833 3.23656,12.4794 2.83357,14.435 2.79968,14.612 2.8637,14.7994 3.01812,14.9114 3.17159,15.0235 3.36932,15.0254 3.52468,14.9378 5.26091,13.9511 7.86149,12.4672 7.86149,12.4672 7.86149,12.4672 10.463,13.9511 12.1964,14.9387 12.3546,15.0254 12.5523,15.0235 12.7058,14.9114 12.8602,14.7994 12.9242,14.612 12.8894,14.436 12.4864,12.4794 11.881,9.54833 11.881,9.54833 11.881,9.54833 14.0965,7.5334 15.571,6.19074 15.7028,6.0674 15.7612,5.87814 15.7028,5.69736 15.6444,5.51658 15.4862,5.39701 15.3073,5.37629 13.3225,5.15409 10.3463,4.82454 10.3463,4.82454 10.3463,4.82454 9.11282,2.09591 8.29084,0.276818 8.21363,0.113929 8.05168,0 7.86149,0 7.67129,0 7.5084,0.11487 7.43496,0.276818 6.61204,2.09591 5.37954,4.82454 5.37954,4.82454z" />
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="StarIconOff">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V15 H16 V0 H0 Z">
+                <DrawingGroup.Transform>
+                    <TranslateTransform X="3.0561491115577155E-08" Y="0" />
+                </DrawingGroup.Transform>
+                <GeometryDrawing Brush="{DynamicResource BrushLight_grayColor}" Geometry="F1 M16,15z M0,0z M5.37954,4.82454C5.37954,4.82454 2.40422,5.15408 0.419419,5.37441 0.240523,5.39606 0.0823416,5.51564 0.0230235,5.69736 -0.0362946,5.87908 0.0230234,6.06834 0.154841,6.18791 1.62932,7.5334 3.8448,9.54833 3.8448,9.54833 3.84292,9.54833 3.23656,12.4794 2.83357,14.435 2.79968,14.612 2.8637,14.7994 3.01812,14.9114 3.17159,15.0235 3.36932,15.0254 3.52468,14.9378 5.26091,13.9511 7.86149,12.4672 7.86149,12.4672 7.86149,12.4672 10.463,13.9511 12.1964,14.9387 12.3546,15.0254 12.5523,15.0235 12.7058,14.9114 12.8602,14.7994 12.9242,14.612 12.8894,14.436 12.4864,12.4794 11.881,9.54833 11.881,9.54833 11.881,9.54833 14.0965,7.5334 15.571,6.19074 15.7028,6.0674 15.7612,5.87814 15.7028,5.69736 15.6444,5.51658 15.4862,5.39701 15.3073,5.37629 13.3225,5.15409 10.3463,4.82454 10.3463,4.82454 10.3463,4.82454 9.11282,2.09591 8.29084,0.276818 8.21363,0.113929 8.05168,0 7.86149,0 7.67129,0 7.5084,0.11487 7.43496,0.276818 6.61204,2.09591 5.37954,4.82454 5.37954,4.82454z" />
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+    <!-- мнбне -->
 </ResourceDictionary>

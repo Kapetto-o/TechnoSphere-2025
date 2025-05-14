@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TechnoSphere_2025.modules.shared"
       xmlns:header="clr-namespace:TechnoSphere_2025.controls.header"
+      xmlns:controlsProductCard="clr-namespace:TechnoSphere_2025.controls"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1000"
       Title="PageCatalog">
@@ -76,16 +77,54 @@
                                 </StackPanel>
                             </ScrollViewer>
 
-                            <Button Content="Показать"
-                                    Grid.Row="2"
+                            <Button Grid.Row="2"
                                     Style="{DynamicResource ButtonColor}"
-                                    FontSize="20"/>
+                                    FontSize="20">
+                                <TextBlock Text="Показать"
+                                   Style="{DynamicResource MainlineColor_2_2}"/>
+                            </Button>
                         </Grid>
                     </Border>
                 </Grid>
                 <Grid Grid.Column="1" Margin="10,0,0,0">
-                    <ListBox x:Name="ProductsList"
-                             ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" HorizontalAlignment="Left">
+                            <Button Style="{StaticResource EmptyButtonStyle}"
+                                    Height="auto">
+                                <TextBlock Text="Сбросить фильтры"
+                                           Style="{StaticResource Mainline_2}"
+                                           Foreground="{DynamicResource BrushLight_greenColor}"/>
+                            </Button>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <ComboBox HorizontalAlignment="Right"
+                                      MinWidth="186"
+                                      FontFamily="Roboto">
+                                <ComboBoxItem Content="Сначала отзывы" FontFamily="Roboto"/>
+                                <ComboBoxItem Content="Сначала подешевле" FontFamily="Roboto"/>
+                                <ComboBoxItem Content="Сначала подороже" FontFamily="Roboto"/>
+                            </ComboBox>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Margin="0,10,0,0">
+                        <ListBox x:Name="ProductsList"
+                                 Style="{StaticResource EmplyListBoxStyle}"
+                                 ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                            <controlsProductCard:Product_card x:Name="PageHeader" Width="750"/>
+                        </ListBox>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>
