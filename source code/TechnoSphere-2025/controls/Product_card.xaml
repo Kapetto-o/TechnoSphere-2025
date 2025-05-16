@@ -3,11 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:TechnoSphere_2025.controls"
+             xmlns:local="clr-namespace:TechnoSphere_2025.controls" xmlns:models="clr-namespace:TechnoSphere_2025.models"
+             xmlns:conv="clr-namespace:TechnoSphere_2025.converters"
+             d:DataContext="{d:DesignInstance Type=models:ProductViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="750">
+    <UserControl.Resources>
+        <conv:NullToVisibilityConverter   x:Key="NullToVisibilityConverter"/>
+        <conv:BoolToAvailabilityTextConverter x:Key="BoolToAvailabilityTextConverter"/>
+    </UserControl.Resources>
     <Grid>
-        <Button Style="{StaticResource ProductCartdButtonColor}">
+        <Button Style="{DynamicResource ProductCartdButtonColor}">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="200"/>
@@ -31,7 +37,7 @@
                 <Grid Grid.Column="1" Margin="15,10">
                     <StackPanel>
                         <TextBlock x:Name="ProductName"
-                                   Text="Bosch BGLS4POW2"
+                                   Text="{Binding Name}"
                                    Style="{DynamicResource MainlineColor_2_3}"/>
                         <StackPanel x:Name="StarRating"
                                     Orientation="Horizontal"
@@ -112,22 +118,24 @@
                             </StackPanel>
                         </Button>
                         
-                        <Border Width="125" Height="28"
+                        <Border Height="28"
                                 HorizontalAlignment="Left"
                                 Margin="0,10,0,0"
                                 CornerRadius="4"
-                                Background="{DynamicResource BrushGreenColor}">
+                                Background="{DynamicResource BrushGreenColor}"
+                                Visibility="{Binding Installment, Converter={StaticResource NullToVisibilityConverter}}">
                             <StackPanel x:Name="InstallmentPlan"
                                         Orientation="Horizontal"
-                                        HorizontalAlignment="Center">
+                                        HorizontalAlignment="Center"
+                                        Margin="10,0">
                                 <TextBlock Text="от"
                                            Style="{DynamicResource MainlineColor_2_2}"
                                            VerticalAlignment="Center"/>
-                                <TextBlock Text="26"
+                                <TextBlock Text="{Binding Installment, StringFormat={}{0:N0}}"
                                            Margin="5,0"
                                            Style="{DynamicResource HeadlineColor_2-2}"
                                            VerticalAlignment="Center"/>
-                                <TextBlock Text="р./мес."
+                                <TextBlock Text=" р./мес."
                                            Style="{DynamicResource MainlineColor_2_2}"
                                            VerticalAlignment="Center"/>
                             </StackPanel>
@@ -136,7 +144,7 @@
                         <StackPanel x:Name="Price"
                                     Orientation="Horizontal"
                                     Margin="0,10,0,0">
-                            <TextBlock Text="695"
+                            <TextBlock Text="{Binding Price, StringFormat={}{0:N0}}"
                                        Style="{DynamicResource HeadlineColor_1_2}"
                                        VerticalAlignment="Center"/>
                             <TextBlock Text="р."
@@ -144,9 +152,9 @@
                                        VerticalAlignment="Center"
                                        Margin="5,0,0,0"/>
                         </StackPanel>
-
+                        
                         <TextBlock x:Name="Availability"
-                                   Text="В наличии"
+                                   Text="{Binding InStock, Converter={StaticResource BoolToAvailabilityTextConverter}}"
                                    Style="{DynamicResource MainlineColor_2_1}"
                                    Margin="0,15,0,0"/>
                     </StackPanel>

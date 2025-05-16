@@ -202,14 +202,5 @@
 
     <!-- ========== В процессе ========== -->
     <Style x:Key="ProductCartdButtonColor" TargetType="Button" BasedOn="{StaticResource EmptyButtonStyle}">
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Effect">
-                    <Setter.Value>
-                        <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="0" Opacity="0.7"/>
-                    </Setter.Value>
-                </Setter>
-            </Trigger>
-        </Style.Triggers>
     </Style>
 </ResourceDictionary>

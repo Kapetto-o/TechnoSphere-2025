@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,15 +14,18 @@ namespace TechnoSphere_2025.modules.shared
     /// </summary>
     public partial class PageCatalog : Page
     {
+        public ObservableCollection<ProductViewModel> Products { get; } = new ObservableCollection<ProductViewModel>();
         private readonly int _categoryId;
 
         public PageCatalog(int categoryId)
         {
             InitializeComponent();
+            DataContext = this;
             _categoryId = categoryId;
 
             LoadHeader();
             LoadCategory();
+            LoadProducts();
         }
 
         private void LoadHeader()
@@ -78,11 +82,6 @@ namespace TechnoSphere_2025.modules.shared
             CategoryHeader.Text = LocalizationManager.CurrentLanguage == LanguageType.Russian
                 ? last.Name_Ru
                 : last.Name_Eng;
-
-            ProductsList.Items.Clear();
-            ProductsList.Items.Add($"Товар 1 в категории {_categoryId}");
-            ProductsList.Items.Add($"Товар 2 в категории {_categoryId}");
-            ProductsList.Items.Add($"Товар 3 в категории {_categoryId}");
         }
 
         private List<Category> LoadAllCategoriesFromDb()
@@ -116,6 +115,46 @@ namespace TechnoSphere_2025.modules.shared
                 }
             }
             return list;
+        }
+
+        private void LoadProducts()
+        {
+            Products.Clear();
+
+            var connStr = ConfigurationManager
+                .ConnectionStrings["TechnoSphereBD"]!.ConnectionString;
+
+            using var conn = new SqlConnection(connStr);
+            conn.Open();
+
+            using var cmd = new SqlCommand(@"
+            SELECT ProductID, SKU, Name_Ru, Name_Eng, MainImagePath,
+                   Price, InstallmentPrice, PromoPrice,
+                   StockQuantity, IsActive, CategoryID
+            FROM Products
+            WHERE IsActive = 1 AND CategoryID = @catId", conn);
+
+            cmd.Parameters.AddWithValue("@catId", _categoryId);
+
+            using var rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                var p = new Product
+                {
+                    ProductID = rdr.GetInt32(0),
+                    SKU = rdr.GetString(1),
+                    Name_Ru = rdr.GetString(2),
+                    Name_Eng = rdr.GetString(3),
+                    MainImagePath = rdr.IsDBNull(4) ? null : rdr.GetString(4),
+                    Price = rdr.GetDecimal(5),
+                    InstallmentPrice = rdr.IsDBNull(6) ? null : rdr.GetDecimal(6),
+                    PromoPrice = rdr.IsDBNull(7) ? null : rdr.GetDecimal(7),
+                    StockQuantity = rdr.GetInt32(8),
+                    IsActive = rdr.GetBoolean(9),
+                    CategoryID = rdr.GetInt32(10)
+                };
+                Products.Add(new ProductViewModel(p));
+            }
         }
     }
 }
