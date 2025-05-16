@@ -65,3 +65,4 @@ create table Products (
     CategoryID          int             not null,
     constraint FK_Products_Categories foreign key (CategoryID) references Categories(CategoryID)
 );
+go
