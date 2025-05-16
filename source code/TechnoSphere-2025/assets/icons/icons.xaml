@@ -60,7 +60,6 @@
 		</DrawingImage.Drawing>
 	</DrawingImage>
 
-    <!-- мнбне -->
     <DrawingImage x:Key="FavoriteIconProductOn">
         <DrawingImage.Drawing>
             <DrawingGroup ClipGeometry="M0,0 V35 H50 V0 H0 Z">
@@ -86,7 +85,6 @@
             </DrawingGroup>
         </DrawingImage.Drawing>
     </DrawingImage>
-    <!-- мнбне -->
     
     <DrawingImage x:Key="ComparisonIcon">
         <DrawingImage.Drawing>
@@ -110,7 +108,6 @@
         </DrawingImage.Drawing>
     </DrawingImage>
 
-    <!-- мнбне -->
     <DrawingImage x:Key="ComparisonIconCardProduct">
         <DrawingImage.Drawing>
             <DrawingGroup ClipGeometry="M0,0 V35 H50 V0 H0 Z">
@@ -132,7 +129,6 @@
             </DrawingGroup>
         </DrawingImage.Drawing>
     </DrawingImage>
-    <!-- мнбне -->
     
     <DrawingImage x:Key="BurgerIcon">
 		<DrawingImage.Drawing>
@@ -347,7 +343,6 @@
         </DrawingImage.Drawing>
     </DrawingImage>
 
-    <!-- мнбне -->
     <DrawingImage x:Key="StarIconOn">
         <DrawingImage.Drawing>
             <DrawingGroup ClipGeometry="M0,0 V15 H16 V0 H0 Z">
@@ -369,5 +364,4 @@
             </DrawingGroup>
         </DrawingImage.Drawing>
     </DrawingImage>
-    <!-- мнбне -->
 </ResourceDictionary>
