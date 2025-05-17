@@ -36,6 +36,8 @@
 
 
     <!-- ========== Window & Layout ========== -->
+    <SolidColorBrush x:Key="BrushBackgroundColor" Color="{DynamicResource WhiteColor}"/>
+    
     <Style x:Key="BackgroundColor" TargetType="Window">
         <Setter Property="Background" Value="{DynamicResource BrushWhiteColor}"/>
     </Style>
@@ -201,6 +203,15 @@
     </Style>
 
     <!-- ========== В процессе ========== -->
-    <Style x:Key="ProductCartdButtonColor" TargetType="Button" BasedOn="{StaticResource EmptyButtonStyle}">
+    <Style x:Key="ProductCartdBorderColor" TargetType="Border">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="0" Opacity="0.5"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>

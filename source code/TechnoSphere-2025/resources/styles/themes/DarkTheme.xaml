@@ -43,6 +43,8 @@
     <SolidColorBrush x:Key="BrushYellowColor" Color="{DynamicResource YellowColor}"/>
 
     <!-- ========== Window & Layout ========== -->
+    <SolidColorBrush x:Key="BrushBackgroundColor" Color="{DynamicResource BlackColor}"/>
+
     <Style x:Key="BackgroundColor" TargetType="Window">
         <Setter Property="Background" Value="{DynamicResource BrushBlackColor}"/>
     </Style>
@@ -208,5 +210,17 @@
     <Style x:Key="BorderColor" TargetType="Border">
         <Setter Property="BorderBrush"   Value="{DynamicResource BrushGrayColor}"/>
         <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+
+    <Style x:Key="ProductCartdBorderColor" TargetType="Border">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect Color="White" BlurRadius="5" ShadowDepth="0" Opacity="0.5"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>

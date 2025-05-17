@@ -10,17 +10,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="assets\icons\cursors\hand.cur" />
-	  <None Remove="assets\icons\cursors\text.cur" />
-	  <None Remove="assets\TestImageProductCard.png" />
-	</ItemGroup>
-
-
-	<ItemGroup>
-		<Page Remove="resources\styles\Styles.xaml" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
 		<PackageReference Include="Uno.Fonts.Roboto" Version="2.7.1" />
 	</ItemGroup>

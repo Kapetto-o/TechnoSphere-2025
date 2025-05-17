@@ -266,32 +266,43 @@
 
     <!-- ========== В процессе ========== -->
     <Style x:Key="EmptyButtonStyle" TargetType="Button">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <ContentPresenter/>
+                    <ContentPresenter
+                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                    RecognizesAccessKey="True"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+
         <Style.Triggers>
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Opacity" Value="0.7"/>
             </Trigger>
+
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.5"/>
+            </Trigger>
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="EmplyListBoxStyle" TargetType="ListBox">
+
+    <Style x:Key="ProductsListItemStyle" TargetType="ListBoxItem">
+        <Setter Property="Padding" Value="0"/>
+
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="ListBox">
-                    <Border>
-                        <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden">
-                            <ItemsPresenter/>
-                        </ScrollViewer>
-                    </Border>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <ContentPresenter/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
