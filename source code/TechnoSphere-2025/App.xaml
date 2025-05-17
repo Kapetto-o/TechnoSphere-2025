@@ -8,6 +8,7 @@
         <ResourceDictionary>
             <conv:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
             <conv:NotNullToVisibilityConverter x:Key="NotNullToVisibilityConverter"/>
+            <conv:NullToVisibilityInverseConverter x:Key="NullToVisibilityInverseConverter"/>
             <conv:BoolToAvailabilityTextConverter x:Key="BoolToAvailabilityTextConverter"/>
             <conv:ImagePathToSourceConverter x:Key="ImagePathToSourceConverter"/>
             <ResourceDictionary.MergedDictionaries>

@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:TechnoSphere_2025.controls" xmlns:models="clr-namespace:TechnoSphere_2025.models"
+             xmlns:local="clr-namespace:TechnoSphere_2025.controls"
+             xmlns:models="clr-namespace:TechnoSphere_2025.models"
              d:DataContext="{d:DesignInstance Type=models:ProductViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="750">
@@ -140,17 +141,49 @@
                                 </StackPanel>
                             </Border>
 
-                            <StackPanel x:Name="Price"
-                                        Orientation="Horizontal"
-                                        Margin="0,10,0,0">
-                                <TextBlock Text="{Binding Price, StringFormat={}{0:N0}}"
-                                           Style="{DynamicResource HeadlineColor_1_2}"
-                                           VerticalAlignment="Center"/>
-                                <TextBlock Text="р."
+                            <StackPanel Orientation="Horizontal"
+                                        Margin="0,10,0,0"
+                                        VerticalAlignment="Center">
+
+                                <TextBlock Text="{Binding PromoPrice, StringFormat={}{0:N0}}"
+                                          Style="{DynamicResource HeadlineColor_1_2}"
+                                          Foreground="Red"
+                                          Visibility="{Binding PromoPrice, Converter={StaticResource NotNullToVisibilityConverter}}"/>
+                                <TextBlock Text=" р."
                                            Style="{DynamicResource MainlineColor_2_3}"
+                                           Foreground="Red"
+                                           Visibility="{Binding PromoPrice, Converter={StaticResource NotNullToVisibilityConverter}}"
                                            VerticalAlignment="Center"
                                            Margin="5,0,0,0"/>
-                            </StackPanel>
+                                
+                                <TextBlock Text="{Binding Price, StringFormat={}{0:N0}}"
+                                           TextDecorations="Strikethrough"
+                                           Style="{DynamicResource MainlineColor_2_3}"
+                                           Margin="5,0,0,0"
+                                           VerticalAlignment="Center"
+                                           Visibility="{Binding PromoPrice,
+                                           Converter={StaticResource NotNullToVisibilityConverter}}"/>
+                                <TextBlock Text=" р."
+                                           TextDecorations="Strikethrough"
+                                           Style="{DynamicResource MainlineColor_2_3}"
+                                           Margin="2,0,0,0"
+                                           VerticalAlignment="Center"
+                                           Visibility="{Binding PromoPrice, Converter={StaticResource NotNullToVisibilityConverter}}"
+                                           FontSize="8"/>
+                              
+                                <TextBlock Text="{Binding Price, StringFormat={}{0:N0}}"
+                                           Style="{DynamicResource HeadlineColor_1_2}"
+                                           VerticalAlignment="Center"
+                                           Visibility="{Binding PromoPrice,
+                                           Converter={StaticResource NullToVisibilityInverseConverter}}"/>
+
+                                <TextBlock Text=" р."
+                                           Style="{DynamicResource MainlineColor_2_3}"
+                                           VerticalAlignment="Center"
+                                           Margin="5,0,0,0"
+                                           Visibility="{Binding PromoPrice,
+                                           Converter={StaticResource NullToVisibilityInverseConverter}}"/>
+                                </StackPanel>
                         </StackPanel>
 
                         <TextBlock x:Name="Availability"
