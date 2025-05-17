@@ -15,6 +15,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Include="images\**\*">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+	
+	<ItemGroup>
 		<Resource Include="assets\banners\banner_billy.png" />
 		<Resource Include="assets\banners\banner_eng.png" />
 		<Resource Include="assets\banners\banner_ru.png" />

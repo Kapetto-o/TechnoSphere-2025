@@ -4,14 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TechnoSphere_2025.controls" xmlns:models="clr-namespace:TechnoSphere_2025.models"
-             xmlns:conv="clr-namespace:TechnoSphere_2025.converters"
              d:DataContext="{d:DesignInstance Type=models:ProductViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="750">
-    <UserControl.Resources>
-        <conv:NullToVisibilityConverter   x:Key="NullToVisibilityConverter"/>
-        <conv:BoolToAvailabilityTextConverter x:Key="BoolToAvailabilityTextConverter"/>
-    </UserControl.Resources>
     <Grid>
         <Button Style="{DynamicResource EmptyButtonStyle}">
             <Border Style="{DynamicResource ProductCartdBorderColor}"
@@ -25,8 +20,9 @@
                     </Grid.ColumnDefinitions>
 
                     <Grid Grid.Column="0">
-                        <Image Source="/assets/TestImageProductCard.png"
-                               Width="200" Height="200"/>
+                        <Image Width="200" Height="200"
+                               Stretch="UniformToFill"
+                               Source="{Binding ImagePath,Converter={StaticResource ImagePathToSourceConverter}}"/>
                         <Button x:Name="AddFavorite"
                                 Style="{StaticResource EmptyButtonStyle}"
                                 HorizontalAlignment="Right" VerticalAlignment="Top"
