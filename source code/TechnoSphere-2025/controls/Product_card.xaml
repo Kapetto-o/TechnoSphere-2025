@@ -97,107 +97,110 @@
                         </StackPanel>
                     </Grid>
 
-                    <Grid Grid.Column="2" Margin="10,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="160"/>
-                            <RowDefinition Height="40"/>
-                        </Grid.RowDefinitions>
+                    <Grid Grid.Column="2"
+                          Background="#fafafa">
+                        <Grid Margin="10,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="160"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
 
-                        <StackPanel Grid.Row="0" Margin="0,10">
-                            <Button x:Name="Compare"  Style="{DynamicResource EmptyButtonStyle}"
+                            <StackPanel Grid.Row="0" Margin="0,10">
+                                <Button x:Name="Compare"  Style="{DynamicResource EmptyButtonStyle}"
                                     Width="90" Height="18"
                                     HorizontalAlignment="Left"
                                     Panel.ZIndex="1">
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="{DynamicResource ComparisonIconCardProduct}"
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="{DynamicResource ComparisonIconCardProduct}"
                                            Height="18"/>
-                                    <TextBlock Text="сравнить"
+                                        <TextBlock Text="сравнить"
                                                Style="{DynamicResource MainlineColor_2_1}"
                                                VerticalAlignment="Center"
                                                Margin="5,0,0,0"/>
-                                </StackPanel>
-                            </Button>
+                                    </StackPanel>
+                                </Button>
 
-                            <Border Height="28"
+                                <Border Height="28"
                                     HorizontalAlignment="Left"
                                     Margin="0,10,0,0"
                                     CornerRadius="4"
                                     Background="{DynamicResource BrushGreenColor}"
                                     Visibility="{Binding Installment, Converter={StaticResource NullToVisibilityConverter}}">
-                                <StackPanel x:Name="InstallmentPlan"
+                                    <StackPanel x:Name="InstallmentPlan"
                                             Orientation="Horizontal"
                                             HorizontalAlignment="Center"
                                             Margin="10,0">
-                                    <TextBlock Text="от"
+                                        <TextBlock Text="от"
                                                Style="{DynamicResource MainlineColor_2_2}"
                                                VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding Installment, StringFormat={}{0:N0}}"
+                                        <TextBlock Text="{Binding Installment, StringFormat={}{0:N0}}"
                                                Margin="5,0"
                                                Style="{DynamicResource HeadlineColor_2-2}"
                                                VerticalAlignment="Center"/>
-                                    <TextBlock Text=" р./мес."
+                                        <TextBlock Text=" р./мес."
                                                Style="{DynamicResource MainlineColor_2_2}"
                                                VerticalAlignment="Center"/>
-                                </StackPanel>
-                            </Border>
+                                    </StackPanel>
+                                </Border>
 
-                            <StackPanel Orientation="Horizontal"
+                                <StackPanel Orientation="Horizontal"
                                         Margin="0,10,0,0"
                                         VerticalAlignment="Center">
 
-                                <TextBlock Text="{Binding PromoPrice, StringFormat={}{0:N0}}"
+                                    <TextBlock Text="{Binding PromoPrice, StringFormat={}{0:N0}}"
                                           Style="{DynamicResource HeadlineColor_1_2}"
                                           Foreground="Red"
                                           Visibility="{Binding PromoPrice, Converter={StaticResource NotNullToVisibilityConverter}}"/>
-                                <TextBlock Text=" р."
+                                    <TextBlock Text=" р."
                                            Style="{DynamicResource MainlineColor_2_3}"
                                            Foreground="Red"
                                            Visibility="{Binding PromoPrice, Converter={StaticResource NotNullToVisibilityConverter}}"
                                            VerticalAlignment="Center"
                                            Margin="5,0,0,0"/>
-                                
-                                <TextBlock Text="{Binding Price, StringFormat={}{0:N0}}"
+
+                                    <TextBlock Text="{Binding Price, StringFormat={}{0:N0}}"
                                            TextDecorations="Strikethrough"
                                            Style="{DynamicResource MainlineColor_2_3}"
                                            Margin="5,0,0,0"
                                            VerticalAlignment="Center"
                                            Visibility="{Binding PromoPrice,
                                            Converter={StaticResource NotNullToVisibilityConverter}}"/>
-                                <TextBlock Text=" р."
+                                    <TextBlock Text=" р."
                                            TextDecorations="Strikethrough"
                                            Style="{DynamicResource MainlineColor_2_3}"
                                            Margin="2,0,0,0"
                                            VerticalAlignment="Center"
                                            Visibility="{Binding PromoPrice, Converter={StaticResource NotNullToVisibilityConverter}}"
                                            FontSize="8"/>
-                              
-                                <TextBlock Text="{Binding Price, StringFormat={}{0:N0}}"
+
+                                    <TextBlock Text="{Binding Price, StringFormat={}{0:N0}}"
                                            Style="{DynamicResource HeadlineColor_1_2}"
                                            VerticalAlignment="Center"
                                            Visibility="{Binding PromoPrice,
                                            Converter={StaticResource NullToVisibilityInverseConverter}}"/>
 
-                                <TextBlock Text=" р."
+                                    <TextBlock Text=" р."
                                            Style="{DynamicResource MainlineColor_2_3}"
                                            VerticalAlignment="Center"
                                            Margin="5,0,0,0"
                                            Visibility="{Binding PromoPrice,
                                            Converter={StaticResource NullToVisibilityInverseConverter}}"/>
                                 </StackPanel>
-                        </StackPanel>
+                            </StackPanel>
 
-                        <TextBlock x:Name="Availability"
+                            <TextBlock x:Name="Availability"
                                    Text="{Binding InStock, Converter={StaticResource BoolToAvailabilityTextConverter}}"
                                    Style="{DynamicResource MainlineColor_2_1}"
                                    VerticalAlignment="Bottom"
                                    Margin="0,0,0,10"/>
 
-                        <Button Grid.Row="1"
+                            <Button Grid.Row="1"
                                 Style="{DynamicResource ButtonColor}"
                                 Panel.ZIndex="1">
-                            <TextBlock Text="В корзину"
+                                <TextBlock Text="В корзину"
                                        Style="{DynamicResource MainlineColor_2_2}"/>
-                        </Button>
+                            </Button>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Border>

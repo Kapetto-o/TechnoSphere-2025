@@ -66,3 +66,13 @@ create table Products (
     constraint FK_Products_Categories foreign key (CategoryID) references Categories(CategoryID)
 );
 go
+
+-- Избранное
+create table Favorites (
+    UserID				int				not null
+       constraint FK_Fav_User foreign key references Users(UserID) on delete cascade,
+    ProductID			int				not null
+       constraint FK_Fav_Product foreign key references Products(ProductID) on delete cascade,
+    AddedAt				datetime2		not null default sysutcdatetime(),
+    constraint PK_Favorites primary key(UserID, ProductID)
+);

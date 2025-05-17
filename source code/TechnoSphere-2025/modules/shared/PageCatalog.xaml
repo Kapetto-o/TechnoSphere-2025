@@ -120,17 +120,13 @@
                     </Grid>
 
                     <Grid Grid.Row="1" Margin="-5,10,-5,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="601*"/>
-                            <ColumnDefinition Width="159*"/>
-                        </Grid.ColumnDefinitions>
                         <ListBox x:Name="ProductsList"
                                    ItemsSource="{Binding Products}"
                                    ItemContainerStyle="{StaticResource ProductsListItemStyle}"
                                    ScrollViewer.VerticalScrollBarVisibility="Hidden"
                                    ScrollViewer.CanContentScroll="False"
                                    BorderThickness="0"
-                                   Background="Transparent" Grid.ColumnSpan="2">
+                                   Background="Transparent">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <controlsProductCard:Product_card Margin="0,10"/>
