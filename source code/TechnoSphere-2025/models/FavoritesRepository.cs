@@ -3,8 +3,24 @@ using System.Configuration;
 
 namespace TechnoSphere_2025.models
 {
+    public class FavoriteChangedEventArgs : EventArgs
+    {
+        public int UserID { get; }
+        public int ProductID { get; }
+        public bool IsAdded { get; }
+
+        public FavoriteChangedEventArgs(int userId, int productId, bool isAdded)
+        {
+            UserID = userId;
+            ProductID = productId;
+            IsAdded = isAdded;
+        }
+    }
+
     public static class FavoritesRepository
     {
+        public static event EventHandler<FavoriteChangedEventArgs>? FavoriteChanged;
+
         private static string ConnectionString =>
             ConfigurationManager
                 .ConnectionStrings["TechnoSphereBD"]!
@@ -29,14 +45,14 @@ namespace TechnoSphere_2025.models
             return cnt > 0;
         }
 
-        public static Task AddFavorite(int userId, int productId)
+        public static async Task AddFavorite(int userId, int productId)
         {
             const string sql = @"
-                insert into Favorites(UserID, ProductID)
-                values(@u, @p);
-            ";
+            insert into Favorites(UserID, ProductID)
+            values(@u, @p);
+        ";
 
-            return Task.Run(() =>
+            await Task.Run(() =>
             {
                 using var conn = new SqlConnection(ConnectionString);
                 using var cmd = new SqlCommand(sql, conn);
@@ -45,17 +61,21 @@ namespace TechnoSphere_2025.models
                 conn.Open();
                 cmd.ExecuteNonQuery();
             });
+
+            FavoriteChanged?.Invoke(
+                null,
+                new FavoriteChangedEventArgs(userId, productId, isAdded: true));
         }
 
-        public static Task RemoveFavorite(int userId, int productId)
+        public static async Task RemoveFavorite(int userId, int productId)
         {
             const string sql = @"
-                delete from Favorites
-                 where UserID    = @u
-                   and ProductID = @p;
-            ";
+            delete from Favorites
+             where UserID    = @u
+               and ProductID = @p;
+        ";
 
-            return Task.Run(() =>
+            await Task.Run(() =>
             {
                 using var conn = new SqlConnection(ConnectionString);
                 using var cmd = new SqlCommand(sql, conn);
@@ -64,6 +84,10 @@ namespace TechnoSphere_2025.models
                 conn.Open();
                 cmd.ExecuteNonQuery();
             });
+
+            FavoriteChanged?.Invoke(
+                null,
+                new FavoriteChangedEventArgs(userId, productId, isAdded: false));
         }
 
         public static List<Product> GetFavorites(int userId)

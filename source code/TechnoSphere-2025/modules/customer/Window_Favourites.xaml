@@ -23,7 +23,7 @@
               MouseLeftButtonDown="WindowControl_Moving_MouseLeftButtonDown"
               Background="Transparent"
               Panel.ZIndex="1"
-              Margin="150,-15,20,0"/>
+              Margin="-15,-15,20,0"/>
 
             <Button x:Name="CloseButton"
                 ContentTemplate="{DynamicResource CloseIconTemplate}"

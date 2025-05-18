@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Input;
 using TechnoSphere_2025.managers;
 
 namespace TechnoSphere_2025.models
 {
-    public class ProductViewModel : INotifyPropertyChanged
+    public class ProductViewModel : INotifyPropertyChanged, IDisposable
     {
         private readonly Product _model;
-
 
         public int ProductID => _model.ProductID;
         public string SKU => _model.SKU;
@@ -45,8 +45,25 @@ namespace TechnoSphere_2025.models
                 else
                     await FavoritesRepository.AddFavorite(SessionManager.CurrentUserID, ProductID);
 
-                IsFavorite = !IsFavorite;
             });
+
+            FavoritesRepository.FavoriteChanged += OnGlobalFavoriteChanged;
+        }
+
+        private void OnGlobalFavoriteChanged(object? sender, FavoriteChangedEventArgs e)
+        {
+            if (e.UserID != SessionManager.CurrentUserID) return;
+            if (e.ProductID != ProductID) return;
+
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                IsFavorite = e.IsAdded;
+            });
+        }
+
+        public void Dispose()
+        {
+            FavoritesRepository.FavoriteChanged -= OnGlobalFavoriteChanged;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
