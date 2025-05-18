@@ -25,6 +25,7 @@
     <SolidColorBrush x:Key="BrushGreenColor_1" Color="{DynamicResource GreenColor_1}"/>
 
     <SolidColorBrush x:Key="BrushIconColor"       Color="{DynamicResource WhiteColor}"/>
+    <SolidColorBrush x:Key="BrushIconColor_2"     Color="{DynamicResource GreenColor}"/>
     <SolidColorBrush x:Key="BrushSearchIconColor" Color="{DynamicResource GrayColor}"/>
     <SolidColorBrush x:Key="BrushMainIconColor"   Color="{DynamicResource GreenColor}"/>
     <SolidColorBrush x:Key="BrushHyperlinkColor"  Color="{DynamicResource WhiteColor}"/>

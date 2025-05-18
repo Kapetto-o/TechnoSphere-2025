@@ -25,13 +25,30 @@
                                Stretch="UniformToFill"
                                Source="{Binding ImagePath,Converter={StaticResource ImagePathToSourceConverter}}"/>
                         <Button x:Name="AddFavorite"
-                                Style="{StaticResource EmptyButtonStyle}"
-                                HorizontalAlignment="Right" VerticalAlignment="Top"
-                                Margin="10"
-                                Panel.ZIndex="1">
-                            <Image Source="{DynamicResource FavoriteIconProductOff}"
-                                   Height="18"/>
+        Style="{StaticResource EmptyButtonStyle}"
+        Command="{Binding ToggleFavoriteCommand}"
+        HorizontalAlignment="Right"
+        VerticalAlignment="Top"
+        Margin="10"
+        Panel.ZIndex="1">
+                            <Image Height="18">
+                                <Image.Style>
+                                    <Style TargetType="Image">
+                                        <!-- По умолчанию – «сердце выключено» -->
+                                        <Setter Property="Source"
+                        Value="{DynamicResource FavoriteIconProductOff}" />
+                                        <Style.Triggers>
+                                            <!-- Когда IsFavorite == true, меняем на «сердце включено» -->
+                                            <DataTrigger Binding="{Binding IsFavorite}" Value="True">
+                                                <Setter Property="Source"
+                                Value="{DynamicResource FavoriteIconProductOn}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
+                            </Image>
                         </Button>
+
                     </Grid>
 
                     <Grid Grid.Column="1" Margin="15,10">

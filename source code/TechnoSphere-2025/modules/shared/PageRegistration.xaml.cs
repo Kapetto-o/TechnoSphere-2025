@@ -119,6 +119,7 @@ namespace TechnoSphere_2025
                 using (var insert = new SqlCommand(@"
                     INSERT INTO Users
                         (Username, Email, PasswordHash, PasswordSalt, Role, IsActive, RememberToken)
+                    OUTPUT inserted.UserID
                     VALUES
                         (@u, @e, @ph, @ps, 0, 1, @t)", conn))
                 {
@@ -128,7 +129,8 @@ namespace TechnoSphere_2025
                     insert.Parameters.AddWithValue("@ps", salt);
                     insert.Parameters.AddWithValue("@t", rememberToken);
 
-                    insert.ExecuteNonQuery();
+                    int newUserId = (int)insert.ExecuteScalar()!;
+                    SessionManager.CurrentUserID = newUserId;
                 }
             }
 

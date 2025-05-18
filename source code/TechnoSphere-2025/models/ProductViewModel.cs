@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Windows.Input;
 using TechnoSphere_2025.managers;
 
 namespace TechnoSphere_2025.models
@@ -7,7 +8,6 @@ namespace TechnoSphere_2025.models
     {
         private readonly Product _model;
 
-        public ProductViewModel(Product p) => _model = p;
 
         public int ProductID => _model.ProductID;
         public string SKU => _model.SKU;
@@ -19,8 +19,35 @@ namespace TechnoSphere_2025.models
         public decimal? PromoPrice => _model.PromoPrice;
         public decimal? Installment => _model.InstallmentPrice;
         public bool InStock => _model.StockQuantity > 0;
+        private bool _isFavorite;
+        public bool IsFavorite
+        {
+            get => _isFavorite;
+            set
+            {
+                if (_isFavorite == value) return;
+                _isFavorite = value;
+                OnProp(nameof(IsFavorite));
+            }
+        }
 
-        // TODO: здесь можно добавить Rating, Features, и т.п.
+        public ICommand ToggleFavoriteCommand { get; }
+
+        public ProductViewModel(Product p)
+        {
+            _model = p;
+            _isFavorite = FavoritesRepository.IsFavorite(SessionManager.CurrentUserID, p.ProductID);
+
+            ToggleFavoriteCommand = new DelegateCommand<object>(async _ =>
+            {
+                if (IsFavorite)
+                    await FavoritesRepository.RemoveFavorite(SessionManager.CurrentUserID, ProductID);
+                else
+                    await FavoritesRepository.AddFavorite(SessionManager.CurrentUserID, ProductID);
+
+                IsFavorite = !IsFavorite;
+            });
+        }
 
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnProp(string name) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));

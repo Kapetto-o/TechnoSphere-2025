@@ -65,6 +65,7 @@ namespace TechnoSphere_2025
 
             string connString = ConfigurationManager.ConnectionStrings["TechnoSphereBD"].ConnectionString;
 
+            int userId;
             byte[] storedHash;
             byte[] storedSalt;
             byte role;
@@ -75,7 +76,7 @@ namespace TechnoSphere_2025
                 conn.Open();
 
                 using (var cmd = new SqlCommand(@"
-                SELECT Username, PasswordHash, PasswordSalt, Role
+                SELECT UserID, Username, PasswordHash, PasswordSalt, Role
                   FROM Users
                  WHERE Email = @e AND IsActive = 1", conn))
                 {
@@ -89,6 +90,7 @@ namespace TechnoSphere_2025
                             return;
                         }
 
+                        userId = reader.GetInt32(reader.GetOrdinal("UserID"));
                         int idx = reader.GetOrdinal("Username");
                         dbUsername = reader.IsDBNull(idx)
                             ? string.Empty
@@ -127,6 +129,7 @@ namespace TechnoSphere_2025
                 Properties.Settings.Default.Save();
             }
 
+            SessionManager.CurrentUserID = userId;
             SessionManager.CurrentUsername = dbUsername;
             SessionManager.CurrentUserRole = role;
 

@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Navigation;
+using TechnoSphere_2025.modules.customer;
 
 namespace TechnoSphere_2025.managers
 {
@@ -15,10 +16,6 @@ namespace TechnoSphere_2025.managers
         private readonly double _burgerSize;
         private readonly double _crossSize;
 
-        /// <summary>
-        /// Если вы поддерживаете бургер-меню (CatalogPopup), передаём сюда Image + размеры.
-        /// Если нет—передаём null.
-        /// </summary>
         public HeaderManager(
             Window ownerWindow,
             Image? burgerImage = null,
@@ -78,22 +75,51 @@ namespace TechnoSphere_2025.managers
         // ----- Settings / About -----
         public void ShowSettings()
         {
-            var settings = new Window_Settings();
-            settings.Owner = _ownerWindow;
-            settings.Show();
+            var existing = Application.Current.Windows
+            .OfType<Window_Settings>()
+            .FirstOrDefault(w => w.Owner == _ownerWindow);
+
+            if (existing != null)
+            {
+                if (existing.WindowState == WindowState.Minimized)
+                    existing.WindowState = WindowState.Normal;
+                existing.Activate();
+            }
+            else
+            {
+                var fav = new Window_Settings
+                {
+                    Owner = _ownerWindow
+                };
+                fav.Show();
+            }
         }
 
         public void ShowAbout()
         {
-            var about = new Window_AboutApplication();
-            about.Owner = _ownerWindow;
-            about.Show();
+            var existing = Application.Current.Windows
+            .OfType<Window_AboutApplication>()
+            .FirstOrDefault(w => w.Owner == _ownerWindow);
+
+            if (existing != null)
+            {
+                if (existing.WindowState == WindowState.Minimized)
+                    existing.WindowState = WindowState.Normal;
+                existing.Activate();
+            }
+            else
+            {
+                var fav = new Window_AboutApplication
+                {
+                    Owner = _ownerWindow
+                };
+                fav.Show();
+            }
         }
 
         // ----- Exit -----
         public void LogoutAndNavigateToAuth(DependencyObject context)
         {
-            // — сброс токена в БД, как было
             var tokenString = Properties.Settings.Default.RememberToken;
             if (Guid.TryParse(tokenString, out var token))
             {
@@ -112,13 +138,37 @@ namespace TechnoSphere_2025.managers
             Properties.Settings.Default.RememberToken = "";
             Properties.Settings.Default.Save();
 
-            // 2) Берём NavigationService от переданного элемента
             var nav = NavigationService.GetNavigationService(context);
             if (nav != null)
             {
                 nav.Navigate(new PageAuthorization());
                 while (nav.CanGoBack)
                     nav.RemoveBackEntry();
+            }
+        }
+
+        // ----- Menu -----
+        public void Favourites()
+        {
+            var existing = Application.Current.Windows
+                .OfType<Window_Favourites>()
+                .FirstOrDefault();
+
+            if (existing != null)
+            {
+                if (existing.WindowState == WindowState.Minimized)
+                    existing.WindowState = WindowState.Normal;
+                existing.Activate();
+            }
+            else
+            {
+                var fav = new Window_Favourites();
+
+                fav.WindowStartupLocation = WindowStartupLocation.Manual;
+                fav.Left = _ownerWindow.Left + (_ownerWindow.Width - fav.Width) / 2;
+                fav.Top = _ownerWindow.Top + (_ownerWindow.Height - fav.Height) / 2;
+
+                fav.Show();
             }
         }
 

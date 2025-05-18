@@ -55,8 +55,9 @@
                             Width="50">
                         <Image Source="{DynamicResource ComparisonIcon}" Height="25"/>
                     </Button>
-                    <Button Style="{DynamicResource ButtonIconColor}"
-                            Width="50">
+                    <Button x:Name="OpenFavouritesButton"
+                            Style="{DynamicResource ButtonIconColor}"
+                            Width="50" Click="OpenFavouritesButton_Click">
                         <Image Source="{DynamicResource FavoriteIcon}"/>
                     </Button>
                     <Button Style="{DynamicResource ButtonIconColor}"

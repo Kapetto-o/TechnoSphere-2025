@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using TechnoSphere_2025.models;
 
 namespace TechnoSphere_2025.modules.customer
 {
@@ -8,11 +9,14 @@ namespace TechnoSphere_2025.modules.customer
     /// </summary>
     public partial class Window_Favourites : Window
     {
+        private readonly FavoritesViewModel _vm;
+
         public Window_Favourites()
         {
             InitializeComponent();
+            _vm = new FavoritesViewModel();
+            DataContext = _vm;
         }
-
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {

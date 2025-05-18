@@ -56,5 +56,8 @@ namespace TechnoSphere_2025.controls.header
 
         private void CatalogPopup_Closed(object sender, EventArgs e)
             => _hdr?.OnCatalogClosed();
+
+        private void OpenFavouritesButton_Click(object sender, RoutedEventArgs e)
+            => _hdr?.Favourites();
     }
 }
