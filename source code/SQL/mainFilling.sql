@@ -18,10 +18,11 @@ go
 
 insert into Categories (Name_Ru, Name_Eng, ParentCategoryID, SortOrder, IsActive)
 values
-  -- Корневые категории (станут ID = 1, 2, 3)
+  -- Корневые категории (станут ID = 1, 2, 3, 4)
   ('Холодильники',       'Refrigerators',       NULL, 1, 1),
   ('Стиральные машины',  'Washing Machines',    NULL, 2, 1),
   ('Пылесосы',           'Vacuum Cleaners',     NULL, 3, 1),
+  ('Кухонные плиты',     'Kitchen stoves',		NULL, 4, 1),
 
   -- Подкатегории для 'Холодильники' (ParentCategoryID = 1)
   ('Однокамерные',       'Single-chamber',      1,    1, 1),
@@ -33,7 +34,10 @@ values
 
   -- Подкатегории для 'Пылесосы' (ParentCategoryID = 3)
   ('С мешком для пыли',    'Handheld vacuums',    3,    1, 1),
-  ('С аквафильтром',    'Robot vacuums',       3,    2, 1);
+  ('С аквафильтром',    'Robot vacuums',       3,    2, 1),
+
+    -- Подкатегории для 'Кухонные плиты' (ParentCategoryID = 4)
+  ('Электрические плиты',    'Electric stoves',    4,    1, 1);
 go
 
 insert into products
@@ -135,5 +139,21 @@ values
 ('11111129', 'Bosch BWD421POW', 'Bosch BWD421POW	',
  'Описание робота-пылесоса 3', 'Description of robot vacuum 3',
  1051, 39, null, 0, 1,
- '/images/products/Bosch_BWD421POW.jpg', 'Робот-пылесос 3', 'Robot vacuum 3', 9);
+ '/images/products/Bosch_BWD421POW.jpg', 'Робот-пылесос 3', 'Robot vacuum 3', 9),
+
+ -- подкатегория 10: электрические
+('11111130', 'Hansa FCCW58208', 'Hansa FCCW58208',
+ 'Описание робота-пылесоса 1', 'Description of robot vacuum 1',
+ 1230, 45, null, 5, 1,
+ '/images/products/Hansa_FCCW58208.jpg', 'Робот-пылесос 1', 'Robot vacuum 1', 11),
+
+('11111131', 'Hansa FCCW56069', 'Hansa FCCW56069',
+ 'Описание робота-пылесоса 2', 'Description of robot vacuum 2',
+ 1366, 50, null, 3, 1,
+ '/images/products/Hansa_FCCW56069.jpg', 'Робот-пылесос 2', 'Robot vacuum 2', 11),
+
+('11111132', 'Hansa FCCW54000', 'Hansa FCCW54000',
+ 'Описание робота-пылесоса 3', 'Description of robot vacuum 3',
+ 999, 37, null, 0, 1,
+ '/images/products/Hansa_FCCW54000.jpg', 'Робот-пылесос 3', 'Robot vacuum 3', 11);
 go

@@ -51,7 +51,9 @@
                         <StackPanel>
                             <TextBlock x:Name="ProductName"
                                        Text="{Binding Name}"
-                                       Style="{DynamicResource MainlineColor_2_3}"/>
+                                       Style="{DynamicResource MainlineColor_2_3}"
+                                       Width="310"
+                                       TextWrapping="Wrap"/>
                             <StackPanel x:Name="StarRating"
                                         Orientation="Horizontal"
                                         HorizontalAlignment="Left"
