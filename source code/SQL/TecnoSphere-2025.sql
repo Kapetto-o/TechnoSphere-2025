@@ -76,3 +76,30 @@ create table Favorites (
     AddedAt				datetime2		not null default sysutcdatetime(),
     constraint PK_Favorites primary key(UserID, ProductID)
 );
+go
+
+-- Характеристики
+create table SpecificationTypes (
+    SpecTypeID			int identity(1,1) primary key,
+    CategoryID			int				not null
+        constraint FK_SpecType_Category references Categories(CategoryID),
+    Name_Ru				nvarchar(100)	not null,
+    Name_Eng			nvarchar(100)	not null,
+    SortOrder			int				not null default 0,
+    IsMain				bit				not null default 0  -- 0 = скрыт , 1 = показан - в карточке товара
+);
+create index IX_SpecType_Category on SpecificationTypes(CategoryID);
+go
+
+-- Значения характеристик
+create table ProductSpecifications (
+    ProductID			int				not null
+        constraint FK_ProdSpec_Product references Products(ProductID) on delete cascade,
+    SpecTypeID			int				not null
+        constraint FK_ProdSpec_SpecType references SpecificationTypes(SpecTypeID) on delete cascade,
+    Value_Ru			nvarchar(200)	not null,
+    Value_Eng			nvarchar(200)	not null,
+    constraint PK_ProductSpecifications primary key(ProductID, SpecTypeID)
+);
+create index IX_ProdSpec_Product on ProductSpecifications(ProductID);
+go
