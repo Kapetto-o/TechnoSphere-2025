@@ -78,37 +78,19 @@
                                        Margin="1,0,0,0"
                                        Source="{DynamicResource StarIconOff}"/>
                             </StackPanel>
-                            <StackPanel x:Name="mainCharacteristics"
-                                        Orientation="Vertical">
-                                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                                    <TextBlock Text="Объём пылесборника:"
-                                               Style="{DynamicResource MainlineColor_2_1}"/>
-                                    <TextBlock Text="L"
-                                               Style="{DynamicResource MainlineColor_2_3}"
-                                               Margin="10,0"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal"  Margin="0,5,0,0">
-                                    <TextBlock Text="Тип уборки:"
-                                               Style="{DynamicResource MainlineColor_2_1}"/>
-                                    <TextBlock Text="сухая"
-                                               Style="{DynamicResource MainlineColor_2_3}"
-                                               Margin="10,0"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal"  Margin="0,5,0,0">
-                                    <TextBlock Text="Страна происхождения:"
-                                               Style="{DynamicResource MainlineColor_2_1}"/>
-                                    <TextBlock Text="Германия"
-                                               Style="{DynamicResource MainlineColor_2_3}"
-                                               Margin="10,0"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal"  Margin="0,5,0,0">
-                                    <TextBlock Text="Насадка турбощетка:"
-                                               Style="{DynamicResource MainlineColor_2_1}"/>
-                                    <TextBlock Text="да"
-                                               Style="{DynamicResource MainlineColor_2_3}"
-                                               Margin="10,0"/>
-                                </StackPanel>
-                            </StackPanel>
+                            <ItemsControl ItemsSource="{Binding MainCharacteristics}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                            <TextBlock Text="{Binding Name}"
+                                                       Style="{DynamicResource MainlineColor_2_1}"/>
+                                            <TextBlock Text="{Binding Value}"
+                                                       Style="{DynamicResource MainlineColor_2_3}"
+                                                       Margin="10,0"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
                         </StackPanel>
                     </Grid>
 
