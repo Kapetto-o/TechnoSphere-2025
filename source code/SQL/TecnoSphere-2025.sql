@@ -103,3 +103,17 @@ create table ProductSpecifications (
 );
 create index IX_ProdSpec_Product on ProductSpecifications(ProductID);
 go
+
+-- Корзина
+create table BasketItems (
+    UserID				int			    not null
+      constraint FK_BasketItems_User references Users(UserID) on delete cascade,
+    ProductID			int			    not null
+      constraint FK_BasketItems_Product references Products(ProductID) on delete cascade,
+    Quantity			int				not null constraint CK_BasketItems_Quantity check(Quantity > 0),
+    AddedAt				datetime2		not null default sysutcdatetime(),
+    constraint PK_BasketItems primary key(UserID, ProductID)
+);
+create index IX_BasketItems_User on BasketItems(UserID);
+create index IX_BasketItems_Product on BasketItems(ProductID);
+go

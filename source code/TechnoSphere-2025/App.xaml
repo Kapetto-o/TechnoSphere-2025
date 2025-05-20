@@ -11,6 +11,7 @@
             <conv:NullToVisibilityInverseConverter x:Key="NullToVisibilityInverseConverter"/>
             <conv:BoolToAvailabilityTextConverter x:Key="BoolToAvailabilityTextConverter"/>
             <conv:ImagePathToSourceConverter x:Key="ImagePathToSourceConverter"/>
+            <conv:GreaterThanZeroConverter x:Key="GreaterThanZeroConverter"/>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/resources/styles/themes/LightTheme.xaml"/>
                 <ResourceDictionary Source="/resources/localization/Russian.xaml"/>

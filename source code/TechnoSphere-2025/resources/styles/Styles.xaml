@@ -307,4 +307,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="CounterButtonStyle" TargetType="Button" BasedOn="{StaticResource EmptyButtonStyle}">
+    </Style>
 </ResourceDictionary>

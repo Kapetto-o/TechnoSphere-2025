@@ -3,11 +3,11 @@
 namespace TechnoSphere_2025.controls
 {
     /// <summary>
-    /// Логика взаимодействия для Product_card.xaml
+    /// Логика взаимодействия для ProductCard.xaml
     /// </summary>
-    public partial class Product_card : UserControl
+    public partial class ProductCard : UserControl
     {
-        public Product_card()
+        public ProductCard()
         {
             InitializeComponent();
         }

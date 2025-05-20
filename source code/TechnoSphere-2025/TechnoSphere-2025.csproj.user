@@ -11,7 +11,13 @@
     <Compile Update="controls\header\HeaderControl_User.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="controls\Product_card.xaml.cs">
+    <Compile Update="controls\ProductCard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="controls\ProductCard_Minimum.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="modules\customer\PageBasket.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="modules\customer\PageHome_User.xaml.cs">
