@@ -11,7 +11,7 @@ namespace TechnoSphere_2025
             base.OnStartup(e);
             ThemeManager.Initialize();
             LocalizationManager.Initialize();
-            CursorHelper.Initialize("TechnoSphere-2025");
+            CursorHelper.Initialize("TechnoSphere_2025");
         }
     }
 }

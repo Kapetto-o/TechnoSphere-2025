@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TechnoSphere_2025"
         mc:Ignorable="d"
-        Title="TechnoSphere-2025"
+        Title="TechnoSphere_2025"
         Width="1000" Height="700"
         Style="{DynamicResource BackgroundColor}"
         WindowStartupLocation="CenterScreen"
