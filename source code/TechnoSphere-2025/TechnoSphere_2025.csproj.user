@@ -23,6 +23,9 @@
     <Compile Update="modules\customer\PageHome_User.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="modules\customer\Window_PlacingOrder.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="modules\customer\Window_Favourites.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

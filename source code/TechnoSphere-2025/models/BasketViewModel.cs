@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using TechnoSphere_2025.managers;
+using TechnoSphere_2025.modules.customer;
 
 namespace TechnoSphere_2025.models
 {
@@ -60,8 +61,11 @@ namespace TechnoSphere_2025.models
 
             CheckoutCommand = new RelayCommand(_ =>
             {
-                MessageBox.Show("Оформление заказа пока не реализовано.",
-                    "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                var placingOrder = new Window_PlacingOrder
+                {
+                    Owner = Application.Current.MainWindow
+                };
+                placingOrder.ShowDialog();
             }, _ => Items.Any());
         }
 
