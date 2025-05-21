@@ -172,6 +172,13 @@ namespace TechnoSphere_2025.managers
             }
         }
 
+        public void Basket(DependencyObject context)
+        {
+            var nav = NavigationService.GetNavigationService(context);
+            if (nav != null)
+                nav.Navigate(new PageBasket());
+        }
+
         public void Dispose() => _popupManager.Dispose();
     }
 }

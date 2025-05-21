@@ -10,6 +10,7 @@ namespace TechnoSphere_2025.models
     {
         private readonly Product _model;
         private bool _isFavorite;
+        private bool _isInBasket;
 
         public int ProductID => _model.ProductID;
         public string SKU => _model.SKU;
@@ -37,10 +38,13 @@ namespace TechnoSphere_2025.models
             = new ObservableCollection<CharacteristicViewModel>();
 
         public ICommand ToggleFavoriteCommand { get; }
+        public ICommand AddToBasketCommand { get; }
 
         public ProductViewModel(Product model)
         {
             _model = model;
+
+            _isInBasket = BasketRepository.IsInBasket(SessionManager.CurrentUserID, ProductID);
 
             _isFavorite = FavoritesRepository.IsFavorite(
                 SessionManager.CurrentUserID,
@@ -54,9 +58,39 @@ namespace TechnoSphere_2025.models
                     await FavoritesRepository.AddFavorite(SessionManager.CurrentUserID, ProductID);
             });
 
+            AddToBasketCommand = new DelegateCommand<object>(_ =>
+            {
+                try
+                {
+                    int userId = SessionManager.CurrentUserID;
+                    BasketRepository.AddToBasket(userId, ProductID);
+
+                    IsInBasket = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        $"Не удалось добавить товар в корзину:\n{ex.Message}",
+                        "Ошибка",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error);
+                }
+            });
+
             LoadMainCharacteristics();
 
             FavoritesRepository.FavoriteChanged += OnGlobalFavoriteChanged;
+        }
+
+        public bool IsInBasket
+        {
+            get => _isInBasket;
+            set
+            {
+                if (value == _isInBasket) return;
+                _isInBasket = value;
+                OnPropertyChanged(nameof(IsInBasket));
+            }
         }
 
         private void LoadMainCharacteristics()

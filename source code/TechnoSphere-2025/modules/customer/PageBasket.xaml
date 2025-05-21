@@ -7,8 +7,13 @@
       mc:Ignorable="d" 
       xmlns:controlsHeader="clr-namespace:TechnoSphere_2025.controls.header"
       xmlns:controlsProductCard="clr-namespace:TechnoSphere_2025.controls"
+      xmlns:models="clr-namespace:TechnoSphere_2025.models"
       Title="Home"
       d:DesignWidth="1000" d:DesignHeight="700">
+    <Page.DataContext>
+        <models:BasketViewModel/>
+    </Page.DataContext>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
@@ -18,16 +23,26 @@
         <!-- Header -->
         <ContentControl x:Name="HeaderHost" Grid.Row="0"/>
 
-        <Grid Grid.Row="1" Margin="15">
+        <Grid Grid.Row="1" Margin="15,5,15,15">
             <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="23"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Корзина"
-                       Style="{DynamicResource HeadlineColor_2-1}"/>
+            <Grid Grid.Row="0" Margin="0,0,0,0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="{DynamicResource HomeIcon}"
+                           Width="15" Height="15"
+                           HorizontalAlignment="Left"/>
+                    <TextBlock Text=">"
+                               Style="{DynamicResource MainlineColor_2_1}"
+                               Margin="5,0"/>
+                    <TextBlock Text="Корзина"
+                               Style="{DynamicResource MainlineColor_2_3}"/>
+                </StackPanel>
+            </Grid>
 
-            <Grid Grid.Row="1" Margin="0,15,0,0">
+            <Grid Grid.Row="1" Margin="0,5,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="750"/>
                     <ColumnDefinition/>
@@ -39,9 +54,13 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <Button Style="{StaticResource EmptyButtonStyle}"
+                    <TextBlock Text="Корзина"
+                               Style="{DynamicResource HeadlineColor_2-1}"/>
+                    <Button Grid.Row="0"
+                            Style="{StaticResource EmptyButtonStyle}"
                             Height="auto"
-                            HorizontalAlignment="Right">
+                            HorizontalAlignment="Right"
+                            Command="{Binding ClearBasketCommand}">
                         <TextBlock Text="Очистить корзину"
                                    Style="{StaticResource Mainline_2}"
                                    Foreground="{DynamicResource BrushLight_greenColor}"/>
@@ -49,12 +68,13 @@
 
                     <ListBox x:Name="ProductsList"
                              Grid.Row="1"
-                        ItemContainerStyle="{StaticResource ProductsListItemStyle}"
-                        Margin="-5,0"
-                        ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                        ScrollViewer.CanContentScroll="False"
-                        BorderThickness="0"
-                        Background="Transparent" Grid.ColumnSpan="2">
+                             ItemsSource="{Binding Items}"
+                             ItemContainerStyle="{StaticResource ProductsListItemStyle}"
+                             Margin="-5,0"
+                             ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                             ScrollViewer.CanContentScroll="False"
+                             BorderThickness="0"
+                             Background="Transparent">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <controlsProductCard:ProductCard_Minimum Margin="0,10"/>
@@ -73,26 +93,32 @@
                             </Grid.RowDefinitions>
 
                             <Grid Grid.Row="0" Margin="10,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
 
-                                <TextBlock  Grid.Column="0"
-                                            Text="К оплате:"
-                                            Style="{DynamicResource MainlineColor_2_1}"
-                                            HorizontalAlignment="Left" VerticalAlignment="Center"
-                                            Margin="0,10,15,0"/>
-                                <TextBlock Grid.Column="1"
-                                           Text="372827"
-                                           Style="{DynamicResource HeadlineColor_1_2}"
-                                           HorizontalAlignment="Right"
-                                           MaxWidth="108"/>
+                                <TextBlock Grid.Row="0"
+                                           Text="К оплате:"
+                                           Style="{DynamicResource MainlineColor_2_1}"
+                                           HorizontalAlignment="Left" VerticalAlignment="Center"
+                                           Margin="0,5,0,0"/>
+
+                                <StackPanel Grid.Row="1"
+                                            HorizontalAlignment="Left"
+                                            Margin="0,10">
+                                    <TextBlock Text="{Binding TotalSum, StringFormat={}{0:N0} р.}"
+                                               Style="{DynamicResource HeadlineColor_1_2}"
+                                               TextWrapping="Wrap"/>
+                                </StackPanel>
                             </Grid>
+
 
                             <Button Grid.Row="1"
                                     Style="{DynamicResource ButtonColor}"
-                                    VerticalAlignment="Bottom">
+                                    VerticalAlignment="Bottom"
+                                    Command="{Binding CheckoutCommand}"
+                                    IsEnabled="{Binding Items.Count, Converter={StaticResource GreaterThanZeroConverter}}">
                                 <TextBlock Text="Оформить заказ"
                                    Style="{DynamicResource MainlineColor_2_2}"/>
                             </Button>

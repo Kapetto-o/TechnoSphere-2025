@@ -3,16 +3,16 @@ using System.Windows.Data;
 
 namespace TechnoSphere_2025.converters
 {
-    public class GreaterThanZeroConverter : IValueConverter
+    public class BoolToInBasketTextConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is int i)
-                return i > 0;
-            return false;
+            return (value is bool b && b)
+                ? "Уже в корзине"
+                : "В корзину";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-            => throw new NotImplementedException();
+            => throw new NotSupportedException();
     }
 }

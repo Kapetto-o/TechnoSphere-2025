@@ -267,14 +267,16 @@
     <!-- ========== В процессе ========== -->
     <Style x:Key="EmptyButtonStyle" TargetType="Button">
         <Setter Property="Padding" Value="0"/>
-
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <ContentPresenter
-                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                    RecognizesAccessKey="True"/>
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                        RecognizesAccessKey="True"/>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -283,12 +285,12 @@
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Opacity" Value="0.7"/>
             </Trigger>
-
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Opacity" Value="0.5"/>
             </Trigger>
         </Style.Triggers>
     </Style>
+
 
 
     <Style x:Key="ProductsListItemStyle" TargetType="ListBoxItem">

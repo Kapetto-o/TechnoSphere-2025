@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using TechnoSphere_2025.managers;
 
 namespace TechnoSphere_2025.controls
 {
@@ -13,8 +14,6 @@ namespace TechnoSphere_2025.controls
         public ProductCard_Minimum()
         {
             InitializeComponent();
-
-            DataContext = this;
 
             IncrementCommand = new RelayCommand(_ => Quantity++, _ => true);
             DecrementCommand = new RelayCommand(_ => Quantity--, _ => Quantity > 0);
@@ -45,24 +44,5 @@ namespace TechnoSphere_2025.controls
         public ICommand DecrementCommand { get; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
-    }
-
-    public class RelayCommand : ICommand
-    {
-        private readonly Action<object?> _execute;
-        private readonly Predicate<object?> _canExecute;
-
-        public RelayCommand(Action<object?> execute, Predicate<object?> canExecute)
-        {
-            _execute = execute;
-            _canExecute = canExecute;
-        }
-
-        public bool CanExecute(object? parameter) => _canExecute(parameter);
-
-        public void Execute(object? parameter) => _execute(parameter);
-
-        public event EventHandler? CanExecuteChanged;
-        public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
     }
 }

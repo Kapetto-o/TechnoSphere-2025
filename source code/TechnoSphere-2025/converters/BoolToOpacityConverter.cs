@@ -3,13 +3,13 @@ using System.Windows.Data;
 
 namespace TechnoSphere_2025.converters
 {
-    public class GreaterThanZeroConverter : IValueConverter
+    public class BoolToOpacityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is int i)
-                return i > 0;
-            return false;
+            if (value is bool b)
+                return b ? 1.0 : 0.7;
+            return 1.0;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

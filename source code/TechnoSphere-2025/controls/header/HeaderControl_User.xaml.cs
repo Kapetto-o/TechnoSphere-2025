@@ -59,5 +59,8 @@ namespace TechnoSphere_2025.controls.header
 
         private void OpenFavouritesButton_Click(object sender, RoutedEventArgs e)
             => _hdr?.Favourites();
+
+        private void OpenBasketButton_Click(object sender, RoutedEventArgs e)
+            => _hdr?.Basket(this);
     }
 }

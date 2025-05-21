@@ -28,7 +28,15 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" Margin="15,5,0,0">
-                <StackPanel x:Name="BreadcrumbStackPanel" Orientation="Horizontal"/>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{DynamicResource HomeIcon}"
+                           Width="15" Height="15"
+                           HorizontalAlignment="Left"/>
+                    <TextBlock Text=">"
+                               Style="{DynamicResource MainlineColor_2_1}"
+                               Margin="5,0"/>
+                    <StackPanel x:Name="BreadcrumbStackPanel" Orientation="Horizontal"/>
+                </StackPanel>
             </Grid>
 
             <Grid Grid.Row="1" Margin="15,5,0,0">

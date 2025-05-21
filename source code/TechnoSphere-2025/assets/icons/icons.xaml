@@ -372,4 +372,12 @@
             </DrawingGroup>
         </DrawingImage.Drawing>
     </DrawingImage>
+
+    <DrawingImage x:Key="HomeIcon">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V48 H48 V0 H0 Z">
+                <GeometryDrawing Brush="{DynamicResource BrushSearchIconColor}" Geometry="F1 M48,48z M0,0z M20,40L20,28 28,28 28,40 38,40 38,24 44,24 24,6 4,24 10,24 10,40z" />
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
 </ResourceDictionary>

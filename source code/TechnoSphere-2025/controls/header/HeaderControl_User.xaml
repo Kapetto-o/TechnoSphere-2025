@@ -60,8 +60,10 @@
                             Width="50" Click="OpenFavouritesButton_Click">
                         <Image Source="{DynamicResource FavoriteIcon}"/>
                     </Button>
-                    <Button Style="{DynamicResource ButtonIconColor}"
-                            Width="50">
+                    <Button x:Name="OpenBasketButton"
+                            Style="{DynamicResource ButtonIconColor}"
+                            Width="50"
+                            Click="OpenBasketButton_Click">
                         <Image Source="{DynamicResource BasketIcon}"/>
                     </Button>
                 </StackPanel>

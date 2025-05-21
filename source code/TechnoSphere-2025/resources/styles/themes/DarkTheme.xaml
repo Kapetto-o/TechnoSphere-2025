@@ -224,4 +224,12 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="AddBasketButtonColor" TargetType="Button" BasedOn="{StaticResource ButtonColor}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsInBasket}" Value="True">
+                <Setter Property="Background"   Value="{StaticResource BrushLight_greenColor}"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

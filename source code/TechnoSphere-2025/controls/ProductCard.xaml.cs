@@ -1,4 +1,8 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Navigation;
+using TechnoSphere_2025.models;
+using TechnoSphere_2025.modules.customer;
 
 namespace TechnoSphere_2025.controls
 {
@@ -10,6 +14,22 @@ namespace TechnoSphere_2025.controls
         public ProductCard()
         {
             InitializeComponent();
+        }
+
+        private void AddToBasketButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is not ProductViewModel vm)
+                return;
+
+            if (vm.IsInBasket)
+            {
+                var nav = NavigationService.GetNavigationService(this);
+                nav?.Navigate(new PageBasket());
+            }
+            else
+            {
+                vm.AddToBasketCommand.Execute(null);
+            }
         }
     }
 }
