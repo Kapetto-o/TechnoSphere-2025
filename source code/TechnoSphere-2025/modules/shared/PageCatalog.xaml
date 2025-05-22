@@ -65,20 +65,19 @@
                         </Grid.ColumnDefinitions>
 
                         <Grid Grid.Column="1">
-                            <ComboBox HorizontalAlignment="Right"
+                            <ComboBox x:Name="SortComboBox"
+                                      HorizontalAlignment="Right"
                                       SelectedIndex="0"
-                                      Style="{StaticResource ComboBoxColor}">
-                                <ComboBoxItem>
-                                    <TextBlock Text="Сначала отзывы"
-                                               Style="{DynamicResource MainlineColor_2_1}"/>
+                                      Style="{StaticResource ComboBoxColor}"
+                                      SelectionChanged="SortComboBox_SelectionChanged">
+                                <ComboBoxItem Tag="rating">
+                                    <TextBlock Text="Сначала отзывы" Style="{DynamicResource MainlineColor_2_1}"/>
                                 </ComboBoxItem>
-                                <ComboBoxItem>
-                                    <TextBlock Text="Сначала подешевле"
-                                               Style="{DynamicResource MainlineColor_2_1}"/>
+                                <ComboBoxItem Tag="price_asc">
+                                    <TextBlock Text="Сначала подешевле" Style="{DynamicResource MainlineColor_2_1}"/>
                                 </ComboBoxItem>
-                                <ComboBoxItem>
-                                    <TextBlock Text="Сначала подороже"
-                                               Style="{DynamicResource MainlineColor_2_1}"/>
+                                <ComboBoxItem Tag="price_desc">
+                                    <TextBlock Text="Сначала подороже" Style="{DynamicResource MainlineColor_2_1}"/>
                                 </ComboBoxItem>
                             </ComboBox>
                         </Grid>

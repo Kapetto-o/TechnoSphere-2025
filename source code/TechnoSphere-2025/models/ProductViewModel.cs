@@ -13,6 +13,8 @@ namespace TechnoSphere_2025.models
         private bool _isInBasket;
         private bool _isInComparison;
 
+        private readonly Product _product;
+
         public int CategoryID => _model.CategoryID;
         public int ProductID => _model.ProductID;
         public string Name => LocalizationManager.CurrentLanguage == LanguageType.Russian

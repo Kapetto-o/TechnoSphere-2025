@@ -156,5 +156,22 @@ namespace TechnoSphere_2025.modules.shared
                 Products.Add(new ProductViewModel(p));
             }
         }
+
+        private void SortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = (ComboBoxItem)SortComboBox.SelectedItem;
+            var sortTag = selectedItem?.Tag?.ToString();
+
+            List<ProductViewModel> sortedList = sortTag switch
+            {
+                "price_asc" => Products.OrderBy(p => p.PromoPrice ?? p.Price).ToList(),
+                "price_desc" => Products.OrderByDescending(p => p.PromoPrice ?? p.Price).ToList(),
+                _ => Products.ToList()
+            };
+
+            Products.Clear();
+            foreach (var item in sortedList)
+                Products.Add(item);
+        }
     }
 }

@@ -27,5 +27,25 @@ namespace TechnoSphere_2025.modules.shared
                 ? (UIElement)new HeaderControl_Admin()
                 : new HeaderControl_User();
         }
+
+        private void SortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = (ComboBoxItem)SortComboBox.SelectedItem;
+            var sortTag = selectedItem?.Tag?.ToString();
+
+            if (DataContext is SearchResultsViewModel vm)
+            {
+                var sorted = sortTag switch
+                {
+                    "price_asc" => vm.Results.OrderBy(p => p.PromoPrice ?? p.Price).ToList(),
+                    "price_desc" => vm.Results.OrderByDescending(p => p.PromoPrice ?? p.Price).ToList(),
+                    _ => vm.Results.ToList()
+                };
+
+                vm.Results.Clear();
+                foreach (var item in sorted)
+                    vm.Results.Add(item);
+            }
+        }
     }
 }
