@@ -563,3 +563,14 @@ values
  (21, 69, 'нет',     'нет'),
  (21, 70, 'поворотные переключатели',   'rotary switches');
  go
+
+ -- Заказы
+ -- Статусы заказов
+ insert into OrderStatuses(StatusID, Name_Ru, Name_Eng) values
+(1, N'Новый заказ',      'New'),
+(2, N'Подтверждён',      'Confirmed'),
+(3, N'В обработке',      'Processing'),
+(4, N'Отправлен',        'Shipped'),
+(5, N'Доставлен',        'Delivered'),
+(6, N'Отменён',			 'Cancelled');
+go

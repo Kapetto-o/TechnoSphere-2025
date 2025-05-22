@@ -130,3 +130,36 @@ create table Comparisons (
 create index IX_Comparisons_User    on Comparisons(UserID);
 create index IX_Comparisons_Product on Comparisons(ProductID);
 go
+
+-- Статусы заказов
+create table OrderStatuses (
+    StatusID    tinyint         primary key,
+    Name_Ru     nvarchar(50)    not null,
+    Name_Eng    nvarchar(50)    not null
+);
+go
+
+-- Заказы
+create table Orders (
+    OrderID     int             identity(1,1) primary key,
+    UserID      int             not null
+        constraint FK_Orders_User references Users(UserID) on delete cascade,
+    StatusID    tinyint         not null
+        constraint FK_Orders_Status references OrderStatuses(StatusID),
+    CreatedAt   datetime2       not null default sysutcdatetime(),
+    Delivery    nvarchar(500)   null,    -- можно хранить адрес или «Самовывоз»
+    ContactName nvarchar(100)   not null,
+    ContactPhone nvarchar(20)   not null
+);
+go
+
+-- Позиции заказа
+create table OrderItems (
+    OrderID     int     not null
+        constraint FK_OrderItems_Order references Orders(OrderID) on delete cascade,
+    ProductID   int     not null
+        constraint FK_OrderItems_Product references Products(ProductID),
+    Quantity    int     not null check (Quantity > 0),
+    UnitPrice   decimal(12,2) not null,
+    constraint PK_OrderItems primary key(OrderID, ProductID)
+);

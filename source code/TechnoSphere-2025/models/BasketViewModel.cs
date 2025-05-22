@@ -1,8 +1,11 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using TechnoSphere_2025.managers;
+using TechnoSphere_2025.models;
 using TechnoSphere_2025.modules.customer;
 
 namespace TechnoSphere_2025.models
@@ -12,10 +15,7 @@ namespace TechnoSphere_2025.models
         public ObservableCollection<BasketItemViewModel> Items { get; }
             = new ObservableCollection<BasketItemViewModel>();
 
-        public decimal TotalSum
-        {
-            get => Items.Sum(it => it.TotalPrice);
-        }
+        public decimal TotalSum => Items.Sum(it => it.TotalPrice);
 
         public ICommand ClearBasketCommand { get; }
         public ICommand CheckoutCommand { get; }
@@ -57,15 +57,74 @@ namespace TechnoSphere_2025.models
                 }
                 Items.Clear();
                 OnPropertyChanged(nameof(TotalSum));
+                (CheckoutCommand as RelayCommand)?.RaiseCanExecuteChanged();
+                (ClearBasketCommand as RelayCommand)?.RaiseCanExecuteChanged();
             }, _ => Items.Any());
 
             CheckoutCommand = new RelayCommand(_ =>
             {
-                var placingOrder = new Window_PlacingOrder
+                var orderItems = Items.Select(vm => new BasketItemData
+                {
+                    Product = new Product
+                    {
+                        ProductID = vm.ProductVm.ProductID,
+                        Name_Ru = vm.ProductVm.Name,
+                        Name_Eng = vm.ProductVm.Name,
+                        MainImagePath = vm.ProductVm.ImagePath,
+                        Price = vm.ProductVm.Price,
+                        InstallmentPrice = vm.ProductVm.Installment,
+                        PromoPrice = vm.ProductVm.PromoPrice,
+                        StockQuantity = vm.ProductVm.InStock ? 1 : 0,
+                        IsActive = true,
+                        CategoryID = vm.ProductVm.ProductID
+                    },
+                    Quantity = vm.Quantity
+                }).ToList();
+
+                var dlg = new Window_PlacingOrder
                 {
                     Owner = Application.Current.MainWindow
                 };
-                placingOrder.ShowDialog();
+                bool? result = dlg.ShowDialog();
+                if (result != true) return;
+
+                try
+                {
+                    OrderRepository.CreateOrder(
+                        SessionManager.CurrentUserID,
+                        dlg.ContactName,
+                        dlg.ContactPhone,
+                        dlg.DeliveryAddress,
+                        orderItems
+                    );
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Не удалось создать заказ:\n{ex.Message}",
+                        "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                try
+                {
+                    BasketRepository.ClearBasket(SessionManager.CurrentUserID);
+                }
+                catch
+                {
+                }
+
+                foreach (var item in Items.ToList())
+                {
+                    item.QuantityChanged -= OnItemQuantityChanged;
+                    item.ItemRemoved -= OnItemRemoved;
+                    item.Dispose();
+                }
+                Items.Clear();
+                OnPropertyChanged(nameof(TotalSum));
+
+                (CheckoutCommand as RelayCommand)?.RaiseCanExecuteChanged();
+                (ClearBasketCommand as RelayCommand)?.RaiseCanExecuteChanged();
+
             }, _ => Items.Any());
         }
 
@@ -85,9 +144,8 @@ namespace TechnoSphere_2025.models
             Items.Remove(bivm);
 
             OnPropertyChanged(nameof(TotalSum));
-
-            (ClearBasketCommand as RelayCommand)?.RaiseCanExecuteChanged();
             (CheckoutCommand as RelayCommand)?.RaiseCanExecuteChanged();
+            (ClearBasketCommand as RelayCommand)?.RaiseCanExecuteChanged();
         }
 
         #region INotifyPropertyChanged

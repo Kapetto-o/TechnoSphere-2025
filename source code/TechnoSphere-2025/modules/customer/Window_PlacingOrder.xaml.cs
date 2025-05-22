@@ -10,6 +10,12 @@ namespace TechnoSphere_2025.modules.customer
     /// </summary>
     public partial class Window_PlacingOrder : Window
     {
+        public string ContactName => NameTextBox.Text.Trim();
+        public string ContactPhone => PhoneTextBox.Text.Trim();
+        public string DeliveryAddress =>
+            DeliveryMethodComboBox.SelectedIndex == 0
+              ? PickupAddressText.Text
+              : DeliveryAddressTextBox.Text.Trim();
         private bool _isInitialized = false;
 
         public Window_PlacingOrder()
@@ -115,7 +121,7 @@ namespace TechnoSphere_2025.modules.customer
             if (hasError)
                 return;
 
-            MessageBox.Show("Спасибо! Ваш заказ принят.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+            this.DialogResult = true;
             this.Close();
         }
     }
