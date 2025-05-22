@@ -16,6 +16,7 @@
     <Color x:Key="YellowColor">#FFD8A046</Color>
     <Color x:Key="RedColor">#CD3939</Color>
     <Color x:Key="Light_grayColor">#A0A0A0</Color>
+    <Color x:Key="Light_grayColor_2">#c8c8c8</Color>
 
     <!-- ========== Brush Resources ========== -->
     <SolidColorBrush x:Key="BrushWhiteColor" Color="{DynamicResource WhiteColor}"/>
@@ -35,6 +36,10 @@
     <SolidColorBrush x:Key="BrushLight_grayColor" Color="{DynamicResource Light_grayColor}"/>
     <SolidColorBrush x:Key="BrushRedColor" Color="{DynamicResource RedColor}"/>
 
+    <SolidColorBrush x:Key="ComboBoxBorderGrayColor" Color="{DynamicResource GrayColor}"/>
+    <SolidColorBrush x:Key="ComboBoxBorderHavenColor" Color="{DynamicResource GrayColor}"/>
+    <SolidColorBrush x:Key="ComboBoxBackgroundItemColor" Color="{DynamicResource WhiteColor}"/>
+    <SolidColorBrush x:Key="ComboBoxMouseOverBackgroundColor" Color="Green"/>
 
     <!-- ========== Window & Layout ========== -->
     <SolidColorBrush x:Key="BrushBackgroundColor" Color="{DynamicResource WhiteColor}"/>
@@ -231,5 +236,14 @@
                 <Setter Property="Background"   Value="{StaticResource BrushLight_greenColor}"/>
             </DataTrigger>
         </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ComboBoxColor" TargetType="ComboBox" BasedOn="{StaticResource ComboBoxBase}">
+        <Style.Resources>
+            <SolidColorBrush x:Key="ComboBoxBorderGrayColor" Color="{StaticResource GreenColor}"/>
+            <SolidColorBrush x:Key="ComboBoxMouseOverBackgroundColor" Color="{StaticResource Light_grayColor_2}"/>
+            <SolidColorBrush x:Key="BackgroundItem" Color="{StaticResource WhiteColor}"/>
+        </Style.Resources>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource ComboBoxItemBase}"/>
     </Style>
 </ResourceDictionary>

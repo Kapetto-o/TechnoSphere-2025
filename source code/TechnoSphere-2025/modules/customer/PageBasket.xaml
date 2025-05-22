@@ -25,12 +25,12 @@
 
         <Grid Grid.Row="1" Margin="15,5,15,15">
             <Grid.RowDefinitions>
-                <RowDefinition Height="23"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" Margin="0,0,0,0">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
                     <Image Source="{DynamicResource HomeIcon}"
                            Width="15" Height="15"
                            HorizontalAlignment="Left"/>

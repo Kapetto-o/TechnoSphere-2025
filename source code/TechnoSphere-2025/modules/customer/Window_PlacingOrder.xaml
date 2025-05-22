@@ -12,27 +12,27 @@
         Background="Transparent"
         Icon="/assets/icons/LogoMiniGreen_64x64.png"
         AllowsTransparency="True"
-        Title="PlacingOrder" Height="400" Width="300">
+        Title="PlacingOrder" Height="400" Width="330">
     <Border Style="{DynamicResource BorderColor}"
             CornerRadius="4"
             BorderThickness="2"
             Background="{DynamicResource BrushBackgroundColor}">
         <Grid Margin="15">
             <Grid Height="35" 
-              VerticalAlignment="Top"
-              MouseLeftButtonDown="WindowControl_Moving_MouseLeftButtonDown"
-              Background="Transparent"
-              Panel.ZIndex="1"
-              Margin="-15,-15,20,0"/>
+                  VerticalAlignment="Top"
+                  MouseLeftButtonDown="WindowControl_Moving_MouseLeftButtonDown"
+                  Background="Transparent"
+                  Panel.ZIndex="1"
+                  Margin="-15,-15,20,0"/>
 
             <Button x:Name="CloseButton"
-                ContentTemplate="{DynamicResource CloseIconTemplate}"
-                Style="{DynamicResource CloseColor_1}"
-                Width="35" Height="35"
-                HorizontalAlignment="Right" VerticalAlignment="Top"
-                Click="Close_Click"
-                Panel.ZIndex="1"
-                Margin="-15"/>
+                    ContentTemplate="{DynamicResource CloseIconTemplate}"
+                    Style="{DynamicResource CloseColor_1}"
+                    Width="35" Height="35"
+                    HorizontalAlignment="Right" VerticalAlignment="Top"
+                    Click="Close_Click"
+                    Panel.ZIndex="1"
+                    Margin="-15"/>
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -41,18 +41,19 @@
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
 
+                <!-- Заголовок -->
                 <Grid Grid.Row="0">
-                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal">
                         <Image Source="{DynamicResource LogoMiniIcon_Green}"/>
                         <TextBlock Text="Оформление заказа"
-                           Style="{DynamicResource HeadlineColor_2-1}"
-                           Margin="5,0,0,0"
-                           VerticalAlignment="Center"/>
+                                   Style="{DynamicResource HeadlineColor_2-1}"
+                                   Margin="5,0,0,0"
+                                   VerticalAlignment="Center"/>
                     </StackPanel>
                 </Grid>
 
-                <Grid Grid.Row="1"
-                      Margin="0,15,0,0">
+                <!-- Содержимое -->
+                <Grid Grid.Row="1" Margin="0,15,0,0">
                     <ScrollViewer VerticalScrollBarVisibility="Hidden" CanContentScroll="False">
                         <Grid Margin="0,0,0,15">
                             <Grid.RowDefinitions>
@@ -62,61 +63,110 @@
                                 <RowDefinition Height="auto"/>
                             </Grid.RowDefinitions>
 
-                            <StackPanel Grid.Row="0" Margin="0,0,0,30">
-                                <TextBlock Text="Контакная информация"
+                            <!-- 1. Контактная информация -->
+                            <StackPanel Grid.Row="0" Margin="0,0,0,20">
+                                <TextBlock Text="Контактная информация"
                                            Style="{DynamicResource MainlineColor_2_3}"
                                            HorizontalAlignment="Center"
                                            Margin="0,0,0,15"/>
 
-                                <StackPanel Margin="0,0,0,10">
+                                <!-- Имя -->
+                                <StackPanel Margin="0,0,0,5">
                                     <TextBlock Text="Имя"
                                                Style="{DynamicResource MainlineColor_2_1}"
                                                Margin="0,0,0,5"/>
-                                    <TextBox Style="{DynamicResource TextBoxColor}"
+                                    <TextBox x:Name="NameTextBox"
+                                             Style="{DynamicResource TextBoxColor}"
                                              Height="30"/>
+                                    <!-- Ошибка под именем -->
+                                    <TextBlock x:Name="NameErrorText"
+                                               Text="* Пожалуйста, введите имя"
+                                               Foreground="Red"
+                                               FontSize="12"
+                                               Visibility="Collapsed"
+                                               Margin="0,2,0,0"/>
                                 </StackPanel>
 
+                                <!-- Телефон -->
                                 <StackPanel>
                                     <TextBlock Text="Телефон"
                                                Style="{DynamicResource MainlineColor_2_1}"
                                                Margin="0,0,0,5"/>
-                                    
-                                    <TextBox Style="{DynamicResource TextBoxColor}"
-                                             Height="30"/>
+
+                                    <TextBox x:Name="PhoneTextBox"
+                                             Style="{DynamicResource TextBoxColor}"
+                                             Height="30"
+                                             PreviewTextInput="PhoneTextBox_PreviewTextInput"
+                                             MaxLength="15"/>
+                                    <!-- Ошибка под телефоном -->
+                                    <TextBlock x:Name="PhoneErrorText"
+                                               Text="* Неверный формат номера"
+                                               Foreground="Red"
+                                               FontSize="12"
+                                               Visibility="Collapsed"
+                                               Margin="0,2,0,0"/>
                                 </StackPanel>
                             </StackPanel>
 
-                            <StackPanel Grid.Row="1" Margin="0,0,0,30">
+                            <!-- 2. Способ доставки -->
+                            <StackPanel Grid.Row="1" Margin="0,0,0,20">
                                 <TextBlock Text="Способ доставки"
                                            Style="{DynamicResource MainlineColor_2_3}"
                                            HorizontalAlignment="Center"
                                            Margin="0,0,0,15"/>
 
+                                <!-- Выбор способа -->
                                 <StackPanel Margin="0,0,0,10">
                                     <TextBlock Text="Выбор способа доставки"
                                                Style="{DynamicResource MainlineColor_2_1}"
                                                Margin="0,0,0,10"/>
-                                    <ComboBox FontFamily="Roboto">
-                                        <ComboBoxItem Content="Самовывоз" FontFamily="Roboto"/>
-                                        <ComboBoxItem Content="По адресу" FontFamily="Roboto"/>
+
+                                    <ComboBox x:Name="DeliveryMethodComboBox"
+                                              Style="{DynamicResource ComboBoxColor}"
+                                              Width="296"
+                                              SelectedIndex="0"
+                                              SelectionChanged="DeliveryMethodComboBox_SelectionChanged">
+                                        <ComboBoxItem Width="296">
+                                            <TextBlock Text="Самовывоз"
+                                                       Style="{DynamicResource MainlineColor_2_1}"/>
+                                        </ComboBoxItem>
+                                        <ComboBoxItem Width="296">
+                                            <TextBlock Text="По адресу"
+                                                      Style="{DynamicResource MainlineColor_2_1}"/>
+                                        </ComboBoxItem>
                                     </ComboBox>
 
-                                    <TextBlock Text="! адрес самовоза"
+                                    <!-- Адрес для самовывоза -->
+                                    <TextBlock x:Name="PickupAddressText"
+                                               Text="ул. Центральная 12-105"
                                                Style="{DynamicResource MainlineColor_2_1}"
                                                FontSize="12"
-                                               Margin="0,5,0,0"/>
+                                               Margin="0,5,0,0"
+                                               Visibility="Visible"/>
                                 </StackPanel>
 
-                                <StackPanel>
+                                <!-- Блок ввода адреса, если "По адресу" -->
+                                <StackPanel x:Name="DeliveryAddressBlock"
+                                            Visibility="Collapsed"
+                                            Margin="0,5,0,0">
                                     <TextBlock Text="Адрес"
                                                Style="{DynamicResource MainlineColor_2_1}"
                                                Margin="0,0,0,5"/>
-                                    <TextBox Style="{DynamicResource TextBoxColor}"
+                                    <TextBox x:Name="DeliveryAddressTextBox"
+                                             Style="{DynamicResource TextBoxColor}"
                                              Height="30"/>
+                                    <!-- Ошибка под адресом -->
+                                    <TextBlock x:Name="AddressErrorText"
+                                               Text="* Пожалуйста, введите адрес"
+                                               Foreground="Red"
+                                               FontSize="12"
+                                               Visibility="Collapsed"
+                                               Margin="0,2,0,0"/>
                                 </StackPanel>
                             </StackPanel>
 
-                            <StackPanel Grid.Row="2" Margin="0,0,0,30">
+                            <!-- 3. Способ оплаты -->
+                            <StackPanel Grid.Row="2" Margin="0,0,0,20">
                                 <TextBlock Text="Способ оплаты"
                                            Style="{DynamicResource MainlineColor_2_3}"
                                            HorizontalAlignment="Center"
@@ -126,20 +176,45 @@
                                     <TextBlock Text="Выбор способа оплаты"
                                                Style="{DynamicResource MainlineColor_2_1}"
                                                Margin="0,0,0,10"/>
-                                    <ComboBox FontFamily="Roboto">
-                                        <ComboBoxItem Content="Наличными при получении" FontFamily="Roboto"/>
-                                        <ComboBoxItem Content="Картой при получении" FontFamily="Roboto"/>
+
+                                    <ComboBox x:Name="PaymentMethodComboBox"
+                                              Style="{DynamicResource ComboBoxColor}"
+                                              Width="296"
+                                              SelectedIndex="0">
+                                        <ComboBoxItem Width="296">
+                                            <TextBlock Text="Наличными при получении"
+                                                       Style="{DynamicResource MainlineColor_2_1}"/>
+                                        </ComboBoxItem>
+                                        <ComboBoxItem Width="296">
+                                            <TextBlock Text="Картой при получении"
+                                                       Style="{DynamicResource MainlineColor_2_1}"/>
+                                        </ComboBoxItem>
                                     </ComboBox>
 
-                                    <CheckBox Margin="0,30,0,0">
+                                    <CheckBox x:Name="InstallmentCheckBox"
+                                              Margin="0,20,0,0"
+                                              Checked="InstallmentCheckBox_Checked"
+                                              Unchecked="InstallmentCheckBox_Unchecked">
                                         <TextBlock Text="В рассрочку"
                                                    Style="{DynamicResource MainlineColor_2_1}"/>
                                     </CheckBox>
+
+                                    <TextBlock x:Name="InstallmentInfoText"
+                                               Text="Рассрочка оформляется на месте"
+                                               Style="{DynamicResource MainlineColor_2_1}"
+                                               FontSize="12"
+                                               Margin="0,5,0,0"
+                                               Visibility="Collapsed"/>
                                 </StackPanel>
                             </StackPanel>
 
-                            <Button Grid.Row="3">
-                                <TextBlock Text="Оформить заказ"/>
+                            <!-- 4. Кнопка "Оформить заказ" -->
+                            <Button Grid.Row="3"
+                                    x:Name="SubmitOrderButton"
+                                    Style="{DynamicResource ButtonColor}"
+                                    Click="SubmitOrderButton_Click">
+                                <TextBlock Text="Оформить заказ"
+                                           Style="{DynamicResource MainlineColor_2_2}"/>
                             </Button>
                         </Grid>
                     </ScrollViewer>
