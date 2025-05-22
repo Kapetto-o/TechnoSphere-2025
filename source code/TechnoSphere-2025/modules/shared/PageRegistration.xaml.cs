@@ -1,12 +1,12 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
+using System.Configuration;
 using System.Security.Cryptography;
 using System.Text;
-using TechnoSphere_2025.models;
-using System.Configuration;
-using TechnoSphere_2025.Properties;
+using System.Windows;
+using System.Windows.Controls;
 using TechnoSphere_2025.managers;
+using TechnoSphere_2025.models;
+using TechnoSphere_2025.Properties;
 
 namespace TechnoSphere_2025
 {
@@ -119,6 +119,7 @@ namespace TechnoSphere_2025
                 using (var insert = new SqlCommand(@"
                     INSERT INTO Users
                         (Username, Email, PasswordHash, PasswordSalt, Role, IsActive, RememberToken)
+                    OUTPUT inserted.UserID
                     VALUES
                         (@u, @e, @ph, @ps, 0, 1, @t)", conn))
                 {
@@ -128,7 +129,8 @@ namespace TechnoSphere_2025
                     insert.Parameters.AddWithValue("@ps", salt);
                     insert.Parameters.AddWithValue("@t", rememberToken);
 
-                    insert.ExecuteNonQuery();
+                    int newUserId = (int)insert.ExecuteScalar()!;
+                    SessionManager.CurrentUserID = newUserId;
                 }
             }
 
@@ -138,7 +140,17 @@ namespace TechnoSphere_2025
             SessionManager.CurrentUsername = model.Username;
             SessionManager.RememberToken = rememberToken;
 
-            NavigationService?.Navigate(new PageHome_User());
+            var nav = NavigationService;
+            nav?.Navigate(new PageHome_User());
+
+            if (nav != null)
+            {
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    while (nav.CanGoBack)
+                        nav.RemoveBackEntry();
+                }), System.Windows.Threading.DispatcherPriority.Background);
+            }
         }
 
         private void GoToLogin_Click(object sender, RoutedEventArgs e)

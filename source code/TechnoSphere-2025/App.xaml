@@ -2,9 +2,22 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:TechnoSphere_2025"
+             xmlns:conv="clr-namespace:TechnoSphere_2025.converters"
              StartupUri="WindowMain.xaml">
     <Application.Resources>
         <ResourceDictionary>
+            <conv:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+            <conv:NotNullToVisibilityConverter x:Key="NotNullToVisibilityConverter"/>
+            <conv:NullToVisibilityInverseConverter x:Key="NullToVisibilityInverseConverter"/>
+            <conv:BoolToAvailabilityTextConverter x:Key="BoolToAvailabilityTextConverter"/>
+            <conv:ImagePathToSourceConverter x:Key="ImagePathToSourceConverter"/>
+            <conv:GreaterThanZeroConverter x:Key="GreaterThanZeroConverter"/>
+            <conv:BoolToInBasketTextConverter x:Key="BoolToInBasketTextConverter"/>
+            <conv:BoolToOpacityConverter x:Key="BoolToOpacityConverter"/>
+            <conv:SpecValueConverter x:Key="SpecValueConverter"/>
+            <conv:BoolToCompareTextConverter x:Key="BoolToCompareTextConverter"/>
+            <conv:SpecValueMultiConverter x:Key="SpecValueMultiConverter"/>
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/resources/styles/themes/LightTheme.xaml"/>
                 <ResourceDictionary Source="/resources/localization/Russian.xaml"/>

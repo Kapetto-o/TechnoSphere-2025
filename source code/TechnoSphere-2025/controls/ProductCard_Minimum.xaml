@@ -1,0 +1,162 @@
+﻿<UserControl x:Class="TechnoSphere_2025.controls.ProductCard_Minimum"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TechnoSphere_2025.controls"
+             xmlns:models="clr-namespace:TechnoSphere_2025.models"
+             x:Name="root" 
+             d:DataContext="{d:DesignInstance Type=models:BasketItemViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="750">
+    <Grid>
+        <Border Style="{DynamicResource ProductCartdBorderColor}"
+                Background="{DynamicResource BrushBackgroundColor}"
+                Width="750">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Button Style="{StaticResource EmptyButtonStyle}">
+                        <Grid>
+                            <Image Width="200" Height="200"
+                                   Stretch="UniformToFill"
+                                   Source="{Binding ProductVm.ImagePath, Converter={StaticResource ImagePathToSourceConverter}}"/>
+                            <Button x:Name="AddFavorite"
+                                    Style="{StaticResource EmptyButtonStyle}"
+                                    Command="{Binding ProductVm.ToggleFavoriteCommand}"
+                                    HorizontalAlignment="Right" VerticalAlignment="Top"
+                                    Margin="10"
+                                    Panel.ZIndex="1">
+                                <Image Height="18">
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Setter Property="Source" Value="{DynamicResource FavoriteIconProductOff}" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ProductVm.IsFavorite}" Value="True">
+                                                    <Setter Property="Source" Value="{DynamicResource FavoriteIconProductOn}" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </Button>
+                        </Grid>
+                    </Button>
+                </Grid>
+
+                <Grid Grid.Column="1" Margin="15,10">
+                    <StackPanel>
+                        <Button Style="{DynamicResource EmptyButtonStyle}"
+                                HorizontalAlignment="Left">
+                            <TextBlock x:Name="ProductName"
+                                        Text="{Binding ProductVm.Name}"
+                                        Style="{DynamicResource MainlineColor_2_3}"
+                                        Width="310"
+                                        TextWrapping="Wrap"/>
+                        </Button>
+
+                        <TextBlock x:Name="Availability"
+                                Text="{Binding ProductVm.InStock, Converter={StaticResource BoolToAvailabilityTextConverter}}"
+                                Style="{DynamicResource MainlineColor_2_1}"
+                                VerticalAlignment="Bottom"
+                                Margin="0,10"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                        <TextBlock Text="Количество:"
+                                    Style="{DynamicResource MainlineColor_2_1}"
+                                    VerticalAlignment="Center"
+                                    Margin="0,0,10,0"/>
+                        <Border Style="{DynamicResource BorderColor}">
+                            <Button Style="{StaticResource EmptyButtonStyle}"
+                                    Width="24" Height="24"
+                                    Command="{Binding DecrementCommand}"
+                                    IsEnabled="{Binding Quantity, Converter={StaticResource GreaterThanZeroConverter}}">
+                                <TextBlock Text="-"
+                                           Style="{DynamicResource MainlineColor_2_1}"/>
+                            </Button>
+                        </Border>
+
+                        <TextBlock  Text="{Binding Quantity, StringFormat={}{0}}"
+                                    MinWidth="14"
+                                    TextAlignment="Center"
+                                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                                    Style="{DynamicResource MainlineColor_2_1}"
+                                    Margin="5,0"/>
+                        
+                        <Border Style="{DynamicResource BorderColor}">
+                            <Button Width="24" Height="24"
+                                    Style="{StaticResource EmptyButtonStyle}"
+                                    Command="{Binding IncrementCommand}">
+                                <TextBlock Text="+"
+                                           Style="{DynamicResource MainlineColor_2_1}"/>
+                            </Button>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Column="2" Background="#fafafa">
+                    <Grid Margin="10,0,10,15">
+                        <StackPanel Margin="0,10">
+                            <StackPanel Orientation="Horizontal"
+                                    Margin="0,10,0,0"
+                                    VerticalAlignment="Center">
+                                <TextBlock Text="{Binding ProductVm.PromoPrice, StringFormat={}{0:N0}}"
+                                        Style="{DynamicResource HeadlineColor_1_2}"
+                                        Foreground="Red"
+                                        Visibility="{Binding ProductVm.PromoPrice, Converter={StaticResource NotNullToVisibilityConverter}}"/>
+                                <TextBlock Text=" р."
+                                        Style="{DynamicResource MainlineColor_2_3}"
+                                        Foreground="Red"
+                                         Visibility="{Binding ProductVm.PromoPrice, Converter={StaticResource NotNullToVisibilityConverter}}"
+                                        VerticalAlignment="Center"
+                                        Margin="5,0,0,0"/>
+
+                                <TextBlock Text="{Binding ProductVm.Price, StringFormat={}{0:N0}}"
+                                        TextDecorations="Strikethrough"
+                                        Style="{DynamicResource MainlineColor_2_3}"
+                                        Margin="5,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Visibility="{Binding ProductVm.PromoPrice, Converter={StaticResource NotNullToVisibilityConverter}}"/>
+                                <TextBlock Text=" р."
+                                        TextDecorations="Strikethrough"
+                                        Style="{DynamicResource MainlineColor_2_3}"
+                                        Margin="2,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Visibility="{Binding ProductVm.PromoPrice, Converter={StaticResource NotNullToVisibilityConverter}}"
+                                        FontSize="8"/>
+
+                                <TextBlock Text="{Binding ProductVm.Price, StringFormat={}{0:N0}}"
+                                        Style="{DynamicResource HeadlineColor_1_2}"
+                                        VerticalAlignment="Center"
+                                        Visibility="{Binding ProductVm.PromoPrice, Converter={StaticResource NullToVisibilityInverseConverter}}"/>
+
+                                <TextBlock Text=" р."
+                                        Style="{DynamicResource MainlineColor_2_3}"
+                                        VerticalAlignment="Center"
+                                        Margin="5,0,0,0"
+                                        Visibility="{Binding ProductVm.PromoPrice, Converter={StaticResource NullToVisibilityInverseConverter}}"/>
+                            </StackPanel>
+                            
+                            <TextBlock  Text="{Binding TotalPrice, StringFormat=Итого: {0:N0} р.}"
+                                        Style="{DynamicResource MainlineColor_2_1}"
+                                        Margin="0,10"/>
+
+                        </StackPanel>
+
+                        <Button Style="{DynamicResource EmptyButtonStyle}"
+                                HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                                Command="{Binding RemoveCommand}">
+                            <TextBlock Text="Удалить"
+                                       Style="{DynamicResource DeleteTextBlockColor}"/>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

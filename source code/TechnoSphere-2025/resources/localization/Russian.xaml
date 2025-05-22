@@ -46,7 +46,7 @@
     
     <!-- Регистрация и Авторизация страницы -->
     <sys:String x:Key="Loc_Welcome">Добро пожаловать!</sys:String>
-    <sys:String x:Key="Loc_BeforeСontinue">Прежде чем продолжить, войдите в свой аккаунт.</sys:String>
+    <sys:String x:Key="Loc_BeforeContinue">Прежде чем продолжить, войдите в свой аккаунт.</sys:String>
     <sys:String x:Key="Loc_Registration">Регистрация</sys:String>
     <sys:String x:Key="Loc_RegUserName">Ваше имя пользователя</sys:String>
     <sys:String x:Key="Loc_Email">Ваш E-mail</sys:String>

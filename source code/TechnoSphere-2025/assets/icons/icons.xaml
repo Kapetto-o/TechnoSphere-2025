@@ -33,6 +33,14 @@
         </DrawingImage.Drawing>
     </DrawingImage>
 
+    <DrawingImage x:Key="LogoMiniIcon_Green">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V32 H32 V0 H0 Z">
+                <GeometryDrawing Brush="{DynamicResource BrushIconColor_2}" Geometry="F1 M32,32z M0,0z M32,0.888889C32,0.653141 31.9063,0.427049 31.7397,0.26035 31.573,0.0936505 31.3469,0 31.1111,0L0.888889,0C0.653141,0 0.427049,0.0936505 0.26035,0.26035 0.0936505,0.427049 0,0.653141 0,0.888889L0,10.6667 10.6667,10.6667 10.6667,28.4444 3.55556,28.4444 3.55556,14.2222 0,14.2222 0,31.1111C0,31.3469 0.0936505,31.573 0.26035,31.7397 0.427049,31.9063 0.653141,32 0.888889,32L31.3335,32C31.5103,32 31.6798,31.9298 31.8048,31.8048 31.9298,31.6798 32,31.5103 32,31.3335L32,14.2222 28.4444,14.2222 28.4444,28.4444 21.3333,28.3922 21.3333,10.6667 32,10.6667 32,0.888889z M28.4444,7.11111L17.7778,7.11111 17.7778,28.4444 14.2222,28.4444 14.2222,7.11111 3.55556,7.11111 3.55556,3.55556 28.4444,3.55556 28.4444,7.11111z" />
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
     <DrawingImage x:Key="BasketIcon">
 		<DrawingImage.Drawing>
 			<DrawingGroup ClipGeometry="M0,0 V35 H50 V0 H0 Z">
@@ -60,6 +68,32 @@
 		</DrawingImage.Drawing>
 	</DrawingImage>
 
+    <DrawingImage x:Key="FavoriteIconProductOn">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V35 H50 V0 H0 Z">
+                <GeometryDrawing Brush="{DynamicResource BrushRedColor}" 
+                             Geometry="F1 M50,35z M0,0z M30.4625,5.33594C28.0859,5.33594 25.9062,6.44688 24.5,8.275 23.0938,6.44688 20.9141,5.33594 18.5375,5.33594 14.382,5.33594 11,8.73203 11,12.9086 11,14.8703 11.7453,16.7336 13.1023,18.1539L23.7336,28.8906 24.5,29.6641 25.2664,28.8906 35.6938,18.3578C37.1703,16.9305 38,14.9898 38,12.9086 38,8.73203 34.618,5.33594 30.4625,5.33594z">
+                    <GeometryDrawing.Pen>
+                        <Pen Brush="{DynamicResource BrushGrayColor}" Thickness="1"/>
+                    </GeometryDrawing.Pen>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="FavoriteIconProductOff">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V35 H50 V0 H0 Z">
+                <GeometryDrawing Brush="{DynamicResource BrushIconColor}" 
+                             Geometry="F1 M50,35z M0,0z M30.4625,5.33594C28.0859,5.33594 25.9062,6.44688 24.5,8.275 23.0938,6.44688 20.9141,5.33594 18.5375,5.33594 14.382,5.33594 11,8.73203 11,12.9086 11,14.8703 11.7453,16.7336 13.1023,18.1539L23.7336,28.8906 24.5,29.6641 25.2664,28.8906 35.6938,18.3578C37.1703,16.9305 38,14.9898 38,12.9086 38,8.73203 34.618,5.33594 30.4625,5.33594z">
+                    <GeometryDrawing.Pen>
+                        <Pen Brush="{DynamicResource BrushGrayColor}" Thickness="1"/>
+                    </GeometryDrawing.Pen>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+    
     <DrawingImage x:Key="ComparisonIcon">
         <DrawingImage.Drawing>
             <DrawingGroup ClipGeometry="M0,0 V35 H50 V0 H0 Z">
@@ -82,6 +116,28 @@
         </DrawingImage.Drawing>
     </DrawingImage>
 
+    <DrawingImage x:Key="ComparisonIconCardProduct">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V35 H50 V0 H0 Z">
+                <GeometryDrawing Brush="{DynamicResource BrushComparisonIconCardProductColor}">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry RadiusX="0" RadiusY="0" Rect="13,19,4,11" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="{DynamicResource BrushComparisonIconCardProductColor}">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry RadiusX="0" RadiusY="0" Rect="23,5,4,25" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="{DynamicResource BrushComparisonIconCardProductColor}">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry RadiusX="0" RadiusY="0" Rect="33,13,4,17" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+    
     <DrawingImage x:Key="BurgerIcon">
 		<DrawingImage.Drawing>
 			<DrawingGroup ClipGeometry="M0,0 V25 H25 V0 H0 Z">
@@ -291,6 +347,36 @@
                         </GeometryDrawing>
                     </DrawingGroup>
                 </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="StarIconOn">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V15 H16 V0 H0 Z">
+                <DrawingGroup.Transform>
+                    <TranslateTransform X="3.0561491115577155E-08" Y="0" />
+                </DrawingGroup.Transform>
+                <GeometryDrawing Brush="{DynamicResource BrushYellowColor}" Geometry="F1 M16,15z M0,0z M5.37954,4.82454C5.37954,4.82454 2.40422,5.15408 0.419419,5.37441 0.240523,5.39606 0.0823416,5.51564 0.0230235,5.69736 -0.0362946,5.87908 0.0230234,6.06834 0.154841,6.18791 1.62932,7.5334 3.8448,9.54833 3.8448,9.54833 3.84292,9.54833 3.23656,12.4794 2.83357,14.435 2.79968,14.612 2.8637,14.7994 3.01812,14.9114 3.17159,15.0235 3.36932,15.0254 3.52468,14.9378 5.26091,13.9511 7.86149,12.4672 7.86149,12.4672 7.86149,12.4672 10.463,13.9511 12.1964,14.9387 12.3546,15.0254 12.5523,15.0235 12.7058,14.9114 12.8602,14.7994 12.9242,14.612 12.8894,14.436 12.4864,12.4794 11.881,9.54833 11.881,9.54833 11.881,9.54833 14.0965,7.5334 15.571,6.19074 15.7028,6.0674 15.7612,5.87814 15.7028,5.69736 15.6444,5.51658 15.4862,5.39701 15.3073,5.37629 13.3225,5.15409 10.3463,4.82454 10.3463,4.82454 10.3463,4.82454 9.11282,2.09591 8.29084,0.276818 8.21363,0.113929 8.05168,0 7.86149,0 7.67129,0 7.5084,0.11487 7.43496,0.276818 6.61204,2.09591 5.37954,4.82454 5.37954,4.82454z" />
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="StarIconOff">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V15 H16 V0 H0 Z">
+                <DrawingGroup.Transform>
+                    <TranslateTransform X="3.0561491115577155E-08" Y="0" />
+                </DrawingGroup.Transform>
+                <GeometryDrawing Brush="{DynamicResource BrushLight_grayColor}" Geometry="F1 M16,15z M0,0z M5.37954,4.82454C5.37954,4.82454 2.40422,5.15408 0.419419,5.37441 0.240523,5.39606 0.0823416,5.51564 0.0230235,5.69736 -0.0362946,5.87908 0.0230234,6.06834 0.154841,6.18791 1.62932,7.5334 3.8448,9.54833 3.8448,9.54833 3.84292,9.54833 3.23656,12.4794 2.83357,14.435 2.79968,14.612 2.8637,14.7994 3.01812,14.9114 3.17159,15.0235 3.36932,15.0254 3.52468,14.9378 5.26091,13.9511 7.86149,12.4672 7.86149,12.4672 7.86149,12.4672 10.463,13.9511 12.1964,14.9387 12.3546,15.0254 12.5523,15.0235 12.7058,14.9114 12.8602,14.7994 12.9242,14.612 12.8894,14.436 12.4864,12.4794 11.881,9.54833 11.881,9.54833 11.881,9.54833 14.0965,7.5334 15.571,6.19074 15.7028,6.0674 15.7612,5.87814 15.7028,5.69736 15.6444,5.51658 15.4862,5.39701 15.3073,5.37629 13.3225,5.15409 10.3463,4.82454 10.3463,4.82454 10.3463,4.82454 9.11282,2.09591 8.29084,0.276818 8.21363,0.113929 8.05168,0 7.86149,0 7.67129,0 7.5084,0.11487 7.43496,0.276818 6.61204,2.09591 5.37954,4.82454 5.37954,4.82454z" />
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="HomeIcon">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V48 H48 V0 H0 Z">
+                <GeometryDrawing Brush="{DynamicResource BrushSearchIconColor}" Geometry="F1 M48,48z M0,0z M20,40L20,28 28,28 28,40 38,40 38,24 44,24 24,6 4,24 10,24 10,40z" />
             </DrawingGroup>
         </DrawingImage.Drawing>
     </DrawingImage>

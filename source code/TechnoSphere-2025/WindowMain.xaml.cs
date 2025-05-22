@@ -1,6 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Configuration;
-using System.Reflection.PortableExecutable;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -136,21 +135,26 @@ public partial class WindowMain : Window
 
             using var conn = new SqlConnection(connString);
             conn.Open();
+
             using var cmd = new SqlCommand(@"
-                    SELECT Username, Role FROM Users 
-                     WHERE RememberToken = @t AND IsActive = 1", conn);
+            SELECT UserID, Username, Role 
+              FROM Users 
+             WHERE RememberToken = @t 
+               AND IsActive = 1", conn);
             cmd.Parameters.AddWithValue("@t", token);
-            var roleObj = cmd.ExecuteScalar();
 
             using var reader = cmd.ExecuteReader();
             if (reader.Read())
             {
+                SessionManager.CurrentUserID = reader.GetInt32(reader.GetOrdinal("UserID"));
                 SessionManager.CurrentUsername = reader.GetString(reader.GetOrdinal("Username"));
-                byte role = (byte)reader["Role"];
+                SessionManager.CurrentUserRole = reader.GetByte(reader.GetOrdinal("Role"));
 
-                MainFrame.Navigate(role == 1
-                    ? (object)new PageHome_Admin()
-                    : new PageHome_User());
+                MainFrame.Navigate(
+                    SessionManager.CurrentUserRole == 1
+                        ? (object)new PageHome_Admin()
+                        : new PageHome_User()
+                );
 
                 ClearBackStack();
                 return;

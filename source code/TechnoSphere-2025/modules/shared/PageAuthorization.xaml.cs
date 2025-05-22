@@ -1,12 +1,12 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
+using System.Configuration;
 using System.Security.Cryptography;
 using System.Text;
-using System.Configuration;
+using System.Windows;
+using System.Windows.Controls;
+using TechnoSphere_2025.managers;
 using TechnoSphere_2025.models;
 using TechnoSphere_2025.Properties;
-using TechnoSphere_2025.managers;
 
 namespace TechnoSphere_2025
 {
@@ -65,6 +65,7 @@ namespace TechnoSphere_2025
 
             string connString = ConfigurationManager.ConnectionStrings["TechnoSphereBD"].ConnectionString;
 
+            int userId;
             byte[] storedHash;
             byte[] storedSalt;
             byte role;
@@ -75,7 +76,7 @@ namespace TechnoSphere_2025
                 conn.Open();
 
                 using (var cmd = new SqlCommand(@"
-                SELECT Username, PasswordHash, PasswordSalt, Role
+                SELECT UserID, Username, PasswordHash, PasswordSalt, Role
                   FROM Users
                  WHERE Email = @e AND IsActive = 1", conn))
                 {
@@ -89,6 +90,7 @@ namespace TechnoSphere_2025
                             return;
                         }
 
+                        userId = reader.GetInt32(reader.GetOrdinal("UserID"));
                         int idx = reader.GetOrdinal("Username");
                         dbUsername = reader.IsDBNull(idx)
                             ? string.Empty
@@ -127,12 +129,24 @@ namespace TechnoSphere_2025
                 Properties.Settings.Default.Save();
             }
 
+            SessionManager.CurrentUserID = userId;
             SessionManager.CurrentUsername = dbUsername;
+            SessionManager.CurrentUserRole = role;
 
+            var nav = NavigationService;
             if (role == 1)
-                NavigationService?.Navigate(new PageHome_Admin());
+                nav?.Navigate(new PageHome_Admin());
             else
-                NavigationService?.Navigate(new PageHome_User());
+                nav?.Navigate(new PageHome_User());
+
+            if (nav != null)
+            {
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    while (nav.CanGoBack)
+                        nav.RemoveBackEntry();
+                }), System.Windows.Threading.DispatcherPriority.Background);
+            }
         }
 
         private void GoToRegister_Click(object sender, RoutedEventArgs e)

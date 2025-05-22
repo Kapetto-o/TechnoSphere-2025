@@ -2,6 +2,7 @@
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Media3D;
 
 namespace TechnoSphere_2025.managers
 {
@@ -68,10 +69,15 @@ namespace TechnoSphere_2025.managers
             {
                 if (source == target)
                     return true;
-                source = VisualTreeHelper.GetParent(source);
+
+                if (source is Visual || source is Visual3D)
+                    source = VisualTreeHelper.GetParent(source);
+                else
+                    source = LogicalTreeHelper.GetParent(source);
             }
             return false;
         }
+
 
         public void Unregister()
         {
