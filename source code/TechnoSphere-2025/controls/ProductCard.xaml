@@ -44,7 +44,6 @@
                                 </Image.Style>
                             </Image>
                         </Button>
-
                     </Grid>
 
                     <Grid Grid.Column="1" Margin="15,10">
@@ -103,17 +102,17 @@
                             </Grid.RowDefinitions>
 
                             <StackPanel Grid.Row="0" Margin="0,10">
-                                <Button x:Name="Compare"  Style="{DynamicResource EmptyButtonStyle}"
-                                    Width="90" Height="18"
-                                    HorizontalAlignment="Left"
-                                    Panel.ZIndex="1">
+                                <Button x:Name="CompareButton"
+                                        Style="{StaticResource EmptyButtonStyle}"
+                                        Height="18"
+                                        Click="CompareButton_Click"
+                                        HorizontalAlignment="Left">
                                     <StackPanel Orientation="Horizontal">
-                                        <Image Source="{DynamicResource ComparisonIconCardProduct}"
-                                           Height="18"/>
-                                        <TextBlock Text="сравнить"
-                                               Style="{DynamicResource MainlineColor_2_1}"
-                                               VerticalAlignment="Center"
-                                               Margin="5,0,0,0"/>
+                                        <Image Source="{DynamicResource ComparisonIconCardProduct}" Height="18"/>
+                                        <TextBlock Text="{Binding IsInComparison, Converter={StaticResource BoolToCompareTextConverter}}"
+                                                   Style="{DynamicResource MainlineColor_2_1}"
+                                                   VerticalAlignment="Center"
+                                                   Margin="5,0,0,0"/>
                                     </StackPanel>
                                 </Button>
 

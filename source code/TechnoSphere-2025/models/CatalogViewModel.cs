@@ -64,6 +64,31 @@ namespace TechnoSphere_2025.models
             SortRec(Categories);
         }
 
+        private Dictionary<int, CategoryViewModel>? _lookup;
+
+        private void EnsureLookup()
+        {
+            if (_lookup != null) return;
+            _lookup = new Dictionary<int, CategoryViewModel>();
+            void Walk(IEnumerable<CategoryViewModel> list)
+            {
+                foreach (var vm in list)
+                {
+                    _lookup[vm.CategoryID] = vm;
+                    Walk(vm.Children);
+                }
+            }
+            Walk(Categories);
+        }
+
+        public string GetDisplayName(int categoryId)
+        {
+            EnsureLookup();
+            return _lookup!.TryGetValue(categoryId, out var vm)
+                 ? vm.DisplayName
+                 : string.Empty;
+        }
+
         private List<Category> LoadAllCategoriesFromDb()
         {
             var result = new List<Category>();

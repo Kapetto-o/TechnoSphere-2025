@@ -17,6 +17,9 @@
     <Compile Update="controls\ProductCard_Minimum.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="controls\ProductCard_Panel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="modules\customer\PageBasket.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -27,6 +30,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="modules\customer\Window_Favourites.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="modules\customer\Window_Сomparison.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="modules\shared\PageCatalog.xaml.cs">

@@ -1,4 +1,6 @@
-﻿namespace TechnoSphere_2025.models
+﻿using TechnoSphere_2025.managers;
+
+namespace TechnoSphere_2025.models
 {
     public class SpecificationType
     {
@@ -6,7 +8,13 @@
         public int CategoryID { get; set; }
         public string Name_Ru { get; set; } = "";
         public string Name_Eng { get; set; } = "";
+        public int SortOrder { get; set; }
         public bool IsMain { get; set; }
+
+        public string DisplayName
+        {
+            get => LocalizationManager.CurrentLanguage == LanguageType.Russian ? Name_Ru : Name_Eng;
+        }
     }
 
     public class ProductSpecification

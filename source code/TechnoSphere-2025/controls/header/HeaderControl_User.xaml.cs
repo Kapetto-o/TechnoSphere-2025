@@ -4,6 +4,7 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using TechnoSphere_2025.managers;
 using TechnoSphere_2025.models;
+using TechnoSphere_2025.modules.customer;
 using TechnoSphere_2025.modules.shared;
 
 namespace TechnoSphere_2025.controls.header
@@ -87,5 +88,27 @@ namespace TechnoSphere_2025.controls.header
 
         private void OpenBasketButton_Click(object sender, RoutedEventArgs e)
             => _hdr?.Basket(this);
+
+        private void OpenComparisonButton_Click(object sender, RoutedEventArgs e)
+        {
+            var existing = Application.Current.Windows
+                .OfType<Window_Comparison>()
+                .FirstOrDefault(w => w.Owner == Window.GetWindow(this));
+            if (existing != null)
+            {
+                if (existing.WindowState == WindowState.Minimized)
+                    existing.WindowState = WindowState.Normal;
+                existing.Activate();
+            }
+            else
+            {
+                var win = new Window_Comparison
+                {
+                    Owner = Window.GetWindow(this)
+                };
+                win.Show();
+            }
+        }
+
     }
 }

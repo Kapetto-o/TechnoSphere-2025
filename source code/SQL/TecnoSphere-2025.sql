@@ -117,3 +117,16 @@ create table BasketItems (
 create index IX_BasketItems_User on BasketItems(UserID);
 create index IX_BasketItems_Product on BasketItems(ProductID);
 go
+
+-- Таблица сравнений
+create table Comparisons (
+    UserID    int not null
+       constraint FK_Comparisons_User foreign key references Users(UserID) on delete cascade,
+    ProductID int not null
+       constraint FK_Comparisons_Product foreign key references Products(ProductID) on delete cascade,
+    AddedAt   datetime2 not null default sysutcdatetime(),
+    constraint PK_Comparisons primary key(UserID, ProductID)
+);
+create index IX_Comparisons_User    on Comparisons(UserID);
+create index IX_Comparisons_Product on Comparisons(ProductID);
+go
