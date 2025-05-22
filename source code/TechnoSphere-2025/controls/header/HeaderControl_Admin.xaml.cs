@@ -47,6 +47,31 @@ namespace TechnoSphere_2025.controls.header
             _hdr = null;
         }
 
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            RunSearch();
+        }
+
+        private void SearchTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                RunSearch();
+            }
+        }
+
+        private void RunSearch()
+        {
+            var q = SearchTextBox.Text?.Trim();
+            if (string.IsNullOrWhiteSpace(q))
+                return;
+
+            CatalogPopup.IsOpen = false;
+
+            var nav = NavigationService.GetNavigationService(this);
+            nav?.Navigate(new PageSearchResults(q));
+        }
+
         private void BurgerCatalogButton_Click(object sender, RoutedEventArgs e)
             => _hdr?.ToggleCatalog(CatalogPopup);
 

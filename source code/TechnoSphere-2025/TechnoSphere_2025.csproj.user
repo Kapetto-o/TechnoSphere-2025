@@ -32,6 +32,9 @@
     <Compile Update="modules\shared\PageCatalog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="modules\shared\PageSearchResults.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="modules\shared\Window_AboutApplication.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

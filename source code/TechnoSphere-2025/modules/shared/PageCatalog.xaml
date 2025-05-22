@@ -47,52 +47,10 @@
 
             <Grid Grid.Row="2" Margin="15,5,15,15">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="210"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="760"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-
-                <Grid Grid.Column="0">
-                    <Border Style="{DynamicResource BorderColor}">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="40"/>
-                            </Grid.RowDefinitions>
-
-                            <TextBlock Text="Фильтры"
-                                       Grid.Row="0"
-                                       Style="{DynamicResource MainlineColor_2_3}"
-                                       Margin="10,5,10,0"/>
-                            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden">
-                                <StackPanel Margin="10,0">
-                                    <StackPanel Margin="0,10,0,0">
-                                        <TextBlock Text="Стоимость"
-                                               Style="{DynamicResource MainlineColor_2_3}"/>
-                                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                                            <TextBox Style="{DynamicResource TextBoxColor}"
-                                                  Width="94" Height="30"/>
-                                            <TextBox Style="{DynamicResource TextBoxColor}"
-                                                 Width="94" Height="30"/>
-                                        </StackPanel>
-                                    </StackPanel>
-
-                                    <StackPanel Margin="0,10,0,0">
-                                        <TextBlock Text="Производитель"
-                                               Style="{DynamicResource MainlineColor_2_3}"/>
-                                        <ComboBox Margin="0,5,0,0"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </ScrollViewer>
-
-                            <Button Grid.Row="2"
-                                    Style="{DynamicResource ButtonColor}">
-                                <TextBlock Text="Показать"
-                                   Style="{DynamicResource MainlineColor_2_2}"/>
-                            </Button>
-                        </Grid>
-                    </Border>
-                </Grid>
 
                 <Grid Grid.Column="1" Margin="10,0,0,0">
                     <Grid.RowDefinitions>
@@ -105,15 +63,6 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="0" HorizontalAlignment="Left">
-                            <Button Style="{StaticResource EmptyButtonStyle}"
-                                    Height="auto">
-                                <TextBlock Text="Сбросить фильтры"
-                                           Style="{StaticResource Mainline_2}"
-                                           Foreground="{DynamicResource BrushLight_greenColor}"/>
-                            </Button>
-                        </Grid>
 
                         <Grid Grid.Column="1">
                             <ComboBox HorizontalAlignment="Right"
