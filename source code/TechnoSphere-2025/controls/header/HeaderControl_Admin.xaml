@@ -53,8 +53,10 @@
 
                 </Grid>
 
-                <Button Grid.Column="3"
-                        Style="{DynamicResource ButtonIconColor}">
+                <Button x:Name="OrderMenuButton"
+                        Grid.Column="3"
+                        Style="{DynamicResource ButtonIconColor}"
+                        Click="OrderMenuButton_Click">
                     <TextBlock Text="{DynamicResource Loc_Orders}"
                         Style="{StaticResource Headline_3}"
                         Margin="10,0,10,0"/>

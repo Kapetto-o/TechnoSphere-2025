@@ -4,6 +4,7 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using TechnoSphere_2025.managers;
 using TechnoSphere_2025.models;
+using TechnoSphere_2025.modules.admin;
 using TechnoSphere_2025.modules.shared;
 
 namespace TechnoSphere_2025.controls.header
@@ -80,5 +81,13 @@ namespace TechnoSphere_2025.controls.header
 
         private void CatalogPopup_Closed(object sender, EventArgs e)
             => _hdr?.OnCatalogClosed();
+        private void OrderMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            var nav = NavigationService.GetNavigationService(this);
+            if (nav != null)
+            {
+                nav.Navigate(new PageOrders());
+            }
+        }
     }
 }

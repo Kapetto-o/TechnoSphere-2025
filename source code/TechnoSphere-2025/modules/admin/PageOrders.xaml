@@ -1,0 +1,98 @@
+﻿<Page x:Class="TechnoSphere_2025.modules.admin.PageOrders"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TechnoSphere_2025.modules.admin"
+      xmlns:models="clr-namespace:TechnoSphere_2025.models"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1000"
+      Title="PageCatalog">
+    <Page.DataContext>
+        <models:OrdersViewModel/>
+    </Page.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Хедер -->
+            <RowDefinition Height="Auto"/>
+            <!-- Контент каталога -->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ContentControl x:Name="HeaderHost" Grid.Row="0"/>
+
+        <!-- Основное содержимое страницы -->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="15,5,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{DynamicResource HomeIcon}"
+                       Width="15" Height="15"
+                       HorizontalAlignment="Left"/>
+                    <TextBlock Text=">"
+                           Style="{DynamicResource MainlineColor_2_1}"
+                           Margin="5,0"/>
+                    <TextBlock Text="Заказы"
+                               Style="{DynamicResource MainlineColor_2_3}"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="15,5,0,0">
+                <TextBlock Text="Заказы"
+                       Style="{DynamicResource HeadlineColor_2-1}"/>
+            </Grid>
+
+            <Grid Grid.Row="2" Margin="15,5,15,15">
+                <DataGrid ItemsSource="{Binding Orders}"
+                          AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          IsReadOnly="False">
+                    <!-- Номер заказа -->
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID"
+                            Binding="{Binding OrderID}"
+                            IsReadOnly="True"
+                            Width="60" />
+
+                        <!-- Дата создания -->
+                        <DataGridTextColumn Header="Дата"
+                            Binding="{Binding CreatedAt, StringFormat=dd.MM.yyyy HH:mm}"
+                            IsReadOnly="True"
+                            Width="150" />
+
+                        <!-- Пользователь -->
+                        <DataGridTextColumn Header="Пользователь"
+                            Binding="{Binding Username}"
+                            IsReadOnly="True"
+                            Width="*" />
+
+                        <!-- Сумма -->
+                        <DataGridTextColumn Header="Сумма, р."
+                            Binding="{Binding TotalAmount, StringFormat=N2}"
+                            IsReadOnly="True"
+                            Width="100" />
+
+                        <!-- Статус -->
+                        <DataGridTemplateColumn Header="Статус" Width="200">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox ItemsSource="{Binding DataContext.Statuses, 
+                                            RelativeSource={RelativeSource AncestorType=Page}}"
+                                            SelectedValuePath="StatusID"
+                                            DisplayMemberPath="Name_Ru"
+                                            SelectedValue="{Binding StatusID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

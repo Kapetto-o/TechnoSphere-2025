@@ -147,9 +147,10 @@ create table Orders (
     StatusID    tinyint         not null
         constraint FK_Orders_Status references OrderStatuses(StatusID),
     CreatedAt   datetime2       not null default sysutcdatetime(),
-    Delivery    nvarchar(500)   null,    -- можно хранить адрес или «Самовывоз»
+    Delivery    nvarchar(500)   null, 
     ContactName nvarchar(100)   not null,
-    ContactPhone nvarchar(20)   not null
+    ContactPhone nvarchar(20)   not null,
+	TotalAmount decimal(12,2)   not null constraint DF_Orders_TotalAmount default (0)
 );
 go
 

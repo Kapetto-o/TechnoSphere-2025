@@ -20,6 +20,12 @@
     <Compile Update="controls\ProductCard_Panel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="modules\admin\PageOrders.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="modules\admin\PageUsers.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="modules\customer\PageBasket.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
