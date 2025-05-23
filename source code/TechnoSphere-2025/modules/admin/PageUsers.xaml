@@ -1,0 +1,72 @@
+﻿<Page x:Class="TechnoSphere_2025.modules.admin.PageUsers"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TechnoSphere_2025.modules.admin"
+      xmlns:models="clr-namespace:TechnoSphere_2025.models"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1000"
+      Title="Users">
+    <Page.DataContext>
+        <models:UsersListViewModel/>
+    </Page.DataContext>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Хедер -->
+            <RowDefinition Height="Auto"/>
+            <!-- Контент каталога -->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ContentControl x:Name="HeaderHost" Grid.Row="0"/>
+
+        <!-- Основное содержимое страницы -->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="15,5,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{DynamicResource HomeIcon}"
+                       Width="15" Height="15"
+                       HorizontalAlignment="Left"/>
+                    <TextBlock Text=">"
+                           Style="{DynamicResource MainlineColor_2_1}"
+                           Margin="5,0"/>
+                    <TextBlock Text="Пользователи"
+                               Style="{DynamicResource MainlineColor_2_3}"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="15,5,0,0">
+                <TextBlock Text="Пользователи"
+                       Style="{DynamicResource HeadlineColor_2-1}"/>
+            </Grid>
+                
+            <Grid Grid.Row="2" Margin="15,5,15,15">
+                <DataGrid ItemsSource="{Binding Users}"
+                AutoGenerateColumns="False"
+                CanUserAddRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID"        Binding="{Binding UserID}" Width="50"/>
+                        <DataGridTextColumn Header="Логин"     Binding="{Binding Username}" />
+                        <DataGridTextColumn Header="Email"     Binding="{Binding Email}" />
+                        <DataGridCheckBoxColumn Header="Активен" Binding="{Binding IsActive}" />
+                        <DataGridTemplateColumn Header="Действие">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="{Binding IsActive, Converter={StaticResource BoolToBlockTextConverter}}" Command="{Binding ToggleBlockCommand}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

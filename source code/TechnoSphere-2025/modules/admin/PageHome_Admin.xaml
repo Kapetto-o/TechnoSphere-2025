@@ -37,9 +37,11 @@
 
             <Grid Grid.Row="2" HorizontalAlignment="Center">
                 <StackPanel>
-                    <Button Style="{DynamicResource ButtonColor}"
+                    <Button x:Name="OpenUsers"
+                            Style="{DynamicResource ButtonColor}"
                             Width="500" Height="55"
-                            Margin="0,0,0,10">
+                            Margin="0,0,0,10"
+                            Click="OpenUsers_Click">
                         <TextBlock Text="{DynamicResource Loc_Users}"
                                    Style="{DynamicResource HeadlineColor_2-2}"/>
                     </Button>
