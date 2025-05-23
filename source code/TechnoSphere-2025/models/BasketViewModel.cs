@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using TechnoSphere_2025.managers;
-using TechnoSphere_2025.models;
 using TechnoSphere_2025.modules.customer;
 
 namespace TechnoSphere_2025.models

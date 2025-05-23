@@ -18,6 +18,7 @@
             <conv:BoolToCompareTextConverter x:Key="BoolToCompareTextConverter"/>
             <conv:SpecValueMultiConverter x:Key="SpecValueMultiConverter"/>
             <conv:BoolToBlockTextConverter x:Key="BoolToBlockTextConverter"/>
+            <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
 
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/resources/styles/themes/LightTheme.xaml"/>

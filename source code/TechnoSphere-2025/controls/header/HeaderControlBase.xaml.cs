@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 using TechnoSphere_2025.managers;
+using TechnoSphere_2025.modules.customer;
 
 namespace TechnoSphere_2025.controls.header
 {
@@ -52,6 +54,20 @@ namespace TechnoSphere_2025.controls.header
             e.Handled = true;
         }
 
+        private void CabinetMenu_Click(object sender, RoutedEventArgs e)
+        {
+            var nav = NavigationService.GetNavigationService(this);
+            if (nav != null)
+            {
+                nav.Navigate(new PagePersonalAccount());
+            }
+            else
+            {
+                var window = Application.Current.MainWindow;
+                var frame = window.FindName("MainFrame") as Frame;
+                frame?.Navigate(new PagePersonalAccount());
+            }
+        }
 
         private void SettingsMenuItem_Click(object sender, RoutedEventArgs e)
             => _hdr?.ShowSettings();

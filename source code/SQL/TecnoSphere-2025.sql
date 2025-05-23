@@ -164,3 +164,16 @@ create table OrderItems (
     UnitPrice   decimal(12,2) not null,
     constraint PK_OrderItems primary key(OrderID, ProductID)
 );
+
+-- Отзывы
+create table productreviews (
+    reviewid int identity(1,1) primary key,
+    productid int not null,
+    userid int not null,
+    rating int not null check (rating between 1 and 5),
+    comment nvarchar(max),
+    createdat datetime not null default getdate(),
+
+    foreign key (productid) references products(productid),
+    foreign key (userid) references users(userid)
+);

@@ -2,7 +2,6 @@
 using System.Windows.Controls;
 using TechnoSphere_2025.controls.header;
 using TechnoSphere_2025.managers;
-using TechnoSphere_2025.models;
 
 namespace TechnoSphere_2025.modules.admin
 {

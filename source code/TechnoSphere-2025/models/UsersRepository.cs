@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Data.SqlClient;
 using System.Configuration;
-using Microsoft.Data.SqlClient;
 
 namespace TechnoSphere_2025.models
 {

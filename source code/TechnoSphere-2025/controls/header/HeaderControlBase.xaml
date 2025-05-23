@@ -42,7 +42,8 @@
                 <StackPanel>
                     <Button x:Name="CabinetMenu"
                             Style="{DynamicResource HeaderPopupButtonColor}"
-                            Padding="5,10,5,10">
+                            Padding="5,10,5,10"
+                            Click="CabinetMenu_Click">
                         <TextBlock Text="{DynamicResource Loc_MenuPersonalAccount}" Style="{StaticResource Mainline_2}"/>
                     </Button>
                     <Button x:Name="SettingsMenuItem"
