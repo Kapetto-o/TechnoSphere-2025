@@ -21,7 +21,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="0">
-                    <Button Style="{StaticResource EmptyButtonStyle}">
+                    <Button Style="{StaticResource EmptyButtonStyle}" Click="ProductCard_Click">
                         <Grid>
                             <Image Width="200" Height="200"
                                    Stretch="UniformToFill"
@@ -52,7 +52,8 @@
                 <Grid Grid.Column="1" Margin="15,10">
                     <StackPanel>
                         <Button Style="{DynamicResource EmptyButtonStyle}"
-                                HorizontalAlignment="Left">
+                                HorizontalAlignment="Left"
+                                Click="ProductCard_Click">
                             <TextBlock x:Name="ProductName"
                                         Text="{Binding ProductVm.Name}"
                                         Style="{DynamicResource MainlineColor_2_3}"

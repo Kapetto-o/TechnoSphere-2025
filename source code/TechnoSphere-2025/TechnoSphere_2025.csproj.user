@@ -26,6 +26,9 @@
     <Compile Update="modules\admin\PageUsers.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="modules\admin\Window_AddProduct.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="modules\customer\PageBasket.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -42,6 +45,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="modules\shared\PageCatalog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="modules\shared\PageProduct.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="modules\shared\PageSearchResults.xaml.cs">

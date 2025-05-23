@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
@@ -13,28 +14,45 @@ namespace TechnoSphere_2025.models
         private bool _isInBasket;
         private bool _isInComparison;
 
-        private readonly Product _product;
-
         public int CategoryID => _model.CategoryID;
         public int ProductID => _model.ProductID;
+
         public string Name => LocalizationManager.CurrentLanguage == LanguageType.Russian
-                                   ? _model.Name_Ru
-                                   : _model.Name_Eng;
+                                  ? _model.Name_Ru
+                                  : _model.Name_Eng;
+
         public string? ImagePath => _model.MainImagePath;
-        public decimal Price => _model.Price;
-        public decimal? PromoPrice => _model.PromoPrice;
-        public decimal? Installment => _model.InstallmentPrice;
-        public bool InStock => _model.StockQuantity > 0;
-        public bool IsInComparison
+
+        // Базовая цена
+        public decimal Price
         {
-            get => _isInComparison;
-            set
+            get => _model.Price;
+            private set
             {
-                if (_isInComparison == value) return;
-                _isInComparison = value;
-                OnPropertyChanged(nameof(IsInComparison));
+                if (_model.Price != value)
+                {
+                    _model.Price = value;
+                    OnPropertyChanged(nameof(Price));
+                }
             }
         }
+
+        // Акционная цена (nullable)
+        public decimal? PromoPrice
+        {
+            get => _model.PromoPrice;
+            private set
+            {
+                if (_model.PromoPrice != value)
+                {
+                    _model.PromoPrice = value;
+                    OnPropertyChanged(nameof(PromoPrice));
+                }
+            }
+        }
+
+        public decimal? Installment => _model.InstallmentPrice;
+        public bool InStock => _model.StockQuantity > 0;
 
         public bool IsFavorite
         {
@@ -58,6 +76,17 @@ namespace TechnoSphere_2025.models
             }
         }
 
+        public bool IsInComparison
+        {
+            get => _isInComparison;
+            set
+            {
+                if (_isInComparison == value) return;
+                _isInComparison = value;
+                OnPropertyChanged(nameof(IsInComparison));
+            }
+        }
+
         public ObservableCollection<CharacteristicViewModel> MainCharacteristics { get; }
             = new ObservableCollection<CharacteristicViewModel>();
 
@@ -69,9 +98,7 @@ namespace TechnoSphere_2025.models
             _model = model;
 
             int userId = SessionManager.CurrentUserID;
-
             _isInComparison = ComparisonRepository.IsInComparison(userId, ProductID);
-
             _isInBasket = BasketRepository.IsInBasket(userId, ProductID);
             _isFavorite = FavoritesRepository.IsFavorite(userId, ProductID);
 
@@ -105,26 +132,27 @@ namespace TechnoSphere_2025.models
             ComparisonRepository.ComparisonChanged += OnGlobalComparisonChanged;
         }
 
+        /// <summary>
+        /// Обновляет сразу базовую цену и акционную.
+        /// </summary>
+        public void SetPrices(decimal newPrice, decimal? newPromoPrice)
+        {
+            Price = newPrice;
+            PromoPrice = newPromoPrice;
+        }
+
         private void OnGlobalFavoriteChanged(object? sender, FavoriteChangedEventArgs e)
         {
             if (e.UserID != SessionManager.CurrentUserID) return;
             if (e.ProductID != ProductID) return;
-
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                IsFavorite = e.IsAdded;
-            });
+            Application.Current.Dispatcher.Invoke(() => IsFavorite = e.IsAdded);
         }
 
         private void OnGlobalComparisonChanged(object? sender, ComparisonChangedEventArgs e)
         {
             if (e.UserID != SessionManager.CurrentUserID) return;
             if (e.ProductID != ProductID) return;
-
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                IsInComparison = e.IsAdded;
-            });
+            Application.Current.Dispatcher.Invoke(() => IsInComparison = e.IsAdded);
         }
 
         private void LoadMainCharacteristics()
@@ -135,7 +163,6 @@ namespace TechnoSphere_2025.models
                                 .ToDictionary(v => v.SpecTypeID);
 
             var mainTypes = specTypes.Where(t => t.IsMain).Take(5);
-
             foreach (var type in mainTypes)
             {
                 if (!specValues.TryGetValue(type.SpecTypeID, out var valueModel))

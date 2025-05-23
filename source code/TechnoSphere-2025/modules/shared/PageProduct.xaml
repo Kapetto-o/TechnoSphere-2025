@@ -1,0 +1,313 @@
+﻿<Page x:Class="TechnoSphere_2025.modules.shared.PageProduct"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TechnoSphere_2025.modules.shared"
+      xmlns:models="clr-namespace:TechnoSphere_2025.models"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1000"
+      Title="PageProduct">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Хедер -->
+            <RowDefinition Height="Auto"/>
+            <!-- Контент каталога -->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ContentControl x:Name="HeaderHost" Grid.Row="0"/>
+
+        <!-- Основное содержимое страницы -->
+        <ScrollViewer Grid.Row="1"
+                      VerticalScrollBarVisibility="Hidden"
+                      HorizontalScrollBarVisibility="Disabled">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="15,5,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{DynamicResource HomeIcon}"
+                               Width="15" Height="15"
+                               HorizontalAlignment="Left"/>
+                        <TextBlock Text=">"
+                           Style="{DynamicResource MainlineColor_2_1}"
+                           Margin="5,0"/>
+                        <TextBlock Text="Каталог"
+                               Style="{DynamicResource MainlineColor_2_1}"/>
+                        <TextBlock Text=">"
+                           Style="{DynamicResource MainlineColor_2_1}"
+                           Margin="5,0"/>
+                        <TextBlock Text="{Binding Name}"
+                               Style="{DynamicResource MainlineColor_2_3}"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="15,5,0,0">
+                    <TextBlock Text="{Binding Name}"
+                       Style="{DynamicResource HeadlineColor_2-1}"/>
+                </Grid>
+
+                <Grid Grid.Row="2" Margin="15,5,15,15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="300"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="300"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Image Width="300" Height="300"
+                               Stretch="UniformToFill"
+                               Source="{Binding ImagePath,Converter={StaticResource ImagePathToSourceConverter}}"/>
+                            <Button x:Name="AddFavoriteButton"
+                                    Style="{StaticResource EmptyButtonStyle}"
+                                    Command="{Binding ToggleFavoriteCommand}"
+                                    Click="AddFavorite_Click"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top"
+                                    Margin="10"
+                                    Panel.ZIndex="1">
+                                <Image Height="18">
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Setter Property="Source" Value="{DynamicResource FavoriteIconProductOff}" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsFavorite}" Value="True">
+                                                    <Setter Property="Source" Value="{DynamicResource FavoriteIconProductOn}" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </Button>
+
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <StackPanel>
+                                <TextBlock x:Name="ProductName"
+                                       Text="{Binding Name}"
+                                       Style="{DynamicResource MainlineColor_2_3}"
+                                       Width="310"
+                                       HorizontalAlignment="Left"
+                                       TextWrapping="Wrap"/>
+                                <StackPanel x:Name="StarRating"
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Left"
+                                        Margin="0,10,0,5">
+                                    <Image x:Name="Star_1"
+                                       Height="15"
+                                       Source="{DynamicResource StarIconOn}"/>
+                                    <Image x:Name="Star_2"
+                                       Height="15"
+                                       Margin="1,0,0,0"
+                                       Source="{DynamicResource StarIconOn}"/>
+                                    <Image x:Name="Star_3"
+                                       Height="15"
+                                       Margin="1,0,0,0"
+                                       Source="{DynamicResource StarIconOn}"/>
+                                    <Image x:Name="Star_4"
+                                       Height="15"
+                                       Margin="1,0,0,0"
+                                       Source="{DynamicResource StarIconOn}"/>
+                                    <Image x:Name="Star_5"
+                                       Height="15"
+                                       Margin="1,0,0,0"
+                                       Source="{DynamicResource StarIconOff}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Grid.Column="2"
+                            Background="#fafafa">
+                            <Grid Margin="10,0" Cursor="Hand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="160"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Grid.Row="0" Margin="0,10">
+                                    <Button x:Name="CompareButton"
+                                                Style="{StaticResource EmptyButtonStyle}"
+                                                Height="18"
+                                                Click="CompareButton_Click"
+                                                HorizontalAlignment="Left">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="{DynamicResource ComparisonIconCardProduct}" Height="18"/>
+                                            <TextBlock Text="{Binding IsInComparison, Converter={StaticResource BoolToCompareTextConverter}}"
+                                                    Style="{DynamicResource MainlineColor_2_1}"
+                                                    VerticalAlignment="Center"
+                                                    Margin="5,0,0,0"/>
+                                        </StackPanel>
+                                    </Button>
+
+                                    <Border Height="28"
+                                        HorizontalAlignment="Left"
+                                        Margin="0,10,0,0"
+                                        CornerRadius="4"
+                                        Background="{DynamicResource BrushGreenColor}"
+                                        Visibility="{Binding Installment, Converter={StaticResource NullToVisibilityConverter}}">
+                                        <StackPanel x:Name="InstallmentPlan"
+                                                Orientation="Horizontal"
+                                                HorizontalAlignment="Center"
+                                                Margin="10,0">
+                                            <TextBlock Text="от"
+                                                    Style="{DynamicResource MainlineColor_2_2}"
+                                                    VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding Installment, StringFormat={}{0:N0}}"
+                                                    Margin="5,0"
+                                                    Style="{DynamicResource HeadlineColor_2-2}"
+                                                    VerticalAlignment="Center"/>
+                                            <TextBlock Text=" р./мес."
+                                                    Style="{DynamicResource MainlineColor_2_2}"
+                                                    VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Border>
+
+                                    <StackPanel Orientation="Horizontal"
+                                            Margin="0,10,0,0"
+                                            VerticalAlignment="Center">
+
+                                        <TextBlock Text="{Binding PromoPrice, StringFormat={}{0:N0}}"
+                                                Style="{DynamicResource HeadlineColor_1_2}"
+                                                Foreground="Red"
+                                                Visibility="{Binding PromoPrice, Converter={StaticResource NotNullToVisibilityConverter}}"/>
+                                        <TextBlock Text=" р."
+                                                Style="{DynamicResource MainlineColor_2_3}"
+                                                Foreground="Red"
+                                                Visibility="{Binding PromoPrice, Converter={StaticResource NotNullToVisibilityConverter}}"
+                                                VerticalAlignment="Center"
+                                                Margin="5,0,0,0"/>
+
+                                        <TextBlock Text="{Binding Price, StringFormat={}{0:N0}}"
+                                                TextDecorations="Strikethrough"
+                                                Style="{DynamicResource MainlineColor_2_3}"
+                                                Margin="5,0,0,0"
+                                                VerticalAlignment="Center"
+                                                Visibility="{Binding PromoPrice,
+                                                Converter={StaticResource NotNullToVisibilityConverter}}"/>
+                                        <TextBlock Text=" р."
+                                                TextDecorations="Strikethrough"
+                                                Style="{DynamicResource MainlineColor_2_3}"
+                                                Margin="2,0,0,0"
+                                                VerticalAlignment="Center"
+                                                Visibility="{Binding PromoPrice, Converter={StaticResource NotNullToVisibilityConverter}}"
+                                                FontSize="8"/>
+
+                                        <TextBlock Text="{Binding Price, StringFormat={}{0:N0}}"
+                                                Style="{DynamicResource HeadlineColor_1_2}"
+                                                VerticalAlignment="Center"
+                                                Visibility="{Binding PromoPrice,
+                                                Converter={StaticResource NullToVisibilityInverseConverter}}"/>
+
+                                        <TextBlock Text=" р."
+                                                Style="{DynamicResource MainlineColor_2_3}"
+                                                VerticalAlignment="Center"
+                                                Margin="5,0,0,0"
+                                                Visibility="{Binding PromoPrice,
+                                                Converter={StaticResource NullToVisibilityInverseConverter}}"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                                <TextBlock x:Name="Availability"
+                                        Text="{Binding InStock, Converter={StaticResource BoolToAvailabilityTextConverter}}"
+                                        Style="{DynamicResource MainlineColor_2_1}"
+                                        VerticalAlignment="Bottom"
+                                        Margin="0,0,0,10"/>
+                                <Button Grid.Row="1"
+                                    x:Name="AddToBasketButton"
+                                    Style="{DynamicResource AddBasketButtonColor}"
+                                    Panel.ZIndex="1"
+                                    IsEnabled="{Binding InStock}"
+                                    Opacity="{Binding InStock, Converter={StaticResource BoolToOpacityConverter}}"
+                                    Click="AddToBasketButton_Click">
+                                    <TextBlock Text="{Binding IsInBasket, Converter={StaticResource BoolToInBasketTextConverter}}"
+                                          Style="{DynamicResource MainlineColor_2_2}"/>
+                                </Button>
+
+                                <Grid Grid.Row="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    
+                                    <Button x:Name="EditPriceButton"
+                                        Style="{DynamicResource ButtonColor}"
+                                        Visibility="Collapsed"
+                                        Margin="0,5,0,0"
+                                        Click="EditPriceButton_Click"
+                                            Grid.Row="0">
+                                        <TextBlock Text="Редактировать цену"
+                                               Style="{DynamicResource MainlineColor_2_2}"/>
+                                    </Button>
+
+                                    <Button x:Name="DeleteProductButton"
+                                            Grid.Row="1"
+                                        Style="{DynamicResource DeleteButtonColor}"
+                                        Visibility="Collapsed"
+                                        Margin="0,5,0,0"
+                                        Click="DeleteProductButton_Click">
+                                        <TextBlock Text="Удалить товар"
+                                               Style="{DynamicResource MainlineColor_2_2}"/>
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Margin="0,10,0,0">
+                        <StackPanel Margin="0,10,0,0">
+                            <TextBlock Text="Характеристики"
+                                   Style="{DynamicResource HeadlineColor_2-1}"/>
+                            <StackPanel x:Name="SpecificationEntriesPanel" Margin="0,5,0,0"/>
+                        </StackPanel>
+
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <StackPanel Margin="0,10,0,0">
+                            <TextBlock Text="Отзывы"
+                               Style="{DynamicResource HeadlineColor_2-1}"/>
+                            <StackPanel>
+                                <StackPanel Margin="0,10,0,0">
+                                    <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Left"
+                                            Margin="0,10,0,5">
+                                        <Image Height="15"
+                                           Source="{DynamicResource StarIconOn}"/>
+                                        <Image Height="15"
+                                           Margin="1,0,0,0"
+                                           Source="{DynamicResource StarIconOn}"/>
+                                        <Image Height="15"
+                                           Margin="1,0,0,0"
+                                           Source="{DynamicResource StarIconOn}"/>
+                                        <Image Height="15"
+                                           Margin="1,0,0,0"
+                                           Source="{DynamicResource StarIconOn}"/>
+                                        <Image Height="15"
+                                           Margin="1,0,0,0"
+                                           Source="{DynamicResource StarIconOff}"/>
+                                    </StackPanel>
+                                    <TextBlock Text="отзыв"
+                                           Style="{DynamicResource MainlineColor_2_1}"
+                                           Margin="0,5,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -247,4 +247,8 @@
         </Style.Resources>
         <Setter Property="ItemContainerStyle" Value="{StaticResource ComboBoxItemBase}"/>
     </Style>
+
+    <Style x:Key="DeleteButtonColor" TargetType="Button" BasedOn="{StaticResource ButtonColor}">
+        <Setter Property="Background" Value="#b81414"/>
+    </Style>
 </ResourceDictionary>

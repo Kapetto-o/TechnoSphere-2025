@@ -2,7 +2,9 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Navigation;
 using TechnoSphere_2025.managers;
+using TechnoSphere_2025.modules.shared;
 
 namespace TechnoSphere_2025.controls
 {
@@ -44,5 +46,14 @@ namespace TechnoSphere_2025.controls
         public ICommand DecrementCommand { get; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        private void ProductCard_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is not Button btn || btn.Tag is not int productId)
+                return;
+
+            var nav = NavigationService.GetNavigationService(this);
+            nav?.Navigate(new PageProduct(productId));
+        }
     }
 }

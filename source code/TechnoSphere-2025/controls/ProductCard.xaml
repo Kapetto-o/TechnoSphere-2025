@@ -9,7 +9,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="750">
     <Grid>
-        <Button Style="{DynamicResource EmptyButtonStyle}">
+        <Button Style="{DynamicResource EmptyButtonStyle}"
+                Click="ProductCard_Click"
+                Tag="{Binding ProductID}">
             <Border Style="{DynamicResource ProductCartdBorderColor}"
                     Background="{DynamicResource BrushBackgroundColor}"
                     Width="750">

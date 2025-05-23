@@ -64,6 +64,16 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
+                        <Grid Grid.Column="0">
+                            <Button x:Name="AddProductButton"
+                                    Grid.Row="0"
+                                    Style="{DynamicResource ButtonColor}"
+                                    Height="30"
+                                    Visibility="Collapsed"
+                                    Click="AddProductButton_Click">
+                                <TextBlock Text="Добавить товар" Style="{DynamicResource MainlineColor_2_2}"/>
+                            </Button>
+                        </Grid>
                         <Grid Grid.Column="1">
                             <ComboBox x:Name="SortComboBox"
                                       HorizontalAlignment="Right"

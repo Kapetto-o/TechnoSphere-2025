@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using TechnoSphere_2025.controls.header;
 using TechnoSphere_2025.managers;
 using TechnoSphere_2025.models;
+using TechnoSphere_2025.modules.admin;
 
 namespace TechnoSphere_2025.modules.shared
 {
@@ -26,6 +27,7 @@ namespace TechnoSphere_2025.modules.shared
             LoadHeader();
             LoadCategory();
             LoadProducts();
+            AdjustForRoleInCatalog();
         }
 
         private void LoadHeader()
@@ -172,6 +174,31 @@ namespace TechnoSphere_2025.modules.shared
             Products.Clear();
             foreach (var item in sortedList)
                 Products.Add(item);
+        }
+
+        private void AdjustForRoleInCatalog()
+        {
+            if (SessionManager.CurrentUserRole == 1)
+            {
+                AddProductButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                AddProductButton.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void AddProductButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Открываем модальное окно добавления товара, передав туда _categoryId
+            var window = new Window_AddProduct(_categoryId)
+            {
+                Owner = Window.GetWindow(this)
+            };
+            window.ShowDialog();
+
+            // После того как окно закрылось, обновляем список
+            LoadProducts();
         }
     }
 }

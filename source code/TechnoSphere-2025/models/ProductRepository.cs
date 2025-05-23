@@ -73,5 +73,45 @@ namespace TechnoSphere_2025.models
                 CategoryID = rdr.GetInt32(10)
             };
         }
+
+        public static void UpdatePrices(int productId, decimal newPrice, decimal? newPromoPrice)
+        {
+            const string sql = @"
+                UPDATE Products
+                   SET Price = @price,
+                       PromoPrice = @promo,
+                       UpdatedAt = SYSDATETIME()
+                 WHERE ProductID = @id";
+
+            using var conn = new SqlConnection(Conn);
+            using var cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@price", newPrice);
+
+            if (newPromoPrice.HasValue)
+                cmd.Parameters.AddWithValue("@promo", newPromoPrice.Value);
+            else
+                cmd.Parameters.AddWithValue("@promo", DBNull.Value);
+
+            cmd.Parameters.AddWithValue("@id", productId);
+
+            conn.Open();
+            int affected = cmd.ExecuteNonQuery();
+            if (affected == 0)
+                throw new InvalidOperationException($"Товар с ID={productId} не найден.");
+        }
+
+        public static void Delete(int productId)
+        {
+            const string sql = @"
+                DELETE FROM Products
+                      WHERE ProductID = @id";
+            using var conn = new SqlConnection(Conn);
+            using var cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@id", productId);
+            conn.Open();
+            int affected = cmd.ExecuteNonQuery();
+            if (affected == 0)
+                throw new InvalidOperationException($"Не удалось найти товар с ID={productId}");
+        }
     }
 }
