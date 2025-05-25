@@ -68,7 +68,6 @@ namespace TechnoSphere_2025.modules.shared
                     CategoryID = reader.GetInt32(10)
                 };
 
-                // Преобразуем Product в ViewModel для биндинга
                 DataContext = new ProductViewModel(_product);
             }
 
@@ -95,7 +94,7 @@ namespace TechnoSphere_2025.modules.shared
             {
                 var name = LocalizationManager.CurrentLanguage == LanguageType.Russian
                             ? reader.GetString(0)
-                            : reader.GetString(1); // здесь при необходимости выбирайте правильный столбец
+                            : reader.GetString(1);
                 var value = reader.GetString(1);
 
                 var row = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 3, 0, 0) };
@@ -116,21 +115,17 @@ namespace TechnoSphere_2025.modules.shared
 
         private void AdjustForRole()
         {
-            // Если текущий пользователь – админ (Role == 1), то:
             if (SessionManager.CurrentUserRole == 1)
             {
-                // Показываем админские кнопки:
                 EditPriceButton.Visibility = Visibility.Visible;
                 DeleteProductButton.Visibility = Visibility.Visible;
 
-                // Скрываем/отключаем клиентские:
                 AddToBasketButton.Visibility = Visibility.Collapsed;
                 CompareButton.Visibility = Visibility.Collapsed;
                 AddFavoriteButton.Visibility = Visibility.Collapsed;
             }
             else
             {
-                // Для покупателя оставляем всё как есть (админские кнопки останутся скрыты)
                 EditPriceButton.Visibility = Visibility.Collapsed;
                 DeleteProductButton.Visibility = Visibility.Collapsed;
             }
@@ -141,7 +136,6 @@ namespace TechnoSphere_2025.modules.shared
             if (DataContext is not ProductViewModel vm)
                 return;
 
-            // 1) Ввод базовой цены
             var baseInput = Interaction.InputBox(
                 $"Текущая цена: {vm.Price:N2}\nВведите новую базовую цену (число):",
                 "Редактирование цены",
@@ -156,7 +150,6 @@ namespace TechnoSphere_2025.modules.shared
                 return;
             }
 
-            // 2) Ввод акционной цены (можно оставить пустым для отмены акционной)
             string defaultPromo = vm.PromoPrice.HasValue ? vm.PromoPrice.Value.ToString("F2") : "";
             var promoInput = Interaction.InputBox(
                 $"Текущая акционная цена: {(vm.PromoPrice.HasValue ? vm.PromoPrice.Value.ToString("N2") : "<нет>")}\n" +
@@ -182,7 +175,6 @@ namespace TechnoSphere_2025.modules.shared
                 }
             }
 
-            // 3) Применяем изменения в БД
             try
             {
                 ProductRepository.UpdatePrices(vm.ProductID, newBasePrice, newPromoPrice);
@@ -212,7 +204,6 @@ namespace TechnoSphere_2025.modules.shared
             {
                 ProductRepository.Delete(vm.ProductID);
 
-                // Навигация обратно в каталог, например:
                 var nav = NavigationService.GetNavigationService(this);
                 nav?.GoBack();
             }

@@ -190,14 +190,12 @@ namespace TechnoSphere_2025.modules.shared
 
         private void AddProductButton_Click(object sender, RoutedEventArgs e)
         {
-            // Открываем модальное окно добавления товара, передав туда _categoryId
             var window = new Window_AddProduct(_categoryId)
             {
                 Owner = Window.GetWindow(this)
             };
             window.ShowDialog();
 
-            // После того как окно закрылось, обновляем список
             LoadProducts();
         }
     }

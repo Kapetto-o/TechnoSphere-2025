@@ -43,7 +43,6 @@ namespace TechnoSphere_2025.models
         private ICommand? _cancelCommand;
         public ICommand CancelCommand => _cancelCommand ??= new RelayCommand(_ =>
         {
-            // найти ID статуса "Отменён" в глобальном справочнике
             var vmRoot = (App.Current.MainWindow?.DataContext as OrdersViewModel);
             var cancelled = vmRoot?.Statuses
                 .FirstOrDefault(s => s.Name_Ru.Equals("Отменён", StringComparison.OrdinalIgnoreCase));
@@ -53,10 +52,8 @@ namespace TechnoSphere_2025.models
                 return;
             }
 
-            // обновляем в БД
             OrdersRepository.UpdateOrderStatus(OrderID, cancelled.StatusID);
 
-            // и локально
             StatusID = cancelled.StatusID;
             StatusName = cancelled.Name_Ru;
         }, _ => CanCancel);
@@ -98,7 +95,6 @@ namespace TechnoSphere_2025.models
             {
                 Statuses.Add(new OrderStatus
                 {
-                    // tinyint в SQL → byte в .NET
                     StatusID = (int)rdr.GetByte(0),
                     Name_Ru = rdr.GetString(1)
                 });

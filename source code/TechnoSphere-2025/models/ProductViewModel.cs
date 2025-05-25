@@ -22,7 +22,6 @@ namespace TechnoSphere_2025.models
 
         public string? ImagePath => _model.MainImagePath;
 
-        // Базовая цена
         public decimal Price
         {
             get => _model.Price;
@@ -36,7 +35,6 @@ namespace TechnoSphere_2025.models
             }
         }
 
-        // Акционная цена (nullable)
         public decimal? PromoPrice
         {
             get => _model.PromoPrice;
@@ -131,9 +129,6 @@ namespace TechnoSphere_2025.models
             ComparisonRepository.ComparisonChanged += OnGlobalComparisonChanged;
         }
 
-        /// <summary>
-        /// Обновляет сразу базовую цену и акционную.
-        /// </summary>
         public void SetPrices(decimal newPrice, decimal? newPromoPrice)
         {
             Price = newPrice;

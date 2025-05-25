@@ -39,7 +39,6 @@ namespace TechnoSphere_2025.modules.customer
             if (DataContext is not OrdersViewModel ovm) return;
             if (sender is Button btn && btn.Tag is int orderId)
             {
-                // находим в справочнике статус "Отменён" (Name_Ru = "Отменён")
                 var cancelledStatus = ovm.Statuses
                     .FirstOrDefault(s => s.Name_Ru.Equals("Отменён", StringComparison.OrdinalIgnoreCase));
                 if (cancelledStatus == null)
@@ -49,10 +48,8 @@ namespace TechnoSphere_2025.modules.customer
                     return;
                 }
 
-                // сохраняем в базе
                 OrdersRepository.UpdateOrderStatus(orderId, cancelledStatus.StatusID);
 
-                // обновляем отображение
                 var orderVm = ovm.Orders.FirstOrDefault(o => o.OrderID == orderId);
                 if (orderVm != null)
                 {
